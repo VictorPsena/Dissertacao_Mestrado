@@ -7,8 +7,7 @@ Mark~F. Bear, Barry~W. Connors, and Michael~A. Paradiso.
 
 \bibitem{yoshuabengio2012}
 Yoshua Bengio.
-\newblock Practical recommendations for gradient-based training of deep
-  architectures.
+\newblock Practical recommendations for gradient-based training of deep architectures.
 \newblock {\em Cornell University}, (Version 2), 2012.
 
 \bibitem{overfitting}
@@ -24,20 +23,17 @@ Robert Hecht-Nielsen.
 \bibitem{Ronneberger2015UNet}
 Olaf Ronneberger, Philipp Fischer, and Thomas Brox.
 \newblock U-net: Convolutional networks for biomedical image segmentation.
-\newblock In {\em Medical Image Computing and Computer-Assisted Intervention --
-  MICCAI 2015}, pages 234--241, Munich, Germany, 2015. Springer.
+\newblock In {\em Medical Image Computing and Computer-Assisted Intervention -- MICCAI 2015}, pages 234--241, Munich, Germany, 2015. Springer.
 
 \bibitem{rosemblatt}
 Frank Rosenblatt.
-\newblock The perceptron: A probabilistic model for information storage and
-  organization in the brain.
+\newblock The perceptron: A probabilistic model for information storage and organization in the brain.
 \newblock {\em Psychological Review}, 1958.
 
 \bibitem{sebastianruder2016}
 Sebastian Ruder.
 \newblock An overview of gradient descent optimization algorithms.
-\newblock {\em Insight Centre for Data Analytics, NUI Galway Aylien Ltd.,
-  Dublin}, 2016.
+\newblock {\em Insight Centre for Data Analytics, NUI Galway Aylien Ltd., Dublin}, 2016.
 
 \bibitem{FisioHumana}
 Cindy~L. Stanfield.
@@ -62,5 +58,10 @@ Walter~Pitts Warren S.~McCulloch.
 \bibitem{paulwerbos}
 Paul~J. Werbos.
 \newblock Backpropagation through time: What it does and how to do it, 1990.
+
+\bibitem{mnist}
+{Yann LeCun}.
+\newblock The mnist database of handwritten digits, 1998.
+\newblock Acessado: 2026-02-22.
 
 \end{thebibliography}

@@ -166,7 +166,7 @@ Inicializar os pesos $w_i$ e o viés $b$ com valores pequenos aleatórios\;
 
 A \textit{taxa de aprendizagem} ($\eta$) presente no algoritmo (\ref{alg:gradiente})  pode ser interpretada como o tamanho do passo dado em direção ao mínimo da função de custo. Quando o valor dessa taxa é muito pequeno, o processo de convergência torna-se mais lento, exigindo um número maior de iterações para atingir o mínimo. Por outro lado, se o passo for muito grande, o algoritmo pode ultrapassar o ponto de mínimo, dificultando ou até impedindo a convergência adequada, para o Exemplo \ref{ex1} é utilizada uma taxa de aprendizado de $0.1$.
 
-\colorbox{red}{Colocar a taxa de aprendizado}
+\colorbox{red}{Colocar a taxa de aprendizado e melhorar a imagem}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.4\linewidth]{gradientedes.png}
@@ -202,14 +202,14 @@ As redes neurais são um ¨encadeamento¨ de múltiplos neurônios artificiais, 
         \centering
         \includegraphics[width=\linewidth]{figures/perceptron.png}
         \caption{Perceptron.}
-        \label{fig:ex-a}
+        \label{fig0:ex-a}
     \end{subfigure}
     \hspace{30mm}
     \begin{subfigure}{0.3\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/rede_neural.png}
         \caption{Rede Neural com duas camadas ocultas.}
-        \label{fig:ex-b}
+        \label{fig0:ex-b}
     \end{subfigure}
 
     \caption{Estrutura básica de um neurônio artificial e uma rede neural com duas camadas ocultas.}
@@ -419,6 +419,24 @@ O problema do vanishing gradient é particularmente comum em redes neurais recor
     \item \textit{Batch Normalization}: Normaliza as ativações de cada camada durante o treinamento, o que pode ajudar a estabilizar os gradientes e acelerar o processo de aprendizado.
 \end{itemize}
 
+\subsection{Dígitos Manuscritos}
+Para exemplicar o funcionamento de uma rede neural feedforward, considere a tarefa de classificação de dígitos manuscritos utilizando o conjunto de dados MNIST \cite{mnist}. O conjunto de dados MNIST consiste em 70.000 imagens em escala de cinza de dígitos manuscritos (0 a 9), cada uma com uma resolução de 28x28 pixels, Figura \ref{mnist}.  
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{mnist.png}
+    \caption{Exemplos de dígitos manuscritos do conjunto de dados MNIST.}
+    \label{mnist}
+\end{figure}
+
+Cada imagem é representada como uma matriz de $28\times28$ pixels, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). A camada de entrada da rede é composta por 784 neurônios, correspondentes aos 784 pixels da imagem $(28\times28 = 784)$, 30 neurônios na camada oculta e uma camada de saída com 10 neurônios (correspondente às classes dos dígitos de 0 a 9).
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.7\linewidth]{mnist_rede.png}
+%     \caption{Exemplo de uma rede neural feedforward para classificação de dígitos manuscritos do conjunto de dados MNIST.}
+%     \label{mnist_rede}
+% \end{figure}
 
 \section{Redes Neurais Convolucionais}
 \label{redesConvolucionais}

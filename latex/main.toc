@@ -1,0 +1,27 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {chapter}{Introdução}{5}{}%
+\contentsline {chapter}{\numberline {1}Introdução a Redes Neurais}{6}{}%
+\contentsline {section}{\numberline {1.1}Perceptron}{6}{}%
+\contentsline {subsection}{\numberline {1.1.1}Neurônio Biológico}{6}{}%
+\contentsline {subsection}{\numberline {1.1.2}Neurônio Artificial}{7}{}%
+\contentsline {subsection}{\numberline {1.1.3} Tipos de Função de Ativação}{7}{}%
+\contentsline {subsection}{\numberline {1.1.4}Algorítmo de Aprendizagem do Perceptron}{8}{}%
+\contentsline {section}{\numberline {1.2}Redes Neurais}{11}{}%
+\contentsline {subsection}{\numberline {1.2.1}Arquiteturas de Redes Neurais}{11}{}%
+\contentsline {subsection}{\numberline {1.2.2}Backpropagation}{13}{}%
+\contentsline {subsection}{\numberline {1.2.3}Gradiente Descendente Estocástico}{14}{}%
+\contentsline {section}{\numberline {1.3}Overfitting}{14}{}%
+\contentsline {subsection}{\numberline {1.3.1}Hyperparâmetros}{15}{}%
+\contentsline {subsection}{\numberline {1.3.2}Regularização}{15}{}%
+\contentsline {subsection}{\numberline {1.3.3}Momentum}{17}{}%
+\contentsline {subsection}{\numberline {1.3.4}Vanishing Gradient}{17}{}%
+\contentsline {section}{\numberline {1.4}Redes Neurais Convolucionais}{18}{}%
+\contentsline {subsection}{\numberline {1.4.1}Cotex Visual Humano}{19}{}%
+\contentsline {subsection}{\numberline {1.4.2}Convolução}{19}{}%
+\contentsline {subsection}{\numberline {1.4.3}\textit {Kernel} Multicamadas}{21}{}%
+\contentsline {subsection}{\numberline {1.4.4}Padding}{21}{}%
+\contentsline {subsection}{\numberline {1.4.5}Pooling}{22}{}%
+\contentsline {subsection}{\numberline {1.4.6}Stride}{22}{}%
+\contentsline {subsection}{\numberline {1.4.7}Convolução Transposta}{23}{}%
+\contentsline {section}{\numberline {1.5}U-net}{23}{}%
+\contentsline {subsection}{\numberline {1.5.1}Copy and Crop}{24}{}%

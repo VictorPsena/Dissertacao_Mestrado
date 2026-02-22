@@ -1,0 +1,66 @@
+\begin{thebibliography}{10}
+
+\bibitem{neurociencias}
+Mark~F. Bear, Barry~W. Connors, and Michael~A. Paradiso.
+\newblock {\em Neurociências: desvendando o sistema nervoso}.
+\newblock Artmed, Porto Alegre, 4 edition, 2017.
+
+\bibitem{yoshuabengio2012}
+Yoshua Bengio.
+\newblock Practical recommendations for gradient-based training of deep
+  architectures.
+\newblock {\em Cornell University}, (Version 2), 2012.
+
+\bibitem{overfitting}
+{Deep Learning Book}.
+\newblock Capítulo 19 – overfitting e regularização – parte 1, 2025.
+\newblock Acessado: 2026-01-26.
+
+\bibitem{hechtnielsen1992}
+Robert Hecht-Nielsen.
+\newblock Theory of the backpropagation neural network.
+\newblock {\em Academic Press}, 1992.
+
+\bibitem{Ronneberger2015UNet}
+Olaf Ronneberger, Philipp Fischer, and Thomas Brox.
+\newblock U-net: Convolutional networks for biomedical image segmentation.
+\newblock In {\em Medical Image Computing and Computer-Assisted Intervention --
+  MICCAI 2015}, pages 234--241, Munich, Germany, 2015. Springer.
+
+\bibitem{rosemblatt}
+Frank Rosenblatt.
+\newblock The perceptron: A probabilistic model for information storage and
+  organization in the brain.
+\newblock {\em Psychological Review}, 1958.
+
+\bibitem{sebastianruder2016}
+Sebastian Ruder.
+\newblock An overview of gradient descent optimization algorithms.
+\newblock {\em Insight Centre for Data Analytics, NUI Galway Aylien Ltd.,
+  Dublin}, 2016.
+
+\bibitem{FisioHumana}
+Cindy~L. Stanfield.
+\newblock {\em Fisiologia Humana}.
+\newblock Pearson Education do Brasil, 2014.
+
+\bibitem{momentum}
+Ilya Sutskever.
+\newblock On the importance of initialization and momentum in deep learning.
+\newblock {\em International Conference on Machine Learning}, 2013.
+
+\bibitem{medium}
+{Vinícius Trevisan}.
+\newblock Como funcionam as redes neurais convolucionais (cnns), 2021.
+\newblock Acessado: 2025-12-16.
+
+\bibitem{warrenpits}
+Walter~Pitts Warren S.~McCulloch.
+\newblock A logical calculus of the ideas immanent in nervous activity.
+\newblock {\em Bulletin of Mathematical Biophysics}, 1943.
+
+\bibitem{paulwerbos}
+Paul~J. Werbos.
+\newblock Backpropagation through time: What it does and how to do it, 1990.
+
+\end{thebibliography}

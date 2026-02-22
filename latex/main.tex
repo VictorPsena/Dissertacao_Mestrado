@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper,oneside]{report}
+\usepackage{amssymb,amsmath,amsfonts,graphicx,wrapfig,makeidx}
+\usepackage{caption}
+\captionsetup{justification=centering, singlelinecheck=false}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{latexsym}
+
+
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{algorithm2e}
+\graphicspath{{figures/}}
+
+% Page layout settings
+\setlength{\topmargin}{-2cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\textwidth}{17cm}
+\setlength{\textheight}{25.7cm}
+\pagestyle{myheadings}
+
+% Theorem-like environments
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{lema}{Lema}[chapter]
+\newtheorem{proposicao}{Proposição}[chapter]
+\newtheorem{corolario}{Corolário}[chapter]
+\newtheorem{definicao}{Definição}[chapter]
+\newtheorem{exercicio}{Exercício}[chapter]
+\newtheorem{exemplo}{Exemplo}[chapter]
+\newtheorem{observacao}{Observação}[chapter]
+
+\begin{document}
+
+% Front Matter
+\input{frontmatter/titlepage}
+\newpage
+\input{frontmatter/approval}
+\newpage
+\input{frontmatter/dedication}
+\newpage
+\input{frontmatter/acknowledgments}
+\newpage
+\input{frontmatter/resumo}  % Portuguese Abstract
+\newpage
+\input{frontmatter/abstract}  % English Abstract
+\newpage
+\input{frontmatter/lists}  % Lists of figures, tables, symbols
+\tableofcontents
+
+% Main Matter
+\chapter*{Introdução}
+\input{chapters/introduction}
+\addcontentsline{toc}{chapter}{Introdução}
+
+\chapter{Introdução a Redes Neurais}
+\input{chapters/chapter1}
+% Add more chapters as needed
+
+% Bibliography
+\renewcommand{\bibname}{Referências Bibliográficas}
+\bibliographystyle{plain}
+\bibliography{bibliography/references}
+
+\end{document}

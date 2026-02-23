@@ -1,17 +1,27 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 
-""" Derivada da função sigmoid logística """
-x = np.linspace(-10, 10, 400)
-sigmoid = 1 / (1 + np.exp(-x))
-sigmoid_derivative = sigmoid * (1 - sigmoid)
+# Criando uma matriz 28x28 com valores de 0 a 255
+matriz = np.random.randint(0, 256, (10, 10))
+fig, ax = plt.subplots()
 
+# Exibe a matriz como imagem em escala de cinza
+im = ax.imshow(matriz, cmap='gray', vmin=0, vmax=255)
 
-dot = (0,0.25)
+# Adiciona os valores dentro de cada célula
+for i in range(matriz.shape[0]):
+    for j in range(matriz.shape[1]):
+        ax.text(j, i, matriz[i, j],
+                ha='center', va='center',
+                color='red')
 
-plt.plot(x, sigmoid_derivative, label="Derivada da Sigmoid Logística")
-plt.scatter(*dot, color='orange')  # ponto máximo
-plt.xlabel("z", size=16)
-plt.ylabel("σ'(z)", size=16)
-plt.grid(False)
-plt.show()
+plt.colorbar(im)
+# plt.title(f"Matriz em Escala de Cinza ({matriz.shape[0]}x{matriz.shape[1]})")
+
+backend = plt.get_backend().lower()
+if "agg" in backend:
+    output_file = "matriz_escala_cinza.png"
+    plt.savefig(output_file, dpi=300, bbox_inches="tight")
+    print(f"Backend não interativo detectado ({backend}). Figura salva em: {output_file}")
+else:
+    plt.show()

@@ -419,8 +419,26 @@ O problema do vanishing gradient é particularmente comum em redes neurais recor
     \item \textit{Batch Normalization}: Normaliza as ativações de cada camada durante o treinamento, o que pode ajudar a estabilizar os gradientes e acelerar o processo de aprendizado.
 \end{itemize}
 
+\subsection{Cotex Visual Humano}
+\label{CoViHu}
+O córtex visual humano é a parte do cérebro responsável pelo processamento das informações visuais recebidas pelos olhos \cite{FisioHumana}. Ele está localizado na parte posterior do cérebro, na região occipital. O córtex visual é organizado em várias áreas, cada uma especializada em processar diferentes aspectos da visão, como cor, forma, movimento e profundidade. Essas áreas trabalham em conjunto para interpretar e compreender o mundo visual ao nosso redor. A estrutura do córtex visual é altamente complexa, com bilhões de neurônios interconectados que formam redes neurais intrincadas. Essas redes são capazes de aprender e adaptar-se com base nas experiências visuais, permitindo-nos reconhecer objetos, rostos e padrões visuais de maneira eficiente. Uma característica importante do córtex visual é a presença de campos receptivos, que são regiões específicas do campo visual onde a estimulação de um neurônio resulta em uma resposta. Esses campos receptivos são organizados de forma hierárquica, com neurônios em níveis mais baixos respondendo a características simples, como bordas e texturas, enquanto neurônios em níveis mais altos respondem a características mais complexas, como formas e objetos completos.
+É por meio desse mecanismo e também pela capacidade de aprendizagem que o ser humano é capaz de reconhecer e interpretar o mundo visual ao seu redor. 
+
+{\textcolor{red}{Tenho que ligar esses dois textos}}
+
+
+
+Uma imagem virtual é uma representação visual de um objeto, cena ou conceito, composta por uma matriz de pixels que contém informações sobre cor e intensidade. Cada pixel é uma célula na matriz da imagem que possui um valor específico. As imagens podem ser em escala de cinza, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco) Figura \ref{img_cinza}, ou em cores, onde cada pixel é representado por uma combinação de valores para as cores primárias (vermelho, verde e azul - RGB), uma imagem colorida pode ser interpretada como a sobreposição de três matrizes, cada matriz representando uma das cores primárias. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{matriz_escala_cinza.png}
+    \caption{Exemplo de uma imagem/matriz $10\times10$ em escala de cinza, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco).}
+    \label{img_cinza}
+\end{figure}
+
 \subsection{Dígitos Manuscritos}
-Para exemplicar o funcionamento de uma rede neural feedforward, considere a tarefa de classificação de dígitos manuscritos utilizando o conjunto de dados MNIST \cite{mnist}. O conjunto de dados MNIST consiste em 70.000 imagens em escala de cinza de dígitos manuscritos (0 a 9), cada uma com uma resolução de 28x28 pixels, Figura \ref{mnist}.  
+Para exemplicar o funcionamento de uma rede neural faz o reconhecimento de imagens, considere a tarefa de classificação de dígitos manuscritos utilizando o conjunto de dados MNIST \cite{mnist}. O conjunto de dados MNIST consiste em 70.000 imagens em escala de cinza de dígitos manuscritos (0 a 9), cada uma com uma resolução de 28x28 pixels, Figura \ref{mnist}.  
 
 \begin{figure}[h!]
     \centering
@@ -431,19 +449,23 @@ Para exemplicar o funcionamento de uma rede neural feedforward, considere a tare
 
 Cada imagem é representada como uma matriz de $28\times28$ pixels, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). A camada de entrada da rede é composta por 784 neurônios, correspondentes aos 784 pixels da imagem $(28\times28 = 784)$, 30 neurônios na camada oculta e uma camada de saída com 10 neurônios (correspondente às classes dos dígitos de 0 a 9).
 
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.7\linewidth]{mnist_rede.png}
-%     \caption{Exemplo de uma rede neural feedforward para classificação de dígitos manuscritos do conjunto de dados MNIST.}
-%     \label{mnist_rede}
-% \end{figure}
+\textcolor{red}{Colocar a taxa de aprendizado e o número de épocas para combinar com a tabela}
+\begin{table}[h!]
+    \centering
+    \caption{Configurações da rede neural para classificação de dígitos manuscritos.}
+    $\begin{array}{cccccc}
+    \hline
+    & \text{Camadas} & \text{Função de Ativação} & \text{Taxa de Aprendizado} & \text{Épocas} & \text{Acurácia} \\
+    \hline
+    Rede \ 1 & [784, 30, 9] & \text{Sigmoid} & 0.1 & 30 & 95\% \\
+    \hline
+
+\end{array}$
+\end{table}
 
 \section{Redes Neurais Convolucionais}
 \label{redesConvolucionais}
-As redes neurais convolucionais (RNCs) são uma classe especial de redes neurais projetadas para processar dados com uma estrutura de grade e que tenham uma relação de vizinhaça entre os elementos, como imagens \cite{medium}. Elas são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos, detecção de faces e segmentação de imagens. As RNCs são inspiradas na organização do córtex visual dos animais, onde diferentes regiões do cérebro são responsáveis por processar diferentes partes do campo visual.
-
-\subsection{Cotex Visual Humano}
-O córtex visual humano é a parte do cérebro responsável pelo processamento das informações visuais recebidas pelos olhos \cite{FisioHumana}. Ele está localizado na parte posterior do cérebro, na região occipital. O córtex visual é organizado em várias áreas, cada uma especializada em processar diferentes aspectos da visão, como cor, forma, movimento e profundidade. Essas áreas trabalham em conjunto para interpretar e compreender o mundo visual ao nosso redor. A estrutura do córtex visual é altamente complexa, com bilhões de neurônios interconectados que formam redes neurais intrincadas. Essas redes são capazes de aprender e adaptar-se com base nas experiências visuais, permitindo-nos reconhecer objetos, rostos e padrões visuais de maneira eficiente. Uma característica importante do córtex visual é a presença de campos receptivos, que são regiões específicas do campo visual onde a estimulação de um neurônio resulta em uma resposta. Esses campos receptivos são organizados de forma hierárquica, com neurônios em níveis mais baixos respondendo a características simples, como bordas e texturas, enquanto neurônios em níveis mais altos respondem a características mais complexas, como formas e objetos completos.
+As redes neurais convolucionais (RNCs) são uma classe especial de redes neurais projetadas para processar dados com uma estrutura de grade e que tenham uma relação de vizinhaça entre os elementos, como imagens~\cite{medium}, foram extremamentes baseadas do Cotex Visual Humano~\ref{CoViHu}. Elas são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos, detecção de faces e segmentação de imagens. As RNCs são inspiradas na organização do córtex visual dos animais, onde diferentes regiões do cérebro são responsáveis por processar diferentes partes do campo visual.
 
 \subsection{Convolução}
 A operação de convolução é uma operação matemática linear entre duas funções. Sejam $x(t)$ e $w(a)$ funções reais contínuas e integráveis, respectivamente denominadas de \textit{sinal} e \textit{kernel}, em que $t$ pode ser representado pela variável \textbf{tempo}, a convolução entre essas duas funções é definida como:

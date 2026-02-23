@@ -19,14 +19,14 @@
 \contentsline {subsection}{\numberline {1.3.2}Regularização}{24}{}%
 \contentsline {subsection}{\numberline {1.3.3}Momentum}{25}{}%
 \contentsline {subsection}{\numberline {1.3.4}Vanishing Gradient}{26}{}%
-\contentsline {subsection}{\numberline {1.3.5}Cotex Visual Humano}{27}{}%
-\contentsline {subsection}{\numberline {1.3.6}Dígitos Manuscritos}{28}{}%
-\contentsline {section}{\numberline {1.4}Redes Neurais Convolucionais}{29}{}%
-\contentsline {subsection}{\numberline {1.4.1}Convolução}{29}{}%
-\contentsline {subsection}{\numberline {1.4.2}\textit {Kernel} Multicamadas}{31}{}%
+\contentsline {subsection}{\numberline {1.3.5}Córtex Visual Humano e Visão Computacional}{27}{}%
+\contentsline {subsection}{\numberline {1.3.6}Dígitos Manuscritos}{29}{}%
+\contentsline {section}{\numberline {1.4}Redes Neurais Convolucionais}{30}{}%
+\contentsline {subsection}{\numberline {1.4.1}Convolução}{30}{}%
+\contentsline {subsection}{\numberline {1.4.2}\textit {Kernel} Multicamadas}{32}{}%
 \contentsline {subsection}{\numberline {1.4.3}Padding}{32}{}%
 \contentsline {subsection}{\numberline {1.4.4}Pooling}{33}{}%
-\contentsline {subsection}{\numberline {1.4.5}Stride}{33}{}%
+\contentsline {subsection}{\numberline {1.4.5}Stride}{34}{}%
 \contentsline {subsection}{\numberline {1.4.6}Convolução Transposta}{34}{}%
-\contentsline {section}{\numberline {1.5}U-net}{34}{}%
-\contentsline {subsection}{\numberline {1.5.1}Copy and Crop}{35}{}%
+\contentsline {section}{\numberline {1.5}U-net}{35}{}%
+\contentsline {subsection}{\numberline {1.5.1}Copy and Crop}{36}{}%

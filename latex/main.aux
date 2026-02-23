@@ -85,65 +85,72 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3.4}Vanishing Gradient}{26}{}\protected@file@percent }
 \newlabel{ex2}{{1.2}{26}{}{}{}}
 \citation{FisioHumana}
+\citation{szeliski2010}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.11}{\ignorespaces Gráfico da derivada da função sigmoid logística.}}{27}{}\protected@file@percent }
 \newlabel{sigmoide}{{1.11}{27}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.5}Cotex Visual Humano}{27}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.5}Córtex Visual Humano e Visão Computacional}{27}{}\protected@file@percent }
 \newlabel{CoViHu}{{1.3.5}{27}{}{}{}}
+\citation{Muller2008ReviewBoden}
+\citation{Muller2008ReviewBoden}
+\citation{Crevier1993AI}
 \citation{mnist}
-\citation{medium}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.12}{\ignorespaces Exemplo de uma imagem/matriz $10\times 10$ em escala de cinza, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco).}}{28}{}\protected@file@percent }
 \newlabel{img_cinza}{{1.12}{28}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.6}Dígitos Manuscritos}{28}{}\protected@file@percent }
+\citation{medium}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.6}Dígitos Manuscritos}{29}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1.13}{\ignorespaces Exemplos de dígitos manuscritos do conjunto de dados MNIST.}}{29}{}\protected@file@percent }
 \newlabel{mnist}{{1.13}{29}{}{}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1.2}{\ignorespaces Configurações da rede neural para classificação de dígitos manuscritos.}}{29}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}Redes Neurais Convolucionais}{29}{}\protected@file@percent }
-\newlabel{redesConvolucionais}{{1.4}{29}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.4.1}Convolução}{29}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1.14}{\ignorespaces Exemplo de convolução bidimensional. A função $X(t)$ é convoluída com o \textit  {kernel} $W(a)$ para produzir a saída $S(t)$.}}{30}{}\protected@file@percent }
-\newlabel{conv2d}{{1.14}{30}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}Redes Neurais Convolucionais}{30}{}\protected@file@percent }
+\newlabel{redesConvolucionais}{{1.4}{30}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4.1}Convolução}{30}{}\protected@file@percent }
 \newlabel{largura_conv}{{1.14}{30}{}{}{}}
 \newlabel{altura_conv}{{1.15}{30}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.14}{\ignorespaces Exemplo de convolução bidimensional. A função $X(t)$ é convoluída com o \textit  {kernel} $W(a)$ para produzir a saída $S(t)$.}}{31}{}\protected@file@percent }
+\newlabel{conv2d}{{1.14}{31}{}{}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.15}{\ignorespaces Aplicações de diferentes \textit  {kernels} em uma imagem. A imagem original é representada em (a), juntamente com o \textit  {kernel} identidade, que não faz modificações. Em (b) a imagem passou por um \textit  {kernel} que aumenta a nitidez reforçando o pixel central e aumentando a diferença dele em relação à sua vizinhança. Em (c) foi usado um \textit  {kernel} de desfoque, que substitui um pixel pela média dele com seus vizinhos. A imagem em (d) é o resultado de aplicar na imagem em escala de cinza um \textit  {kernel} que reforça suas linhas verticais, enquanto (e) reforça suas linhas horizontais. O \textit  {kernel} em (f) reforça os contornos (bordas) da imagem.}}{31}{}\protected@file@percent }
 \newlabel{convolucao}{{1.15}{31}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.4.2}\textit  {Kernel} Multicamadas}{31}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4.2}\textit  {Kernel} Multicamadas}{32}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.4.3}Padding}{32}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1.16}{\ignorespaces Aplicação de padding em uma imagem. Em (a) a imagem original passou por zero padding. Em (b) a imagem original passou por \textit  {reflection padding}. A imagem em (c) passou por um padding constante, semelhante em (a), mas com valor diferente de zero.}}{32}{}\protected@file@percent }
-\newlabel{padding}{{1.16}{32}{}{}{}}
-\newlabel{largura_pad}{{1.16}{32}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.16}{\ignorespaces Aplicação de padding em uma imagem. Em (a) a imagem original passou por zero padding. Em (b) a imagem original passou por \textit  {reflection padding}. A imagem em (c) passou por um padding constante, semelhante em (a), mas com valor diferente de zero.}}{33}{}\protected@file@percent }
+\newlabel{padding}{{1.16}{33}{}{}{}}
+\newlabel{largura_pad}{{1.16}{33}{}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.4.4}Pooling}{33}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1.17}{\ignorespaces Exemplo de Max Pooling com tamanho de 2x2. A imagem original é reduzida para a imagem menor após a aplicação do Max Pooling. Cada bloco de 2x2 pixels na imagem original é substituído pelo valor máximo dentro desse bloco na imagem reduzida.}}{33}{}\protected@file@percent }
 \newlabel{pooling}{{1.17}{33}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.4.5}Stride}{33}{}\protected@file@percent }
-\newlabel{largura_stride}{{1.17}{33}{}{}{}}
 \citation{Ronneberger2015UNet}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4.5}Stride}{34}{}\protected@file@percent }
+\newlabel{largura_stride}{{1.17}{34}{}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.4.6}Convolução Transposta}{34}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1.18}{\ignorespaces Convolução transposta. Uma convolução de \textit  {kernel} 3x3 com stride 1 em uma imagem $5\times 5$ geraria uma imagem de dimensões $3\times 3$. A convolução transposta aplicada na imagem $3\times 3$ (vermelha) para se obter uma imagem $5\times 5$ (verde) é feita em duas etapas. Primeiramente (centro) se insere pixels de valor 0, representados pela cor cinza, entre os pixels da imagem original, juntamente com pixels de borda. Em seguida se faz uma convolução nessa imagem alterada também usando um \textit  {kernel} 3x3 e stride 1.}}{34}{}\protected@file@percent }
-\newlabel{deconvolucao}{{1.18}{34}{}{}{}}
 \newlabel{largura_deconv}{{1.18}{34}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.5}U-net}{34}{}\protected@file@percent }
-\bibstyle{plain}
-\bibdata{bibliography/references}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.18}{\ignorespaces Convolução transposta. Uma convolução de \textit  {kernel} 3x3 com stride 1 em uma imagem $5\times 5$ geraria uma imagem de dimensões $3\times 3$. A convolução transposta aplicada na imagem $3\times 3$ (vermelha) para se obter uma imagem $5\times 5$ (verde) é feita em duas etapas. Primeiramente (centro) se insere pixels de valor 0, representados pela cor cinza, entre os pixels da imagem original, juntamente com pixels de borda. Em seguida se faz uma convolução nessa imagem alterada também usando um \textit  {kernel} 3x3 e stride 1.}}{35}{}\protected@file@percent }
+\newlabel{deconvolucao}{{1.18}{35}{}{}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.19}{\ignorespaces Arquitetura típica de uma Rede Neural Convolucional com uma camada de convolução e uma camada de pooling, em que é enviado para rede a imagem de um cachorro e é feita a classificação do objeto na imagem.}}{35}{}\protected@file@percent }
 \newlabel{cnn}{{1.19}{35}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.5.1}Copy and Crop}{35}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.5}U-net}{35}{}\protected@file@percent }
 \newlabel{fig:unet-encoder}{{1.20a}{36}{}{}{}}
 \newlabel{sub@fig:unet-encoder}{{a}{36}{}{}{}}
 \newlabel{fig:unet-decoder}{{1.20b}{36}{}{}{}}
 \newlabel{sub@fig:unet-decoder}{{b}{36}{}{}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.20}{\ignorespaces Arquitetura da U-Net, composta por uma parte de contração (encoder) e uma parte de expansão (decoder). O encoder extrai características da imagem de entrada, enquanto o decoder reconstrói a imagem segmentada.}}{36}{}\protected@file@percent }
 \newlabel{Unet}{{1.20}{36}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5.1}Copy and Crop}{36}{}\protected@file@percent }
+\bibstyle{plain}
+\bibdata{bibliography/references}
 \bibcite{neurociencias}{1}
 \bibcite{yoshuabengio2012}{2}
-\bibcite{overfitting}{3}
-\bibcite{hechtnielsen1992}{4}
-\bibcite{Ronneberger2015UNet}{5}
-\bibcite{rosemblatt}{6}
-\bibcite{sebastianruder2016}{7}
-\bibcite{FisioHumana}{8}
-\bibcite{momentum}{9}
-\bibcite{medium}{10}
-\bibcite{warrenpits}{11}
-\bibcite{paulwerbos}{12}
-\bibcite{mnist}{13}
-\gdef \@abspage@last{37}
+\bibcite{Crevier1993AI}{3}
+\bibcite{overfitting}{4}
+\bibcite{hechtnielsen1992}{5}
+\bibcite{Muller2008ReviewBoden}{6}
+\bibcite{Ronneberger2015UNet}{7}
+\bibcite{rosemblatt}{8}
+\bibcite{sebastianruder2016}{9}
+\bibcite{FisioHumana}{10}
+\bibcite{momentum}{11}
+\bibcite{szeliski2010}{12}
+\bibcite{medium}{13}
+\bibcite{warrenpits}{14}
+\bibcite{paulwerbos}{15}
+\bibcite{mnist}{16}
+\gdef \@abspage@last{39}

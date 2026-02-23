@@ -12,45 +12,46 @@ Warning--entry type for "overfitting" isn't style-file defined
 Warning--entry type for "mnist" isn't style-file defined
 --line 123 of file bibliography/references.bib
 Warning--there's a number but no volume in yoshuabengio2012
-You've used 13 entries,
+Warning--can't use both author and editor fields in szeliski2010
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            569 strings with 5711 characters,
-and the built_in function-call counts, 3084 in all, are:
-= -- 296
-> -- 113
+            589 strings with 6101 characters,
+and the built_in function-call counts, 3820 in all, are:
+= -- 367
+> -- 134
 < -- 1
-+ -- 51
-- -- 34
-* -- 138
-:= -- 541
-add.period$ -- 39
-call.type$ -- 13
-change.case$ -- 55
++ -- 60
+- -- 40
+* -- 180
+:= -- 667
+add.period$ -- 48
+call.type$ -- 16
+change.case$ -- 65
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 135
-empty$ -- 275
-format.name$ -- 34
-if$ -- 649
+cite$ -- 18
+duplicate$ -- 170
+empty$ -- 346
+format.name$ -- 40
+if$ -- 803
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 11
-newline$ -- 67
-num.names$ -- 26
-pop$ -- 83
+int.to.str$ -- 16
+missing$ -- 16
+newline$ -- 82
+num.names$ -- 32
+pop$ -- 99
 preamble$ -- 1
-purify$ -- 43
+purify$ -- 52
 quote$ -- 0
-skip$ -- 99
+skip$ -- 118
 stack$ -- 0
-substring$ -- 101
-swap$ -- 22
+substring$ -- 141
+swap$ -- 26
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
-warning$ -- 1
-while$ -- 29
-width$ -- 15
-write$ -- 136
-(There were 5 warnings)
+type$ -- 56
+warning$ -- 2
+while$ -- 37
+width$ -- 18
+write$ -- 168
+(There were 6 warnings)

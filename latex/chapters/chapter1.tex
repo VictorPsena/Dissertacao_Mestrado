@@ -330,7 +330,7 @@ Apesar da Descida do Gradiente padrão fornecer uma direção mais precisa para 
 
 \section{Overfitting}
 \label{overfitting}
-O Overfitting \cite{overfitting} (do ingles ¨Sobreajuste¨ ou ¨Ajuste Excessivo¨) é um problema comum em aprendizado de máquina, onde um modelo aprende os detalhes e o ruído dos dados de treinamento a tal ponto que ele se torna incapaz de generalizar para novos dados. Isso significa que o modelo tem um desempenho excelente nos dados de treinamento, mas falha ao fazer previsões precisas em dados não vistos anteriormente. O overfitting ocorre quando o modelo é muito complexo em relação à quantidade e qualidade dos dados disponíveis para treinamento. Modelos com muitos parâmetros, como redes neurais profundas, são particularmente suscetíveis ao overfitting, especialmente quando o conjunto de dados de treinamento é pequeno ou contém ruído significativo.
+O Overfitting \cite{overfitting} (do ingles ¨Sobreajuste¨ ou ¨Ajuste Excessivo¨) é um problema comum em aprendizado de máquina, onde um modelo aprende os detalhes e o ruído dos dados de \mbox{treinamento} a tal ponto que ele se torna incapaz de generalizar para novos dados. Isso significa que o modelo tem um desempenho excelente nos dados de treinamento, mas falha ao fazer previsões precisas em dados não vistos anteriormente. O overfitting ocorre quando o modelo é muito complexo em relação à quantidade e qualidade dos dados disponíveis para treinamento. Modelos com muitos parâmetros, como redes neurais profundas, são particularmente suscetíveis ao overfitting, especialmente quando o conjunto de dados de treinamento é pequeno ou contém ruído significativo.
 
 \subsection{Hyperparâmetros}
 Um algoritmo de aprendizado pode ser visto como uma função que recebe dados de treinamento como entrada e produz como saída uma função ou modelo (i.e um conjunto de funções). No entando, na prática muitos algoritmos de aprendizado possuem parâmetros adicionais que não são aprendidos diretamente a partir dos dados de treinamento, mas que influenciam o processo de aprendizado. Esses parâmetros são chamados de \textit{hiperparâmetros} \cite{yoshuabengio2012} e sua escolha adequada é crucial para o desempenho do modelo. Alguns exemplos comuns de hiperparâmetros incluem:
@@ -419,26 +419,27 @@ O problema do vanishing gradient é particularmente comum em redes neurais recor
     \item \textit{Batch Normalization}: Normaliza as ativações de cada camada durante o treinamento, o que pode ajudar a estabilizar os gradientes e acelerar o processo de aprendizado.
 \end{itemize}
 
-\subsection{Cotex Visual Humano}
+\subsection{Córtex Visual Humano e Visão Computacional}
 \label{CoViHu}
 O córtex visual humano é a parte do cérebro responsável pelo processamento das informações visuais recebidas pelos olhos \cite{FisioHumana}. Ele está localizado na parte posterior do cérebro, na região occipital. O córtex visual é organizado em várias áreas, cada uma especializada em processar diferentes aspectos da visão, como cor, forma, movimento e profundidade. Essas áreas trabalham em conjunto para interpretar e compreender o mundo visual ao nosso redor. A estrutura do córtex visual é altamente complexa, com bilhões de neurônios interconectados que formam redes neurais intrincadas. Essas redes são capazes de aprender e adaptar-se com base nas experiências visuais, permitindo-nos reconhecer objetos, rostos e padrões visuais de maneira eficiente. Uma característica importante do córtex visual é a presença de campos receptivos, que são regiões específicas do campo visual onde a estimulação de um neurônio resulta em uma resposta. Esses campos receptivos são organizados de forma hierárquica, com neurônios em níveis mais baixos respondendo a características simples, como bordas e texturas, enquanto neurônios em níveis mais altos respondem a características mais complexas, como formas e objetos completos.
-É por meio desse mecanismo e também pela capacidade de aprendizagem que o ser humano é capaz de reconhecer e interpretar o mundo visual ao seu redor. 
+É por meio desse mecanismo e também pela capacidade de aprendizagem que o ser humano é capaz de reconhecer e interpretar o mundo visual ao seu redor.
 
-{\textcolor{red}{Tenho que ligar esses dois textos}}
+Traduzir a visão para uma representação digital é um processo extremamente complexo. Em parte, porque é um problema inverso, no qual busca-se recuperar algumas variáveis desconhecidas a partir de informações insuficientes para especificar completamente a solução. Portanto, deve-se recorrer a modelos baseados na física, modelos probabilísticos ou aprendizado de máquina com grandes conjuntos de exemplos para resolver ambiguidades entre possíveis soluções. Entretanto, modelar o mundo visual em toda a sua rica complexidade é muito mais difícil do que, por exemplo, modelar o trato vocal que produz sons da fala \cite{szeliski2010}. 
+
+É surpreendente que humanos e animais façam isso com tanta facilidade, enquanto algoritmos de visão computacional são tão propensos a erros. Pessoas que nunca trabalharam na área frequentemente subestimam a dificuldade do problema. Essa percepção equivocada de que a visão deveria ser fácil remonta aos primeiros dias da inteligência artificial, quando se acreditava inicialmente que as partes cognitivas (prova lógica e planejamento) da inteligência eram intrinsecamente mais difíceis do que os componentes perceptivos \cite{Muller2008ReviewBoden}\footnote{\cite{Muller2008ReviewBoden} cita \cite{Crevier1993AI} como a fonte original. Entretango o artigo original foi escrito por Seymour Papert (1966) e envolveu toda uma turma de estudantes.}. 
 
 
-
-Uma imagem virtual é uma representação visual de um objeto, cena ou conceito, composta por uma matriz de pixels que contém informações sobre cor e intensidade. Cada pixel é uma célula na matriz da imagem que possui um valor específico. As imagens podem ser em escala de cinza, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco) Figura \ref{img_cinza}, ou em cores, onde cada pixel é representado por uma combinação de valores para as cores primárias (vermelho, verde e azul - RGB), uma imagem colorida pode ser interpretada como a sobreposição de três matrizes, cada matriz representando uma das cores primárias. 
+Uma imagem virtual é uma representação visual de um objeto, cena ou conceito, composta por uma matriz de pixels que contém informações sobre cor e intensidade. Cada pixel é uma célula na matriz da imagem que possui um valor específico. As imagens podem ser em escala de cinza, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco), como mostra a Figura \ref{img_cinza}, ou em cores, onde cada pixel é representado por uma combinação de valores para as cores primárias (vermelho, verde e azul - RGB), uma imagem colorida pode ser interpretada como a sobreposição de três matrizes, cada matriz representando uma das cores primárias. 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\linewidth]{matriz_escala_cinza.png}
+    \includegraphics[width=0.6\linewidth]{matriz_escala_cinza.png}
     \caption{Exemplo de uma imagem/matriz $10\times10$ em escala de cinza, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco).}
     \label{img_cinza}
 \end{figure}
 
 \subsection{Dígitos Manuscritos}
-Para exemplicar o funcionamento de uma rede neural faz o reconhecimento de imagens, considere a tarefa de classificação de dígitos manuscritos utilizando o conjunto de dados MNIST \cite{mnist}. O conjunto de dados MNIST consiste em 70.000 imagens em escala de cinza de dígitos manuscritos (0 a 9), cada uma com uma resolução de 28x28 pixels, Figura \ref{mnist}.  
+Para exemplicar o funcionamento de como uma rede neural faz o reconhecimento de imagens, considere a tarefa de classificação de dígitos manuscritos utilizando o conjunto de dados MNIST \cite{mnist}. O conjunto de dados MNIST consiste em 70.000 imagens em escala de cinza de dígitos manuscritos (0 a 9), cada uma com uma resolução de 28x28 pixels, Figura \ref{mnist}.  
 
 \begin{figure}[h!]
     \centering
@@ -447,9 +448,9 @@ Para exemplicar o funcionamento de uma rede neural faz o reconhecimento de image
     \label{mnist}
 \end{figure}
 
-Cada imagem é representada como uma matriz de $28\times28$ pixels, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). A camada de entrada da rede é composta por 784 neurônios, correspondentes aos 784 pixels da imagem $(28\times28 = 784)$, 30 neurônios na camada oculta e uma camada de saída com 10 neurônios (correspondente às classes dos dígitos de 0 a 9).
+Cada imagem é representada como uma matriz de $28\times28$, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). Para compor a camada de entrada da rede neural, cada imagem é ``achatada" em um vetor de 784 elementos $(28\times28 = 784)$, onde cada elemento corresponde à intensidade de um pixel. O objetivo da rede neural feedforward com camdas totalmente conectadas é aprender a classificar corretamente cada imagem em uma das 10 classes correspondentes aos dígitos de 0 a 9. Como a camada de saída da rede neural deve ter 10 neurônios (um para cada classe), a arquitetura da rede pode ser definida como [784, 30, 9], onde a camada de entrada tem 784 neurônios, a camada oculta tem 30 neurônios escolhidos arbitrariamente e a camada de saída tem 9 neurônios. A função de ativação utilizada pode ser a função sigmoid logística, que é comumente usada em tarefas de classificação, com uma taxa de aprendizagem inicial de $0.1$. Treinaremos a rede ao longo de 30 épocas. Resumindo:
+\
 
-\textcolor{red}{Colocar a taxa de aprendizado e o número de épocas para combinar com a tabela}
 \begin{table}[h!]
     \centering
     \caption{Configurações da rede neural para classificação de dígitos manuscritos.}
@@ -462,6 +463,8 @@ Cada imagem é representada como uma matriz de $28\times28$ pixels, onde cada pi
 
 \end{array}$
 \end{table}
+
+Para o treinamento da rede, utilizamos o algoritmo de backpropagation \ref{alg:backprop_etapas} e o Gradiente Descendente Estocástico \ref{alg:gradiente}
 
 \section{Redes Neurais Convolucionais}
 \label{redesConvolucionais}
@@ -480,7 +483,6 @@ No caso de uma convolução bidimensional, a operação é definida como:
 \end{equation}
 considerando que $X$ é a matriz da imagem de entrada, $W$ é a matriz do kernel e $S$ é o mapa de características resultante.
 
-\colorbox{red}{melhorar a figura/ deixar texto mais visivel}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{conv2.png}

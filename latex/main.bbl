@@ -10,6 +10,11 @@ Yoshua Bengio.
 \newblock Practical recommendations for gradient-based training of deep architectures.
 \newblock {\em Cornell University}, (Version 2), 2012.
 
+\bibitem{Crevier1993AI}
+Daniel Crevier.
+\newblock {\em AI: The Tumultuous History of the Search for Artificial Intelligence}.
+\newblock Basic Books, New York, 1993.
+
 \bibitem{overfitting}
 {Deep Learning Book}.
 \newblock Capítulo 19 – overfitting e regularização – parte 1, 2025.
@@ -19,6 +24,11 @@ Yoshua Bengio.
 Robert Hecht-Nielsen.
 \newblock Theory of the backpropagation neural network.
 \newblock {\em Academic Press}, 1992.
+
+\bibitem{Muller2008ReviewBoden}
+Vincent~C. M{\"u}ller.
+\newblock Review of margaret boden, "mind as machine: A history of cognitive science".
+\newblock {\em Minds and Machines}, 18(1):121--125, 2008.
 
 \bibitem{Ronneberger2015UNet}
 Olaf Ronneberger, Philipp Fischer, and Thomas Brox.
@@ -44,6 +54,11 @@ Cindy~L. Stanfield.
 Ilya Sutskever.
 \newblock On the importance of initialization and momentum in deep learning.
 \newblock {\em International Conference on Machine Learning}, 2013.
+
+\bibitem{szeliski2010}
+Richard Szeliski.
+\newblock {\em Computer Vision: Algorithms and Applications}.
+\newblock Springer, 2010.
 
 \bibitem{medium}
 {Vinícius Trevisan}.

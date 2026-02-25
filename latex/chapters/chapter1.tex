@@ -1,11 +1,12 @@
-\section{Perceptron}   
-\colorbox{red}{Colocar um explicação para a seção}
+\subsection{Unidade/Neurônio}
+Na área de Inteligência Artifical, comumente utiliza-se o termo \textit{neurônio artifical} para se referir a uma unidade de processamento em um modelo de rede neural. O neurônio artificial é inspirado no funcionamento do neurônio biológico, que é a unidade básica do sistema nervoso. Assim como os neurônios biológicos, os neurônios artificiais recebem entradas, processam essas entradas e produzem uma saída. A principal função de um neurônio artificial é realizar uma combinação linear das entradas, seguida por uma função de ativação não linear, que determina a saída do neurônio. A semelhança entre esses dois objetos (Neurônio artificial/Neurônio Biológico) só está na inspiração, sendo bem diferentes em seu funcionamento, com isso, neste trabalho utiliza-se o termo \textit{unidade} para se referir ao neurônio artificial.
+
 \subsection{Neurônio Biológico}
-Para entender o funcionamento do neurônio matemático é nescessário entender o funcionamento do neurônio biológico.
+Para entender o funcionamento da unidade matemática é nescessário entender o funcionamento do neurônio biológico.
 Neurônios são ``células excitáveis'' que se comunicam ao transmitir impulsos elétricos. Células \textit{excitáveis} são definidas como células capazes de produzir sinais elétricos amplos e rápidos denominados \textit{potencias de ação} (veja \cite{FisioHumana}). A maioria dos neurônios contém três componentes principais: um corpo celular, o(s) dendrito(s) e um axônio. O corpo celular, chamado de \textit{soma} contém o núcleo celular, local onde parte da informação recebida de outras partes do corpo é manipulada. Os \textit{dendritos} se ramificam a partir do corpo celular, são responsáveis por receber e integrar uma imensa quantidade de sinais provenientes de outros neurônios. Outra ramificação advinda do corpo celular é o \textit{axônio}. Diferente dos dendritos, cuja função é \textit{receber} informação, um axônio \textit{envia} informações. Grande parte dos neurônios tem apenas um axônio, mas os axônios conseguem se ramificar, enviando, assim, sinais a mais de um destino.
 Esses três componentes, de forma resumida, formam o neurônio biológico, como mostrado na Figura \ref{neuronio}.
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\linewidth]{neuronio.png}
     \caption{Estrutura de um neurônio típico.}
@@ -14,13 +15,13 @@ Esses três componentes, de forma resumida, formam o neurônio biológico, como 
 
 Outro fator importante em um neurônio biológico são os potenciais de ação, gerados nos dendritos, são avaliados e ponderados por meio da \textit{força sináptica} \cite{neurociencias}, que nos diz o quão importante a informação. Após esse processo, são enviados para o núcleo celular. Entre o corpo celular e o axônio será decidido se o potencial é excitatório ou inibitório. A decisão é feita caso o potencial de ação supere ou não um \textit{limiar}. Caso seja excitatório, a informação é passada a diante, caso seja inibitório,  a informação é suprimida.
 
-\subsection{Neurônio Artificial}
+\subsection{Unidade}
 A partir das informações obtidas com o estudo do neurônio biológico, pesquisadores tentaram simular seu funcionamento em computador. A implementação mais bem aceita de simulação foi proposta por dois pesquisadores, o neurobiologista Warren McCulloch e o matematico Walter Pitts em 1943 em \cite{warrenpits} que utilizaram-se da lógica proposicional para descrever o fuincionamento do sistema nervoso central \ref{neu_matematico}. McCulloch acreditava que o neurônio bilógico tinha uma natureza binária, ou seja, um neurônio influência outro ou não, entretanto, posteriormente essa crença mostrou-se errônea com os avanços de estudos na área.  
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.7\linewidth]{neu_matematico.png}
-    \caption{Modelo de um neurônio de McCulloch e Pitts.}
+    \caption{Modelo de uma unidade de McCulloch e Pitts.}
     \label{neu_matematico}
 \end{figure}
 
@@ -28,10 +29,10 @@ As variáveis $x_1, x_2, x_3, \cdots, x_n$ são denominadas  \textit{dados de en
 
 \subsection{ Tipos de Função de Ativação}
 
-A função de ativação, representada por $\sigma$, define a saída de um neurônio, pode-se definir diferentes tipos de funções de ativação, como a função de limiar, função linear por partes e a função sigmoidal.
+A função de ativação, representada por $\sigma$, define a saída de uma unidade, pode-se definir diferentes tipos de funções de ativação, como a função de limiar, função linear por partes e a função sigmoidal.
 
 \begin{itemize}
-    \item \textit{Função de Limiar}: Para este tipo de função de ativação, descrito na Equação \ref{funcaoLimiar}, o neurônio é ativado (ou seja, produz uma saída de 1) se a soma ponderada das entradas mais o viés for maior ou igual a zero. Caso contrário, a saída é 0.
+    \item \textit{Função de Limiar}: Para este tipo de função de ativação, descrito na Equação \ref{funcaoLimiar}, a unidade é ativada (ou seja, produz uma saída de 1) se a soma ponderada das entradas mais o viés for maior ou igual a zero. Caso contrário, a saída é 0.
     \begin{equation}
         \label{funcaoLimiar}
         \sigma(z) = \begin{cases}
@@ -40,7 +41,7 @@ A função de ativação, representada por $\sigma$, define a saída de um neur�
         \end{cases}
     \end{equation}
 
-    \item \textit{Função Sigmoidal}: A função sigmoidal, cujo o gráfico tem a forma de um ¨S¨, é de longe a forma mais comum de função de ativação utilizada na construção de neurônios artificiais. Ela é definida como uma função estritamente crescente que exibe um baleanceamento adequado entre comportamento linear e não-linear. Um exemplo de função sigmoidal é a \textit{sigmoid logística}, definida na Equação \ref{eq1}:
+    \item \textit{Função Sigmoidal}: A função sigmoidal, cujo o gráfico tem a forma de um ¨S¨, é de longe a forma mais comum de função de ativação utilizada na construção de unidades. Ela é definida como uma função estritamente crescente que exibe um baleanceamento adequado entre comportamento linear e não-linear. Um exemplo de função sigmoidal é a \textit{sigmoid logística}, definida na Equação \ref{eq1}:
     \begin{equation}
     \label{eq1}   
     \sigma(z) = \frac{1}{1+ \exp(-\alpha z)},   
@@ -54,7 +55,7 @@ A função de ativação, representada por $\sigma$, define a saída de um neur�
     \item É estritamente monótona, ou seja, $z_1 \leq z_2 \iff \sigma(z_1) \leq \sigma(z_2)$.
     \end{enumerate}
 
-    \item \textit{Função Rectified Linear Unit (ReLU)} : A função ReLU é definida como $\sigma(z) = \max(0, z)$. Ela é amplamente utilizada em redes neurais profundas (estudada na seção \ref{redesNeurais}) devido à sua simplicidade computacional e capacidade de mitigar o problema do \textit{Vanish Gradient}. A função ReLU ativa o neurônio apenas quando a soma ponderada das entradas mais o viés é positiva, caso contrário, a saída é zero, ou seja:
+    \item \textit{Função Rectified Linear Unit (ReLU)} : A função ReLU é definida como $\sigma(z) = \max(0, z)$. Ela é amplamente utilizada em redes neurais profundas (estudada na seção \ref{redesNeurais}) devido à sua simplicidade computacional e capacidade de mitigar o problema do \textit{Vanish Gradient}. A função ReLU ativa a unidade apenas quando a soma ponderada das entradas mais o viés é positiva, caso contrário, a saída é zero, ou seja:
     \begin{equation}
         \sigma(z) = \begin{cases}
         z, & \text{se } z > 0 \\
@@ -64,22 +65,22 @@ A função de ativação, representada por $\sigma$, define a saída de um neur�
     
 \end{itemize}
 
-Em geral, o objetivo da função de ativação é limitar a saída de um neurônio para um intervalo de valores, a Figura \ref{ativ_func} (a) mostra o gráfico da função sigmoid logística, enquanto a Figura \ref{ativ_func} (b) mostra o gráfico da função de limiar. 
+Em geral, o objetivo da função de ativação é limitar a saída de uma unidade para um intervalo de valores, a Figura \ref{ativ_func} (a) mostra o gráfico da função sigmoid logística, enquanto a Figura \ref{ativ_func} (b) mostra o gráfico da função de limiar. 
 
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.9\linewidth]{funcsativa.png}
-    \caption{Funções de Ativação.}
+    \caption{Gráficos das Funções de Ativação.}
     \label{ativ_func}
 \end{figure}
 
 
 
-A principal desvantegem no neurônio de McCulloch e Pitts é a ausência de um algoritmo de aprendizagem, ou seja, uma maneira de ajustar os pesos e o viés do neurônio para que ele seja capaz de resolver um problema específico. Essa limitação foi superada em 1958 por Frank Rosenblatt, que propôs o \textit{Perceptron} \cite{rosemblatt}, um modelo de neurônio artificial com um algoritmo de aprendizagem capaz de ajustar os pesos e o viés do neurônio. 
+A principal desvantegem na unidade de McCulloch e Pitts é a ausência de um algoritmo de aprendizagem, ou seja, uma maneira de ajustar os pesos e o viés da unidade para que ele seja capaz de resolver um problema específico. Essa limitação foi superada em 1958 por Frank Rosenblatt, que propôs o \textit{Perceptron} \cite{rosemblatt}, um modelo de unidade com um algoritmo de aprendizagem capaz de ajustar os pesos e o viés da unidade. 
 
-\subsection{Algorítmo de Aprendizagem do Perceptron}
-O Perceptron é um modelo de neurônio artificial que utiliza um algoritmo de aprendizagem supervisionada para ajustar seus pesos e viés com base em um conjunto de dados ¨¨rotulados¨¨. Dados rotulados são conjuntos de dados de entrada associados a saídas desejadas, ou seja, para cada conjunto de entradas, há uma saída correta conhecida. O objetivo do Perceptron é encontrar uma função que mapeie corretamente as entradas para as saídas desejadas, minimizando o erro entre as previsões do modelo e os valores reais.
+\subsection{Perceptron e Algorítmo de Aprendizagem}
+O Perceptron é um modelo de unidade que utiliza um algoritmo de aprendizagem supervisionada para ajustar seus pesos e viés com base em um conjunto de dados ``rotulados"{\footnote{Dados rotulados são conjuntos de dados de entrada associados a saídas desejadas, ou seja, para cada conjunto de entradas, há uma saída correta conhecida.}}. O objetivo do Perceptron é encontrar uma função que mapeie corretamente as entradas para as saídas desejadas, minimizando o erro entre as previsões do modelo e os valores reais.
 
 Para esclarecer o funcionamento do Perceptron e do algoritmo de aprendizagem, é proposto o Exemplo \ref{ex1}.
 
@@ -101,7 +102,7 @@ Um investidor busca decidir qual ação adquirir com base nas variáveis: \textb
 
 % \end{array}$$
 
-\begin{table}[h!]
+\begin{table}[htpb]
     \centering
     \caption{Banco de dados com as avaliações dos colegas e a decisão final de compra.}
     $\begin{array}{ccccc}
@@ -120,13 +121,13 @@ Um investidor busca decidir qual ação adquirir com base nas variáveis: \textb
 \end{array}$
 \end{table}
 
-Em que \textbf{0 = não}, \textbf{1 = sim} e $x_2, \cdots, x_4$ representam as respostas de cada colegas e \textbf{$y$} a decisão final de cada um. Com isso, o Perceptron terá três variáveis de entrada e como saída, a decisão sobre a compra da ação. O Perceptron, portanto, possui três variáveis de entrada e uma saída que representa a decisão de compra. Os pesos iniciais são definidos como: $w_1 = w_2 = w_3$ e o viés como $b = 0$. A função de ativação utilizada é a \textbf{função limiar} (\ref{funcaoLimiar}). Testando o primeiro dado de entrada $x_1 = (0,1,0)$ e $y = 1$, obtém-se: 
+Em que \textbf{0 = não}, \textbf{1 = sim} e $x_2, \cdots, x_4$ representam as respostas de cada colegas e \textbf{$y$} a decisão final de cada um. Com isso, o Perceptron terá três variáveis de entrada e como saída, a decisão sobre a compra da ação. Os pesos iniciais são definidos aleatoriamente como: $w_1 = w_2 = w_3 = 0$ e o viés como $b = 0$. A função de ativação utilizada é a \textbf{função limiar} (\ref{funcaoLimiar}). Testando o primeiro dado de entrada $x_1 = (0,1,0)$ e $y = 1$, obtém-se: 
 $$
 z = w\cdot x_1+b = 0 \Rightarrow \hat{y} = \sigma(0) = 0
 $$
 \end{exemplo}
 
-Como $y = 1 \neq \hat{y} = 0$, em que $\hat{y}$ é a resposta da rede, o Perceptron comete um erro e é necessário aplicar o \textbf{algoritmo de aprendizagem} (o neurônio de McCulloch e Pitts pararia aqui). Para isso, define-se uma função de custo, responsável por quantificar o erro cometido durante o treinamento. Neste exemplo, utiliza-se o \textbf{Erro Quadrático Médio}, dado por: 
+Como $y = 1 \neq \hat{y} = 0$, em que $\hat{y}$ é a resposta da rede, o Perceptron comete um erro e é necessário aplicar o \textbf{algoritmo de aprendizagem} (a unidade de McCulloch e Pitts pararia aqui). Para isso, define-se uma função de custo, responsável por quantificar o erro cometido durante o treinamento. Neste exemplo, utiliza-se o \textbf{Erro Quadrático Médio}, dado por: 
 $$ C(w,b) = \frac{\sum_{i=1}^k(y_i - \hat{y}_i)^2}{n},$$
 em que $y_i$ é a resposta do dado de entrada  $x_i$ e $n$ representa a quantidade de dados presentes no conjunto de treinamento.
 
@@ -165,11 +166,9 @@ Inicializar os pesos $w_i$ e o viés $b$ com valores pequenos aleatórios\;
 \end{algorithm}
 
 A \textit{taxa de aprendizagem} ($\eta$) presente no algoritmo (\ref{alg:gradiente})  pode ser interpretada como o tamanho do passo dado em direção ao mínimo da função de custo. Quando o valor dessa taxa é muito pequeno, o processo de convergência torna-se mais lento, exigindo um número maior de iterações para atingir o mínimo. Por outro lado, se o passo for muito grande, o algoritmo pode ultrapassar o ponto de mínimo, dificultando ou até impedindo a convergência adequada, para o Exemplo \ref{ex1} é utilizada uma taxa de aprendizado de $0.1$.
-
-\colorbox{red}{Colocar a taxa de aprendizado e melhorar a imagem}
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.4\linewidth]{gradientedes.png}
+    \includegraphics[width=0.7\linewidth]{gradientedes.png}
     \caption{Representação da taxa de aprendizagem.}
     \label{gradiente}
 \end{figure}
@@ -187,16 +186,16 @@ Verificando as previsões da rede para os parêmentros atualizando, é obtido:
     \item[$x_4$:]$ (0,0,0)\Rightarrow z = 0 + 0 + 0 + 0. 1 = 0.1\Rightarrow \hat{y} = 1$.
 \end{itemize}
 
-Assim, após uma única época com $\eta = 0.1$ os pesos e o viés encontrados classificam corretamente todos os exemplos do conjunto de treinamento.
+Basta observar que $\hat{y} = \sigma(z)$ e $\sigma(z)$ é a função de ativação utilizada. Assim, após uma única época com $\eta = 0.1$ os pesos e o viés encontrados classificam corretamente todos os exemplos do conjunto de treinamento.
 
 Comumente o banco de dados é dividido em dois conjuntos: o conjunto de treinamento e o conjunto de teste. O conjunto de treinamento é utilizado para ajustar os pesos e o viés do Perceptron, enquanto o conjunto de teste é utilizado para avaliar o desempenho do modelo em dados não vistos durante o treinamento. Essa divisão é essencial para garantir que o modelo aprenda a generalizar bem para novos dados, evitando o problema do \textit{overfitting}(visto na seção \ref{overfitting}), que ocorre quando o modelo se ajusta excessivamente aos dados de treinamento, perdendo a capacidade de generalização.
 
 
 \section{Redes Neurais}
 \label{redesNeurais}
-As redes neurais são um ¨encadeamento¨ de múltiplos neurônios artificiais, onde a saída de um neurônio é a entrada de outro. Redes neurais podem ser organizadas em camadas: uma camada de entrada, uma ou mais camadas ocultas e uma camada de saída. Cada camada é composta por vários neurônios, e cada neurônio em uma camada está conectado a todos os neurônios na camada seguinte. A Figura \ref{fig:ex-geral} ilustra a estrutura básica de um neurônio artificial em comparação com o funcionamento de uma rede neural com duas camadas ocultas.
+As redes neurais são um ``encadeamento" de múltiplas unidades, onde a saída de uma unidade é a entrada de outra. Redes neurais podem ser organizadas em camadas: uma \textit{camada de entrada}, uma ou mais \textit{camadas ocultas} e uma \textit{camada de saída}. Cada camada é composta por várias unidades e cada unidade em uma camada está conectada a todas as unidades na camada seguinte. A Figura \ref{fig:ex-geral} ilustra a estrutura básica de uma unidade em comparação com o funcionamento de uma rede neural com duas camadas ocultas.
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \begin{subfigure}{0.3\linewidth}
         \centering
@@ -212,13 +211,13 @@ As redes neurais são um ¨encadeamento¨ de múltiplos neurônios artificiais, 
         \label{fig0:ex-b}
     \end{subfigure}
 
-    \caption{Estrutura básica de um neurônio artificial e uma rede neural com duas camadas ocultas.}
+    \caption{Estrutura básica de uma unidade e uma rede neural com duas camadas ocultas.}
     \label{fig:ex-geral}
 \end{figure}
 \subsection{Arquiteturas de Redes Neurais}
 Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar com diferentes tipos de problemas e dados. Algumas das arquiteturas mais comuns incluem: 
 \begin{itemize}
-    \item \textit{Redes Neurais Feedforward (FNNs)}: São as redes neurais mais simples, onde a informação flui em uma única direção, da camada de entrada para a camada de saída, passando pelas camadas ocultas. Não há ciclos ou loops na rede. FNNs são amplamente utilizadas para tarefas de classificação e regressão.
+    \item \textit{Redes Neurais Feedforward (FNNs)}: São as redes neurais mais simples, onde a informação flui em uma única direção, da camada de entrada para a camada de saída, passando pelas camadas ocultas. FNNs são amplamente utilizadas para tarefas de classificação e regressão.
     
     \item \textit{Redes Neurais Convolucionais (CNNs)}: São projetadas para processar dados com uma estrutura de grade, como imagens. Elas utilizam operações de convolução para extrair características espaciais dos dados de entrada. CNNs são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos e detecção de faces.
     
@@ -227,9 +226,9 @@ Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar co
     \item \textit{Redes Neurais Generativas Adversariais (GANs)}: Consistem em duas redes neurais que competem entre si: um gerador e um discriminador. O gerador cria dados falsos, enquanto o discriminador tenta distinguir entre dados reais e falsos. GANs são amplamente utilizadas para geração de imagens realistas e outras tarefas criativas.
     \item \textit{Encoder-Decoder}: São arquiteturas que consistem em duas partes principais: o encoder, que comprime os dados de entrada em uma representação latente, e o decoder, que reconstrói os dados a partir dessa representação. Essas redes são amplamente utilizadas em tarefas como tradução automática e geração de texto.
 \end{itemize}
+É possível utilizar duas arquiteturas em conjunto, como abordado na seção \ref{sec:unet}.
 
-
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \begin{subfigure}{0.4\linewidth}
         \centering
@@ -240,7 +239,7 @@ Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar co
     \hspace{30mm}
     \begin{subfigure}{0.3\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/GANs.png}
+        \includegraphics[width=\linewidth]{figures/RNNs.png}
         \caption{Redes Neurais Recorrentes (RNNs).}
         \label{fig:ex-b}
     \end{subfigure}
@@ -259,7 +258,7 @@ Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar co
 A Figura \ref{arquiteturas} ilustra algumas das arquiteturas de redes neurais mencionadas. Cada arquitetura possui suas próprias características e é adequada para diferentes tipos de problemas e dados. A escolha da arquitetura correta é crucial para o sucesso de um modelo de rede neural em uma tarefa específica.
 
 \subsection{Backpropagation}
-Assim como no perceptron, as redes neurais utilizam algoritmos de aprendizagem para ajustar seus pesos e vieses com o objetivo de minimizar uma função de custo. O algoritmo mais comum utilizado para esse propósito é o \textit{backpropagation} (retropropagação) \cite{hechtnielsen1992} e \cite{paulwerbos}, que é uma extensão do método da descida do gradiente. O backpropagation é utilizado para calcular os gradientes da função de custo em relação aos pesos e vieses de todas as camadas da rede neural, permitindo a atualização eficiente desses parâmetros durante o treinamento. O algoritmo funciona propagando o erro da saída da rede de volta para as camadas anteriores, ajustando os pesos com base na contribuição de cada neurônio para o erro total. 
+Assim como no perceptron, as redes neurais utilizam algoritmos de aprendizagem para ajustar seus pesos e vieses com o objetivo de minimizar uma função de custo. O algoritmo mais comum utilizado para esse propósito é o \textit{backpropagation} (retropropagação) \cite{hechtnielsen1992} e \cite{paulwerbos}, que é uma extensão do método da descida do gradiente. O backpropagation é utilizado para calcular os gradientes da função de custo em relação aos pesos e vieses de todas as camadas da rede neural, permitindo a atualização eficiente desses parâmetros durante o treinamento. O algoritmo funciona propagando o erro da saída da rede de volta para as camadas anteriores, ajustando os pesos com base na contribuição de cada unidade para o erro total. 
 
 Esse processo é repetido iterativamente até que a função de custo seja minimizada, resultando em uma rede neural treinada capaz de realizar previsões precisas em novos dados. Essa propagação do erro é feita utilizando a regra da cadeia do cálculo diferencial, que permite calcular as derivadas parciais de funções compostas. 
 O algoritmo de backpropagation pode ser resumido nos seguintes passos:
@@ -285,28 +284,26 @@ O algoritmo de backpropagation pode ser resumido nos seguintes passos:
 }
 \end{algorithm}
 
-A Figura \ref{backprop} ilustra o processo de backpropagation em uma rede neural:
+A Figura \ref{backprop} ilustra mostra uma rede neural simples e a equação \ref{derivadas} mostra o cálculo do gradiente para ajustar o peso da primeira camada utilizando a regra da cadeia.
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/rede_simples.png}
     \caption{Ilustração do processo de backpropagation em uma rede neural.}
     \label{backprop}
 \end{figure}
 
-Caso seja necessário ajustar o peso da primeira camada, o erro é propagado de volta da saída para a entrada, ajustando os pesos de cada camada com base na contribuição de cada neurônio para o erro total. Então:
-
 \begin{align}
     \label{derivadas}
     \nabla_wC = \frac{\partial C(w,b)}{\partial w_1} = \frac{C(w,b)}{\sigma(z_3)}\cdot \frac{\sigma(z_3)}{z_3} \cdot \frac{z_3}{\sigma(z_2)} \cdot \frac{\sigma(z_2)}{z_2} \cdot \frac{z_2}{\sigma(z_1)}\cdot \frac{\sigma(z_1)}{z_1} \cdot \frac{z_1}{w_1},
 \end{align}
-em que $z_1$, $z_2$ e $z_3$ são as saídas das camadas intermediárias e $C(w,b)$ é a função de custo do Erro quadrático médio, ou seja, $ C(w,b) = \frac{(\hat{y} - \sigma(z_3))^2}{3}$.
+em que $z_1$, $z_2$ e $z_3$ são as saídas das camadas intermediárias e $C(w,b)$ é a função de custo do erro quadrático médio, ou seja, $ C(w,b) = \frac{(\hat{y} - \sigma(z_3))^2}{n}$, $n$ sendo o número de amostras no conjunto de dados.
 
 \subsection{Gradiente Descendente Estocástico}
 O Gradiente Descendente Estocástico (SGD - Stochastic Gradient Descent) \cite{sebastianruder2016} é uma variação do método de descida do gradiente tradicional, amplamente utilizado no treinamento de redes neurais e outros modelos de aprendizado de máquina. A principal diferença entre o SGD e o método de descida do gradiente padrão é a forma como os gradientes são calculados e atualizados durante o treinamento. No método de descida do gradiente tradicional, os gradientes são calculados usando todo o conjunto de dados de treinamento, o que pode ser computacionalmente caro e demorado, especialmente para grandes conjuntos de dados. Em contraste, o SGD calcula os gradientes usando apenas uma amostra aleatória (ou um pequeno lote) do conjunto de dados em cada iteração. Isso torna o processo de atualização dos pesos mais rápido e eficiente, permitindo que o modelo aprenda mais rapidamente.
 
 A Figura \ref{sgd} ilustra a diferença entre o método de descida do gradiente tradicional e o Gradiente Descendente Estocástico, em que cada seta preta indica uma atualização dos pesos do modelo:
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \begin{subfigure}{0.4\linewidth}
         \centering
@@ -326,7 +323,9 @@ A Figura \ref{sgd} ilustra a diferença entre o método de descida do gradiente 
     \label{sgd}
 \end{figure}
 
-Apesar da Descida do Gradiente padrão fornecer uma direção mais precisa para o mínimo global da função de custo, o SGD é capaz de chegar a esse mínimo de forma mais rápida e eficiente, especialmente em grandes conjuntos de dados. Além disso, o SGD pode ajudar a escapar de mínimos locais devido à sua natureza estocástica, o que pode ser benéfico para o treinamento de redes neurais profundas.
+Apesar da Descida do Gradiente padrão fornecer uma direção mais precisa para o mínimo global da função de custo, o SGD é capaz de chegar próximo do mínimo de forma mais rápida e eficiente, especialmente em grandes conjuntos de dados.
+Fazendo uma comparação entre os dois métodos, temos:
+
 
 \section{Overfitting}
 \label{overfitting}
@@ -341,7 +340,7 @@ Um algoritmo de aprendizado pode ser visto como uma função que recebe dados de
     
     \item \textit{Tamanho do Lote (Batch Size)}: Refere-se ao número de amostras de dados usadas para calcular o gradiente em cada iteração do treinamento. Tamanhos de lote menores podem levar a atualizações mais ruidosas, enquanto tamanhos maiores podem resultar em um treinamento mais estável, mas mais lento. Os valores escolhidos geralmente variam entre $1$ e $32$, sendo que vaores acima de $10$ tiram proveito da Unidade Central de Processamento - CPU e da Unidade de Processamento Gráfico - GPU, que oferece ganho de velocidade dos produtos matriz-matriz em relação aos produtos matriz-vetor.
     
-    \item \textit{Arquitetura do Modelo}: Inclui o número de camadas, o número de neurônios em cada camada e o tipo de funções de ativação utilizadas. Modelos mais complexos podem capturar padrões mais sofisticados, mas também são mais propensos ao overfitting.
+    \item \textit{Arquitetura do Modelo}: Inclui o número de camadas, o número de unidades em cada camada e o tipo de funções de ativação utilizadas. Modelos mais complexos podem capturar padrões mais sofisticados, mas também são mais propensos ao overfitting.
 \end{itemize}
 
 \subsection{Regularização}
@@ -359,16 +358,16 @@ A regularização é uma técnica utilizada para prevenir o overfitting em model
     \end{equation}
     em que os termos são definidos da mesma forma que na regularização L1.
     
-    \item \textit{Dropout}: Durante o treinamento, essa técnica desativa aleatoriamente uma fração dos neurônios em cada camada da rede neural. Isso força a rede a aprender representações mais robustas e reduz a dependência de neurônios específicos, ajudando a prevenir o overfitting. Em termos gerais, ao aplicar o dropout estamos treinando uma coleção de sub-redes dentro da rede original, o que promove a generalização do modelo.
-    \begin{figure}[h!]
+    \item \textit{Dropout}: Durante o treinamento, essa técnica desativa aleatoriamente uma fração das unidades em cada camada da rede neural. Isso força a rede a aprender representações mais robustas e reduz a dependência de unidades específicas, ajudando a prevenir o overfitting. Em termos gerais, ao aplicar o dropout estamos treinando uma coleção de sub-redes dentro da rede original, o que promove a generalização do modelo.
+    \begin{figure}[htpb]
         \centering
         \includegraphics[width=0.7\linewidth]{img_dropout.png}
-        \caption{Ilustração do Dropout removendo 60\% dos neurônios aleatoriamente durante uma época de treinamento.}
+        \caption{Ilustração do Dropout removendo 60\% das unidades aleatoriamente durante uma época de treinamento.}
         \label{dropout}
     \end{figure}
     
     \item \textit{Early Stopping}: Como  Monitora o desempenho do modelo em um conjunto de validação durante o treinamento e interrompe o processo quando o desempenho começa a piorar. Isso evita que o modelo continue a se ajustar aos dados de treinamento além do ponto ideal. Como ilustrado na Figura \ref{earlystopping}, o ponto de parada ideal é onde a acurácia na validação começa a diminuir, indicando o início do overfitting.
-    \begin{figure}[h!]
+    \begin{figure}[htpb]
         \centering
         \includegraphics[width=0.7\linewidth]{earlystopping.png}
         \caption{Ilustração do Early Stopping.}
@@ -405,7 +404,7 @@ A derivada dessa função é dada por:
 
 Durante o processo de backpropagation, o gradiente da função de custo em relação aos pesos das camadas iniciais é calculado utilizando a regra da cadeia. Isso envolve a multiplicação das derivadas das funções de ativação de cada camada, como mostra \ref{derivadas}. Como a derivada da função sigmoid é sempre menor que 0.25 (o valor máximo ocorre em $z=0$), a multiplicação repetida dessas pequenas derivadas resulta em gradientes que se tornam cada vez menores à medida que são propagados para trás através das camadas da rede. Por exemplo, se uma rede possui 10 camadas ocultas, o gradiente pode ser reduzido a um valor extremamente pequeno, como $10^{-6}$ ou menor, tornando as atualizações dos pesos nas camadas iniciais praticamente insignificantes.
 \end{exemplo}
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.5\linewidth]{sigmoid_prime.png}
     \caption{Gráfico da derivada da função sigmoid logística.}
@@ -421,7 +420,7 @@ O problema do vanishing gradient é particularmente comum em redes neurais recor
 
 \subsection{Córtex Visual Humano e Visão Computacional}
 \label{CoViHu}
-O córtex visual humano é a parte do cérebro responsável pelo processamento das informações visuais recebidas pelos olhos \cite{FisioHumana}. Ele está localizado na parte posterior do cérebro, na região occipital. O córtex visual é organizado em várias áreas, cada uma especializada em processar diferentes aspectos da visão, como cor, forma, movimento e profundidade. Essas áreas trabalham em conjunto para interpretar e compreender o mundo visual ao nosso redor. A estrutura do córtex visual é altamente complexa, com bilhões de neurônios interconectados que formam redes neurais intrincadas. Essas redes são capazes de aprender e adaptar-se com base nas experiências visuais, permitindo-nos reconhecer objetos, rostos e padrões visuais de maneira eficiente. Uma característica importante do córtex visual é a presença de campos receptivos, que são regiões específicas do campo visual onde a estimulação de um neurônio resulta em uma resposta. Esses campos receptivos são organizados de forma hierárquica, com neurônios em níveis mais baixos respondendo a características simples, como bordas e texturas, enquanto neurônios em níveis mais altos respondem a características mais complexas, como formas e objetos completos.
+O córtex visual humano é a parte do cérebro responsável pelo processamento das informações visuais recebidas pelos olhos \cite{FisioHumana}. Ele está localizado na parte posterior do cérebro, na região occipital. O córtex visual é organizado em várias áreas, cada uma especializada em processar diferentes aspectos da visão, como cor, forma, movimento e profundidade. Essas áreas trabalham em conjunto para interpretar e compreender o mundo visual ao nosso redor. A estrutura do córtex visual é altamente complexa, com bilhões de unidades interconectados que formam redes neurais intrincadas. Essas redes são capazes de aprender e adaptar-se com base nas experiências visuais, permitindo-nos reconhecer objetos, rostos e padrões visuais de maneira eficiente. Uma característica importante do córtex visual é a presença de campos receptivos, que são regiões específicas do campo visual onde a estimulação de uma unidade resulta em uma resposta. Esses campos receptivos são organizados de forma hierárquica, com unidades em níveis mais baixos respondendo a características simples, como bordas e texturas, enquanto unidades em níveis mais altos respondem a características mais complexas, como formas e objetos completos.
 É por meio desse mecanismo e também pela capacidade de aprendizagem que o ser humano é capaz de reconhecer e interpretar o mundo visual ao seu redor.
 
 Traduzir a visão para uma representação digital é um processo extremamente complexo. Em parte, porque é um problema inverso, no qual busca-se recuperar algumas variáveis desconhecidas a partir de informações insuficientes para especificar completamente a solução. Portanto, deve-se recorrer a modelos baseados na física, modelos probabilísticos ou aprendizado de máquina com grandes conjuntos de exemplos para resolver ambiguidades entre possíveis soluções. Entretanto, modelar o mundo visual em toda a sua rica complexidade é muito mais difícil do que, por exemplo, modelar o trato vocal que produz sons da fala \cite{szeliski2010}. 
@@ -431,7 +430,7 @@ Traduzir a visão para uma representação digital é um processo extremamente c
 
 Uma imagem virtual é uma representação visual de um objeto, cena ou conceito, composta por uma matriz de pixels que contém informações sobre cor e intensidade. Cada pixel é uma célula na matriz da imagem que possui um valor específico. As imagens podem ser em escala de cinza, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco), como mostra a Figura \ref{img_cinza}, ou em cores, onde cada pixel é representado por uma combinação de valores para as cores primárias (vermelho, verde e azul - RGB), uma imagem colorida pode ser interpretada como a sobreposição de três matrizes, cada matriz representando uma das cores primárias. 
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\linewidth]{matriz_escala_cinza.png}
     \caption{Exemplo de uma imagem/matriz $10\times10$ em escala de cinza, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco).}
@@ -441,17 +440,17 @@ Uma imagem virtual é uma representação visual de um objeto, cena ou conceito,
 \subsection{Dígitos Manuscritos}
 Para exemplicar o funcionamento de como uma rede neural faz o reconhecimento de imagens, considere a tarefa de classificação de dígitos manuscritos utilizando o conjunto de dados MNIST \cite{mnist}. O conjunto de dados MNIST consiste em 70.000 imagens em escala de cinza de dígitos manuscritos (0 a 9), cada uma com uma resolução de 28x28 pixels, Figura \ref{mnist}.  
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.7\linewidth]{mnist.png}
     \caption{Exemplos de dígitos manuscritos do conjunto de dados MNIST.}
     \label{mnist}
 \end{figure}
 
-Cada imagem é representada como uma matriz de $28\times28$, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). Para compor a camada de entrada da rede neural, cada imagem é ``achatada" em um vetor de 784 elementos $(28\times28 = 784)$, onde cada elemento corresponde à intensidade de um pixel. O objetivo da rede neural feedforward com camdas totalmente conectadas é aprender a classificar corretamente cada imagem em uma das 10 classes correspondentes aos dígitos de 0 a 9. Como a camada de saída da rede neural deve ter 10 neurônios (um para cada classe), a arquitetura da rede pode ser definida como [784, 30, 9], onde a camada de entrada tem 784 neurônios, a camada oculta tem 30 neurônios escolhidos arbitrariamente e a camada de saída tem 9 neurônios. A função de ativação utilizada pode ser a função sigmoid logística, que é comumente usada em tarefas de classificação, com uma taxa de aprendizagem inicial de $0.1$. Treinaremos a rede ao longo de 30 épocas. Resumindo:
+Cada imagem é representada como uma matriz de $28\times28$, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). Para compor a camada de entrada da rede neural, cada imagem é ``achatada" em um vetor de 784 elementos $(28\times28 = 784)$, onde cada elemento corresponde à intensidade de um pixel. O objetivo da rede neural feedforward com camdas totalmente conectadas é aprender a classificar corretamente cada imagem em uma das 10 classes correspondentes aos dígitos de 0 a 9. Como a camada de saída da rede neural deve ter 10 unidades (um para cada classe), a arquitetura da rede pode ser definida como [784, 30, 9], onde a camada de entrada tem 784 unidades, a camada oculta tem 30 unidades escolhidos arbitrariamente e a camada de saída tem 9 unidades. A função de ativação utilizada pode ser a função sigmoid logística, que é comumente usada em tarefas de classificação, com uma taxa de aprendizagem inicial de $0.1$. Treinaremos a rede ao longo de 30 épocas. Resumindo:
 \
 
-\begin{table}[h!]
+\begin{table}[htpb]
     \centering
     \caption{Configurações da rede neural para classificação de dígitos manuscritos.}
     $\begin{array}{cccccc}
@@ -483,7 +482,7 @@ No caso de uma convolução bidimensional, a operação é definida como:
 \end{equation}
 considerando que $X$ é a matriz da imagem de entrada, $W$ é a matriz do kernel e $S$ é o mapa de características resultante.
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.7\linewidth]{conv2.png}
     \caption{Exemplo de convolução bidimensional. A função $X(t)$ é convoluída com o \textit{kernel} $W(a)$ para produzir a saída $S(t)$.}
@@ -503,7 +502,7 @@ Na Figura \ref{conv2d} é ilustrado um exemplo de convolução bidimensional, on
 Em que $w_{out}$ e $h_{out}$ são a largura e a altura da imagem de saída, $w_{in}$ e $h_{in}$ são a largura e a altura da imagem de entrada, e $w_{kernel}$ e $h_{kernel}$ são a largura e a altura do \textit{kernel}, respectivamente. A Figura \ref{convolucao} mostra diferentes aplicações de \textit{kernels} em uma imagem.
 
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.7\linewidth]{convimg.jpg}
     \caption{Aplicações de diferentes \textit{kernels} em uma imagem. A imagem original é representada em (a), juntamente com o \textit{kernel} identidade, que não faz modificações. Em (b) a imagem passou por um \textit{kernel} que aumenta a nitidez reforçando o pixel central e aumentando a diferença dele em relação à sua vizinhança. Em (c) foi usado um \textit{kernel} de desfoque, que substitui um pixel pela média dele com seus vizinhos. A imagem em (d) é o resultado de aplicar na imagem em escala de cinza um \textit{kernel} que reforça suas linhas verticais, enquanto (e) reforça suas linhas horizontais. O \textit{kernel} em (f) reforça os contornos (bordas) da imagem.}
@@ -521,7 +520,7 @@ Em uma imagem com mais de um canal, como no caso de ma imagem RBG (vermelhor, ve
 \subsection{Padding}
 Durante a aplicação da convolução, é comum que a dimensão espacial (largura e altura) da imagem de saída seja menor do que a da imagem de entrada. Isso ocorre porque o \textit{kernel} não pode ser aplicado nas bordas da imagem sem ultrapassar seus limites. Para mitigar essa redução de dimensão, uma técnica chamada \textit{padding} é frequentemente utilizada. O padding envolve adicionar uma borda de pixels ao redor da imagem original antes de aplicar a convolução. Esses pixels adicionais podem ser preenchidos com zeros \textit{(zero-padding)} ou com valores replicados dos pixels mais próximos da borda da imagem original, \textit{(reflection padding)}. O uso de padding permite que o \textit{kernel} seja aplicado em todas as regiões da imagem, incluindo as bordas, preservando assim as dimensões espaciais da imagem de entrada na saída. 
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.7\linewidth]{padding.png}
     \caption{Aplicação de padding em uma imagem. Em (a) a imagem original passou por zero padding. Em (b) a imagem original passou por \textit{reflection padding}. A imagem em (c) passou por um padding constante, semelhante em (a), mas com valor diferente de zero.}
@@ -542,7 +541,7 @@ onde $w_{pad}$ e $h_{pad}$ são a quantidade de pixels adicionados como padding 
 \subsection{Pooling}
 O pooling é uma operação utilizada em redes neurais convolucionais para reduzir as dimensões espaciais (largura e altura) dos mapas de características, mantendo as informações mais relevantes. Essa redução ajuda a diminuir a complexidade computacional da rede, além de tornar o modelo mais robusto a pequenas variações na entrada, como translações e rotações. Existem diferentes tipos de operações de pooling, sendo as mais comuns o \textit{Max Pooling} e o \textit{Average Pooling}. A técnica de pooling substitui agrupamentos de pixels por um valor que os represente. A figura \ref{pooling} ilustra o funcionamento do max pooling de tamanho 2, em que os pixels são agrupados em quadrados de tamanho 2x2 e são substituídos pelo maior valor de intensidade de pixel do grupo.
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.5\linewidth]{pooling.png}
     \caption{Exemplo de Max Pooling com tamanho de 2x2. A imagem original é reduzida para a imagem menor após a aplicação do Max Pooling. Cada bloco de 2x2 pixels na imagem original é substituído pelo valor máximo dentro desse bloco na imagem reduzida.}
@@ -564,7 +563,7 @@ onde $s_w$ e $s_h$ são os valores do stride na largura e na altura, respectivam
 
 \subsection{Convolução Transposta}
 A convolução transposta, também conhecida como deconvolução ou convolução fracionária, é uma operação utilizada em redes neurais convolucionais para aumentar as dimensões espaciais (largura e altura) dos mapas de características. Essa operação é frequentemente empregada em tarefas de geração de imagens, onde o objetivo é reconstruir imagens a partir de representações compactas. A convolução transposta funciona de maneira inversa à convolução tradicional. Enquanto a convolução reduz as dimensões espaciais da imagem de entrada, a convolução transposta expande essas dimensões. Isso é alcançado aplicando o \textit{kernel} de convolução de forma que ele ``espalhe" os valores dos pixels da imagem de entrada para posições mais amplas na imagem de saída. A Figura \ref{deconvolucao} ilustra o processo pelo qual uma imagem $3\times3$ passa por uma convolução transposta de \textit{kernel} $3\times3$ e stride $1$ para gerar uma imagem $5\times5$.
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.7\linewidth]{deconvolucao.png}
     \caption{Convolução transposta. Uma convolução de \textit{kernel} 3x3 com stride 1 em uma imagem $5\times5$ geraria uma imagem de dimensões $3\times3$. A convolução transposta aplicada na imagem $3\times3$ (vermelha) para se obter uma imagem $5\times5$ (verde) é feita em duas etapas. Primeiramente (centro) se insere pixels de valor 0, representados pela cor cinza, entre os pixels da imagem original, juntamente com pixels de borda. Em seguida se faz uma convolução nessa imagem alterada também usando um \textit{kernel} 3x3 e stride 1.}
@@ -585,7 +584,7 @@ onde $s_w$ e $s_h$ são os valores do stride na largura e na altura, respectivam
 A figura \ref{cnn} apresenta uma arquitetura típica de uma Rede Neural Convolucional (CNN).
 \end{exemplo}
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/cnn.png}
     \caption{Arquitetura típica de uma Rede Neural Convolucional com uma camada de convolução e uma camada de pooling, em que é enviado para rede a imagem de um cachorro e é feita a classificação do objeto na imagem.}
@@ -593,11 +592,12 @@ A figura \ref{cnn} apresenta uma arquitetura típica de uma Rede Neural Convoluc
 \end{figure}
 
 \section{U-net}
+\label{sec:unet}
 Modificando a arquitetura tradicional de uma CNN, é possível obter variádas redes neurias com objetivos específicos. O uso típico de redes convolucionais ocorre em tarefas de classificação, onde o objetivo é atribuir uma etiqueta a uma imagem inteira. No entanto, em muitas tarefas visuais, especialmente no processamento de imagens biomédicas, a saída desejada deve incluir informações espaciais detalhadas, como a localização precisa de estruturas dentro da imagem. Para atender a essa necessidade, foi proposta a arquitetura U-Net \cite{Ronneberger2015UNet}, que é uma rede neural convolucional projetada para segmentação de imagens. A U-Net é composta por uma parte de contração (encoder) e uma parte de expansão (decoder), formando uma estrutura em forma de U. O encoder é responsável por extrair características da imagem de entrada, enquanto o decoder reconstrói a imagem segmentada, utilizando as características extraídas pelo encoder. A arquitetura U-Net é especialmente eficaz em tarefas de segmentação semântica, onde o objetivo é classificar cada pixel da imagem em uma categoria específica, permitindo a identificação precisa de objetos e estruturas dentro da imagem.
 
 Assim como no Exemplo \ref{cnn}, teriamos a parte de convolução e pooling para extrair as características da imagem e logo depois a parte de expansão para reconstruir a imagem segmentada, como podemos ver na Figura \ref{Unet}.
 
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
     \begin{subfigure}{0.9\linewidth}
         \centering

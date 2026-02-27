@@ -8,8 +8,9 @@ Esses três componentes, de forma resumida, formam o neurônio biológico, como 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\linewidth]{neuronio.png}
     \caption{Estrutura de um neurônio típico.}
+    \includegraphics[width=0.8\linewidth]{neuronio.png}
+     \caption*{\footnotesize Fonte: Adaptado de \cite{FisioHumana}.}
     \label{neuronio}
 \end{figure}
 
@@ -20,8 +21,9 @@ A partir das informações obtidas com o estudo do neurônio biológico, pesquis
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{neu_matematico.png}
     \caption{Modelo de uma unidade de McCulloch e Pitts.}
+    \includegraphics[width=0.7\linewidth]{neu_matematico.png}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{neu_matematico}
 \end{figure}
 
@@ -70,8 +72,9 @@ Em geral, o objetivo da função de ativação é limitar a saída de uma unidad
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.9\linewidth]{funcsativa.png}
     \caption{Gráficos das Funções de Ativação.}
+    \includegraphics[width=0.9\linewidth]{funcsativa.png}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ativ_func}
 \end{figure}
 
@@ -131,7 +134,7 @@ Como $y = 1 \neq \hat{y} = 0$, em que $\hat{y}$ é a resposta da rede, o Percept
 $$ C(w,b) = \frac{\sum_{i=1}^k(y_i - \hat{y}_i)^2}{n},$$
 em que $y_i$ é a resposta do dado de entrada  $x_i$ e $n$ representa a quantidade de dados presentes no conjunto de treinamento.
 
-O processo de treinamento ajusta iterativamente os pesos e o viés por meio do método da descida do gradiente, cujo objetivo é minimizar a função de custo. Esse método utiliza as derivadas parciais da função de custo em relação aos pesos e ao viés, o que indica a direção de maior crescimento da função. Para reduzir o erro, atualizam-se os parâmetros na direção oposta ao gradiente. As derivadas são:
+O processo de treinamento ajusta iterativamente os pesos e o viés por meio do método da Descida do Gradiente (SG - \textit{Gradient Descent}), cujo objetivo é minimizar a função de custo. Esse método utiliza as derivadas parciais da função de custo em relação aos pesos e ao viés, o que indica a direção de maior crescimento da função. Para reduzir o erro, atualizam-se os parâmetros na direção oposta ao gradiente. As derivadas são:
 
 \begin{align}
     \frac{\partial C(w,b)}{\partial w_i} = - 2\cdot\frac{\sum_{i=1}^k(y_i - \hat{y}_i) \cdot \sigma'(z)\cdot x_i}{n};\\
@@ -168,8 +171,9 @@ Inicializar os pesos $w_i$ e o viés $b$ com valores pequenos aleatórios\;
 A \textit{taxa de aprendizagem} ($\eta$) presente no algoritmo (\ref{alg:gradiente})  pode ser interpretada como o tamanho do passo dado em direção ao mínimo da função de custo. Quando o valor dessa taxa é muito pequeno, o processo de convergência torna-se mais lento, exigindo um número maior de iterações para atingir o mínimo. Por outro lado, se o passo for muito grande, o algoritmo pode ultrapassar o ponto de mínimo, dificultando ou até impedindo a convergência adequada, para o Exemplo \ref{ex1} é utilizada uma taxa de aprendizado de $0.1$.
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{gradientedes.png}
     \caption{Representação da taxa de aprendizagem.}
+    \includegraphics[width=0.7\linewidth]{gradientedes.png}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{gradiente}
 \end{figure}
 
@@ -197,6 +201,7 @@ As redes neurais são um ``encadeamento" de múltiplas unidades, onde a saída d
 
 \begin{figure}[htpb]
     \centering
+    \caption{Estrutura básica de uma unidade e uma rede neural com duas camadas ocultas.}
     \begin{subfigure}{0.3\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/perceptron.png}
@@ -210,8 +215,7 @@ As redes neurais são um ``encadeamento" de múltiplas unidades, onde a saída d
         \caption{Rede Neural com duas camadas ocultas.}
         \label{fig0:ex-b}
     \end{subfigure}
-
-    \caption{Estrutura básica de uma unidade e uma rede neural com duas camadas ocultas.}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{fig:ex-geral}
 \end{figure}
 \subsection{Arquiteturas de Redes Neurais}
@@ -230,6 +234,7 @@ Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar co
 
 \begin{figure}[htpb]
     \centering
+    \caption{Arquiteturas de Redes Neurais.}
     \begin{subfigure}{0.4\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/FNNs.png}
@@ -251,7 +256,7 @@ Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar co
         \label{fig:ex-c}
     \end{subfigure}
 
-    \caption{Arquiteturas de Redes Neurais.}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{arquiteturas}
 \end{figure}
 
@@ -288,9 +293,11 @@ A Figura \ref{backprop} ilustra mostra uma rede neural simples e a equação \re
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/rede_simples.png}
     \caption{Ilustração do processo de backpropagation em uma rede neural.}
+    \includegraphics[width=0.7\linewidth]{figures/rede_simples.png}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{backprop}
+    
 \end{figure}
 
 \begin{align}
@@ -302,9 +309,16 @@ em que $z_1$, $z_2$ e $z_3$ são as saídas das camadas intermediárias e $C(w,b
 \subsection{Gradiente Descendente Estocástico}
 O Gradiente Descendente Estocástico (SGD - Stochastic Gradient Descent) \cite{sebastianruder2016} é uma variação do método de descida do gradiente tradicional, amplamente utilizado no treinamento de redes neurais e outros modelos de aprendizado de máquina. A principal diferença entre o SGD e o método de descida do gradiente padrão é a forma como os gradientes são calculados e atualizados durante o treinamento. No método de descida do gradiente tradicional, os gradientes são calculados usando todo o conjunto de dados de treinamento, o que pode ser computacionalmente caro e demorado, especialmente para grandes conjuntos de dados. Em contraste, o SGD calcula os gradientes usando apenas uma amostra aleatória (ou um pequeno lote) do conjunto de dados em cada iteração. Isso torna o processo de atualização dos pesos mais rápido e eficiente, permitindo que o modelo aprenda mais rapidamente.
 
-A Figura \ref{sgd} ilustra a diferença entre o método de descida do gradiente tradicional e o Gradiente Descendente Estocástico, em que cada seta preta indica uma atualização dos pesos do modelo:
+A Figura \ref{sgd} ilustra a diferença entre o método de descida do gradiente tradicional e o Gradiente Descendente Estocástico, em que cada seta preta indica uma atualização dos pesos do modelo.
 \begin{figure}[htpb]
     \centering
+     \caption{Comparação entre o método de descida do gradiente tradicional e o Gradiente Descendente Estocástico.}   
+    \begin{subfigure}{0.6\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/lote.png}
+        \caption{Separando em Lotes o banco de dados para o SGD.}
+        \label{fig:lote}
+    \end{subfigure}
     \begin{subfigure}{0.4\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/SG.png}
@@ -318,27 +332,49 @@ A Figura \ref{sgd} ilustra a diferença entre o método de descida do gradiente 
         \caption{Gradiente Descendente Estocástico (SGD).}
         \label{fig:sgd}
     \end{subfigure}
-
-    \caption{Comparação entre o método de descida do gradiente tradicional e o Gradiente Descendente Estocástico.}
+    \footnotesize
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{sgd}
 \end{figure}
 
 Apesar da Descida do Gradiente padrão fornecer uma direção mais precisa para o mínimo global da função de custo, o SGD é capaz de chegar próximo do mínimo de forma mais rápida e eficiente, especialmente em grandes conjuntos de dados.
-Fazendo uma comparação entre os dois métodos, temos:
+Fazendo uma comparação entre os dois métodos, obtem-se a Tabela \ref{tab:comparacao}.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{p{4cm}p{4cm}}
+        \hline
+        SG & SGD \\
+        \hline
+        Mais demorado & Mais rápido \\
+        \hline
+        Mais preciso & Menos preciso \\
+        \hline
+        Menos eficiente & Mais eficiente \\
+        \hline
+        Melhor para pequenos conjuntos de dados & Melhor para grandes conjuntos de dados \\
+        \hline
+    \end{tabular}
+    \caption{Comparação entre o método de descida do gradiente tradicional e o Gradiente Descendente Estocástico.}
+    \label{tab:comparacao}
+\end{table}
 
 
 \section{Overfitting}
 \label{overfitting}
-O Overfitting \cite{overfitting} (do ingles ¨Sobreajuste¨ ou ¨Ajuste Excessivo¨) é um problema comum em aprendizado de máquina, onde um modelo aprende os detalhes e o ruído dos dados de \mbox{treinamento} a tal ponto que ele se torna incapaz de generalizar para novos dados. Isso significa que o modelo tem um desempenho excelente nos dados de treinamento, mas falha ao fazer previsões precisas em dados não vistos anteriormente. O overfitting ocorre quando o modelo é muito complexo em relação à quantidade e qualidade dos dados disponíveis para treinamento. Modelos com muitos parâmetros, como redes neurais profundas, são particularmente suscetíveis ao overfitting, especialmente quando o conjunto de dados de treinamento é pequeno ou contém ruído significativo.
+\textcolor{red}{Parei a correção aqui}
+O \textit{Overfitting} \cite{overfitting} (do inglês ``Sobreajuste" ou ``Ajuste Excessivo") é um problema comum em aprendizado de máquina, onde um modelo aprende os detalhes e o ruído dos dados de \mbox{treinamento} a tal ponto que ele se torna incapaz de generalizar para novos dados. Isso significa que o modelo tem um desempenho excelente nos dados de treinamento, mas falha ao fazer previsões precisas em dados não vistos anteriormente. 
 
-\subsection{Hyperparâmetros}
+O overfitting ocorre quando o modelo é muito complexo em relação à quantidade e qualidade dos dados disponíveis para treinamento. Modelos com muitos parâmetros, como redes neurais profundas, são particularmente suscetíveis ao overfitting, especialmente quando o conjunto de dados de treinamento é pequeno ou contém ruído significativo.
+
+\subsection{Hiperparâmetros}
 Um algoritmo de aprendizado pode ser visto como uma função que recebe dados de treinamento como entrada e produz como saída uma função ou modelo (i.e um conjunto de funções). No entando, na prática muitos algoritmos de aprendizado possuem parâmetros adicionais que não são aprendidos diretamente a partir dos dados de treinamento, mas que influenciam o processo de aprendizado. Esses parâmetros são chamados de \textit{hiperparâmetros} \cite{yoshuabengio2012} e sua escolha adequada é crucial para o desempenho do modelo. Alguns exemplos comuns de hiperparâmetros incluem:
 \begin{itemize}
     \item \textit{Taxa de Aprendizado}: Controla o tamanho dos passos dados durante a atualização dos pesos do modelo. Uma taxa de aprendizado muito alta pode levar a oscilações e impedir a convergência, enquanto uma taxa muito baixa pode resultar em um processo de treinamento lento. Valores típicos para a taxa de aprendizado variam entre $0.001$ e $0.1$, dependendo do problema e do algoritmo utilizado.
     
-    \item \textit{Número de Épocas}: Define quantas vezes o algoritmo de aprendizado passará por todo o conjunto de dados de treinamento. Um número muito alto pode levar ao overfitting, enquanto um número muito baixo pode resultar em underfitting (subajuste). Uma técnica comum para determinar o número ideal de épocas é o uso do \textit{Early Stopping} (do ingles Parada Antecipada), que monitora o desempenho do modelo em um conjunto de validação e interrompe o treinamento quando o desempenho começa a piorar.
+    \item \textit{Número de Épocas}: Define quantas vezes o algoritmo de aprendizado passará por todo o conjunto de dados de treinamento. Um número muito alto pode levar ao overfitting, enquanto um número muito baixo pode resultar em underfitting (subajuste). Uma técnica comum para determinar o número ideal de épocas é o uso do \textit{Early Stopping} (do inglês Parada Antecipada), que monitora o desempenho do modelo em um conjunto de validação e interrompe o treinamento quando o desempenho começa a piorar.
     
-    \item \textit{Tamanho do Lote (Batch Size)}: Refere-se ao número de amostras de dados usadas para calcular o gradiente em cada iteração do treinamento. Tamanhos de lote menores podem levar a atualizações mais ruidosas, enquanto tamanhos maiores podem resultar em um treinamento mais estável, mas mais lento. Os valores escolhidos geralmente variam entre $1$ e $32$, sendo que vaores acima de $10$ tiram proveito da Unidade Central de Processamento - CPU e da Unidade de Processamento Gráfico - GPU, que oferece ganho de velocidade dos produtos matriz-matriz em relação aos produtos matriz-vetor.
+    \item \textit{Tamanho do Lote (Batch Size)}: Refere-se ao número de amostras de dados usadas para calcular o gradiente em cada iteração do treinamento. Tamanhos de lote menores podem levar a atualizações mais ruidosas, enquanto tamanhos maiores podem resultar em um treinamento mais estável, embora mais lento. Os valores escolhidos geralmente variam entre $1$ e $32$, sendo que valores acima de $10$ tiram proveito da Unidade Central de Processamento - CPU e da Unidade de Processamento Gráfico - GPU, que oferece ganho de velocidade dos produtos matriz-matriz em relação aos produtos matriz-vetor.
     
     \item \textit{Arquitetura do Modelo}: Inclui o número de camadas, o número de unidades em cada camada e o tipo de funções de ativação utilizadas. Modelos mais complexos podem capturar padrões mais sofisticados, mas também são mais propensos ao overfitting.
 \end{itemize}
@@ -346,13 +382,13 @@ Um algoritmo de aprendizado pode ser visto como uma função que recebe dados de
 \subsection{Regularização}
 A regularização é uma técnica utilizada para prevenir o overfitting em modelos de aprendizado de máquina, adicionando uma penalidade à função de custo que o modelo tenta minimizar durante o treinamento. Essa penalidade incentiva o modelo a manter os pesos dos parâmetros pequenos, o que ajuda a evitar que ele se ajuste excessivamente aos dados de treinamento. Existem várias técnicas de regularização, sendo as mais comuns:
 \begin{itemize}
-    \item \textit{Regularização L1 (Lasso)}: Adiciona uma penalidade proporcional à soma dos valores absolutos dos pesos dos parâmetros à função de custo. Isso pode levar a soluções esparsas, onde alguns pesos são reduzidos a zero, efetivamente removendo certas características do modelo. A equação da função de custo com regularização L1 é dada por:
+    \item \textit{Regularização L1 (Norma 1)}: Adiciona uma penalidade proporcional à soma dos valores absolutos dos pesos dos parâmetros à função de custo. Isso pode levar a soluções esparsas, onde alguns pesos são reduzidos a zero, efetivamente removendo certas características do modelo. A equação da função de custo com regularização L1 é dada por:
     \begin{equation}
         C(w,b) = C_0(w,b) + \frac{\lambda}{n} \sum_{i} |w_i|,
     \end{equation}
     em que $C_0(w,b)$ é a função de custo original, $\lambda$ é o parâmetro de regularização que controla a força da penalidade, e $w_i$ são os pesos dos parâmetros do modelo e $n$ é o número de amostras no conjunto de dados.
     
-    \item \textit{Regularização L2 (Ridge)}: Adiciona uma penalidade proporcional à soma dos quadrados dos pesos dos parâmetros à função de custo. Isso incentiva o modelo a distribuir os pesos de forma mais uniforme, evitando que alguns pesos se tornem muito grandes. A equação da função de custo com regularização L2 é dada por:
+    \item \textit{Regularização L2 (Norma 2)}: Adiciona uma penalidade proporcional à soma dos quadrados dos pesos dos parâmetros à função de custo. Isso incentiva o modelo a distribuir os pesos de forma mais uniforme, evitando que alguns pesos se tornem muito grandes. A equação da função de custo com regularização L2 é dada por:
     \begin{equation}
         C(w,b) = C_0(w,b) + \frac{\lambda}{n} \sum_{i} w_i^2,
     \end{equation}
@@ -361,16 +397,18 @@ A regularização é uma técnica utilizada para prevenir o overfitting em model
     \item \textit{Dropout}: Durante o treinamento, essa técnica desativa aleatoriamente uma fração das unidades em cada camada da rede neural. Isso força a rede a aprender representações mais robustas e reduz a dependência de unidades específicas, ajudando a prevenir o overfitting. Em termos gerais, ao aplicar o dropout estamos treinando uma coleção de sub-redes dentro da rede original, o que promove a generalização do modelo.
     \begin{figure}[htpb]
         \centering
-        \includegraphics[width=0.7\linewidth]{img_dropout.png}
         \caption{Ilustração do Dropout removendo 60\% das unidades aleatoriamente durante uma época de treinamento.}
+        \includegraphics[width=0.7\linewidth]{img_dropout.png}
+        \caption*{\footnotesize Fonte: Elaboração do Autor.}
         \label{dropout}
     \end{figure}
     
-    \item \textit{Early Stopping}: Como  Monitora o desempenho do modelo em um conjunto de validação durante o treinamento e interrompe o processo quando o desempenho começa a piorar. Isso evita que o modelo continue a se ajustar aos dados de treinamento além do ponto ideal. Como ilustrado na Figura \ref{earlystopping}, o ponto de parada ideal é onde a acurácia na validação começa a diminuir, indicando o início do overfitting.
+    \item \textit{Early Stopping}: Monitora o desempenho do modelo em um conjunto de validação durante o treinamento e interrompe o processo quando o desempenho começa a piorar. Isso evita que o modelo continue a se ajustar aos dados de treinamento além do ponto ideal. Como ilustrado na Figura \ref{earlystopping}, o ponto de parada ideal é onde a acurácia na validação começa a diminuir, indicando o início do overfitting.
     \begin{figure}[htpb]
         \centering
-        \includegraphics[width=0.7\linewidth]{earlystopping.png}
         \caption{Ilustração do Early Stopping.}
+        \includegraphics[width=0.7\linewidth]{earlystopping.png}
+        \caption*{\footnotesize Fonte: Elaboração do Autor.}
         \label{earlystopping}
     \end{figure}
 \end{itemize}
@@ -406,8 +444,9 @@ Durante o processo de backpropagation, o gradiente da função de custo em rela�
 \end{exemplo}
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.5\linewidth]{sigmoid_prime.png}
     \caption{Gráfico da derivada da função sigmoid logística.}
+    \includegraphics[width=0.5\linewidth]{sigmoid_prime.png}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{sigmoide}
 \end{figure}
 
@@ -432,8 +471,9 @@ Uma imagem virtual é uma representação visual de um objeto, cena ou conceito,
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.6\linewidth]{matriz_escala_cinza.png}
     \caption{Exemplo de uma imagem/matriz $10\times10$ em escala de cinza, onde cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco).}
+    \includegraphics[width=0.6\linewidth]{matriz_escala_cinza.png}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{img_cinza}
 \end{figure}
 
@@ -442,8 +482,9 @@ Para exemplicar o funcionamento de como uma rede neural faz o reconhecimento de 
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{mnist.png}
     \caption{Exemplos de dígitos manuscritos do conjunto de dados MNIST.}
+    \includegraphics[width=0.7\linewidth]{mnist.png}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{mnist}
 \end{figure}
 
@@ -484,8 +525,9 @@ considerando que $X$ é a matriz da imagem de entrada, $W$ é a matriz do kernel
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{conv2.png}
     \caption{Exemplo de convolução bidimensional. A função $X(t)$ é convoluída com o \textit{kernel} $W(a)$ para produzir a saída $S(t)$.}
+    \includegraphics[width=0.7\linewidth]{conv2.png}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{conv2d}
 \end{figure}
 
@@ -504,8 +546,10 @@ Em que $w_{out}$ e $h_{out}$ são a largura e a altura da imagem de saída, $w_{
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{convimg.jpg}
     \caption{Aplicações de diferentes \textit{kernels} em uma imagem. A imagem original é representada em (a), juntamente com o \textit{kernel} identidade, que não faz modificações. Em (b) a imagem passou por um \textit{kernel} que aumenta a nitidez reforçando o pixel central e aumentando a diferença dele em relação à sua vizinhança. Em (c) foi usado um \textit{kernel} de desfoque, que substitui um pixel pela média dele com seus vizinhos. A imagem em (d) é o resultado de aplicar na imagem em escala de cinza um \textit{kernel} que reforça suas linhas verticais, enquanto (e) reforça suas linhas horizontais. O \textit{kernel} em (f) reforça os contornos (bordas) da imagem.}
+    \includegraphics[width=0.7\linewidth]{convimg.jpg}
+    \caption*{\footnotesize Fonte: Adaptado de \cite{medium}}.
+    
     \label{convolucao}
 \end{figure}
 
@@ -515,15 +559,16 @@ Normalmente os \textit{kernels} são muito menores do que as imagens, e através
 Em CNNs, normalmente consideramos a convolução como uma camada da rede, e cada camada normalmente possui múltiplos \textit{kernels}, produzindo a mesma quantidade de mapas de atributos, cada um responsável por extrair diferentes características da imagem de entrada. Durante o treinamento da rede, os valores dos \textit{kernels} são ajustados para otimizar a capacidade da rede de reconhecer padrões específicos nas imagens. Por exemplo, uma camada convolucional com $3 \ kernels$ que recebe como entrada uma imagem em escala de cinza de dimensões \textbf{$(w_{in}\times h_{in}\times 1)$} produzirá uma saída com dimensões \textbf{$(w_{out}\times h_{out}\times 3)$}, onde $w_{out}$ e $h_{out}$ são calculados conforme as fórmulas apresentadas em \ref{largura_conv} e \ref{altura_conv}. A saída não é mais uma imagem comum, mas sim um conjunto de três mapas de características, cada um representando a resposta da imagem de entrada a um dos três \textit{kernels} aplicados. Encadeando os mapas de atributos, a rede pode aprender representações hierárquicas das características presentes nas imagens, desde bordas e texturas simples até formas e objetos mais complexos. 
 
 \subsection{\textit{Kernel} Multicamadas}
-Em uma imagem com mais de um canal, como no caso de ma imagem RBG (vermelhor, verde, azul) do ingles \textit{(Red, Green, Blue)}, a convolução acontece com um \textit{kernel} em cada canal da imagem, um conjunto de canais é chamado de filtro. Por exemplo, considere uma imagem RGB de dimensões \textbf{$(w_{in}\times h_{in}\times 3)$} e um \textit{kernel} de dimensões \textbf{$(k_w\times k_h\times 3)$}. A convolução é realizada separadamente em cada canal (vermelho, verde e azul) da imagem, utilizando o respectivo canal do \textit{kernel}. Após a aplicação do \textit{kernel} em cada canal, os resultados são somados ou é aplicada uma média para produzir um único mapa de características. Portanto, a saída da convolução terá dimensões \textbf{$(w_{out}\times h_{out}\times 1)$}, onde $w_{out}$ e $h_{out}$ são calculados conforme as fórmulas apresentadas em \ref{largura_conv} e \ref{altura_conv}.
+Em uma imagem com mais de um canal, como no caso de ma imagem RBG (vermelhor, verde, azul) do inglês \textit{(Red, Green, Blue)}, a convolução acontece com um \textit{kernel} em cada canal da imagem, um conjunto de canais é chamado de filtro. Por exemplo, considere uma imagem RGB de dimensões \textbf{$(w_{in}\times h_{in}\times 3)$} e um \textit{kernel} de dimensões \textbf{$(k_w\times k_h\times 3)$}. A convolução é realizada separadamente em cada canal (vermelho, verde e azul) da imagem, utilizando o respectivo canal do \textit{kernel}. Após a aplicação do \textit{kernel} em cada canal, os resultados são somados ou é aplicada uma média para produzir um único mapa de características. Portanto, a saída da convolução terá dimensões \textbf{$(w_{out}\times h_{out}\times 1)$}, onde $w_{out}$ e $h_{out}$ são calculados conforme as fórmulas apresentadas em \ref{largura_conv} e \ref{altura_conv}.
 
 \subsection{Padding}
 Durante a aplicação da convolução, é comum que a dimensão espacial (largura e altura) da imagem de saída seja menor do que a da imagem de entrada. Isso ocorre porque o \textit{kernel} não pode ser aplicado nas bordas da imagem sem ultrapassar seus limites. Para mitigar essa redução de dimensão, uma técnica chamada \textit{padding} é frequentemente utilizada. O padding envolve adicionar uma borda de pixels ao redor da imagem original antes de aplicar a convolução. Esses pixels adicionais podem ser preenchidos com zeros \textit{(zero-padding)} ou com valores replicados dos pixels mais próximos da borda da imagem original, \textit{(reflection padding)}. O uso de padding permite que o \textit{kernel} seja aplicado em todas as regiões da imagem, incluindo as bordas, preservando assim as dimensões espaciais da imagem de entrada na saída. 
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{padding.png}
     \caption{Aplicação de padding em uma imagem. Em (a) a imagem original passou por zero padding. Em (b) a imagem original passou por \textit{reflection padding}. A imagem em (c) passou por um padding constante, semelhante em (a), mas com valor diferente de zero.}
+    \includegraphics[width=0.7\linewidth]{padding.png}
+    \caption*{\footnotesize Fonte: Adaptado de \cite{medium}.}
     \label{padding}
 \end{figure}
 
@@ -543,8 +588,9 @@ O pooling é uma operação utilizada em redes neurais convolucionais para reduz
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.5\linewidth]{pooling.png}
     \caption{Exemplo de Max Pooling com tamanho de 2x2. A imagem original é reduzida para a imagem menor após a aplicação do Max Pooling. Cada bloco de 2x2 pixels na imagem original é substituído pelo valor máximo dentro desse bloco na imagem reduzida.}
+    \includegraphics[width=0.5\linewidth]{pooling.png}
+    \caption*{\footnotesize Fonte: Adaptado de \cite{medium}.}
     \label{pooling}
 \end{figure}
 
@@ -565,8 +611,9 @@ onde $s_w$ e $s_h$ são os valores do stride na largura e na altura, respectivam
 A convolução transposta, também conhecida como deconvolução ou convolução fracionária, é uma operação utilizada em redes neurais convolucionais para aumentar as dimensões espaciais (largura e altura) dos mapas de características. Essa operação é frequentemente empregada em tarefas de geração de imagens, onde o objetivo é reconstruir imagens a partir de representações compactas. A convolução transposta funciona de maneira inversa à convolução tradicional. Enquanto a convolução reduz as dimensões espaciais da imagem de entrada, a convolução transposta expande essas dimensões. Isso é alcançado aplicando o \textit{kernel} de convolução de forma que ele ``espalhe" os valores dos pixels da imagem de entrada para posições mais amplas na imagem de saída. A Figura \ref{deconvolucao} ilustra o processo pelo qual uma imagem $3\times3$ passa por uma convolução transposta de \textit{kernel} $3\times3$ e stride $1$ para gerar uma imagem $5\times5$.
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{deconvolucao.png}
     \caption{Convolução transposta. Uma convolução de \textit{kernel} 3x3 com stride 1 em uma imagem $5\times5$ geraria uma imagem de dimensões $3\times3$. A convolução transposta aplicada na imagem $3\times3$ (vermelha) para se obter uma imagem $5\times5$ (verde) é feita em duas etapas. Primeiramente (centro) se insere pixels de valor 0, representados pela cor cinza, entre os pixels da imagem original, juntamente com pixels de borda. Em seguida se faz uma convolução nessa imagem alterada também usando um \textit{kernel} 3x3 e stride 1.}
+    \includegraphics[width=0.7\linewidth]{deconvolucao.png}
+    \caption*{\footnotesize Fonte: Adaptado de \cite{medium}.}
     \label{deconvolucao}
 \end{figure}
 
@@ -586,8 +633,9 @@ A figura \ref{cnn} apresenta uma arquitetura típica de uma Rede Neural Convoluc
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/cnn.png}
     \caption{Arquitetura típica de uma Rede Neural Convolucional com uma camada de convolução e uma camada de pooling, em que é enviado para rede a imagem de um cachorro e é feita a classificação do objeto na imagem.}
+    \includegraphics[width=0.7\linewidth]{figures/cnn.png}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{cnn}
 \end{figure}
 
@@ -599,6 +647,7 @@ Assim como no Exemplo \ref{cnn}, teriamos a parte de convolução e pooling para
 
 \begin{figure}[htpb]
     \centering
+    \caption{Arquitetura da U-Net, composta por uma parte de contração (encoder) e uma parte de expansão (decoder). O encoder extrai características da imagem de entrada, enquanto o decoder reconstrói a imagem segmentada.}
     \begin{subfigure}{0.9\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/unet1.png  }
@@ -612,8 +661,8 @@ Assim como no Exemplo \ref{cnn}, teriamos a parte de convolução e pooling para
         \caption{Decoder da U-Net que reconstrói a imagem segmentada utilizando as características extraídas pelo encoder.}
         \label{fig:unet-decoder}
     \end{subfigure}
-
-    \caption{Arquitetura da U-Net, composta por uma parte de contração (encoder) e uma parte de expansão (decoder). O encoder extrai características da imagem de entrada, enquanto o decoder reconstrói a imagem segmentada.}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
+    
     \label{Unet}
 \end{figure}
 

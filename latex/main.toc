@@ -1,0 +1,32 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {chapter}{Agradecimentos}{4}{chapter*.1}%
+\contentsline {chapter}{Resumo}{5}{chapter*.2}%
+\contentsline {chapter}{Lista de Figuras}{8}{chapter*.3}%
+\contentsline {chapter}{Lista de Tabelas}{9}{chapter*.4}%
+\contentsline {chapter}{Introdução}{12}{chapter*.6}%
+\contentsline {chapter}{\numberline {1}Fundamentação Teórica}{13}{chapter.1}%
+\contentsline {subsection}{\numberline {1.0.1}Unidade/Neurônio}{13}{subsection.1.0.1}%
+\contentsline {subsection}{\numberline {1.0.2}Neurônio Biológico}{13}{subsection.1.0.2}%
+\contentsline {subsection}{\numberline {1.0.3}Unidade}{14}{subsection.1.0.3}%
+\contentsline {subsection}{\numberline {1.0.4} Tipos de Função de Ativação}{15}{subsection.1.0.4}%
+\contentsline {subsection}{\numberline {1.0.5}Perceptron e Algorítmo de Aprendizagem}{16}{subsection.1.0.5}%
+\contentsline {section}{\numberline {1.1}Redes Neurais}{19}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Arquiteturas de Redes Neurais}{19}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Backpropagation}{20}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Gradiente Descendente Estocástico}{23}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Overfitting}{23}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Hiperparâmetros}{25}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Regularização}{26}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Momentum}{26}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Vanishing Gradient}{28}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Córtex Visual Humano e Visão Computacional}{29}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Dígitos Manuscritos}{30}{subsection.1.2.6}%
+\contentsline {section}{\numberline {1.3}Redes Neurais Convolucionais}{32}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Convolução}{32}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}\textit {Kernel} Multicamadas}{35}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Padding}{35}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Pooling}{36}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}Stride}{36}{subsection.1.3.5}%
+\contentsline {subsection}{\numberline {1.3.6}Convolução Transposta}{37}{subsection.1.3.6}%
+\contentsline {section}{\numberline {1.4}U-net}{38}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Copy and Crop}{39}{subsection.1.4.1}%

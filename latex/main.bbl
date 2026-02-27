@@ -1,82 +1,88 @@
-\begin{thebibliography}{10}
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
 
-\bibitem{neurociencias}
-Mark~F. Bear, Barry~W. Connors, and Michael~A. Paradiso.
-\newblock {\em Neurociências: desvendando o sistema nervoso}.
-\newblock Artmed, Porto Alegre, 4 edition, 2017.
+\bibitem[Bear, Connors e Paradiso 2017]{neurociencias}
+\abntrefinfo{Bear, Connors e Paradiso}{BEAR; CONNORS; PARADISO}{2017}
+{BEAR, M.~F.; CONNORS, B.~W.; PARADISO, M.~A. \emph{Neurociências: desvendando o sistema nervoso}. 4. ed. Porto Alegre: Artmed, 2017.
+ISBN 9788582713091.}
 
-\bibitem{yoshuabengio2012}
-Yoshua Bengio.
-\newblock Practical recommendations for gradient-based training of deep architectures.
-\newblock {\em Cornell University}, (Version 2), 2012.
+\bibitem[Bengio 2012]{yoshuabengio2012}
+\abntrefinfo{Bengio}{BENGIO}{2012}
+{BENGIO, Y. Practical recommendations for gradient-based training of deep architectures.
+\emph{Cornell University}, n. Version 2, 2012.}
 
-\bibitem{Crevier1993AI}
-Daniel Crevier.
-\newblock {\em AI: The Tumultuous History of the Search for Artificial Intelligence}.
-\newblock Basic Books, New York, 1993.
+\bibitem[Crevier 1993]{Crevier1993AI}
+\abntrefinfo{Crevier}{CREVIER}{1993}
+{CREVIER, D. \emph{AI: The Tumultuous History of the Search for Artificial Intelligence}. New York: Basic Books, 1993.
+ISBN 0-465-02997-3.}
 
-\bibitem{overfitting}
-{Deep Learning Book}.
-\newblock Capítulo 19 – overfitting e regularização – parte 1, 2025.
-\newblock Acessado: 2026-01-26.
+\bibitem[{Deep Learning Book} 2025]{overfitting}
+\abntrefinfo{{Deep Learning Book}}{{Deep Learning Book}}{2025}
+{{Deep Learning Book}. \emph{Capítulo 19: Overfitting e Regularização: Parte 1}. 2025.
+Acessado: 2026-01-26.
+Dispon{\'\i}vel em: $<$https://www.deeplearningbook.com.br/overfitting-e-regularizacao-parte-1/$>$.}
 
-\bibitem{hechtnielsen1992}
-Robert Hecht-Nielsen.
-\newblock Theory of the backpropagation neural network.
-\newblock {\em Academic Press}, 1992.
+\bibitem[Hecht-Nielsen 1992]{hechtnielsen1992}
+\abntrefinfo{Hecht-Nielsen}{HECHT-NIELSEN}{1992}
+{HECHT-NIELSEN, R. Theory of the backpropagation neural network.
+\emph{Academic Press}, 1992.}
 
-\bibitem{Muller2008ReviewBoden}
-Vincent~C. M{\"u}ller.
-\newblock Review of margaret boden, "mind as machine: A history of cognitive science".
-\newblock {\em Minds and Machines}, 18(1):121--125, 2008.
+\bibitem[McCulloch 1943]{warrenpits}
+\abntrefinfo{McCulloch}{MCCULLOCH}{1943}
+{MCCULLOCH, W.~P. W.~S. A logical calculus of the ideas immanent in nervous activity.
+\emph{Bulletin of Mathematical Biophysics}, 1943.}
 
-\bibitem{Ronneberger2015UNet}
-Olaf Ronneberger, Philipp Fischer, and Thomas Brox.
-\newblock U-net: Convolutional networks for biomedical image segmentation.
-\newblock In {\em Medical Image Computing and Computer-Assisted Intervention -- MICCAI 2015}, pages 234--241, Munich, Germany, 2015. Springer.
+\bibitem[M{\"u}ller 2008]{Muller2008ReviewBoden}
+\abntrefinfo{M{\"u}ller}{M{\"U}LLER}{2008}
+{M{\"U}LLER, V.~C. Review of margaret boden, "mind as machine: A history of cognitive science".
+\emph{Minds and Machines}, Springer, v.~18, n.~1, p. 121--125, 2008.}
 
-\bibitem{rosemblatt}
-Frank Rosenblatt.
-\newblock The perceptron: A probabilistic model for information storage and organization in the brain.
-\newblock {\em Psychological Review}, 1958.
+\bibitem[Ronneberger, Fischer e Brox 2015]{Ronneberger2015UNet}
+\abntrefinfo{Ronneberger, Fischer e Brox}{RONNEBERGER; FISCHER; BROX}{2015}
+{RONNEBERGER, O.; FISCHER, P.; BROX, T. U-net: Convolutional networks for biomedical image segmentation. In:  \emph{Medical Image Computing and Computer-Assisted Intervention -- MICCAI 2015}. Munich, Germany: Springer, 2015. p. 234--241.}
 
-\bibitem{sebastianruder2016}
-Sebastian Ruder.
-\newblock An overview of gradient descent optimization algorithms.
-\newblock {\em Insight Centre for Data Analytics, NUI Galway Aylien Ltd., Dublin}, 2016.
+\bibitem[Rosenblatt 1958]{rosemblatt}
+\abntrefinfo{Rosenblatt}{ROSENBLATT}{1958}
+{ROSENBLATT, F. The perceptron: A probabilistic model for information storage and organization in the brain.
+\emph{Psychological Review}, 1958.}
 
-\bibitem{FisioHumana}
-Cindy~L. Stanfield.
-\newblock {\em Fisiologia Humana}.
-\newblock Pearson Education do Brasil, 2014.
+\bibitem[Ruder 2016]{sebastianruder2016}
+\abntrefinfo{Ruder}{RUDER}{2016}
+{RUDER, S. An overview of gradient descent optimization algorithms.
+\emph{Insight Centre for Data Analytics, NUI Galway Aylien Ltd., Dublin}, 2016.}
 
-\bibitem{momentum}
-Ilya Sutskever.
-\newblock On the importance of initialization and momentum in deep learning.
-\newblock {\em International Conference on Machine Learning}, 2013.
+\bibitem[Stanfield 2014]{FisioHumana}
+\abntrefinfo{Stanfield}{STANFIELD}{2014}
+{STANFIELD, C.~L. \emph{Fisiologia Humana}. [S.l.]: Pearson Education do Brasil, 2014.}
 
-\bibitem{szeliski2010}
-Richard Szeliski.
-\newblock {\em Computer Vision: Algorithms and Applications}.
-\newblock Springer, 2010.
+\bibitem[Sutskever 2013]{momentum}
+\abntrefinfo{Sutskever}{SUTSKEVER}{2013}
+{SUTSKEVER, I. On the importance of initialization and momentum in deep learning.
+\emph{International Conference on Machine Learning}, 2013.}
 
-\bibitem{medium}
-{Vinícius Trevisan}.
-\newblock Como funcionam as redes neurais convolucionais (cnns), 2021.
-\newblock Acessado: 2025-12-16.
+\bibitem[Szeliski 2010]{szeliski2010}
+\abntrefinfo{Szeliski}{SZELISKI}{2010}
+{SZELISKI, R. \emph{Computer Vision: Algorithms and Applications}. [S.l.]: Springer, 2010.}
 
-\bibitem{warrenpits}
-Walter~Pitts Warren S.~McCulloch.
-\newblock A logical calculus of the ideas immanent in nervous activity.
-\newblock {\em Bulletin of Mathematical Biophysics}, 1943.
+\bibitem[{Vinícius Trevisan} 2021]{medium}
+\abntrefinfo{{Vinícius Trevisan}}{{Vinícius Trevisan}}{2021}
+{{Vinícius Trevisan}. \emph{Como funcionam as Redes Neurais Convolucionais (CNNs)}. 2021.
+Acessado: 2025-12-16.
+Dispon{\'\i}vel em: $<$https://medium.com/data-hackers/como-funcionam-as-redes-neurais-convolucionais-cnns-71978185c1$>$.}
 
-\bibitem{paulwerbos}
-Paul~J. Werbos.
-\newblock Backpropagation through time: What it does and how to do it, 1990.
+\bibitem[Werbos 1990]{paulwerbos}
+\abntrefinfo{Werbos}{WERBOS}{1990}
+{WERBOS, P.~J. Backpropagation through time: What it does and how to do it.
+\emph{PROCEEDINGS OF THE IEEE}, 1990.}
 
-\bibitem{mnist}
-{Yann LeCun}.
-\newblock The mnist database of handwritten digits, 1998.
-\newblock Acessado: 2026-02-22.
+\bibitem[{Yann LeCun} 1998]{mnist}
+\abntrefinfo{{Yann LeCun}}{{Yann LeCun}}{1998}
+{{Yann LeCun}. \emph{The MNIST Database of Handwritten Digits}. 1998.
+Acessado: 2026-02-22.
+Dispon{\'\i}vel em: $<$http://yann.lecun.com/exdb/mnist/$>$.}
 
 \end{thebibliography}

@@ -17,7 +17,16 @@ Esses três componentes, de forma resumida, formam o neurônio biológico, como 
 Outro fator importante em um neurônio biológico são os potenciais de ação, gerados nos dendritos, são avaliados e ponderados por meio da \textit{força sináptica} \cite{neurociencias}, que nos diz o quão importante a informação. Após esse processo, são enviados para o núcleo celular. Entre o corpo celular e o axônio será decidido se o potencial é excitatório ou inibitório. A decisão é feita caso o potencial de ação supere ou não um \textit{limiar}. Caso seja excitatório, a informação é passada a diante, caso seja inibitório,  a informação é suprimida.
 
 \subsection{Unidade}
-A partir das informações obtidas com o estudo do neurônio biológico, pesquisadores tentaram simular seu funcionamento em computador. A implementação mais bem aceita de simulação foi proposta por dois pesquisadores, o neurobiologista Warren McCulloch e o matematico Walter Pitts em 1943 em \cite{warrenpits} que utilizaram-se da lógica proposicional para descrever o fuincionamento do sistema nervoso central \ref{neu_matematico}. McCulloch acreditava que o neurônio bilógico tinha uma natureza binária, ou seja, um neurônio influência outro ou não, entretanto, posteriormente essa crença mostrou-se errônea com os avanços de estudos na área.  
+\label{unidade}
+A partir das informações obtidas com o estudo do neurônio biológico, pesquisadores tentaram simular seu funcionamento em computador. A implementação mais bem aceita de simulação foi proposta por dois pesquisadores, o neurobiologista Warren McCulloch e o matematico Walter Pitts em 1943 em \cite{warrenpits} que utilizaram-se da lógica proposicional para descrever o funcionamento do sistema nervoso central, Figura \ref{neu_matematico}. McCulloch acreditava que o neurônio bilógico tinha uma natureza binária, ou seja, um neurônio influência outro ou não, entretanto, posteriormente essa crença mostrou-se errônea com os avanços de estudos na área.  
+
+
+
+As variáveis $x_1, x_2, x_3, \cdots, x_n$ são denominadas  \textit{dados de entrada}, em analogia às sinapses de um neurônio biológico. Os valores $w_1, w_2, w_3, \cdots, w_n$ são os \textit{pesos} associados a cada dado de entrada, os pesos nos dizem o quão importante é a entrada para a \textit{soma}, parte central em laranja na Figura \ref{neu_matematico}.  O viés tem a mesma funcionalidade do limiar no neurônio biológico, determinando se o neurônio será ativado ou não. Para resumir a notação, defini-se o viés de $b$ (do inglês, \textit{bias}). Na soma, a variável $z$ é obtida fazendo a combinação linear das variáveis: $$x_1*w_1+x_2*w_2+x_3*w_3+ \cdots + x_n*w_n + b = z = \sum_{i=1}^{n}w_ix_i + b.$$ Em seguida, o valor $z$ é aplicado a uma \textit{função de ativação} $\sigma: \mathbb{R} \to \mathbb{R}$, resultando na saída~$\hat{y}$,~ou seja:
+\begin{equation}
+    \label{eq:predicao}
+\hat{y} = \sigma\left(\sum_{i=1}^{n}w_ix_i + b\right).     
+\end{equation}
 
 \begin{figure}[htpb]
     \centering
@@ -25,30 +34,27 @@ A partir das informações obtidas com o estudo do neurônio biológico, pesquis
     \includegraphics[width=0.7\linewidth]{neu_matematico.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{neu_matematico}
-\end{figure}
-
-As variáveis $x_1, x_2, x_3, \cdots, x_n$ são denominadas  \textit{dados de entrada}, em analogia às sinapses de um neurônio biológico. Os valores $w_1, w_2, w_3, \cdots, w_n$ são os \textit{pesos} associados a cada dado de entrada, os pesos nos dizem o quão importante é a entrada para a \textit{soma}, parte central em laranja na Figura \ref{neu_matematico}.  O viés tem a mesma funcionalidade do limiar no neurônio biológico, determinando se o neurônio será ativado ou não. Para resumir a notação, defini-se o viés de $b$ (do inglês, \textit{bias}). Na soma, a variável $z$ é obtida fazendo a combinação linear das variáveis $x_1*w_1+x_2*w_2+x_3*w_3+ \cdots + x_n*w_n + b = z = \sum_{i=1}^{n}w_ix_i + b$. Em seguida, o valor z é aplicado a uma \textit{função de ativação}, resultando na saída $\hat{y}$ , ou seja, $\hat{y} = \sigma(\sum_{i=1}^{n}w_ix_i + b) $, para $\sigma: \mathbb{R} \to \mathbb{R}$. 
+    \end{figure}
 
 \subsection{ Tipos de Função de Ativação}
 
 A função de ativação, representada por $\sigma$, define a saída de uma unidade, pode-se definir diferentes tipos de funções de ativação, como a função de limiar, função linear por partes e a função sigmoidal.
 
 \begin{itemize}
-    \item \textit{Função de Limiar}: Para este tipo de função de ativação, descrito na Equação \ref{funcaoLimiar}, a unidade é ativada (ou seja, produz uma saída de 1) se a soma ponderada das entradas mais o viés for maior ou igual a zero. Caso contrário, a saída é 0.
+    \item \textit{Função de Limiar}: Para este tipo de função de ativação, descrito na Equação (\ref{funcaoLimiar}), a unidade é ativada (ou seja, produz uma saída de 1) se a soma ponderada das entradas mais o viés for maior ou igual a zero. Caso contrário, a saída é 0.
     \begin{equation}
         \label{funcaoLimiar}
         \sigma(z) = \begin{cases}
-        1, & \text{se } z \geq 0 \\
-        0, & \text{se } z < 0
-        \end{cases}
+        1, & \text{se } z \geq 0 \\        0, & \text{se } z < 0        \end{cases}.
     \end{equation}
 
-    \item \textit{Função Sigmoidal}: A função sigmoidal, cujo o gráfico tem a forma de um ¨S¨, é de longe a forma mais comum de função de ativação utilizada na construção de unidades. Ela é definida como uma função estritamente crescente que exibe um baleanceamento adequado entre comportamento linear e não-linear. Um exemplo de função sigmoidal é a \textit{sigmoid logística}, definida na Equação \ref{eq1}:
+    \item \textit{Função Sigmoidal}: A função sigmoidal, cujo o gráfico tem a forma de um ``S", é de longe a forma mais comum de função de ativação utilizada na construção de unidades. Esta é definida como uma função estritamente crescente que exibe um baleanceamento adequado entre comportamento linear e não-linear. Um exemplo de função sigmoidal é a \textit{sigmoid logística}, definida por:
     \begin{equation}
     \label{eq1}   
     \sigma(z) = \frac{1}{1+ \exp(-\alpha z)},   
     \end{equation}
-    onde $\alpha$ é um parâmetro que controla a inclinação da curva. A função sigmoid logística tem um conjunto de propriedades que se mostrarão muito úteis nos cálculos relacionados à aprendizagem dos pesos:
+
+    em que $\alpha$ é um parâmetro que controla a inclinação da curva. A função sigmoid logística tem um conjunto de propriedades que se mostrarão muito úteis nos cálculos relacionados à aprendizagem dos pesos:
     
     \begin{enumerate}
     \item Não linear;
@@ -57,60 +63,58 @@ A função de ativação, representada por $\sigma$, define a saída de uma unid
     \item É estritamente monótona, ou seja, $z_1 \leq z_2 \iff \sigma(z_1) \leq \sigma(z_2)$.
     \end{enumerate}
 
-    \item \textit{Função Rectified Linear Unit (ReLU)} : A função ReLU é definida como $\sigma(z) = \max(0, z)$. Ela é amplamente utilizada em redes neurais profundas (estudada na seção \ref{redesNeurais}) devido à sua simplicidade computacional e capacidade de mitigar o problema do \textit{Vanish Gradient}. A função ReLU ativa a unidade apenas quando a soma ponderada das entradas mais o viés é positiva, caso contrário, a saída é zero, ou seja:
+    \item \textit{Função Rectified Linear Unit (ReLU)}: A função ReLU é definida como $\sigma(z) = \max(0, z)$. Esta é amplamente utilizada em redes neurais profundas (estudada na seção \ref{redesNeurais}) devido à sua simplicidade computacional. A função ReLU ativa a unidade apenas quando a soma ponderada das entradas mais o viés é positiva, caso contrário, a saída é zero, ou seja:
     \begin{equation}
         \sigma(z) = \begin{cases}
         z, & \text{se } z > 0 \\
         0, & \text{se } z \leq 0
-        \end{cases}
+        \end{cases}.
     \end{equation}
     
 \end{itemize}
 
-Em geral, o objetivo da função de ativação é limitar a saída de uma unidade para um intervalo de valores, a Figura \ref{ativ_func} (a) mostra o gráfico da função sigmoid logística, enquanto a Figura \ref{ativ_func} (b) mostra o gráfico da função de limiar. 
+Em geral, o objetivo da função de ativação é limitar a saída de uma unidade para um intervalo de valores, a Figura \ref{fig-1:ex-a} mostra o gráfico da função sigmoid logística, enquanto a Figura \ref{fig-1:ex-b} mostra o gráfico da função \textit{Rectified Linear Unit}. 
 
 
 \begin{figure}[htpb]
     \centering
     \caption{Gráficos das Funções de Ativação.}
-    \includegraphics[width=0.9\linewidth]{funcsativa.png}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/sigmoidal_graf.png}
+        \caption{Função Sigmoid.}
+        \label{fig-1:ex-a}
+    \end{subfigure}
+    \hspace{30mm}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/relu_graf.png}
+        \caption{Função ReLU.}
+        \label{fig-1:ex-b}
+    \end{subfigure}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
-    \label{ativ_func}
+    \label{fig-1:ex-geral}
 \end{figure}
-
 
 
 A principal desvantegem na unidade de McCulloch e Pitts é a ausência de um algoritmo de aprendizagem, ou seja, uma maneira de ajustar os pesos e o viés da unidade para que ele seja capaz de resolver um problema específico. Essa limitação foi superada em 1958 por Frank Rosenblatt, que propôs o \textit{Perceptron} \cite{rosemblatt}, um modelo de unidade com um algoritmo de aprendizagem capaz de ajustar os pesos e o viés da unidade. 
 
-\subsection{Perceptron e Algorítmo de Aprendizagem}
+\subsection{Perceptron e Algoritmo de Aprendizagem}
 O Perceptron é um modelo de unidade que utiliza um algoritmo de aprendizagem supervisionada para ajustar seus pesos e viés com base em um conjunto de dados ``rotulados"{\footnote{Dados rotulados são conjuntos de dados de entrada associados a saídas desejadas, ou seja, para cada conjunto de entradas, há uma saída correta conhecida.}}. O objetivo do Perceptron é encontrar uma função que mapeie corretamente as entradas para as saídas desejadas, minimizando o erro entre as previsões do modelo e os valores reais.
 
 Para esclarecer o funcionamento do Perceptron e do algoritmo de aprendizagem, é proposto o Exemplo \ref{ex1}.
 
 \begin{exemplo}
 \label{ex1}
-Um investidor busca decidir qual ação adquirir com base nas variáveis: \textbf{é caro?}, \textbf{é confiável?} e \textbf{é volátil?}. Para isso, dispõe das avaliações de quatro colegas que também analisam essas mesmas características antes de realizar seus investimentos.
-% $$\begin{array}{|c|c|c|c|c|}
-%     \hline
-%     & \text{valor} & \text{confiança} & \text{volatilidade} & \textbf{y} \\
-%     \hline
-%     x_1 & 0 & 1 & 0 & 1 \\
-%     \hline
-%     x_2 & 1 & 0 & 1 & 0 \\
-%     \hline
-%     x_3 & 1 & 1 & 1 & 0 \\
-%     \hline
-%     x_4 & 0 & 0 & 0 & 1 \\
-%     \hline
-
-% \end{array}$$
+Um investidor busca decidir qual ação adquirir com base nas variáveis: é caro?, é confiável? e é volátil?. Para isso, dispõe das avaliações de quatro colegas que também analisam essas mesmas características antes de realizar seus investimentos.
+\end{exemplo}
 
 \begin{table}[htpb]
     \centering
     \caption{Banco de dados com as avaliações dos colegas e a decisão final de compra.}
     $\begin{array}{ccccc}
     \hline
-    & \text{valor} & \text{confiança} & \text{volatilidade} & \textbf{y} \\
+    & \text{valor} & \text{confiança} & \text{volatilidade} & y \\
     \hline
     x_1 & 0 & 1 & 0 & 1 \\
     \hline
@@ -124,15 +128,23 @@ Um investidor busca decidir qual ação adquirir com base nas variáveis: \textb
 \end{array}$
 \end{table}
 
-Em que \textbf{0 = não}, \textbf{1 = sim} e $x_2, \cdots, x_4$ representam as respostas de cada colegas e \textbf{$y$} a decisão final de cada um. Com isso, o Perceptron terá três variáveis de entrada e como saída, a decisão sobre a compra da ação. Os pesos iniciais são definidos aleatoriamente como: $w_1 = w_2 = w_3 = 0$ e o viés como $b = 0$. A função de ativação utilizada é a \textbf{função limiar} (\ref{funcaoLimiar}). Testando o primeiro dado de entrada $x_1 = (0,1,0)$ e $y = 1$, obtém-se: 
-$$
-z = w\cdot x_1+b = 0 \Rightarrow \hat{y} = \sigma(0) = 0
-$$
-\end{exemplo}
+Em que \textbf{0 = não}, \textbf{1 = sim} e $x_2, \cdots, x_4$ representam as respostas de cada colegas e $y$ a decisão final de cada um. Com isso, o Perceptron terá três variáveis de entrada e como saída, a decisão sobre a compra da ação. Os pesos iniciais são definidos aleatoriamente como: $w_1 = w_2 = w_3 = 0$ e o viés como $b = 0$. A função de ativação utilizada é a \textbf{função limiar} (\ref{funcaoLimiar}). Testando o primeiro dado de entrada $x_1 = (0,1,0)$ e $y = 1$, obtém-se: 
 
-Como $y = 1 \neq \hat{y} = 0$, em que $\hat{y}$ é a resposta da rede, o Perceptron comete um erro e é necessário aplicar o \textbf{algoritmo de aprendizagem} (a unidade de McCulloch e Pitts pararia aqui). Para isso, define-se uma função de custo, responsável por quantificar o erro cometido durante o treinamento. Neste exemplo, utiliza-se o \textbf{Erro Quadrático Médio}, dado por: 
-$$ C(w,b) = \frac{\sum_{i=1}^k(y_i - \hat{y}_i)^2}{n},$$
-em que $y_i$ é a resposta do dado de entrada  $x_i$ e $n$ representa a quantidade de dados presentes no conjunto de treinamento.
+$$
+z = w\cdot x_1+b = 0 \Rightarrow \hat{y} = \sigma(0) = 0    
+$$
+
+
+
+
+Como $y = 1 \neq \hat{y} = 0$, em que $\hat{y}$ é a resposta da rede definido como na Equação (\ref{eq:predicao}). O Perceptron comete um erro e é necessário aplicar o \textbf{algoritmo de aprendizagem} (a unidade de McCulloch e Pitts pararia aqui). Para isso, define-se uma função de custo, responsável por quantificar o erro cometido durante o treinamento. Neste exemplo, utiliza-se o \textbf{Erro Quadrático Médio}, dado por: 
+\begin{equation}
+ \label{fuc:custo}
+    C(w,b) = \frac{\sum_{i=1}^k(y_i - \hat{y}_i)^2}{n},   
+\end{equation} 
+
+
+em que $y_i$ é a resposta do dado de entrada  $x_i$ e $n$ representa a quantidade de dados presentes no conjunto de treinamento. $C(w,b)$ não depende de $w$ e $b$ explicitamente, mas sim por meio de $\hat{y}$, ou seja, $C(w,b) = C(\hat{y}(w,b))$, já que $\hat{y} = \sigma(z)$ e $z = w\cdot x + b$.
 
 O processo de treinamento ajusta iterativamente os pesos e o viés por meio do método da Descida do Gradiente (SG - \textit{Gradient Descent}), cujo objetivo é minimizar a função de custo. Esse método utiliza as derivadas parciais da função de custo em relação aos pesos e ao viés, o que indica a direção de maior crescimento da função. Para reduzir o erro, atualizam-se os parâmetros na direção oposta ao gradiente. As derivadas são:
 
@@ -142,11 +154,11 @@ O processo de treinamento ajusta iterativamente os pesos e o viés por meio do m
 \end{align}
     
 
-No o Exemplo \ref{ex1} assume-se $\sigma'(z) = 1$ para simplificação. Como a derivada aponta para a região de maior valor da função, multipica-se por $-1$ para obter a direção da região de minimização. Com isso, é obtido o seguinte algoritmo:
+No o Exemplo \ref{ex1} assume-se $\sigma'(z) = 1$ para simplificação. Como a derivada aponta para a região de maior valor da função, multipica-se por $-1$ para obter a direção da região de minimização. Com isso, é obtido o Algoritmo \ref{alg:gradiente}:
 
 
 \begin{algorithm}[H]
-\caption{Método da Descida do Gradiente}
+\caption{Método da Descida do Gradiente.}
 \label{alg:gradiente}
 \KwIn{Taxa de aprendizado $\eta$, função de custo $C(w,b)$, pesos iniciais $w_1, w_2, \dots, w_n$ e viés $b$}
 \KwOut{Pesos e viés ajustados}
@@ -168,7 +180,7 @@ Inicializar os pesos $w_i$ e o viés $b$ com valores pequenos aleatórios\;
 \Return $w_i, b$\;
 \end{algorithm}
 
-A \textit{taxa de aprendizagem} ($\eta$) presente no algoritmo (\ref{alg:gradiente})  pode ser interpretada como o tamanho do passo dado em direção ao mínimo da função de custo. Quando o valor dessa taxa é muito pequeno, o processo de convergência torna-se mais lento, exigindo um número maior de iterações para atingir o mínimo. Por outro lado, se o passo for muito grande, o algoritmo pode ultrapassar o ponto de mínimo, dificultando ou até impedindo a convergência adequada, para o Exemplo \ref{ex1} é utilizada uma taxa de aprendizado de $0.1$.
+A \textit{taxa de aprendizagem} ($\eta$) presente no Algoritmo \ref{alg:gradiente}  pode ser interpretada como o tamanho do passo dado em direção ao mínimo da função de custo. Quando o valor dessa taxa é muito pequeno, o processo de convergência torna-se mais lento, exigindo um número maior de iterações para atingir o mínimo. Por outro lado, se o passo for muito grande, o algoritmo pode ultrapassar o ponto de mínimo, dificultando ou até impedindo a convergência adequada, para o Exemplo \ref{ex1} é utilizada uma taxa de aprendizado de $0,1$.
 \begin{figure}[htpb]
     \centering
     \caption{Representação da taxa de aprendizagem.}
@@ -179,29 +191,40 @@ A \textit{taxa de aprendizagem} ($\eta$) presente no algoritmo (\ref{alg:gradien
 
 Aplicando o algoritmo \ref{alg:gradiente} no Exemplo \ref{ex1}, os seguintes ajustes são feitos nos pesos e no viés após uma passada pelos 4 dados presentes no banco de dados:
 
-$$w = (-0.1, 0.1, -0.1), \ b= 0.1$$
+$$w = (-0,1, 0,1, -0,1), \ b= 0,1$$
 
 Verificando as previsões da rede para os parêmentros atualizando, é obtido:
 
 \begin{itemize}
-    \item[$x_1$:] $(0,1,0) \Rightarrow z = 0 \cdot (-0.1) + 1 \cdot 0.1 + 0 \cdot(-0.1) + 0.1 = 0.2 \Rightarrow \hat{y} = 1$;
-    \item[$x_2$:] $(1,0,1) \Rightarrow z = -0.1 + 0+ -0.1 + 0.1 = -0.1 \Rightarrow \hat{y} = 0$;
-    \item[$x_3$:] $(1,1,1) \Rightarrow z = -0.1 + 0.1 - 0.1 + 0.1 = 0 \Rightarrow \hat{y} = 0$;
-    \item[$x_4$:]$ (0,0,0)\Rightarrow z = 0 + 0 + 0 + 0. 1 = 0.1\Rightarrow \hat{y} = 1$.
+    \item[$x_1$:] $(0,1,0) \Rightarrow z = 0 \cdot (-0,1) + 1 \cdot 0,1 + 0 \cdot(-0,1) + 0,1 = 0,2 \Rightarrow \hat{y} = 1$;
+    \item[$x_2$:] $(1,0,1) \Rightarrow z = -0,1 + 0+ -0,1 + 0,1 = -0,1 \Rightarrow \hat{y} = 0$;
+    \item[$x_3$:] $(1,1,1) \Rightarrow z = -0,1 + 0,1 - 0,1 + 0,1 = 0 \Rightarrow \hat{y} = 0$;
+    \item[$x_4$:]$ (0,0,0)\Rightarrow z = 0 + 0 + 0 + 0,1 = 0,1\Rightarrow \hat{y} = 1$.
 \end{itemize}
 
-Basta observar que $\hat{y} = \sigma(z)$ e $\sigma(z)$ é a função de ativação utilizada. Assim, após uma única época com $\eta = 0.1$ os pesos e o viés encontrados classificam corretamente todos os exemplos do conjunto de treinamento.
+Basta observar que $\hat{y} = \sigma(z)$ e $\sigma(z)$ é a função de ativação utilizada. Assim, após uma única época com $\eta = 0,1$ os pesos e o viés encontrados classificam corretamente todos os exemplos do conjunto de treinamento.
 
-Comumente o banco de dados é dividido em dois conjuntos: o conjunto de treinamento e o conjunto de teste. O conjunto de treinamento é utilizado para ajustar os pesos e o viés do Perceptron, enquanto o conjunto de teste é utilizado para avaliar o desempenho do modelo em dados não vistos durante o treinamento. Essa divisão é essencial para garantir que o modelo aprenda a generalizar bem para novos dados, evitando o problema do \textit{overfitting}(visto na seção \ref{overfitting}), que ocorre quando o modelo se ajusta excessivamente aos dados de treinamento, perdendo a capacidade de generalização.
+Comumente o banco de dados é dividido em dois conjuntos: o conjunto de treinamento e o conjunto de teste. O conjunto de treinamento é utilizado para ajustar os pesos e o viés do Perceptron, enquanto o conjunto de teste é utilizado para avaliar o desempenho do modelo em dados não vistos durante o treinamento. Essa divisão é essencial para garantir que o modelo aprenda a generalizar bem para novos dados, evitando o problema do \textit{overfitting}(na seção \ref{overfitting}), que ocorre quando o modelo se ajusta excessivamente aos dados de treinamento, perdendo a capacidade de generalização.
 
 
 \section{Redes Neurais}
 \label{redesNeurais}
-As redes neurais são um ``encadeamento" de múltiplas unidades, onde a saída de uma unidade é a entrada de outra. Redes neurais podem ser organizadas em camadas: uma \textit{camada de entrada}, uma ou mais \textit{camadas ocultas} e uma \textit{camada de saída}. Cada camada é composta por várias unidades e cada unidade em uma camada está conectada a todas as unidades na camada seguinte. A Figura \ref{fig:ex-geral} ilustra a estrutura básica de uma unidade em comparação com o funcionamento de uma rede neural com duas camadas ocultas.
+As redes neurais são um ``encadeamento" de múltiplas unidades, onde a saída de uma unidade é a entrada de outra. Redes neurais podem ser organizadas em camadas: uma \textit{camada de entrada}, uma ou mais \textit{camadas ocultas} e uma \textit{camada de saída}. Cada camada é composta por várias unidades e cada unidade em uma camada está conectada a todas as unidades na camada seguinte. A Figura \ref{fig0:ex-a} ilustra a estrutura básica de uma unidade vista na Secão \ref{unidade}. Já a Figura \ref{fig0:ex-b} mostra uma rede neural com duas camadas ocultas, em que a camada de entrada tem três unidades, a primeira camada oculta tem cinco unidades, a segunda camada oculta tem quatro unidades e a camada de saída tem duas unidades. Matematicamente, é possível representar uma rede neural com duas camadas ocultas da seguinte maneira:
+
+\begin{equation}
+    \label{eq:redeNeural}
+    \hat{y} = \sigma^s\left[\sum_{i=1}^4\sigma^2_i\left(\sum_{j=1}^5\sigma^1_j\left(\sum_{k=1}^3 w_{jk}^1 x_k + b_j^1\right)w_{ij}^2 + b_i^2\right)w_i^s + b^s\right],
+\end{equation}
+em que $\sigma^1_j$ é a função de ativação da $j$-ésima unidade da primeira camada oculta, $\sigma^2_i$ é a função de ativação da $i$-ésima unidade da segunda camada oculta e $\sigma^s$ é a função de ativação da $s$-ésima unidade da camada de saída. Os pesos e os vieses são representados por $w_{jk}^1$, $b_j^1$, $w_{ij}^2$, $b_i^2$, $w_i^s$ e $b^s$. Generalizando a notação, para uma rede neural com $L$ camadas ocultas, a saída da rede pode ser expressa como:
+\begin{equation}
+    \label{eq:redeNeuralGeral}
+    \hat{y} = \sigma^s\left[\sum_{i_L=1}^{n_L}\sigma^L_{i_L}\left(\sum_{i_{L-1}=1}^{n_{L-1}}\sigma^{L-1}_{i_{L-1}}\left(\cdots \sum_{k=1}^{n_1}\sigma^1_k\left(\sum_{m=1}^{n_0} w_{km}^1 x_m + b_k^1\right)w_{jk}^2 + b_j^2\right)w_{ij}^L + b_i^L\right)w_i^s + b^s\right].
+\end{equation}
+
 
 \begin{figure}[htpb]
     \centering
-    \caption{Estrutura básica de uma unidade e uma rede neural com duas camadas ocultas.}
+    \caption{Estrutura visual básica de uma unidade e uma rede neural com duas camadas ocultas.}
     \begin{subfigure}{0.3\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/perceptron.png}
@@ -223,7 +246,7 @@ Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar co
 \begin{itemize}
     \item \textit{Redes Neurais Feedforward (FNNs)}: São as redes neurais mais simples, onde a informação flui em uma única direção, da camada de entrada para a camada de saída, passando pelas camadas ocultas. FNNs são amplamente utilizadas para tarefas de classificação e regressão.
     
-    \item \textit{Redes Neurais Convolucionais (CNNs)}: São projetadas para processar dados com uma estrutura de grade, como imagens. Elas utilizam operações de convolução para extrair características espaciais dos dados de entrada. CNNs são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos e detecção de faces.
+    \item \textit{Redes Neurais Convolucionais (CNNs)}: São projetadas para processar dados com uma estrutura de grade, como imagens. Estas utilizam operações de convolução para extrair características espaciais dos dados de entrada. CNNs são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos e detecção de faces.
     
     \item \textit{Redes Neurais Recorrentes (RNNs)}: São projetadas para lidar com dados sequenciais, onde a saída em um determinado momento depende das entradas anteriores. RNNs possuem conexões recorrentes que permitem que informações sejam mantidas ao longo do tempo. Elas são amplamente utilizadas em tarefas como processamento de linguagem natural e reconhecimento de fala.
     
@@ -260,7 +283,7 @@ Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar co
     \label{arquiteturas}
 \end{figure}
 
-A Figura \ref{arquiteturas} ilustra algumas das arquiteturas de redes neurais mencionadas. Cada arquitetura possui suas próprias características e é adequada para diferentes tipos de problemas e dados. A escolha da arquitetura correta é crucial para o sucesso de um modelo de rede neural em uma tarefa específica.
+As Figuras \ref{fig:ex-a} e \ref{fig:ex-c} ilustram a arquitetura de uma Rede Neural Feedforward, com o funcionamento semelhante ao desenvolvido na Equação (\ref{eq:redeNeuralGeral}). A Figura \ref{fig:ex-b} mostra a arquitetura de uma Rede Neural Recorrente, estas redes possuem conexões recorrentes, ou seja, a saída de uma unidade é realimentada como entrada para a mesma unidade ou para unidades anteriores, permitindo que informações sejam mantidas ao longo do tempo, por fungir do escopo deste trabalho, não serão abordados os detalhes matemáticos de funcionamento das RNNs.
 
 \subsection{Backpropagation}
 Assim como no perceptron, as redes neurais utilizam algoritmos de aprendizagem para ajustar seus pesos e vieses com o objetivo de minimizar uma função de custo. O algoritmo mais comum utilizado para esse propósito é o \textit{backpropagation} (retropropagação) \cite{hechtnielsen1992} e \cite{paulwerbos}, que é uma extensão do método da descida do gradiente. O backpropagation é utilizado para calcular os gradientes da função de custo em relação aos pesos e vieses de todas as camadas da rede neural, permitindo a atualização eficiente desses parâmetros durante o treinamento. O algoritmo funciona propagando o erro da saída da rede de volta para as camadas anteriores, ajustando os pesos com base na contribuição de cada unidade para o erro total. 

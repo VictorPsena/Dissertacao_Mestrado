@@ -342,6 +342,11 @@ INPUT ./figures/SGD.png
 INPUT ./figures/SGD.png
 INPUT ./figures/SGD.png
 INPUT ./figures/SGD.png
+INPUT ./figures/overffit.png
+INPUT ./figures/overffit.png
+INPUT ./figures/overffit.png
+INPUT ./figures/overffit.png
+INPUT ./figures/overffit.png
 INPUT ./figures/img_dropout.png
 INPUT ./figures/img_dropout.png
 INPUT ./figures/img_dropout.png
@@ -362,6 +367,14 @@ INPUT ./figures/mnist.png
 INPUT ./figures/mnist.png
 INPUT ./figures/mnist.png
 INPUT ./figures/mnist.png
+INPUT ./figures/MNIST.png
+INPUT ./figures/MNIST.png
+INPUT ./figures/MNIST.png
+INPUT ./figures/MNIST.png
+INPUT ./figures/fluxo.png
+INPUT ./figures/fluxo.png
+INPUT ./figures/fluxo.png
+INPUT ./figures/fluxo.png
 INPUT ./figures/conv2.png
 INPUT ./figures/conv2.png
 INPUT ./figures/conv2.png

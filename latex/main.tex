@@ -1,16 +1,26 @@
 \documentclass[12pt,a4paper,oneside]{report}
 \usepackage{amssymb,amsmath,amsfonts,graphicx,wrapfig,makeidx}
+\usepackage{amsthm}
 \usepackage{caption}
 \captionsetup{justification=centering, singlelinecheck=false}
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
 \usepackage{latexsym}
-
+\usepackage{fontawesome5}
 \usepackage{setspace}
 \usepackage{subcaption}
 \usepackage{xcolor}
 \usepackage{algorithm2e}
 \usepackage[hidelinks]{hyperref}
+
+\usepackage[alf,abnt-etal-list=0,abnt-etal-text=it,abnt-emphasize=it,bibjustif,abnt-url-package=url]{abntex2cite}
+
+% Forçar a figura a ficar na posição
+\usepackage{float}
+% Usando o pacote TikZ para desenhar diagramas
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
 \graphicspath{{figures/}}
 
 % algorithm2e labels in Portuguese
@@ -19,8 +29,10 @@
 \SetKwInput{KwOut}{Saída}
 \SetKw{Return}{Retorne}
 \SetKwRepeat{Repeat}{Repita}{até}
-
-% Page layout settings
+\SetKwFor{For}{Para}{Faça}{Fim Para}
+\SetKwFor{While}{Enquanto}{Faça}{Fim Enquanto}
+\SetKw{KwTo}{Até}
+% Page layout settings  
 \setlength{\topmargin}{-2cm}
 \setlength{\oddsidemargin}{0cm}
 \setlength{\evensidemargin}{0cm}
@@ -37,6 +49,7 @@
 \newtheorem{exercicio}{Exercício}[chapter]
 \newtheorem{exemplo}{Exemplo}[chapter]
 \newtheorem{observacao}{Observação}[chapter]
+\newtheorem{demonstracao}{Demonstração}[chapter]
 
 \begin{document}
 
@@ -64,10 +77,12 @@
 \chapter{Fundamentação Teórica}
 \input{chapters/chapter1}
 % Add more chapters as needed
+\chapter{Teoria dos Conjuntos Fuzzy}
+\input{chapters/chapter2}
 
 % Bibliography
 \renewcommand{\bibname}{Referências Bibliográficas}
-\bibliographystyle{abntex2-alf}
+% \bibliographystyle{abntex2-alf}
 \bibliography{bibliography/references}
 
 \end{document}

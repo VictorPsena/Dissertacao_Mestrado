@@ -1,0 +1,53 @@
+[System]
+Name='Melhoramento Genético'
+Ninputs=2
+Noutputs=1
+Nrules=9
+Nexceptions=0
+Conjunction='prod'
+MissingValues='random'
+
+[Input1]
+Active='yes'
+Name='AOL'
+Range=[      35.000 ,      60.000 ]
+NMFs=3
+MF1='Pequeno','trapezoidal',[      35.000 ,      35.000 ,      40.000 ,      45.000 ]
+MF2='Médio','trapezoidal',[      40.000 ,      45.000 ,      50.000 ,      55.000 ]
+MF3='Grande','trapezoidal',[      50.000 ,      55.000 ,      60.000 ,      60.000 ]
+
+[Input2]
+Active='yes'
+Name='EGL'
+Range=[       1.600 ,       4.200 ]
+NMFs=3
+MF1='Pequeno','trapezoidal',[       1.600 ,       1.600 ,       2.120 ,       2.640 ]
+MF2='Médio','trapezoidal',[       2.120 ,       2.640 ,       3.160 ,       3.680 ]
+MF3='Grande','trapezoidal',[       3.160 ,       3.680 ,       4.200 ,       4.200 ]
+
+[Output1]
+Nature='fuzzy'
+Defuzzification='area'
+Disjunction='max'
+DefaultValue=      -1.000 
+Classif='no' 
+Active='yes'
+Name='Qualidade do fenótipo'
+Range=[       0.000 ,       1.000 ]
+NMFs=3
+MF1='Baixo','trapezoidal',[       0.000 ,       0.000 ,       0.200 ,       0.400 ]
+MF2='Regular','trapezoidal',[       0.200 ,       0.400 ,       0.600 ,       0.800 ]
+MF3='Alto','trapezoidal',[       0.600 ,       0.800 ,       1.000 ,       1.000 ]
+
+[Rules]
+1, 1,        1.000 ,
+1, 2,        1.000 ,
+1, 3,        2.000 ,
+2, 1,        1.000 ,
+2, 2,        2.000 ,
+2, 3,        3.000 ,
+3, 1,        2.000 ,
+3, 2,        3.000 ,
+3, 3,        3.000 ,
+
+[Exceptions]

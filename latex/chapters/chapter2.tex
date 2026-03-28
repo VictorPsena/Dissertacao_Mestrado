@@ -1,0 +1,229 @@
+\section{Teoria dos Conjuntos Fuzzy}
+\label{sec:fuzzy}
+A teoria dos conjuntos fuzzy, introduzida por Lotfi A. Zadeh em 1965 \cite{zadeh1965fuzzy}, é uma extensão da teoria clássica dos conjuntos, permitindo a representação de incerteza e imprecisão. Diferentemente dos conjuntos clássicos, onde um elemento pertence ou não a um conjunto, nos conjuntos fuzzy cada elemento possui um grau de pertinência, variando entre 0 e 1. Essa abordagem é especialmente útil em situações onde as fronteiras entre categorias não são claramente definidas, permitindo uma modelagem mais flexível e realista de fenômenos complexos. As definições e propriedades dos conjuntos fuzzy presentes neste capítulo foram baseadas em \cite{fuzzy}.
+
+\subsection{Conjuntos Fuzzy}
+Um \textit{subconjunto fuzzy} $A$ de um conjunto universo $X$ é definido por uma função de pertinência $\mu_A$ que atribui a cada elemento $x \in X$ um valor $\mu_A(x) \in [0, 1]$, representando o grau de pertencimento de $x$ ao conjunto $A$. Assim:
+$$
+\mu_A: X \rightarrow [0, 1].
+$$
+O valor $\mu_A(x) = 0$ indica que $x$ não pertence ao conjunto $A$, enquanto $\mu_A(x) = 1$ indica que $x$ pertence completamente ao conjunto. Valores intermediários representam graus parciais de pertencimento, permitindo uma representação mais rica e flexível de conceitos vagos ou imprecisos.
+
+\begin{exemplo}
+    \label{ex:fuzzy}
+Considere o conjunto universo $X$ representando a temperatura em graus Celsius, e o conjunto fuzzy $A$ representando a categoria ``quente". A função de pertinência $\mu_A$ pode ser definida da seguinte forma:
+$$\mu_A(x) = \begin{cases}
+0 & \text{se } 0 \leq x \leq 20 \\
+\frac{x - 20}{10} & \text{se } 20 < x < 30 \\
+1 & \text{se } x \geq 30
+\end{cases}$$
+Neste exemplo, temperaturas de 20°C ou menos não são consideradas quentes ($\mu_A(x) = 0$), enquanto temperaturas de 30°C ou mais são consideradas completamente quentes ($\mu_A(x) = 1$). Temperaturas entre 20°C e 30°C têm um grau de pertinência que varia linearmente entre 0 e~1, refletindo a natureza gradual do conceito de ``quente".
+
+\end{exemplo}
+
+\subsection{Operações entre Conjuntos Fuzzy}
+As operações entre conjuntos fuzzy, como união, interseção e complemento, são definidas de maneira a preservar a estrutura fuzzy. A união de dois conjuntos clássicos $A$ e $B$ é dada por:
+$$A \cup B = \{x \in U;x \in A \ \text{ou} \ x \in B\},$$
+enquanto a interseção é definida por:
+$$A \cap B = \{x \in U;x \in A \ \text{e} \ x \in B\}.$$
+O complemento de um conjunto fuzzy $A$ é dado por:
+$$\bar{A} = \{x \in U; x \notin A\}.$$
+Essas três operações têm respectivamente as funções características, $\forall x \in X$
+$$
+\mu_{A \cup B}(x) = \max(\mu_A(x), \mu_B(x)), \quad
+\mu_{A \cap B}(x) = \min(\mu_A(x), \mu_B(x)), \quad
+\mu_{\bar{A}}(x) = 1 - \mu_A(x). 
+$$
+
+\begin{definicao}
+    Sejam $A$ e $B$ conjuntos fuzzy em um conjunto universo $X.$ A união, interseção e complemento de $A$ e $B$, denotadas por $A \cup B$, $A \cap B$ e $\bar{A}$, respectivamente, são as funções de pertinência, presentes na Figura \ref{fig-cap2:conjuntosfuzzy}, definidas por:
+$$\mu_{A \cup B}(x) = \max(\mu_A(x), \mu_B(x)) \quad \text{para todo } x \in X,$$
+$$\mu_{A \cap B}(x) = \min(\mu_A(x), \mu_B(x)) \quad \text{para todo } x \in X,$$
+$$\mu_{\bar{A}}(x) = 1 - \mu_A(x) \quad \text{para todo } x \in X.$$
+\end{definicao}
+
+\begin{figure}[htpb]
+    \centering
+    \caption{Operações entre conjuntos fuzzy.}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/AB.png}
+        \caption{Conjuntos fuzzy A e B.}
+        \label{fig-cap2:AB}
+    \end{subfigure}
+    \hspace{30mm}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/AUB.png}
+        \caption{União e interseção de conjuntos fuzzy A e B.}
+        \label{fig-cap2:AUB}
+    \end{subfigure}
+    \hspace{30mm}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/A∩B.png}
+        \caption{Interseção de conjuntos fuzzy A e B.}
+        \label{fig-cap2:AnB}
+    \end{subfigure}
+    \hspace{30mm}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/barA.png}
+        \caption{Complemento de um conjunto fuzzy A.}
+        \label{fig-cap2:barA}
+    \end{subfigure}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
+    \label{fig-cap2:conjuntosfuzzy}
+\end{figure}
+
+
+\subsection{Normas Triangulares}
+As normas triangulares são generalizações dos operadores união e intersecção.
+
+\begin{definicao}
+Uma co-norma triangular (s-norma) é uma operação binária $S: [0, 1] \times [0, 1] \rightarrow [0, 1]$ que satisfaz as seguintes propriedades:
+\begin{itemize}
+    \item Comutatividade: $xSy = ySx$
+    \item Associatividade: $xS(ySz) = (xSy)Sz$
+    \item Monotonicidade: Se $x \leq x'$ e $y \leq y'$, então $xSy \leq x'Sy'$
+    \item Condição de fronteira: $xS0 = x$ e $xS1 = 1$
+\end{itemize}
+\end{definicao}
+
+\begin{exemplo}
+    Soma Limitada: $S: [0,1] \times [0,1] \to [0,1]$ Com $xSy = \min(1, x+y)$
+\end{exemplo}
+\begin{definicao}
+Uma norma triangular (t-norma) é uma operação binária $T: [0, 1] \times [0, 1] \rightarrow [0, 1]$ que satisfaz as seguintes propriedades:
+\begin{itemize}
+    \item Comutatividade: $xTy = yTx$
+    \item Associatividade: $xT(yTz) = (xTy)Tz$
+    \item Monotonicidade: Se $x \leq x'$ e $y \leq y'$, então $xTy \leq x'Ty'$
+    \item Condição de fronteira: $0Tx = 0$ e $1Tx = x$
+\end{itemize}
+\end{definicao}
+\begin{exemplo}
+    Diferença Limitada: $T: [0,1] \times [0,1] \to [0,1]$ Com $xTy = \max(0, x+y-1)$
+\end{exemplo}
+
+\subsection{Níveis de um Conjunto Fuzzy}
+\begin{definicao}
+    Sejam $A$ um conjunto fuzzy e $\alpha \in (0,1]$. O $\alpha$-nível de $A$, denotado por $[A]^{\alpha}$, é o conjunto clássico definido por:
+$$[A]^{\alpha} = \{x \in X \mid \mu_A(x) \geq \alpha\}.$$
+\end{definicao}
+
+\begin{definicao}
+    O nível zero de um conjunto fuzzy $A$ do universo $X$, em que $X$ é um espaço topológico, é o fecho topológico do suporte de $A$, ou seja:
+$$[A]^0 = \overline{supp(A)}.$$
+\end{definicao}
+
+
+\begin{definicao}
+    O suporte de um conjunto fuzzy $A$ são todos os elementos de $X$ que têm grau de pertinência maior que zero em $A$, ou seja:
+$$supp(A) = \{x \in X \mid \mu_A(x) > 0\}.$$
+\end{definicao}
+
+\begin{exemplo}
+Seja $A$ o conjunto fuzzy representando a categoria ``quente" do Exemplo \ref{ex:fuzzy}, com a função de pertinência definida por:
+$$\mu_A(x) = \begin{cases}
+0 & \text{se } x \leq 20 \\
+\frac{x - 20}{10} & \text{se } 20 < x < 30 \\
+1 & \text{se } x \geq 30.
+\end{cases}$$
+O $\alpha$-nível de $A$ para $\alpha = 0,5$ é dado por:
+$$[A]^{0,5} = \{x \in \mathbb{R} \mid \mu_A(x) \geq 0,5\}.$$
+Neste caso, tem-se:
+$$\mu_A(x) \geq 0,5 \implies \frac{x - 20}{10} \geq 0,5 \implies x \geq 25.$$
+Portanto, o $\alpha$-nível de $A$ para $\alpha = 0,5$ é o intervalo $[25, \infty)$, representando as temperaturas que são consideradas ``quentes" com um grau de pertinência de pelo menos 0,5.
+O suporte de $A$ é dado por:
+$$supp(A) = \{x \in \mathbb{R} \mid \mu_A(x) > 0\}.$$
+Neste caso, tem-se:
+$$\mu_A(x) > 0 \implies \frac{x - 20}{10} > 0 \implies x > 20.$$
+Portanto, o suporte de $A$ é o intervalo $(20, \infty)$, representando as temperaturas que têm um grau de pertinência maior que zero em $A$, ou seja, as temperaturas que são consideradas ``quentes" em algum grau.
+\end{exemplo}
+
+\subsection{Números Fuzzy}
+Um número fuzzy é um subconjunto fuzzy do conjunto dos números reais, caracterizado por uma função de pertinência que atribui a cada número real um grau de pertencimento. Os números fuzzy são frequentemente utilizados para representar quantidades imprecisas ou vagamente definidas, como ``muito quente" ou ``pouco tempo".
+
+\begin{definicao}
+Um conjunto fuzzy $N$ é chamado de número fuzzy quando o conjunto universo, em que $N$ é definido, é o conjunto dos números reais $\mathbb{R}$, e a função de pertinência $\mu_N$ é tal que:
+\begin{itemize}
+    \item $\mu_N(x) = 1$ para pelo menos um valor $x$ de $supp(N)$;
+    \item $[N]^{\alpha}$ é um intervalo fechado para todo $\alpha \in (0,1]$;
+    \item O suporte de $N$ é limitado.
+\end{itemize}
+\end{definicao}
+
+\begin{exemplo}
+    Um número fuzzy $A$ é dito trapezoidal se o gráfico de sua função de pertinência tem a forma de um trapézio. A função de pertinência de um número fuzzy trapezoidal pode ser definida por quatro parâmetros $a, b, c, d$ (com $a \leq b \leq c \leq d$) da seguinte forma:
+$$\mu_A(x) = \begin{cases}
+\frac{x - a}{b - a}, & \text{se } a < x < b \\
+1, & \text{se } b \leq x < c \\
+\frac{d - x}{d - c}, & \text{se } c \leq x < d \\
+0, & \text{caso contrário} 
+\end{cases}$$
+Neste exemplo, o número fuzzy $A$ é representado por um trapézio definido pelos parâmetros $a, b, c, d$. Para $a < x < b$, a função de pertinência aumenta linearmente de 0 a 1, indicando um aumento gradual no grau de pertencimento. Para $b \leq x < c$, a função de pertinência é constante em 1, indicando que esses valores pertencem completamente ao conjunto fuzzy. Para $c \leq x < d$, a função de pertinência diminui linearmente de 1 a 0, indicando uma diminuição gradual no grau de pertencimento.
+\end{exemplo}
+
+\section{Sistema Baseado em Regras Fuzzy}
+Um sistema Baseado em Regras Fuzzy (SBRF) \cite{fuzzy} é um sistema que utiliza a teoria dos conjuntos fuzzy para produzir saídas a partir de entradas dadas por conjuntos fuzzy. Tais sistemas foram desenvolvidos com o objetivo de imitar o comportamento humano considerando que o conhecimento e as ações humanas são apoiadas em uma sequência de regras linguísticas, traduzidas por um conjunto de regras. As regras formuladas pelo ser humano são usualmente da forma: 
+\begin{center}
+\textit{SE} (um conjunto de condições é satisfeito) \textit{ENTÃO} (um conjunto de consequências pode ser inferido).
+\end{center}
+
+\begin{definicao}
+    Uma relação fuzzy $R$ é um subconjunto fuzzy do produto cartesiano entre conjuntos universos $X_1, \ X_2, \ \cdots \ X_n$, ou seja, $R \subseteq X_1 \times X_2 \times \cdots \times X_n$. O produto cartesiano fuzzy $A_1 \times A_2 \times \cdots \times A_n$ dos subconjuntos fuzzy $A_1, A_2, \cdots, A_n$ de $X_1, X_2, \cdots, X_n$, respectivamente, é a relação fuzzy $R$ cuja função de pertinência é dada por:
+$$\mu_R(x_1, x_2, \cdots, x_n) = \min(\mu_{A_1}(x_1), \mu_{A_2}(x_2), \cdots, \mu_{A_n}(x_n)),$$
+\end{definicao}
+
+\subsection{Regras e Inferência Fuzzy}
+Uma regra fuzzy é uma sentença da forma ``SE $X$ é $A$ ENTÃO $Y$ é $B$", em que $A$ e $B$ são conjuntos fuzzy em $X$ e $Y$, respectivamente. Tal regra pode ser interpretada como uma relação fuzzy $R$ entre os conjuntos $A$ e $B$ cuja a função de pertinência $\mu_R(x,y)$ depende de $\mu_A(x)$ e $\mu_B(y)$ para cada $(x,y) \in X \times Y$. Em geral utiliza-se a função: $$\mu_R(x,y) = \min(\mu_A(x), \mu_B(y)).$$
+Uma variável linguística é uma variável cujo o valor é expresso qualitativamente por termos linguísticos, que são representados por conjuntos fuzzy e quantitativamente por uma função de pertinência. Por exemplo, a variável linguística ``temperatura" pode assumir os termos linguísticos ``fria", ``morna" e ``quente" representados por conjuntos fuzzy com funções de pertinência que descrevem o grau de pertencimento de cada temperatura a esses termos.
+
+\subsection{Sistema Baseado em Regras Fuzzy}
+Um SBRF é composto por quatro componentes: um processador de entrada que realiza a fuzzificação dos dados de entrada, uma coleção de regras, chamada base de regras, uma máquina de inferência fuzzy e um processador de saída que fornece um número real como saída. Estes componentes são conectados como mostrado na Figura \ref{fig:sbrf}.
+
+\begin{figure}[htpb]
+    \centering
+    \caption{Arquitetura de um Sistema Baseado em Regras Fuzzy (SBRF).}
+    \includegraphics[width=0.8\textwidth]{esfuzzy.png}
+    \caption*{\footnotesize Fonte: Adaptado de \cite{fuzzy}.}
+    \label{fig:sbrf}
+\end{figure}
+
+O SBRF pode ser visto com um mapeamento entre a entrada e a saída da forma $y = f(x), \ x \in \mathbb{R}^n$ e $y \in \mathbb{R}^p$. Os componetes do SBRF realizam as seguintes funções:
+\begin{itemize}
+    \item O \textbf{processador de entrada} (fuzzificação) realiza a fuzzificação dos dados de entrada, ou seja, traduz em conjuntos fuzzy os valores de entrada. A atuação de um especialista é necessária para definir as funções de pertinência que serão utilizadas na fuzzificação, bem como os termos linguísticos que serão associados a cada variável de entrada.
+    
+    \item A \textbf{base de regras} contém um conjunto de regras fuzzy que descrevem o comportamento do sistema, essas regras são formuladas por especialistas com base em seu conhecimento sobre o domínio do problema. A base de regras descreve relações entre as variáveis linguísticas para serem utilizadas pela máquina de inferência fuzzy.
+     
+    \item A \textbf{máquina de inferência fuzzy} fornece a saída a partir de cada entrada fuzzy e da relação definida pela base de regras. A máquina de inferência fuzzy pode ser vista como um mecanismo de mapeamento entre os conjuntos fuzzy de entrada e os conjuntos fuzzy de saída, utilizando as regras da base de regras para inferir a saída correspondente a cada entrada. Neste trabalho é utilizado o método de inferência de Mamdani, que é um dos métodos mais comuns para sistemas baseados em regras fuzzy com variáveis linguísticas.
+        \begin{itemize}
+            \item \textbf{Método de inferência de Mamdani}: Uma regra $SE$ (antecendente) $ENTAO$ (consequente) é definida pelo produto cartesiano fuzzy dos conjuntos fuzzy que compõem o antecedente e o consequente da regra. O método de Mamdani agrega as regras através do operador lógico $OU$, que é modelado pelo operador do máximo e, em cada regra, o operador lógico $E$ é modelado pelo operador do mínimo. As regras são:
+            $$
+            \textbf{{\text{Regra}}  1}: \text{SE} \ (x \ \text{é} \ A_1 \ \text{E} \ y \ \text{é} \ B_1) \ \text{ENTAO} \ (z \ \text{é} \ C_1;)
+            $$
+            $$
+            \textbf{{\text{Regra}}  2}: \text{SE} \ (x \ \text{é} \ A_2 \ \text{E} \ y \ \text{é} \ B_2) \ \text{ENTAO} \ (z \ \text{é} \ C_2.)
+            $$
+        \end{itemize}
+        A Figura \ref{fig:mamdani} ilustra um exemplo do método de Mamdani, em que duas regras são aplicadas para inferir a saída $z$ a partir das entradas $x$ e $y$.
+        \begin{figure}[htpb]
+            \centering
+            \caption{Exemplo de inferência fuzzy utilizando o método de Mamdani.}
+            \includegraphics[width=0.8\textwidth]{figures/mamdani.png}
+            \caption*{\footnotesize Fonte: Adaptado de \cite{fuzzy}.}
+            \label{fig:mamdani}
+        \end{figure}
+        
+        Com~base~no Exemplo \ref{ex:fuzzy} uma regra que poderia ser formulada utilizando o método de Mamdani é a seguinte:
+        $$\textbf{{\text{Regra}}  1}: \text{SE} \ (x \ \text{é} \ A) \ \text{ENTAO} \ (z \ \text{é} \ C),$$
+        em que $A$ é o conjunto fuzzy representando a categoria ``quente" e $C$ é um conjunto fuzzy representando a categoria ``ligar o ar condicionado". A função de pertinência de $C$ poderia ser definida por um número fuzzy trapezoidal, indicando o grau de pertencimento de cada valor de $z$ à categoria ``ligar o ar condicionado". Assim, a regra estabelece que se a temperatura $x$ é considerada quente (com um certo grau de pertinência), então a ação $z$ de ligar o ar condicionado também tem um certo grau de pertinência.
+    \item O \textbf{processador de saída} (defuzzificação) realiza a defuzzificação, ou seja, converte os conjuntos fuzzy de saída em números reais. Em sistemas fuzzy, em geral a saída é um conjunto fuzzy. Assim, devemos escolher um método de defuzzificação para obter um número real a partir do conjunto fuzzy de saída. O método de defuzzificação mais utilizado é o método de Centro de gravidade, que calcula o centro de massa do conjunto fuzzy de saída para obter um valor real representativo da saída do sistema.
+    \begin{itemize}
+        \item \textbf{Método de Centro de Gravidade}: O método de centro de gravidade é semelhante a média ponderada para distribuições de dados, com a diferença que os pesos são os valores $C(z_i)$ que indicam o grau de compatibilidade do valor $z_i$ com o conceito modelado pelo conjunto fuzzy $C$. Para domínios discretos, o método de centro de gravidade é dado por:
+        $$
+        G(C) = \frac{\sum_{i=0}^{n} z_i \times C(z_i)}{\sum_{i=0}^{n} C(z_i)}.
+        $$
+    \end{itemize}    
+\end{itemize}

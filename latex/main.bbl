@@ -13,33 +13,66 @@ ISBN 9788582713091.}
 \bibitem[Bengio 2012]{yoshuabengio2012}
 \abntrefinfo{Bengio}{BENGIO}{2012}
 {BENGIO, Y. Practical recommendations for gradient-based training of deep architectures.
-\emph{Cornell University}, n. Version 2, 2012.}
+\emph{Cornell University}, Version 2, 2012.}
+
+\bibitem[Book 2025]{arquiteturas}
+\abntrefinfo{Book}{BOOK}{2025a}
+{BOOK, D.~L. \emph{Capítulo 10: As Principais Arquiteturas de Redes Neurais}. 2025.
+Acessado: 2026-03-26.
+Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/}.}
+
+\bibitem[Book 2025]{overfitting}
+\abntrefinfo{Book}{BOOK}{2025b}
+{BOOK, D.~L. \emph{Capítulo 19: Overfitting e Regularização: Parte 1}. 2025.
+Acessado: 2026-01-26.
+Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/overfitting-e-regularizacao-parte-1/}.}
+
+\bibitem[Book 2025]{regularizacao}
+\abntrefinfo{Book}{BOOK}{2025c}
+{BOOK, D.~L. \emph{Capítulo 22 – Regularização L1}. 2025.
+Acessado: 2026-03-26.
+Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/}.}
 
 \bibitem[Crevier 1993]{Crevier1993AI}
 \abntrefinfo{Crevier}{CREVIER}{1993}
 {CREVIER, D. \emph{AI: The Tumultuous History of the Search for Artificial Intelligence}. New York: Basic Books, 1993.
 ISBN 0-465-02997-3.}
 
-\bibitem[{Deep Learning Book} 2025]{overfitting}
-\abntrefinfo{{Deep Learning Book}}{{Deep Learning Book}}{2025}
-{{Deep Learning Book}. \emph{Capítulo 19: Overfitting e Regularização: Parte 1}. 2025.
-Acessado: 2026-01-26.
-Dispon{\'\i}vel em: $<$https://www.deeplearningbook.com.br/overfitting-e-regularizacao-parte-1/$>$.}
+\bibitem[Goodfellow, Bengio e Courville 2016]{Goodfellow-et-al-2016}
+\abntrefinfo{Goodfellow, Bengio e Courville}{GOODFELLOW; BENGIO; COURVILLE}{2016}
+{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. [S.l.]: MIT Press, 2016. \url{http://www.deeplearningbook.org}.}
 
 \bibitem[Hecht-Nielsen 1992]{hechtnielsen1992}
 \abntrefinfo{Hecht-Nielsen}{HECHT-NIELSEN}{1992}
 {HECHT-NIELSEN, R. Theory of the backpropagation neural network.
 \emph{Academic Press}, 1992.}
 
-\bibitem[McCulloch 1943]{warrenpits}
-\abntrefinfo{McCulloch}{MCCULLOCH}{1943}
-{MCCULLOCH, W.~P. W.~S. A logical calculus of the ideas immanent in nervous activity.
+\bibitem[Jafelice, Barros e Bassanezi 2023]{fuzzy}
+\abntrefinfo{Jafelice, Barros e Bassanezi}{JAFELICE; BARROS; BASSANEZI}{2023}
+{JAFELICE, R. S.~M.; BARROS, L.~C.; BASSANEZI, R.~C. \emph{Teoria dos Conjuntos Fuzzy com Aplicações}. 3. ed. São Paulo -SP, Brasil: SBMAC, 2023.
+ISBN 978-65-86399-14-5.}
+
+\bibitem[LeCun 1998]{mnist}
+\abntrefinfo{LeCun}{LECUN}{1998}
+{LECUN, Y. \emph{The MNIST Database of Handwritten Digits}. 1998.
+Acessado: 2026-02-22.
+Dispon{\'\i}vel em: \url{http://yann.lecun.com/exdb/mnist/}.}
+
+\bibitem[McCulloch e Pitts 1943]{warrenpits}
+\abntrefinfo{McCulloch e Pitts}{MCCULLOCH; PITTS}{1943}
+{MCCULLOCH, W.; PITTS, W. A logical calculus of the ideas immanent in nervous activity.
 \emph{Bulletin of Mathematical Biophysics}, 1943.}
 
 \bibitem[M{\"u}ller 2008]{Muller2008ReviewBoden}
 \abntrefinfo{M{\"u}ller}{M{\"U}LLER}{2008}
-{M{\"U}LLER, V.~C. Review of margaret boden, "mind as machine: A history of cognitive science".
+{M{\"U}LLER, V.~C. Review of margaret boden, ``mind as machine: A history of cognitive science".
 \emph{Minds and Machines}, Springer, v.~18, n.~1, p. 121--125, 2008.}
+
+\bibitem[O'Shea e Nash 2015]{cnn}
+\abntrefinfo{O'Shea e Nash}{O'SHEA; NASH}{2015}
+{O'SHEA, K.; NASH, R. An introduction to convolutional neural networks.
+\emph{arXiv preprint arXiv:1511.08458}, 2015.
+Dispon{\'\i}vel em: \url{https://arxiv.org/abs/1511.08458}.}
 
 \bibitem[Ronneberger, Fischer e Brox 2015]{Ronneberger2015UNet}
 \abntrefinfo{Ronneberger, Fischer e Brox}{RONNEBERGER; FISCHER; BROX}{2015}
@@ -55,9 +88,17 @@ Dispon{\'\i}vel em: $<$https://www.deeplearningbook.com.br/overfitting-e-regular
 {RUDER, S. An overview of gradient descent optimization algorithms.
 \emph{Insight Centre for Data Analytics, NUI Galway Aylien Ltd., Dublin}, 2016.}
 
+\bibitem[Sovierzoski 2010]{convolucao}
+\abntrefinfo{Sovierzoski}{SOVIERZOSKI}{2010}
+{SOVIERZOSKI, M.~A. Convolução de sinais: definição, propriedades e ferramentas.
+\emph{Revista Ilha Digital}, v.~2, p. 81--95, 2010.
+ISSN 2177-2649.
+Dispon{\'\i}vel em: \url{https://ilhadigital.florianopolis.ifsc.edu.br/index.php/ilhadigital}.}
+
 \bibitem[Stanfield 2014]{FisioHumana}
 \abntrefinfo{Stanfield}{STANFIELD}{2014}
-{STANFIELD, C.~L. \emph{Fisiologia Humana}. [S.l.]: Pearson Education do Brasil, 2014.}
+{STANFIELD, C.~L. \emph{Fisiologia Humana}. São Paulo: Pearson Education do Brasil, 2014.
+ISBN 978-85-430-1426-5.}
 
 \bibitem[Sutskever 2013]{momentum}
 \abntrefinfo{Sutskever}{SUTSKEVER}{2013}
@@ -66,23 +107,23 @@ Dispon{\'\i}vel em: $<$https://www.deeplearningbook.com.br/overfitting-e-regular
 
 \bibitem[Szeliski 2010]{szeliski2010}
 \abntrefinfo{Szeliski}{SZELISKI}{2010}
-{SZELISKI, R. \emph{Computer Vision: Algorithms and Applications}. [S.l.]: Springer, 2010.}
+{SZELISKI, R. \emph{Computer Vision: Algorithms and Applications}. Cham, Suíça: Springer, 2010.
+ISBN 978-3030343712.}
 
-\bibitem[{Vinícius Trevisan} 2021]{medium}
-\abntrefinfo{{Vinícius Trevisan}}{{Vinícius Trevisan}}{2021}
-{{Vinícius Trevisan}. \emph{Como funcionam as Redes Neurais Convolucionais (CNNs)}. 2021.
+\bibitem[Trevisan 2021]{medium}
+\abntrefinfo{Trevisan}{TREVISAN}{2021}
+{TREVISAN, V. \emph{Como funcionam as Redes Neurais Convolucionais (CNNs)}. 2021.
 Acessado: 2025-12-16.
-Dispon{\'\i}vel em: $<$https://medium.com/data-hackers/como-funcionam-as-redes-neurais-convolucionais-cnns-71978185c1$>$.}
+Dispon{\'\i}vel em: \url{https://medium.com/data-hackers/como-funcionam-as-redes-neurais-convolucionais-cnns-71978185c1}.}
 
 \bibitem[Werbos 1990]{paulwerbos}
 \abntrefinfo{Werbos}{WERBOS}{1990}
 {WERBOS, P.~J. Backpropagation through time: What it does and how to do it.
 \emph{PROCEEDINGS OF THE IEEE}, 1990.}
 
-\bibitem[{Yann LeCun} 1998]{mnist}
-\abntrefinfo{{Yann LeCun}}{{Yann LeCun}}{1998}
-{{Yann LeCun}. \emph{The MNIST Database of Handwritten Digits}. 1998.
-Acessado: 2026-02-22.
-Dispon{\'\i}vel em: $<$http://yann.lecun.com/exdb/mnist/$>$.}
+\bibitem[Zadeh 1965]{zadeh1965fuzzy}
+\abntrefinfo{Zadeh}{ZADEH}{1965}
+{ZADEH, L.~A. Fuzzy sets.
+\emph{Information and Control}, v.~8, n.~3, p. 338--353, 1965.}
 
 \end{thebibliography}

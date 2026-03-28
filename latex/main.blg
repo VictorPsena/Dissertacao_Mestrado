@@ -11,7 +11,9 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-Database file #1: bibliography/references.bib
+Database file #1: abntex2-options.bib
+Database file #2: bibliography/references.bib
+Warning--I didn't find a database entry for "abnt-emphasize=it"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
@@ -21,44 +23,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 16 entries,
+You've used 26 entries,
             6714 wiz_defined-function locations,
-            1291 strings with 11612 characters,
-and the built_in function-call counts, 10887 in all, are:
-= -- 878
-> -- 314
-< -- 7
-+ -- 158
-- -- 100
-* -- 709
-:= -- 1604
-add.period$ -- 59
-call.type$ -- 16
-change.case$ -- 125
-chr.to.int$ -- 22
-cite$ -- 16
-duplicate$ -- 550
-empty$ -- 890
-format.name$ -- 462
-if$ -- 2529
-int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 278
-newline$ -- 88
-num.names$ -- 80
-pop$ -- 380
+            1340 strings with 12680 characters,
+and the built_in function-call counts, 24305 in all, are:
+= -- 2455
+> -- 530
+< -- 393
++ -- 617
+- -- 166
+* -- 1512
+:= -- 3179
+add.period$ -- 92
+call.type$ -- 27
+change.case$ -- 207
+chr.to.int$ -- 44
+cite$ -- 23
+duplicate$ -- 1950
+empty$ -- 1447
+format.name$ -- 765
+if$ -- 5201
+int.to.chr$ -- 4
+int.to.str$ -- 1
+missing$ -- 439
+newline$ -- 129
+num.names$ -- 115
+pop$ -- 553
 preamble$ -- 1
-purify$ -- 52
+purify$ -- 88
 quote$ -- 0
-skip$ -- 601
+skip$ -- 2140
 stack$ -- 1
-substring$ -- 397
-swap$ -- 215
-text.length$ -- 5
+substring$ -- 976
+swap$ -- 716
+text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 1
 warning$ -- 0
-while$ -- 104
+while$ -- 159
 width$ -- 0
-write$ -- 245
+write$ -- 358
+(There was 1 warning)

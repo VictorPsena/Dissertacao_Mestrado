@@ -5,6 +5,18 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
+\bibitem[{ABCCARACU} 2022]{hist_caracu}
+\abntrefinfo{{ABCCARACU}}{{ABCCARACU}}{2022}
+{{ABCCARACU}. \emph{História da raça caracu}. 2022.
+Acessado: 2026-04-03.
+Dispon{\'\i}vel em: \url{https://www.abccaracu.com.br/historia-da-raca-caracu}.}
+
+\bibitem[{ABIEC} 2021]{abiec}
+\abntrefinfo{{ABIEC}}{{ABIEC}}{2021}
+{{ABIEC}. \emph{Beef Report 2025 | Perfil da Pecuária no Brasil}. 2021.
+Acessado: 2026-04-3.
+Dispon{\'\i}vel em: \url{https://abiec.com.br/publicacoes/beef-report-2025-perfil-da-pecuaria-no-brasil/}.}
+
 \bibitem[Bear, Connors e Paradiso 2017]{neurociencias}
 \abntrefinfo{Bear, Connors e Paradiso}{BEAR; CONNORS; PARADISO}{2017}
 {BEAR, M.~F.; CONNORS, B.~W.; PARADISO, M.~A. \emph{Neurociências: desvendando o sistema nervoso}. 4. ed. Porto Alegre: Artmed, 2017.
@@ -33,30 +45,100 @@ Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/overfitting-e-regul
 Acessado: 2026-03-26.
 Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/}.}
 
+\bibitem[Chowdhury 2024]{padding}
+\abntrefinfo{Chowdhury}{CHOWDHURY}{2024}
+{CHOWDHURY, M. \emph{Padding and Strides in CNN}. 2024.
+Acessado: 2026-04-14.
+Dispon{\'\i}vel em: \url{https://medium.com/@minhazc.engg/padding-and-strides-in-cnn-58dc56493887}.}
+
 \bibitem[Crevier 1993]{Crevier1993AI}
 \abntrefinfo{Crevier}{CREVIER}{1993}
 {CREVIER, D. \emph{AI: The Tumultuous History of the Search for Artificial Intelligence}. New York: Basic Books, 1993.
 ISBN 0-465-02997-3.}
 
+\bibitem[{Data Science Academy} 2025]{onehot}
+\abntrefinfo{{Data Science Academy}}{{Data Science Academy}}{2025}
+{{Data Science Academy}. \emph{Comparativo Técnico – Label Encoding vs One-Hot Encoding em Machine Learning}. 2025.
+Acessado: 2026-04-13.
+Dispon{\'\i}vel em: \url{https://blog.dsacademy.com.br/comparativo-tecnico-label-encoding-vs-one-hot-encoding-em-machine-learning/}.}
+
+\bibitem[Elharrouss \textit{et al.} 2025]{Elharrouss2025}
+\abntrefinfo{Elharrouss \textit{et al.}}{ELHARROUSS \textit{et al.}}{2025}
+{ELHARROUSS, O.; MAHMOOD, Y.; BECHQITO, Y.; SERHANI, M.~A.; BADIDI, E.; RIFFI, J.; TAIRI, H. Loss functions in deep learning: A comprehensive review.
+\emph{arXiv preprint arXiv:2504.04242}, 2025.
+Dispon{\'\i}vel em: \url{https://arxiv.org/abs/2504.04242}.}
+
+\bibitem[Felicio 2010]{cap3:nelore_caracu}
+\abntrefinfo{Felicio}{FELICIO}{2010}
+{FELICIO, P.~E. de. Classificação, tipificação e qualidade da carne bovina.
+\emph{VI Congresso Brasileiro de Ciência e Tecnologia de Carnes}, São Pedro, SP, Brasil, p.~9, 2010.}
+
+\bibitem[Garcao 2015]{garcao2015pecuaria}
+\abntrefinfo{Garcao}{GARCAO}{2015}
+{GARCAO, L.~M. da C. Características socioeconômicas da pecuária brasileira: características socioeconômicas de los bovinos brasileños.
+\emph{Revista Mirante}, Anápolis, GO, Brasil, jun. 2015.
+ISSN 1981-4089.}
+
 \bibitem[Goodfellow, Bengio e Courville 2016]{Goodfellow-et-al-2016}
 \abntrefinfo{Goodfellow, Bengio e Courville}{GOODFELLOW; BENGIO; COURVILLE}{2016}
 {GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. [S.l.]: MIT Press, 2016. \url{http://www.deeplearningbook.org}.}
+
+\bibitem[{Google LLC} 2015]{TensorFlowSite}
+\abntrefinfo{{Google LLC}}{{Google LLC}}{2015}
+{{Google LLC}. \emph{TensorFlow}. 2015.
+Acesso em: 11 abr. 2026.
+Dispon{\'\i}vel em: \url{https://www.tensorflow.org/}.}
+
+\bibitem[Guaraldo 2021]{embrapa2}
+\abntrefinfo{Guaraldo}{GUARALDO}{2021}
+{GUARALDO, M.~C. \emph{Brasil é o quarto maior produtor de grãos e o maior exportador de carne bovina do mundo, diz estudo}. 2021.
+Acessado: 2026-04-3.
+Dispon{\'\i}vel em: \url{https://www.embrapa.br/busca-de-noticias/-/noticia/62619259/brasil-e-o-quarto-maior-produtor-de-graos-e-o-maior-exportador-de-carne-bovina-do-mundo-diz-estudo}.}
+
+\bibitem[Harisha 2023]{dice}
+\abntrefinfo{Harisha}{HARISHA}{2023}
+{HARISHA, L. \emph{Dice Coefficient! What is it?} 2023.
+Acessado: 2026-03-28.
+Dispon{\'\i}vel em: \url{https://lathashreeh.medium.com/dice-coefficient-what-is-it-ff090ec97bda}.}
 
 \bibitem[Hecht-Nielsen 1992]{hechtnielsen1992}
 \abntrefinfo{Hecht-Nielsen}{HECHT-NIELSEN}{1992}
 {HECHT-NIELSEN, R. Theory of the backpropagation neural network.
 \emph{Academic Press}, 1992.}
 
+\bibitem[{HumanSignal} 2020]{LabelStudioSite}
+\abntrefinfo{{HumanSignal}}{{HumanSignal}}{2020}
+{{HumanSignal}. \emph{Label Studio: Open Source Data Labeling Platform}. 2020.
+Acesso em: 11 abr. 2026.
+Dispon{\'\i}vel em: \url{https://labelstud.io/}.}
+
 \bibitem[Jafelice, Barros e Bassanezi 2023]{fuzzy}
 \abntrefinfo{Jafelice, Barros e Bassanezi}{JAFELICE; BARROS; BASSANEZI}{2023}
 {JAFELICE, R. S.~M.; BARROS, L.~C.; BASSANEZI, R.~C. \emph{Teoria dos Conjuntos Fuzzy com Aplicações}. 3. ed. São Paulo -SP, Brasil: SBMAC, 2023.
 ISBN 978-65-86399-14-5.}
+
+\bibitem[{Keras Team} 2015]{KerasSite}
+\abntrefinfo{{Keras Team}}{{Keras Team}}{2015}
+{{Keras Team}. \emph{Keras: Deep Learning for Humans}. 2015.
+Acesso em: 11 abr. 2026.
+Dispon{\'\i}vel em: \url{https://keras.io/}.}
+
+\bibitem[Lamas 2023]{embrapa1}
+\abntrefinfo{Lamas}{LAMAS}{2023}
+{LAMAS, F.~M. \emph{Artigo - A evolução da agricultura no Brasil}. 2023.
+Acessado: 2026-04-3.
+Dispon{\'\i}vel em: \url{https://www.embrapa.br/web/portal/tema-integracao-lavoura-pecuaria-floresta-ilpf/busca-de-noticias/-/noticia/81665485/artigo---a-evolucao-da-agricultura-do-brasil?p\_auth=HeYmQbdG}.}
 
 \bibitem[LeCun 1998]{mnist}
 \abntrefinfo{LeCun}{LECUN}{1998}
 {LECUN, Y. \emph{The MNIST Database of Handwritten Digits}. 1998.
 Acessado: 2026-02-22.
 Dispon{\'\i}vel em: \url{http://yann.lecun.com/exdb/mnist/}.}
+
+\bibitem[Lettvin \textit{et al.} 1959]{Lettvin1959}
+\abntrefinfo{Lettvin \textit{et al.}}{LETTVIN \textit{et al.}}{1959}
+{LETTVIN, J.~Y.; MATURANA, H.~R.; MCCULLOCH, W.~S.; PITTS, W.~H. What the frog's eye tells the frog's brain.
+\emph{Proceedings of the Institute of Radio Engineers}, v.~47, n.~11, p. 1940--1951, 1959.}
 
 \bibitem[McCulloch e Pitts 1943]{warrenpits}
 \abntrefinfo{McCulloch e Pitts}{MCCULLOCH; PITTS}{1943}
@@ -67,6 +149,12 @@ Dispon{\'\i}vel em: \url{http://yann.lecun.com/exdb/mnist/}.}
 \abntrefinfo{M{\"u}ller}{M{\"U}LLER}{2008}
 {M{\"U}LLER, V.~C. Review of margaret boden, ``mind as machine: A history of cognitive science".
 \emph{Minds and Machines}, Springer, v.~18, n.~1, p. 121--125, 2008.}
+
+\bibitem[{National Institutes of Health} 2026]{ImageJ}
+\abntrefinfo{{National Institutes of Health}}{{National Institutes of Health}}{2026}
+{{National Institutes of Health}. \emph{ImageJ: Image Processing and Analysis in Java}. 2026.
+Acessado em: 2026-04-04.
+Dispon{\'\i}vel em: \url{https://imagej.net/ij/}.}
 
 \bibitem[O'Shea e Nash 2015]{cnn}
 \abntrefinfo{O'Shea e Nash}{O'SHEA; NASH}{2015}
@@ -88,6 +176,10 @@ Dispon{\'\i}vel em: \url{https://arxiv.org/abs/1511.08458}.}
 {RUDER, S. An overview of gradient descent optimization algorithms.
 \emph{Insight Centre for Data Analytics, NUI Galway Aylien Ltd., Dublin}, 2016.}
 
+\bibitem[Sena, Jafelice e Santos 2024]{Sena2024}
+\abntrefinfo{Sena, Jafelice e Santos}{SENA; JAFELICE; SANTOS}{2024}
+{SENA, V.; JAFELICE, R. S.~M.; SANTOS, C. A.~R. dos. Reconstrução geométrica de uma função através de uma rede neural. In:  \emph{Anais da XXIV Semana da Matemática e XIV Semana da Estatística (SEMAT \& SEMEST)}. Uberlândia, MG, Brasil: [s.n.], 2024. Dispon{\'\i}vel em: \url{https://drive.google.com/file/d/1OmN2Gq6i3nHR7ZtEVitc5iCVH0ZFUY\_8/view}.}
+
 \bibitem[Sovierzoski 2010]{convolucao}
 \abntrefinfo{Sovierzoski}{SOVIERZOSKI}{2010}
 {SOVIERZOSKI, M.~A. Convolução de sinais: definição, propriedades e ferramentas.
@@ -99,6 +191,10 @@ Dispon{\'\i}vel em: \url{https://ilhadigital.florianopolis.ifsc.edu.br/index.php
 \abntrefinfo{Stanfield}{STANFIELD}{2014}
 {STANFIELD, C.~L. \emph{Fisiologia Humana}. São Paulo: Pearson Education do Brasil, 2014.
 ISBN 978-85-430-1426-5.}
+
+\bibitem[Suguisawa, Matos e Suguisawa 2013]{cap3:medidaAol}
+\abntrefinfo{Suguisawa, Matos e Suguisawa}{SUGUISAWA; MATOS; SUGUISAWA}{2013}
+{SUGUISAWA, L.; MATOS, B. da~Conceição~de; SUGUISAWA, J.~M. Uso da ultrassonografia na avaliação de características de carcaça e de qualidade da carne. In:  ROSA, A. do N.; MARTINS, E.~N.; MENEZES, G.~R. de O.; SILVA, L. O.~C. da (Ed.). \emph{Melhoramento Genético Aplicado em Gado de Corte}. Brasília, DF, Brasil: Embrapa, 2013. p. 98--107.}
 
 \bibitem[Sutskever 2013]{momentum}
 \abntrefinfo{Sutskever}{SUTSKEVER}{2013}
@@ -116,14 +212,38 @@ ISBN 978-3030343712.}
 Acessado: 2025-12-16.
 Dispon{\'\i}vel em: \url{https://medium.com/data-hackers/como-funcionam-as-redes-neurais-convolucionais-cnns-71978185c1}.}
 
+\bibitem[Verma \textit{et al.} 2026]{Verma2026}
+\abntrefinfo{Verma \textit{et al.}}{VERMA \textit{et al.}}{2026}
+{VERMA, H.; IM, K.; GUPTA, A.; TANVEER, M. A novel framework using intuitionistic fuzzy logic with u-net and u-net++ architecture: A case study of mri brain image segmentation.
+\emph{arXiv preprint arXiv:2603.18042}, 2026.
+Dispon{\'\i}vel em: \url{https://arxiv.org/abs/2603.18042}.}
+
 \bibitem[Werbos 1990]{paulwerbos}
 \abntrefinfo{Werbos}{WERBOS}{1990}
 {WERBOS, P.~J. Backpropagation through time: What it does and how to do it.
 \emph{PROCEEDINGS OF THE IEEE}, 1990.}
 
+\bibitem[Wilson 1998]{cap3:carcaça}
+\abntrefinfo{Wilson}{WILSON}{1998}
+{WILSON, D.~E. \emph{Scanning into the Future: Real-Time Ultrasound in Beef Cattle}. 1998.
+ASB 1998-DEW-417.
+Dispon{\'\i}vel em: \url{https://admin.webplus.com.br/public/upload/downloads/090220121626346252000AHZV.pdf}.}
+
 \bibitem[Zadeh 1965]{zadeh1965fuzzy}
 \abntrefinfo{Zadeh}{ZADEH}{1965}
 {ZADEH, L.~A. Fuzzy sets.
 \emph{Information and Control}, v.~8, n.~3, p. 338--353, 1965.}
+
+\bibitem[Zancaner 2026]{hist_nelore}
+\abntrefinfo{Zancaner}{ZANCANER}{2026}
+{ZANCANER, R. \emph{História da raça nelore}. 2026.
+Acessado: 2026-04-03.
+Dispon{\'\i}vel em: \url{https://zancaner.com.br/site/conteudo/1-historia-da-raca-nelore.html}.}
+
+\bibitem[Zhu, Rohling e Salcudean 2022]{Zhu2022}
+\abntrefinfo{Zhu, Rohling e Salcudean}{ZHU; ROHLING; SALCUDEAN}{2022}
+{ZHU, H.; ROHLING, R.; SALCUDEAN, S. Multi-task unet: Jointly boosting saliency prediction and disease classification on chest x-ray images.
+\emph{arXiv preprint arXiv:2202.07118}, 2022.
+Dispon{\'\i}vel em: \url{https://arxiv.org/abs/2202.07118}.}
 
 \end{thebibliography}

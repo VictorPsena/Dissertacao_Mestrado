@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 def plot_graf(x, y, title='Graf', output_path='graf.png', pontosBanco=None, pontosTreino = None) -> str:
     plt.plot(x, y, label='Rede Neural', color='green')
-    plt.xlabel(r'$z$', fontsize=16)
-    plt.ylabel(r"$\sigma'(z)$", fontsize=16)
+    plt.xlabel(r'$x$', fontsize=16)
+    plt.ylabel(r"$\mu_A(x)$", fontsize=16)
     plt.title(title, fontsize=18)
     plt.grid(False)
     if pontosBanco:
@@ -20,14 +20,14 @@ def plot_graf(x, y, title='Graf', output_path='graf.png', pontosBanco=None, pont
     plt.close()
     return output_path
 
-
-x = np.linspace(-10, 10, 100)
+#%%
+x = np.linspace(-10, 10, 1000)
 y = 1/(1 + np.exp(-x))
-z = y*(1-y)
-
+z = np.exp(-(x-0)**2/1**2)
+#%%
 a = (0, 0.25)
 
 
 
-figure = plot_graf(x, z, title='', pontosBanco=[a], output_path='sigmoid_derivative.png')
+figure = plot_graf(x, z, title='', output_path='sigmoid_derivative.png')
 print(f'Figura salva em: {figure}')

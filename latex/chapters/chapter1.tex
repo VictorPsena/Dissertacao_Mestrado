@@ -1,3 +1,4 @@
+Neste capítulo, serão apresentados os conceitos fundamentais relacionados às redes neurais, que são essenciais para o desenvolvimento do trabalho. A Seção \ref{sec_1} aborda a inspiração biológica por trás dos neurônios artificiais, enquanto a Seção \ref{sec_2} explora as arquiteturas de redes neurais, algoritmos de aprendizagem e desafios associados ao treinamento dessas redes. Esses conceitos formam a base para a construção da rede neural proposta na Seção \ref{sec:unet}. Todos os códigos e algorítmos presentes neste trabalho foram implementados utilizando a linguagem de programação Python, com o auxílio de bibliotecas como \textit{NumPy}, \textit{Matplotlib}, \textit{openCV}, \textit{Pillow} e \textit{Pandas}.
 \section{Neurônio Biológico e Artificial}
 \begin{figure}[h!]
 \centering
@@ -66,19 +67,19 @@ A partir das informações obtidas com o estudo do neurônio biológico, pesquis
 
 
 
-As variáveis $x_1, x_2, x_3, \cdots, x_n$ são denominadas  \textit{dados de entrada}, em analogia às sinapses de um neurônio biológico. Os valores $w_1, w_2, w_3, \cdots, w_n$ são os \textit{pesos} associados a cada dado de entrada, os pesos nos dizem o quão importante é a entrada para a \textit{soma}, parte central em laranja na Figura \ref{neu_matematico}.  O viés tem a mesma funcionalidade do limiar no neurônio biológico, determinando se o neurônio será ativado ou não. Para resumir a notação, defini-se o viés de $b$ (do inglês, \textit{bias}). Na soma, a variável $z$ é obtida fazendo a combinação linear das variáveis: $$x_1 \times w_1+x_2 \times w_2+x_3 \times w_3+ \cdots + x_n \times w_n + b = z = \sum_{i=1}^{n}x_i \times w_i + b.$$ Em seguida, o valor $z$ é aplicado a uma \textit{função de ativação} $\sigma: \mathbb{R} \to \mathbb{R}$, resultando na saída~$\hat{y}$,~ou seja:
-\begin{equation}
-    \label{eq:predicao}
-\hat{y} = \sigma\left(\sum_{i=1}^{n}w_ix_i + b\right).     
-\end{equation}
-\textcolor{red}{mudar imagem}
+As variáveis $x_1, x_2, x_3, \cdots, x_n$ são denominadas  \textit{dados de entrada}, em analogia às sinapses de um neurônio biológico. Os valores $w_1, w_2, w_3, \cdots, w_n$ são os \textit{pesos} associados a cada dado de entrada, os pesos nos dizem o quão importante é a entrada para a \textit{soma}, parte central na Figura \ref{neu_matematico}. 
 \begin{figure}[htpb]
     \centering
     \caption{Modelo de uma unidade de McCulloch e Pitts.}
     \includegraphics[width=0.7\linewidth]{neu_matematico.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{neu_matematico}
-    \end{figure}
+\end{figure}
+O viés tem a mesma funcionalidade do limiar no neurônio biológico, determinando se o neurônio será ativado ou não. Para resumir a notação, defini-se o viés de $b$ (do inglês, \textit{bias}). Na soma, a variável $z$ é obtida fazendo a combinação linear das variáveis: $$x_1 \times w_1+x_2 \times w_2+x_3 \times w_3+ \cdots + x_n \times w_n + b = z = \sum_{i=1}^{n}x_i \times w_i + b.$$ Em seguida, o valor $z$ é aplicado a uma \textit{função de ativação} $\sigma: \mathbb{R} \to \mathbb{R}$, resultando na saída~$\hat{y}$,~ou seja:
+\begin{equation}
+    \label{eq:predicao}
+\hat{y} = \sigma\left(\sum_{i=1}^{n}w_i\times x_i + b\right).     
+\end{equation}
 
 \subsection{ Tipos de Função de Ativação}
 
@@ -92,7 +93,7 @@ A função de ativação, representada por $\sigma$, define a saída de uma unid
         1, & \text{se } z \geq 0 \\        0, & \text{se } z < 0        \end{cases}.
     \end{equation}
 
-    \item Função Sigmoidal: A função sigmoidal, cujo o gráfico tem a forma de um ``S", é de longe a forma mais comum de função de ativação utilizada na construção de unidades. Esta é definida como uma função estritamente crescente que exibe um baleanceamento adequado entre comportamento linear e não linear. Um exemplo de função sigmoidal é a \textit{sigmoid logística}, definida por:
+    \item Função Sigmoidal: A função sigmoidal, cujo o gráfico tem a forma de um ``S", é de longe a forma mais comum de função de ativação utilizada na construção de unidades. Esta é definida como uma função estritamente crescente que exibe um baleanceamento adequado entre comportamento linear e não linear. Um exemplo de função sigmoidal é a \textit{sigmoid logística}\footnote{A função sigmoid logística foi amplamente usada no início das pesquisas em redes neurais pois a resposta do neurônio biológico é aproximadamente similar. Isso ficou claro em estudos feitos nos neurônios dos olhos de animais \cite{Lettvin1959}, neste caso, sapos. O principal motivo para o seu desuso foi a dificuldade de treinamento em redes neurais profundas devido ao problema do \textit{vanish gradient}, subseção \ref{sec:vanishing}.}, definida por:
     \begin{equation}
     \label{eq:sigmoid}   
     \sigma(z) = \frac{1}{1+ \exp(-\alpha z)},   
@@ -107,6 +108,7 @@ A função de ativação, representada por $\sigma$, define a saída de uma unid
     \item É estritamente monótona, ou seja, $z_1 \leq z_2 \iff \sigma(z_1) \leq \sigma(z_2)$.
     \end{enumerate}
 
+
     \item Função \textit{Rectified Linear Unit} (ReLU): A função ReLU (do inglês, Unidade Linear Retificada) é definida como $\sigma(z) = \max(0, z)$. Esta é amplamente utilizada em redes neurais profundas (estudada na Seção \ref{redesNeurais}) devido à sua simplicidade computacional. A função ReLU ativa a unidade apenas quando a soma ponderada das entradas mais o viés é positiva, caso contrário, a saída é zero, ou seja:
     \begin{equation}
         \label{eq:relu}
@@ -118,7 +120,7 @@ A função de ativação, representada por $\sigma$, define a saída de uma unid
     
 \end{itemize}
 
-Em geral, o objetivo da função de ativação é limitar a saída de uma unidade para um intervalo de valores, na Figura \ref{fig-1:ex-a} é mostrado o gráfico da função sigmoid logística, enquanto na Figura \ref{fig-1:ex-b} é mostrado o gráfico da função \textit{Rectified Linear Unit}. 
+Em geral, o objetivo da função de ativação é limitar a saída de uma unidade para um intervalo de valores, na Figura \ref{fig-1:ex}(a) é mostrado o gráfico da função sigmoid logística, enquanto na Figura \ref{fig-1:ex}(b) é mostrado o gráfico da função \textit{Rectified Linear Unit}. 
 
 
 \begin{figure}[htpb]
@@ -128,17 +130,16 @@ Em geral, o objetivo da função de ativação é limitar a saída de uma unidad
         \centering
         \includegraphics[width=\linewidth]{figures/sigmoidal_graf.png}
         \caption{Função Sigmoid.}
-        \label{fig-1:ex-a}
     \end{subfigure}
     \hspace{30mm}
     \begin{subfigure}{0.4\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/relu_graf.png}
         \caption{Função ReLU.}
-        \label{fig-1:ex-b}
+
     \end{subfigure}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
-    \label{fig-1:ex-geral}
+    \label{fig-1:ex}
 \end{figure}
 
 
@@ -279,14 +280,14 @@ Comumente o banco de dados é dividido em dois conjuntos: o conjunto de treiname
 \node[main] (sec) {\textbf{Seção 1.2}\\Redes Neurais};
 
 \node[sub, right =of sec] (s31) {1.2.1 Arquiteturas de Redes Neurais};
-\node[sub, below left=of s31] (s32) {1.2.2 Backpropagation};
+\node[sub, below left=of s31] (s32) {1.2.2 \textit{Backpropagation}};
 \node[sub, right=of s32] (s33) {1.2.3 Gradiente Descendente Estocástico};
-\node[sub, below =of s32] (s34) {1.2.4 Overfitting};
+\node[sub, below =of s32] (s34) {1.2.4 \textit{Overfitting}};
 \node[sub, right=of s34] (s35) {1.2.5 Hiperparâmetros};
 \node[sub, right=of s35] (s36) {1.2.6 Regularização};
-\node[sub, below=of s34] (s37) {1.2.7 Momentum};
+\node[sub, below=of s34] (s37) {1.2.7 \textit{Momentum} e \\ Adam};
 \node[sub, right =of s37] (s38) {1.2.8 \textit{Vanishing Gradient}};
-\node[sub, right=of s38] (s39) {1.2.9 \textit{Dígitos Manuscritos}};
+\node[sub, right=of s38] (s39) {1.2.9 Exemplos};
 
 \draw[arrow] (sec) -- (s31);
 \draw[arrow] (s31) -- (s32);
@@ -304,16 +305,16 @@ Comumente o banco de dados é dividido em dois conjuntos: o conjunto de treiname
 \label{sec_2}
 Nesta seção serão apresentados os conceitos relacionados às redes neurais, sendo muito importantes para o andamento do trabalho, todos os conceitos apresentados nesta seção serão utilizados na construção da rede neural proposta na Seção \ref{sec:unet}.
 
-As redes neurais são um ``encadeamento" de múltiplas unidades, onde a saída de uma unidade é a entrada de outra. Redes neurais podem ser organizadas em camadas: uma \textit{camada de entrada}, uma ou mais \textit{camadas ocultas} e uma \textit{camada de saída}. Cada camada é composta por várias unidades e cada unidade em uma camada está conectada a todas as unidades na camada seguinte. A Figura \ref{fig0:ex-a} ilustra a estrutura básica de uma unidade vista na Seção \ref{unidade}. Já a Figura \ref{fig0:ex-b} mostra uma rede neural com duas camadas ocultas, em que a camada de entrada tem três unidades, a primeira camada oculta tem cinco unidades, a segunda camada oculta tem quatro unidades e a camada de saída tem duas unidades. Matematicamente, é possível representar uma rede neural com duas camadas ocultas da seguinte maneira:
+As redes neurais são um ``encadeamento" de múltiplas unidades, onde a saída de uma unidade é a entrada de outra. Redes neurais podem ser organizadas em camadas: uma \textit{camada de entrada}, uma ou mais \textit{camadas ocultas} e uma \textit{camada de saída}. Cada camada é composta por várias unidades e cada unidade em uma camada está conectada a todas as unidades na camada seguinte. A Figura \ref{fig0:ex}(a) ilustra a estrutura básica de uma unidade vista na Seção \ref{unidade}. Já a Figura \ref{fig0:ex}(b) mostra uma rede neural com duas camadas ocultas, em que a camada de entrada tem três unidades, a primeira camada oculta tem cinco unidades, a segunda camada oculta tem quatro unidades e a camada de saída tem duas unidades. Matematicamente, é possível representar uma rede neural com duas camadas ocultas e uma saída da seguinte maneira:
 
 \begin{equation}
     \label{eq:redeNeural}
-    \hat{y} = \sigma^s\left[\sum_{i=1}^4\sigma^2_i\left(\sum_{j=1}^5\sigma^1_j\left(\sum_{k=1}^3 w_{jk}^1 x_k + b_j^1\right)w_{ij}^2 + b_i^2\right)w_i^s + b^s\right],
+    \hat{y} = \sigma_s\left[\sum_{i=1}^4\sigma^2_i\left(\sum_{j=1}^5\sigma^1_j\left(\sum_{k=1}^3 w_{jk}^1 x_k + b_j^1\right)w_{ij}^2 + b_i^2\right)w_i^s + b^s\right],
 \end{equation}
-em que $\sigma^1_j$ é a função de ativação da $j$-ésima unidade da primeira camada oculta, $\sigma^2_i$ é a função de ativação da $i$-ésima unidade da segunda camada oculta e $\sigma^s$ é a função de ativação da $s$-ésima unidade da camada de saída. Os pesos e os vieses são representados por $w_{jk}^1$, $b_j^1$, $w_{ij}^2$, $b_i^2$, $w_i^s$ e $b^s$. Generalizando a notação, para uma rede neural com $L$ camadas ocultas, a saída da rede pode ser expressa como:
+em que $\sigma^1_j$ é a função de ativação da $j$-ésima unidade da primeira camada oculta, $\sigma^2_i$ é a função de ativação da $i$-ésima unidade da segunda camada oculta e $\sigma_s$ é a função de ativação da $s$-ésima unidade da camada de saída. Os pesos e os vieses são representados por $w_{jk}^1$, $b_j^1$, $w_{ij}^2$, $b_i^2$, $w_i^s$ e $b^s$. Generalizando a notação, para uma rede neural com $L$ camadas ocultas, a saída da rede pode ser expressa como:
 \begin{equation}
     \label{eq:redeNeuralGeral}
-    \hat{y} = \sigma^s\left[\sum_{i_L=1}^{n_L}\sigma^L_{i_L}\left(\sum_{i_{L-1}=1}^{n_{L-1}}\sigma^{L-1}_{i_{L-1}}\left(\cdots \sum_{k=1}^{n_1}\sigma^1_k\left(\sum_{m=1}^{n_0} w_{km}^1 x_m + b_k^1\right)w_{jk}^2 + b_j^2\right)w_{ij}^L + b_i^L\right)w_i^s + b^s\right].
+    \hat{y} = \sigma_s\left[\sum_{i_L=1}^{n_L}\sigma^L_{i_L}\left(\sum_{i_{L-1}=1}^{n_{L-1}}\sigma^{L-1}_{i_{L-1}}\left(\cdots \sum_{k=1}^{n_1}\sigma^1_k\left(\sum_{m=1}^{n_0} w_{km}^1 x_m + b_k^1\right)w_{jk}^2 + b_j^2\right)w_{ij}^L + b_i^L\right)w_i^s + b^s\right].
 \end{equation}
 
 
@@ -324,17 +325,17 @@ em que $\sigma^1_j$ é a função de ativação da $j$-ésima unidade da primeir
         \centering
         \includegraphics[width=\linewidth]{figures/perceptron.png}
         \caption{Perceptron.}
-        \label{fig0:ex-a}
+    
     \end{subfigure}
     \hspace{30mm}
     \begin{subfigure}{0.3\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/rede_neural.png}
         \caption{Rede Neural com duas camadas ocultas.}
-        \label{fig0:ex-b}
+       
     \end{subfigure}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
-    \label{fig:ex-geral}
+    \label{fig0:ex}
 \end{figure}
 
 Outra forma de representar uma rede neural é utilizando a notação matricial, em que as entradas, os pesos e os vieses são representados por matrizes e vetores. Para uma rede neural com $n$ entradas, uma camada oculta com $m$ neurônios e uma saída, a saída da rede pode ser expressa como:
@@ -379,28 +380,27 @@ Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar co
         \centering
         \includegraphics[width=\linewidth]{figures/FNNs.png}
         \caption{Redes Neurais \textit{Feedforward} (FNNs).}
-        \label{fig:ex-a}
     \end{subfigure}
     \hspace{30mm}
     \begin{subfigure}{0.4\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/RNNs.png}
         \caption{Redes Neurais Recorrentes (RNNs).}
-        \label{fig:ex-b}
+
     \end{subfigure}
     \hspace{30mm}
     \begin{subfigure}{0.4\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/EncDec.png}
         \caption{\textit{Encoder-Decoder.}}
-        \label{fig:ex-c}
+
     \end{subfigure}
 
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
-    \label{arquiteturas}
+    \label{fig1:ex}
 \end{figure}
 
-As Figuras \ref{fig:ex-a} e \ref{fig:ex-c} ilustram a arquitetura de uma Rede Neural \textit{Feedforward}, com o funcionamento semelhante ao desenvolvido na Equação (\ref{eq:redeNeuralGeral}). A Figura \ref{fig:ex-b} mostra a arquitetura de uma Rede Neural Recorrente, estas redes possuem conexões recorrentes, ou seja, a saída de uma unidade é realimentada como entrada para a mesma unidade ou para unidades anteriores, permitindo que informações sejam mantidas ao longo do tempo, por não estar no escopo deste trabalho, não serão abordados os detalhes matemáticos de funcionamento das RNNs.
+As Figuras \ref{fig1:ex}(a) e \ref{fig1:ex}(c) ilustram a arquitetura de uma Rede Neural \textit{Feedforward}, com o funcionamento semelhante ao desenvolvido na equação (\ref{eq:redeNeuralGeral}). A Figura \ref{fig1:ex}(b) mostra a arquitetura de uma Rede Neural Recorrente, estas redes possuem conexões recorrentes, ou seja, a saída de uma unidade é realimentada como entrada para a mesma unidade ou para unidades anteriores, permitindo que informações sejam mantidas ao longo do tempo, por não estar no escopo deste trabalho, não serão abordados os detalhes matemáticos de funcionamento das RNNs.
 
 \subsection{\textit{Backpropagation}}
 \label{subsec:bacprop}
@@ -454,7 +454,7 @@ O Gradiente Descendente Estocástico (SGD - Stochastic Gradient Descent) \cite{s
 Apesar da Descida do Gradiente padrão fornecer uma direção mais precisa para o mínimo global da função de custo, o SGD é capaz de chegar próximo do mínimo de forma mais rápida e eficiente.
 
 
-A Figura \ref{fig:lote} ilustra como funciona o Gradiente Descendente Estocástico, em que cada seta preta indica uma atualização dos pesos do modelo. A Figura \ref{fig:sg} ilustra o caminho percorrido pelo método de descida do gradiente tradicional, enquanto a Figura \ref{fig:sgd} ilustra o caminho percorrido pelo SGD.
+A Figura \ref{fig:sgd}(a) ilustra como funciona o Gradiente Descendente Estocástico, em que cada seta preta indica uma atualização dos pesos do modelo. A Figura \ref{fig:sgd}(b) ilustra o caminho percorrido pelo método de descida do gradiente tradicional, enquanto a Figura \ref{fig:sgd}(c) ilustra o caminho percorrido pelo SGD.
 \begin{figure}[H]
     \centering
      \caption{Comparação entre o método de descida do gradiente tradicional e o Gradiente Descendente Estocástico.}   
@@ -463,25 +463,24 @@ A Figura \ref{fig:lote} ilustra como funciona o Gradiente Descendente Estocásti
         \centering
         \includegraphics[width=\linewidth]{figures/SG.png}
         \caption{Descida do Gradiente Tradicional.}
-        \label{fig:sg}
+
     \end{subfigure}
     \hspace{30mm}
     \begin{subfigure}{0.4\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/SGD.png}
-        \caption{Gradiente Descendente Estocástico (SGD).}
-        \label{fig:sgd}
+        \caption{Gradiente Descendente Estocástico.}
     \end{subfigure}
     \hspace{30mm }
         \begin{subfigure}{0.5\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/lote.png}
         \caption{Separando em lotes o banco de dados para o SGD.}
-        \label{fig:lote}
+   
     \end{subfigure}
     \footnotesize
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
-    \label{sgd}
+    \label{fig:sgd}
 \end{figure}
 
 
@@ -550,7 +549,8 @@ A regularização \cite{regularizacao} é uma técnica utilizada para prevenir o
     \end{figure}
 \end{itemize}
 
-\subsection{\textit{Momentum}}
+\subsection{\textit{Momentum} e Adam}
+\label{adam}
 O \textit{Momentum} (Momento) \cite{momentum} é uma técnica utilizada para acelerar o processo de treinamento de redes neurais, especialmente em situações onde a função de custo apresenta regiões íngremes ou planas. A ideia principal do \textit{momentum} é acumular uma média ponderada dos gradientes anteriores para suavizar as atualizações dos pesos, permitindo que o modelo mantenha uma direção consistente durante o treinamento. Isso ajuda a evitar oscilações e acelera a convergência para o mínimo da função de custo. Dada uma função de custo $C(w, b)$ a ser minimizada, o \textit{momentum} clássico é definido por:
 
 \begin{equation}
@@ -559,12 +559,10 @@ O \textit{Momentum} (Momento) \cite{momentum} é uma técnica utilizada para ace
         \theta_{t+1} = \theta_t + v_{t+1},
     \end{cases}
 \end{equation}
-em que $\epsilon > 0$ é a taxa de aprendizagem, $\beta \in [0,1]$ é o coeficiente de \textit{momentum}, $v_t$ é a velocidade acumulada no tempo $t$, $\theta_t = (w_t, b_t)$ representa os parâmetros do modelo (pesos e vieses) no tempo $t$ e $\nabla C(w_t, b_t)$ é o gradiente da função de custo em relação aos parâmetros do modelo. O coeficiente de \textit{momentum} $\beta$ controla a influência dos gradientes anteriores nas atualizações atuais. Valores típicos para $\beta$ variam entre $0,9$ e $0,99$, com valores mais altos dando mais peso aos gradientes passados.
-
-\textcolor{red}{Colocar um subseção do ADAM, que é uma variação do Momentum.}
+em que $\epsilon > 0$ é a taxa de aprendizagem, $\beta \in [0,1]$ é o coeficiente de \textit{momentum}, $v_t$ é a velocidade acumulada no tempo $t$, $\theta_t = (w_t, b_t)$ representa os parâmetros do modelo (pesos e vieses) no tempo $t$ e $\nabla C(w_t, b_t)$ é o gradiente da função de custo em relação aos parâmetros do modelo. O coeficiente de \textit{momentum} $\beta$ controla a influência dos gradientes anteriores nas atualizações atuais. \textit{Adaptive Moment Estimation - Adam} \cite{sebastianruder2016} é um método que calcula taxas de aprendizagem ($\eta$) adaptativas para cada parâmetro do modelo, combinando as vantagens do \textit{momentum} e do método de descida do gradiente. Atualmente, o Adam é um dos otimizadores mais populares para treinamento de redes neurais, devido à sua eficiência e capacidade de lidar com grandes conjuntos de dados e parâmetros.
 
 \subsection{\textit{Vanishing Gradient}}
-\label{vanishing}
+\label{sec:vanishing}
 O problema do \textit{vanishing gradient} (gradiente que desaparece)  ocorre durante o treinamento de redes neurais profundas, em que os gradientes calculados durante o processo de \textit{backpropagation} tornam-se extremamente pequenos à medida que são propagados para as camadas mais próximas da entrada. Isso acontece devido à multiplicação repetida de pequenas derivadas associadas às funções de ativação e aos pesos das camadas. Como resultado, os pesos das camadas iniciais da rede recebem atualizações insignificantes, dificultando o aprendizado efetivo dessas camadas. Como neste trabalho serão utilizadas redes neurais profundas, é importante entender o impacto do problema do \textit{vanishing gradient} e as técnicas para mitigá-lo.
 \begin{exemplo}
 \label{ex2}
@@ -595,8 +593,19 @@ O problema do \textit{vanishing gradient} é particularmente comum em redes neur
     \item \textit{Batch Normalization}: Normaliza as ativações de cada camada durante o treinamento, o que pode ajudar a estabilizar os gradientes e acelerar o processo de aprendizado.
 \end{itemize}
 
-\subsection{Dígitos Manuscritos}
-Para exemplicar o funcionamento de como uma rede neural faz o reconhecimento de imagens, considere a tarefa de classificação de dígitos manuscritos utilizando o conjunto de dados MNIST \cite{mnist}. O conjunto de dados MNIST consiste em $70.000$ imagens em escala de cinza de dígitos manuscritos (0 a 9), cada uma com uma resolução de $28\times28$ pixels, como mostra a Figura \ref{mnist}.  
+\subsection{Função de Perda \textit{Binary Cross-Entropy}}
+\label{BCE}
+O \textit{Vanishing Gradient} acontece principalmente em redes neurais profundas que utilizam funções de ativação como a \textit{sigmoid} ou a tangente hiperbólica, uma das formar de contornar esse problema é utilizando a função de perda \textit{Binary Cross-Entropy} (BCE) \cite{Elharrouss2025}, que é comumente utilizada em tarefas de classificação binária. A função de perda BCE é definida como:
+\begin{equation}
+    \text{BCE}(y, \hat{y}) = -\frac{1}{n} \sum_{i=1}^{n} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right],
+\end{equation}
+em que $y_i$ é o valor de saída verdadeiro da $i$-ésima amostra (0 ou 1), $\hat{y}_i$ é a previsão da rede para a $i$-ésima amostra (probabilidade de pertencer à classe 1) e $n$ é o número total de amostras no conjunto de dados. A função de perda BCE é especialmente eficaz para lidar com o problema do \textit{vanishing gradient}, pois ela penaliza fortemente as previsões incorretas, o que pode ajudar a manter os gradientes maiores durante o processo de \textit{backpropagation}. 
+
+\subsection{Exemplos}
+\begin{itemize}
+
+
+    \item Dígitos Manuscritos: Para exemplicar o funcionamento de como uma rede neural faz o reconhecimento de imagens, considere a tarefa de classificação de dígitos manuscritos utilizando o conjunto de dados MNIST \cite{mnist}. O conjunto de dados MNIST consiste em $70.000$ imagens em escala de cinza de dígitos manuscritos (0 a 9), cada uma com uma resolução de $28\times28$ pixels, como mostra a Figura \ref{mnist}.  
 
 \begin{figure}[htpb]
     \centering
@@ -606,7 +615,7 @@ Para exemplicar o funcionamento de como uma rede neural faz o reconhecimento de 
     \label{mnist}
 \end{figure}
 
-Cada imagem é representada como uma matriz de $28\times28$, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). Para o reconhecimento dos digitos utilizou-se uma rede \textit{feedforward} e os métodos presententes em (\ref{subsec:bacprop}), (\ref{subsec:sgd}), (\ref{regularizacao}) e (\ref{vanishing}) para o treinamento e otimização dos pesos.  Para compor a camada de entrada da rede neural, cada imagem é ``achatada" em um vetor de 784 elementos $(28\times28 = 784)$, onde cada elemento corresponde à intensidade de um pixel. O objetivo da rede neural \textit{feedforward} com camadas totalmente conectadas é aprender a classificar corretamente cada imagem em uma das 10 classes correspondentes aos dígitos de 0 a 9. Como a camada de saída da rede neural deve ter 10 unidades (um para cada classe), a arquitetura da rede pode ser definida como [784, 30, 9], onde a camada de entrada tem 784 unidades, a camada oculta tem 30 unidades (valor escolhido aleatóriamente) e a camada de saída tem 9 unidades, como mostra a Figura \ref{mnist_rede}. 
+Cada imagem é representada como uma matriz de $28\times28$, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). Para o reconhecimento dos digitos utilizou-se uma rede \textit{feedforward} e os métodos presententes em (\ref{subsec:bacprop}), (\ref{subsec:sgd}), (\ref{regularizacao}) e (\ref{sec:vanishing}) para o treinamento e otimização dos pesos.  Para compor a camada de entrada da rede neural, cada imagem é ``achatada" em um vetor de 784 elementos $(28\times28 = 784)$, onde cada elemento corresponde à intensidade de um pixel. O objetivo da rede neural \textit{feedforward} com camadas totalmente conectadas é aprender a classificar corretamente cada imagem em uma das 10 classes correspondentes aos dígitos de 0 a 9. Como a camada de saída da rede neural deve ter 10 unidades (um para cada classe), a arquitetura da rede pode ser definida como [784, 30, 9], onde a camada de entrada tem 784 unidades, a camada oculta tem 30 unidades (valor escolhido aleatóriamente) e a camada de saída tem 9 unidades, como mostra a Figura \ref{mnist_rede}. 
 
 \begin{figure}[htpb]
     \centering
@@ -638,7 +647,55 @@ A Figura \ref{fluxo} mostra o fluxo de dados durante o processo de treinamento e
 \end{figure}
 
 Com as configurações mencionadas, a rede neural alcançou uma acurácia de aproximadamente 95\% no conjunto de teste, o que indica que esta foi capaz de aprender a classificar corretamente a maioria das imagens de dígitos manuscritos.
-\newpage
+
+\item Reconstrução de uma Figura Geométrica: Pode-se usar redes neurais para reconstruir malhas geométricas \cite{Sena2024}. Neste caso, utilizou-se uma rede \textit{Multi layer perceptron} (MLP) com duas unidades na camada de entrada, dez neurônios na camada oculta e um neurônio na camada de saída, para aproximar o gráfico do parapoloide hiperbólico $z = x^2 - y^2$. A rede é treinada utilizando o algoritmo de \textit{backpropagation} e o Gradiente Descendente Estocástico, com uma taxa de aprendizagem de $0,01$ e a normalização $L2$ visto na equação (\ref{eq:l2}). O treinamento é realizado para 1000 épocas com todos os neurônios tendo função de ativação sigmoide logística . Os dados considerados são nós de uma malha cartesiana uniforme $x,y \in [-1,1]$, divididos em duzentas partes  com $z =~x^2 -~y^2$. São considerados $20\%$ para os \textit{dados de teste} e $80\%$ para os \textit{dados de treino}, retirando os pontos pertencentes à bola fechada de centro $0$ e raio $0.5$, ou seja, é construído um corte no paraboloide hiperbólico. Como resposta, a rede fornece o valor de $z \approx x^2 - y^2$.
+
+A Figura \ref{img1}(a) apresenta os dados utilizados no treinamento, enquanto a Figura \ref{img1}(b) mostra os valores reconstruídos pela rede. A abordagem proposta obteve uma acurácia de $93\%$ na reconstrução do paraboloide. O cálculo da acurácia foi realizado a partir dos dados de teste, considerando a condição $|\hat{y} - y| \leq 0.01$, em que $\hat{y}$ representa a resposta fornecida pela rede e $y$ a solução analítica.
+
+\begin{figure}[!h]
+    \centering
+    \caption{Paraboloide hiperbólico.}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/recontrucaof1.png}
+        \caption*{(a)}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/reconstrucaof2.png}
+        \caption*{(b)}
+    \end{minipage}
+    
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
+    \label{img1}
+\end{figure}
+
+Como toda aproximação, existe um erro entre a forma analítica e a aproximada pela MLP, ao calcular a saída para os dados $x =1, y=1$ a rede responde $-0.0192$. Observa-se que o erro excede a precisão definida na acurácia, uma vez que, dos $6443$ pontos no conjunto de teste, aproximadamente $6014$ estão dentro da margem de tolerância, resultando na acurácia de $93\%$. Caso a precisão fosse ampliada para $0.02$, a acurácia alcançaria $99\%$, podendo apresentar erro superior a $0.02$. Na Figura \ref{img2}(a) são apresentados o gráfico da função $z$ e a superfície aproximada pela rede. A projeção da superfície do erro absoluto, dado por:  $E = |\hat{y} - y| \leq 0.02$, em que $\hat{y}$ representa a resposta fornecida pela rede e $y$ a solução analítica é exibida na Figura \ref{img2}(b), em que os pontos de $E$ com as cores mais claras estão próximos de $0.02$ e os mais escuros, próximos de $0$.
+
+\begin{figure}[!h]
+    \centering
+    \caption{Gráfico da superfície e aproximação da superfície obtida pela MLP e a projeção do E no plano xy.}
+    \begin{minipage}{0.46\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/recontrucaof3.png}
+        \caption*{(a)}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.46\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/reconstrucaof4.png}
+        \caption*{(b)}
+    \end{minipage}
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
+    \label{img2}
+\end{figure}
+
+\end{itemize}
+
+
+
+
 \section{Rede Neural para Análise de Imagens}
 \begin{figure}[h!]
 \centering
@@ -676,7 +733,7 @@ Com as configurações mencionadas, a rede neural alcançou uma acurácia de apr
 \node[sub, below =of s32] (s34) {1.3.4 \textit{Kernel} Multicamadas};
 \node[sub, right=of s34] (s35) {1.3.5 \textit{Padding}};
 \node[sub, right=of s35] (s36) {1.3.6 \textit{Stride}};
-\node[sub, below=of s34] (s37) {1.3.7 \textit{Pooling}};
+\node[sub, below=of s34] (s37) {1.3.7 \textit{\textit{pooling}}};
 \node[sub, right =of s37] (s38) {1.3.8 Convolução Transposta};
 
 \draw[arrow] (sec) -- (s31);
@@ -713,7 +770,7 @@ Uma imagem virtual é uma representação visual de um objeto, cena ou conceito,
 
 \subsection{Redes Neurais Convolucionais}
 \label{redesConvolucionais}
-As redes neurais convolucionais (RNCs ou do ingles \textit{Convolutional Neural Networks} - CNNs) são uma classe especial de redes neurais projetadas para processar dados com uma estrutura de grade e que tenham uma relação de vizinhaça entre os elementos, como imagens~\cite{medium}, foram baseadas do Cortex Visual Humano~(\ref{CoViHu}). Estas são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos, detecção de faces e segmentação\footnote{Posteriormente será exeplicado por que o termo segmentação pode ser trocado por máscara.} de imagens. As RNCs são inspiradas na organização do córtex visual, onde diferentes regiões do cérebro são responsáveis por processar diferentes partes do campo visual.
+As redes neurais convolucionais (RNCs ou do ingles \textit{Convolutional Neural Networks} - CNNs) são uma classe especial de redes neurais projetadas para processar dados com uma estrutura de grade e que tenham uma relação de vizinhaça entre os elementos, como imagens~\cite{medium}, foram baseadas do Cortex Visual Humano~(\ref{CoViHu}). Estas são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos, detecção de faces e segmentação\footnote{Segmentação de imagens é uma modificação feita na área de  visão computacional que envolve a divisão de uma imagem em regiões ou segmentos distintos, cada um representando um objeto ou parte de um objeto. O objetivo da segmentação é atribuir uma etiqueta a cada pixel da imagem, indicando a qual classe ou categoria ele pertence.} de imagens. As RNCs são inspiradas na organização do córtex visual, onde diferentes regiões do cérebro são responsáveis por processar diferentes partes do campo visual.
 
 \subsection{Convolução}
 \begin{exemplo}
@@ -728,7 +785,7 @@ $$
 s(t) = (x*w)(t).
 $$
 
-No exemplo \ref{ex:convolucao}, é preciso que $w$ seja uma função densidade de probabilidade válida para que a saída seja uma méida ponderada e $w$ precisa ser igual a zero para $a < 0$. Estas restrições são particulares do exemplo, em geral, convolução é definida para quaisquer funções e integrais. 
+No exemplo \ref{ex:convolucao}, é preciso que $w$ seja uma função densidade de probabilidade válida para que a saída seja uma média ponderada e $w$ precisa ser igual a zero para $a < 0$. Estas restrições são particulares do exemplo, em geral, convolução é definida para quaisquer funções e integrais. 
 
 Na terminologia da rede convolucional, o primeiro termo ($x$) é frequentemente chamado de \textit{input} (entrada), o segundo termo ($w$) é chamado de \textit{kernel} (núcleo) ou filtro, e o resultado ($s$) é chamado de \textit{feature map} (mapa de características).
 
@@ -813,7 +870,7 @@ o que implica que o vetor resultante ($y[n]$) tem comprimento $M+N-1$
 \end{proof}
 
 
-No Exemplo \ref{ex:conv_discreta}, a convolução entre os vetores $x[n]$ e $w[n]$ resultou em um vetor de comprimento $4$, que é igual a $3 + 2 - 1 = 4$. Para voltar ao comprimento original do vetor $x[n]$, pode-se fazer um truncamento do vetor resultante, ou seja, remover a mesma quantidade de elementos do início e do final do vetor resultante, o que é conhecido como convolução ``\textit{same}" (ou mesma em português). No exemplo, removendo o primeiro e o último elemento do vetor resultante, obtém-se a convolução \textit{same}:
+No Exemplo \ref{ex:conv_discreta}, a convolução entre os vetores $x[n]$ e $w[n]$ resultou em um vetor de comprimento $4$, que é igual a $3 + 2 - 1 = 4$. Para voltar ao comprimento original do vetor $x[n]$, pode-se fazer um truncamento do vetor resultante, ou seja, remover a mesma quantidade de elementos do início e do final do vetor resultante, o que é conhecido como convolução ``\textit{same}"\footnote{A convolução \textit{same} é usanda quando a dimensão do dado de entrada deve ser mantida na saída, quando isso não é nescessário, a convolução pode receber outro nome, como por exemplo, convolução \textit{valid} \cite{padding}, utilizada, quando os valores da saída são somente calculados quando o \textit{kernel} está totalmente contido na entrada.} (ou mesmo em português). No exemplo \ref{ex:conv_discreta}, removendo o primeiro e o último elemento do vetor resultante, obtém-se a convolução \textit{same}:
 $$
     (x*w)_{same}[n] = \{1, 2\}.
 $$
@@ -829,13 +886,13 @@ Pode-se pensar na operação de convolução discreta como o precesso de multipl
 \end{figure}
 
 
-No contexto de redes neurais convolucionais, a convolução é aplicada a dados discretos, como imagens representadas por matrizes de pixels. Nesse caso, o sinal $x$ é uma matriz bidimensional que representa a imagem de entrada e o \textit{kernel} $w$ é uma matriz menor que atua como um filtro para extrair características específicas da imagem. A operação de convolução em dados discretos é realizada deslizando o \textit{kernel} sobre a imagem e calculando a soma ponderada dos valores dos pixels cobertos pelo \textit{kernel}. A saída da convolução é uma nova matriz, chamada de Mapa de Características, que destaca as características extraídas pela aplicação do \textit{kernel}. No caso de uma convolução bidimensional discreta, a operação é definida como:
+No contexto de redes neurais convolucionais, a convolução é aplicada a dados discretos, como imagens representadas por matrizes de pixels. Neste caso, o sinal $x$ é uma matriz bidimensional que representa a imagem de entrada e o \textit{kernel} $w$ é uma matriz menor que atua como um filtro para extrair características específicas da imagem. A operação de convolução em dados discretos é realizada deslizando o \textit{kernel} sobre a imagem e calculando a soma ponderada dos valores dos pixels cobertos pelo \textit{kernel}. A saída da convolução é uma nova matriz, chamada de Mapa de Características, que destaca as características extraídas pela aplicação do \textit{kernel}. No caso de uma convolução bidimensional discreta, a operação é definida como:
 \begin{equation}
-    S[i,j] = (X*W)[i,j] = \sum_{m}\sum_{n} X[m,n]W[i-m,j-n],
+    S[i,j] = (X*W)[i,j] = \sum_{m=-\infty}^\infty \sum_{n=-\infty}^\infty X[m,n]W[i-m,j-n],
 \end{equation}
 convolução é uma operação comutativa, ou seja:
 $$
-    S[i,j] = (X*W)[i,j] = \sum_{m}\sum_{n} X[i-m,j-n]W[m,n],
+    S[i,j] = (X*W)[i,j] = \sum_{m=-\infty}^\infty \sum_{n=-\infty}^\infty X[i-m,j-n]W[m,n],
 $$
 considerando que $X$ é a matriz da imagem de entrada, $W$ é a matriz do kernel e $S$ é o mapa de características resultante.
 
@@ -860,7 +917,7 @@ considerando que $X$ é a matriz da imagem de entrada, $W$ é a matriz do kernel
             0 & 1 
         \end{bmatrix},
     $$
-$\hat{W}$ foi obtido fazendo uma rotação de $180$ graus do \textit{kernel} original $W$, isso acontece pois na definição, para $i = 0$ e $j = 0$, temos $\hat{W}[i,j] = W[-m,-n]$. Para facilitar o calculo da convolução, pode-se separar $X$ com blocos de $2\times2$ (tamanho do \textit{kernel}) e calcular a convolução para cada bloco. Para o bloco superior esquerdo de $X$ até o bloco inferior direito, temos:
+$\hat{W} = J_iWJ_j$ em que $J_i$ e $J_j$ são matrizes de permutação que realizam a rotação de $180$ graus do \textit{kernel} original $W$. Para facilitar o calculo da convolução, pode-se separar $X$ com blocos de $2\times2$ (tamanho do \textit{kernel}) e calcular a convolução para cada bloco. Para o bloco superior esquerdo de $X$ até o bloco inferior direito, temos:
 \begin{align*}
     S(0,0) &= \begin{bmatrix}
             1 & 2 \\
@@ -934,11 +991,11 @@ As redes neurais convolucionais geralmente não utilizam a definição tradicion
 \begin{equation}
     S[i,j] = (X*W)[i,j] = \sum_{m}\sum_{n} X[i+m,j+n]W[m,n],
 \end{equation}
-em que $X$ é a matriz da imagem de entrada, $W$ é a matriz do \textit{kernel} e $S$ é o mapa de características resultante. Isso acontece porque no processo de treinamento os valores do \textit{kernel} não são definidos manualmente, mas sim aprendidos por meio dos processos de otimização dos pesos. Por conta disso, a rede aprende a melhor configuração do \textit{kernel} sem a necessidade de realizar a rotação de $180$ graus, sendo exatamente o que a definição de correlação cruzada descreve, já que $W$ não depende de parâmetros negativos. 
+em que $X$ é a matriz da imagem de entrada, $W$ é a matriz do \textit{kernel} e $S$ é o mapa de características resultante. Isso ocorre porque no processo de treinamento os valores do \textit{kernel} não são definidos manualmente, mas sim aprendidos por meio dos processos de otimização dos pesos. Por conta disso, a rede aprende a melhor configuração do \textit{kernel} sem a necessidade de realizar a rotação de $180$ graus, sendo exatamente o que a definição de correlação cruzada descreve, já que $W$ não depende de parâmetros negativos. 
 
 
 \subsection{\textit{Kernel} Multicamadas}
-Em uma imagem com mais de um canal, como no caso de ma imagem VVA (vermelhor, verde, azul) do inglês RGB \textit{(Red, Green, Blue)}, a convolução acontece com um \textit{kernel} em cada canal da imagem, um conjunto de canais é chamado de filtro. Por exemplo, considere uma imagem RGB de dimensões \textbf{$(w_{in}\times h_{in}\times 3)$} e um \textit{kernel} de dimensões \textbf{$(k_w\times k_h\times 3)$}. A convolução é realizada separadamente em cada canal (vermelho, verde e azul) da imagem, utilizando o respectivo canal do \textit{kernel}. Após a aplicação do \textit{kernel} em cada canal, os resultados são somados ou é aplicada uma média para produzir um único mapa de características. Portanto, a saída da convolução terá dimensões \textbf{$(w_{out}\times h_{out}\times 1)$}, onde $w_{out}$ e $h_{out}$ são calculados conforme as fórmulas apresentadas em (\ref{largura_conv}) e (\ref{altura_conv}).
+Em uma imagem com mais de um canal, como no caso de uma imagem VVA (vermelho, verde, azul) do inglês RGB \textit{(Red, Green, Blue)}, a convolução acontece com um \textit{kernel} em cada canal da imagem, um conjunto de canais é chamado de filtro. Por exemplo, considere uma imagem RGB de dimensões \textbf{$(w_{in}\times h_{in}\times 3)$} e um \textit{kernel} de dimensões \textbf{$(k_w\times k_h\times 3)$}. A convolução é realizada separadamente em cada canal (vermelho, verde e azul) da imagem, utilizando o respectivo canal do \textit{kernel}. Após a aplicação do \textit{kernel} em cada canal, os resultados são somados ou é aplicada uma média para produzir um único mapa de características. Portanto, a saída da convolução terá dimensões \textbf{$(w_{out}\times h_{out}\times 1)$}, onde $w_{out}$ e $h_{out}$ são calculados conforme as fórmulas apresentadas em (\ref{largura_conv}) e (\ref{altura_conv}).
 
 \subsection{\textit{Padding}}
 Durante a aplicação da convolução, é comum que a dimensão espacial (largura e altura) da imagem de saída seja menor do que a da imagem de entrada. Isso ocorre porque o \textit{kernel} não pode ser aplicado nas bordas da imagem sem ultrapassar seus limites. Para mitigar essa redução de dimensão, uma técnica chamada \textit{padding} \cite{cnn} é frequentemente utilizada. O \textit{padding} envolve adicionar uma borda de pixels ao redor da imagem original antes de aplicar a convolução. Esses pixels adicionais podem ser preenchidos com zeros \textit{(zero-padding)} ou com valores replicados dos pixels mais próximos da borda da imagem original, \textit{(reflection padding)}. O uso de \textit{padding} permite que o \textit{kernel} seja aplicado em todas as regiões da imagem, incluindo as bordas, preservando assim as dimensões espaciais da imagem de entrada na saída. A Figura \ref{padding} ilustra a aplicação de diferentes tipos de \textit{padding} em uma imagem.
@@ -978,7 +1035,7 @@ O \textit{pooling} (em tradução livre, \textit{agrupamento}) é uma operação
 
 \begin{figure}[htpb]
     \centering
-    \caption{Exemplo de Max Pooling com tamanho de 2x2. A imagem original é reduzida para a imagem menor após a aplicação do Max Pooling. Cada bloco de 2x2 pixels na imagem original é substituído pelo valor máximo dentro desse bloco na imagem reduzida.}
+    \caption{Exemplo de Max \textit{pooling} com tamanho de 2x2. A imagem original é reduzida para a imagem menor após a aplicação do Max \textit{pooling}. Cada bloco de 2x2 pixels na imagem original é substituído pelo valor máximo dentro desse bloco na imagem reduzida.}
     \includegraphics[width=0.5\linewidth]{pooling.png}
     \caption*{\footnotesize Fonte: Adaptado de \cite{medium}.}
     \label{pooling}
@@ -1065,9 +1122,51 @@ A Figura \ref{fig:conTrans} exemplifica a operação de convolução transposta,
     \label{fig:conTrans}
 \end{figure}
 
-\
+\textcolor{red}{Colocar o exeplo dos dígitos manuscritos}
 \section{U-net: Rede Convolucional para Segmentação de Imagens}
 \label{sec:unet}
+\begin{figure}[H]
+\centering
+\caption{Organização da Seção 1.4.}
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    every node/.style={font=\small},
+    main/.style={
+        draw,
+        rounded corners=6pt,
+        thick,
+        minimum width=4cm,
+        minimum height=1.2cm,
+        align=center
+    },
+    sub/.style={
+        draw,
+        rounded corners=4pt,
+        thin,
+        minimum width=3.5cm,
+        minimum height=1cm,
+        align=center
+    },
+    arrow/.style={
+        -{Latex[length=3mm]},
+        thick
+    }
+]
+
+\node[main] (sec) {\textbf{Seção 1.4}\\U-Net: Rede Convolucional \\ para Segmentação de Imagens};
+
+\node[sub, right =of sec] (s31) {1.4.1 U-net};
+\node[sub, below left=of s31] (s32) {1.4.2 DICE};
+
+
+\draw[arrow] (sec) -- (s31);
+\draw[arrow] (s31) -- (s32);
+
+
+\end{tikzpicture}
+\caption*{\footnotesize Fonte: Elaboração do Autor.}
+\end{figure}
+
 Modificando a arquitetura tradicional de uma CNN, é possível obter variadas redes neurias com objetivos específicos. O uso típico de redes convolucionais ocorre em tarefas de classificação, em que o objetivo é atribuir uma etiqueta a uma imagem inteira. No entanto, em muitas tarefas visuais, especialmente no processamento de imagens biomédicas, a saída desejada deve incluir informações espaciais detalhadas, como a localização precisa de estruturas dentro da imagem. Para atender a essa necessidade, foi proposta a arquitetura U-Net \cite{Ronneberger2015UNet}, que é uma rede neural convolucional projetada para segmentação de imagens. A U-Net é composta por uma parte de contração (\textit{encoder}, composta por camadas de convolução e \textit{pooling}) e uma parte de expansão (\textit{decoder}, composta por camadas de convolução transposta), formando uma estrutura em forma de U (origem do nome U-Net). O \textit{encoder} é responsável por extrair características da imagem de entrada, enquanto o \textit{decoder} reconstrói a imagem, utilizando as características extraídas pelo \textit{encoder}. A arquitetura U-Net é especialmente eficaz em tarefas de segmentação semântica, em que o objetivo é classificar cada pixel da imagem em uma categoria específica, permitindo a identificação precisa de objetos e estruturas dentro da imagem. O Exemplo \ref{ex:unet} apresenta uma simplificação visual do funcionamento da U-Net antes de ser introduzido os detalhes da arquitetura completa.
 
 \begin{exemplo}
@@ -1116,23 +1215,23 @@ O mapa de características resultante da aplicação da função de ativação �
     \label{ex:unet_img5}
 \end{figure}
 
-Com o mapa de pooling gerado, para voltar as dimensões originais da imagem de entrada, é necessário aplicar a operação de convolução transposta, utilizando um \textit{kernel} de dimensões $2\times 2$, como mostra a Figura \ref{ex:unet_img6}.
+Com o mapa de \textit{pooling} gerado, para voltar as dimensões originais da imagem de entrada, é necessário aplicar a operação de convolução transposta, utilizando um \textit{kernel} de dimensões $2\times 2$, como mostra a Figura \ref{ex:unet_img6}.
 \begin{figure}[H]
     \centering
-    \caption{Aplicação da operação de convolução transposta no mapa de pooling para expandir suas dimensões espaciais e voltar às dimensões originais da imagem de entrada.}
+    \caption{Aplicação da operação de convolução transposta no mapa de \textit{pooling} para expandir suas dimensões espaciais e voltar às dimensões originais da imagem de entrada.}
     \includegraphics[width=0.8\linewidth]{figures/unetimgs/ex_fig6.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ex:unet_img6}
 \end{figure}
-O nome U-Net vem da forma em U da arquitetura, em que o encoder diminui as dimensões espaciais da imagem de entrada, enquanto o decoder as expande, formando uma estrutura simétrica, como mostra a Figura \ref{ex:unet_img7}.
+O nome U-Net vem da forma em U da arquitetura, em que o \textit{encoder} diminui as dimensões espaciais da imagem de entrada, enquanto o \textit{decoder} as expande, formando uma estrutura simétrica, como mostra a Figura \ref{ex:unet_img7}.
 \begin{figure}[H]
     \centering
-    \caption{Estrutura em forma de U da arquitetura U-Net. O encoder é responsável por extrair características da imagem de entrada, enquanto o decoder reconstrói a imagem, utilizando as características extraídas pelo encoder.}
+    \caption{Estrutura em forma de U da arquitetura U-Net. O \textit{encoder} é responsável por extrair características da imagem de entrada, enquanto o \textit{decoder} reconstrói a imagem, utilizando as características extraídas pelo \textit{encoder}.}
     \includegraphics[width=0.8\linewidth]{figures/unetimgs/ex_fig7.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ex:unet_img7}
 \end{figure}
-A característica mais importante da arquitetura U-Net é a presença de conexões de atalho (\textit{skip connections}) entre as camadas correspondentes do encoder e do decoder, presente na Figura \ref{ex:unet_img8}. 
+A característica mais importante da arquitetura U-Net é a presença de conexões de atalho (\textit{skip connections}) entre as camadas correspondentes do \textit{encoder} e do \textit{decoder}, presente na Figura \ref{ex:unet_img8}. 
 \begin{figure}[htpb]
     \centering
     \caption{Exemplo de conexões de atalho (\textit{skip connections}) na arquitetura U-Net.}
@@ -1140,18 +1239,18 @@ A característica mais importante da arquitetura U-Net é a presença de conexõ
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ex:unet_img8}
 \end{figure}
-Essa operação concatena as imagens conrrespondentes, entretanto para que as imagens possam ser concatenadas, é necessário que elas tenham as mesmas dimensões, portanto, é necessário aplicar a técnica de \textit{copy} (copiar) and (e) \textit{crop} (cortar), em que as características extraídas pelo decoder são copiadas e recortadas para se encaixar nas dimensões da camada correspondente no encoder, a sobreposição é feita começando de cima para baixo, da esquerda para a direita, com o vermelho sinalizando a área que será removida após a sobreposição, como mostra a Figura \ref{ex:unet_img9}. 
+Essa operação concatena as imagens correspondentes, entretanto para que as imagens possam ser concatenadas, é necessário que elas tenham as mesmas dimensões, portanto, é necessário aplicar a técnica de \textit{copy} (copiar) and (e) \textit{crop} (cortar), em que as características extraídas pelo \textit{decoder} são copiadas e recortadas para se encaixar nas dimensões da camada correspondente no \textit{encoder}, a sobreposição é feita começando de cima para baixo, da esquerda para a direita, com o vermelho sinalizando a área que será removida após a sobreposição, (Figura \ref{ex:unet_img9}). 
 
 \begin{figure}[htpb]
     \centering
-    \caption{Exemplo de conexões de atalho (\textit{skip connections}) na arquitetura U-Net. As conexões de atalho permitem que as informações de baixo nível, como bordas e texturas, sejam diretamente transferidas do encoder para o decoder, facilitando a reconstrução precisa da imagem segmentada.}
+    \caption{Exemplo de conexões de atalho (\textit{skip connections}) na arquitetura U-Net. As conexões de atalho permitem que as informações de baixo nível, como bordas e texturas, sejam diretamente transferidas do \textit{encoder} para o \textit{decoder}, facilitando a reconstrução precisa da imagem segmentada.}
     \includegraphics[width=0.9\linewidth]{figures/unetimgs/ex_fig9.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ex:unet_img9}
 \end{figure}
 
 
-Dependedo da convolução utilizada, o \textit{ copy and crop} pode ser aplicado a imagem do encoder e caso as imagens tenham mais de um canal, a operação de concatenação leva em consideração apenas a altura e a largura das imagens, ou seja, as imagens precisão ter as mesmas dimensões, os canais de cada imagem são somados no processo, por exemplo:
+Dependedo da convolução utilizada, o \textit{ copy and crop} pode ser aplicado a imagem do \textit{encoder} e caso as imagens tenham mais de um canal, a operação de concatenação leva em consideração apenas a altura e a largura das imagens, ou seja, as imagens precisão ter as mesmas dimensões, os canais de cada imagem são somados no processo, por exemplo:
 $$
 X_1 = (A,L,C_1) \oplus X_2 =(A,L,C_2) = (A,L,C_1 + C_2) = Y,
 $$
@@ -1177,15 +1276,15 @@ Por fim, como a imagem segmentada, presente na Figura \ref{unet-simples}, tem va
 \end{exemplo}
 
 \subsection{U-Net}
-A rede convolucional desenvolvida por Ronneberger et al. \cite{Ronneberger2015UNet} é bem similar ao Exemplo \ref{ex:unet}, entretanto, a arquitetura completa da U-Net é composta por múltiplas camadas de convolução e pooling no encoder, e múltiplas camadas de convolução transposta no decoder, no total são quatro camadas de convolução e pooling no encoder e quatro camadas de convolução transposta no decoder, como mostra a Figura \ref{unet}. O número de filtros em cada camada de convolução aumenta à medida que se avança no encoder, começando com 64 filtros na primeira camada e dobrando a quantidade a cada camada subsequente, chegando a 1024 filtros na última camada do encoder. No decoder, o número de filtros é reduzido pela metade a cada camada subsequente, começando com 512 filtros na primeira camada do decoder e terminando com 64 filtros na última camada antes da saída. As conexões de atalho (\textit{skip connections}) entre as camadas correspondentes do encoder e do decoder permitem que sejam feitas as concatenações das imagens. A Figura \ref{unet} apresenta a arquitetura completa da U-Net, cada bloco representa uma etapa de processamento, o número na parte superior do bloco indica o número de filtros utilizados na camada de convolução, enquanto o número na parte inferior do bloco indica as dimensões espaciais da imagem resultante daquela etapa. A seta azul escuro representa a operação de convolução com filtros de dimenção $3\times 3$ e função de ativação $ReLU$, a seta vermelha representa a operação de pooling com \textit{kernel} de tamanho $2\times 2$ e stride de $2$, a seta cinza representa a operação de \textit{Copy and Crop} para realizar a concatenação das imagens, e a seta verde representa a operação de convolução transposta com filtros de dimensão $2\times 2$. A última camada de convolução utiliza um \textit{kernel} de dimensão $1\times 1$ e função de ativação \textit{sigmoid logística} (dependendo da aplicação) para gerar a imagem de saída segmentada.
+A rede convolucional desenvolvida por Ronneberger \cite{Ronneberger2015UNet} é bem similar ao Exemplo \ref{ex:unet}, entretanto, a arquitetura completa da U-Net é composta por múltiplas camadas de convolução e \textit{pooling} no \textit{encoder}, e múltiplas camadas de convolução transposta no \textit{decoder}, no total são quatro camadas de convolução e \textit{pooling} no \textit{encoder} e quatro camadas de convolução transposta no \textit{decoder}, como mostra a Figura \ref{unet}. O número de filtros em cada camada de convolução aumenta à medida que se avança no \textit{encoder}, começando com 64 filtros na primeira camada e dobrando a quantidade a cada camada subsequente, chegando a 1024 filtros na última camada do \textit{encoder}. No \textit{decoder}, o número de filtros é reduzido pela metade a cada camada subsequente, começando com 512 filtros na primeira camada do \textit{decoder} e terminando com 64 filtros na última camada antes da saída. As conexões de atalho (\textit{skip connections}) entre as camadas correspondentes do \textit{encoder} e do \textit{decoder} permitem que sejam feitas as concatenações das imagens. A Figura \ref{unet} apresenta a arquitetura completa da U-Net, cada bloco representa uma etapa de processamento, o número na parte superior do bloco indica o número de filtros utilizados na camada de convolução, enquanto o número na parte inferior do bloco indica as dimensões espaciais da imagem resultante daquela etapa. A seta azul escuro representa a operação de convolução com filtros de dimenção $3\times 3$ e função de ativação $ReLU$, a seta vermelha representa a operação de \textit{pooling} com \textit{kernel} de tamanho $2\times 2$ e stride de $2$, a seta cinza representa a operação de \textit{Copy and Crop} para realizar a concatenação das imagens, e a seta verde representa a operação de convolução transposta com filtros de dimensão $2\times 2$. A última camada de convolução utiliza um \textit{kernel} de dimensão $1\times 1$ e função de ativação \textit{sigmoid logística} (dependendo da aplicação) para gerar a imagem de saída segmentada.
 \begin{figure}[H]
     \centering
     \caption{Arquitetura completa da U-Net.}
-    \includegraphics[width=0.8\linewidth]{figures/unetimgs/ex_unet.png}
+    \includegraphics[width=0.9\linewidth]{figures/unetimgs/ex_unet.png}
     \caption*{\footnotesize Fonte: Adaptado de \cite{Ronneberger2015UNet}.}
     \label{unet}
 \end{figure}
-Como não é utilizado nenhum processo de \textit{padding} as dimensões da imagem são reduzidas em cada etapa de convolução. O corte feito para a concatenação (sinalizado por uma linha azul pontilhada) nas imagens do encoder (lado direito da Figura \ref{unet})  é feito no centro da imagem, ou seja, a parte central da imagem do encoder é mantida para a concatenação, enquanto as bordas são removidas. O total de parâmetros a serem otimizados é de aproximadamente $27.548,993$ dependendo da utilização do viés ou não. Para as duas primeiras camadas de convolução do encoder o número de parâmetros pode ser calculado da seguinte forma:
+Como não é utilizado nenhum processo de \textit{padding} as dimensões da imagem são reduzidas em cada etapa de convolução. O corte feito para a concatenação (sinalizado por uma linha azul pontilhada) nas imagens do \textit{encoder} (lado direito da Figura \ref{unet})  é feito no centro da imagem, ou seja, a parte central da imagem do \textit{encoder} é mantida para a concatenação, enquanto as bordas são removidas. O total de parâmetros a serem otimizados é de aproximadamente $27.548,993$ dependendo da utilização do viés ou não. Para as duas primeiras camadas de convolução do \textit{encoder} o número de parâmetros pode ser calculado da seguinte forma:
 $$
 \begin{array}{ccccc}
     & & &\\
@@ -1195,4 +1294,21 @@ $$
 $$
 
 O filtro da segunda convolução tem 64 canais, um para cada mapa de características gerado pela primeira convolução, multiplica-se novamente por 64, pois cada filtro gera apenas um mapa de características.
-\subsection{DICE}
+\subsection{Dice}
+Quando a região de interesse em uma imagem é pequena em comparação ao plano de fundo, a métrica da acurácia pode ser enganosa, pois a maioria dos pixels da imagem pertencem ao plano de fundo, o que pode levar a um resultado de alta acurácia mesmo que o modelo não esteja segmentando corretamente a região de interesse. Para lidar com esse problema, é comum utilizar métricas específicas para avaliação de segmentação, como o coeficiente de Dice \cite{dice}, que é uma medida de similaridade entre a imagem segmentada e a imagem de referência (\textit{ground truth} ou máscara). O coeficiente de Dice é calculado utilizando a seguinte fórmula:
+\begin{equation}
+    \label{eq:dice}
+    Dice = \frac{2|A \cap B|}{|A| + |B|},
+\end{equation}
+em que $A$ é o conjunto de pixels da imagem segmentada e $B$ é o conjunto de pixels da imagem de referência. O coeficiente de Dice varia entre 0 e 1, onde um valor de 1 indica uma segmentação perfeita (todas as regiões de interesse foram corretamente identificadas) e um valor de 0 indica que não há sobreposição entre a imagem segmentada e a imagem de referência. 
+
+\begin{exemplo}
+    Seja $A = \{1,2,3,4,5,6\}$ e $B = \{1,2,3,4,9\}$. A interseção entre os conjuntos $A$ e $B$ é $A \cap B = \{1,2,3,4\}$, o que significa que existem 4 elementos em comum entre os dois conjuntos. O número total de elementos em $A$ é $|A| = 6$ e o número total de elementos em $B$ é $|B| = 5$. Substituindo esses valores na fórmula do coeficiente de Dice, temos:
+$$
+Dice = \frac{2|A \cap B|}{|A| + |B|} = \frac{2 \times 4}{6 + 5} = \frac{8}{11} \approx 0,727.
+$$
+Portanto, o coeficiente de Dice para os conjuntos $A$ e $B$ é aproximadamente 0,727, indicando uma boa sobreposição entre os dois conjuntos, mas não uma correspondência perfeita. 
+\end{exemplo}
+A métrica Dice é bastante utilizada em conjunto com a arquitetura U-Net para avaliar a qualidade da segmentação gerada pela rede. Neste trabalho esta será amplamente utilizada. 
+
+% \subsection{\texiti{Intersection over Union} IOU}

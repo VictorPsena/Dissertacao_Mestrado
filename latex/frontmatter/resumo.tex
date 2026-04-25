@@ -2,4 +2,25 @@
 \addcontentsline{toc}{chapter}{Resumo}
 \textcolor{red}{Algumas coisas que posso colocar no resumo.}
 
-Ao longo da história do Brasil, o desenvolvimento econômico e social do país esteve profundamente enraizado em atividades agrícolas e pecuárias \cite{garcao2015pecuaria}. A produção de commodities, como açúcar, algodão e posteriormente a soja e a carne bovina, consolidou o Brasil como importante fornecedor de recursos naturais no mercado global \cite{embrapa1} \cite{embrapa2}. De acordo com a Associação Brasileira das Indústrias Exportadoras de Carnes-ABIEC  \cite{abiec}, o complexo agroindustrial voltado à produção de carne bovina representou cerca de 8,4\% do Produto Interno Bruto (PIB) do país. No mesmo período, o Brasil possuía o maior rebanho bovino comercial, representando 11,6\% do total mundial. No comércio exterior, o país se consolidou na primeira posição, sendo responsável por cerca de 21\% da carne bovina negociada internacionalmente. As raças Nelore e Caracu representam juntas mais de 80\% do rebanho brasileiro, sendo a grande maioria Nelore, por este motivo, este trabalho focará, com uso de inteligência artificial,  na análise de imagens de ultrassom de características da carcaça, como a mensuração da Área de Olho de Lombo (AOL) e da Espessura de Gordura no Lombo (EGL), em bovinos da raça Nelore e Caracu submetidos a testes anuais de ganho de peso e eficiência alimentar realizados no Instituto de Zootecnia (Centro Avançado de Pesquisa Tecnológica do Agronegócio (CAPTA)) em Sertãozinho-SP. Estas imagens serão utilizadas para determinar os fenótipos individuais dos animais por meio de técnicas de visão computacional e modelos de inteligência artificial \cite{szeliski2010} capazes de reconhecer as dimensões de regiões demarcadas das carcaças. Para fins de comparação, as raças Nelore e Caracu serão submetidas as mesmas medidas. O objetivo é avaliar a precisão e a eficiência dos modelos de inteligência artificial na análise de imagens de ultrassom, contribuindo para a melhoria dos processos de seleção e manejo de bovinos, visando o aumento da produtividade e qualidade da carne produzida.
+
+A pecuária bovina é um dos pilares fundamentais da economia brasileira. O Brasil possui um dos maiores rebanhos bovinos comerciais do mundo e é o principal exportador
+de carne bovina, o que torna a avaliação precisa das características da carcaça dos
+animais uma demanda estratégica para o setor pecuário. A ultrassonografia permite
+mensurar, \textit{in vivo}, indicadores como a Área de Olho de Lombo (AOL), a
+Espessura de Gordura no Lombo (EGL) e a Espessura de Gordura na Garupa (EGG),
+relacionados à musculosidade, precocidade de terminação e qualidade da carne. Entretanto, a delimitação manual das regiões de interesse em imagens ultrassonográficas é um processo subjetivo, demorado e dependente da experiência do especialista. Neste trabalho, foram desenvolvidos e comparados dois
+modelos de segmentação automática dessas regiões em imagens de ultrassom de bovinos
+das raças Nelore e Caracu: uma rede neural convolucional U-Net com abordagem
+\textit{Multitask} e uma U-Net \textit{Multitask} integrada ao Sistema de Inferência Neuro-Fuzzy Adaptativo (ANFIS). As imagens foram obtidas de animais vivos
+no Centro Avançado de Pesquisa Tecnológica do Agronegócio (CAPTA) em Sertãozinho-SP,
+totalizando 135 imagens (108 Nelore e 27 Caracu), ampliadas por técnicas de
+expansão do conjunto de dados. As máscaras de segmentação foram criadas manualmente com
+o auxílio de uma especialista, servindo como referência para o treinamento e avaliação dos modelos. O desempenho dos métodos foi avaliado por meio do coeficiente de
+Dice, que quantifica a similaridade entre a segmentação produzida pelo modelo e a
+referência do especialista. Os resultados indicam que ... \textcolor{red}{[completar
+com os resultados comparativos entre U-Net e U-Net+ANFIS]}. O trabalho contribui
+para a automatização da mensuração de características da carcaça bovina, podendo
+auxiliar nos processos de seleção e manejo dos rebanhos.
+
+\textbf{Palavras-chave:} Segmentação de imagens. Ultrassonografia bovina. U-Net.
+ANFIS. Conjuntos fuzzy. Área de Olho de Lombo. Redes neurais convolucionais.

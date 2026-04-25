@@ -45,6 +45,12 @@ Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/overfitting-e-regul
 Acessado: 2026-03-26.
 Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/}.}
 
+\bibitem[Candido 2024]{Candido2024}
+\abntrefinfo{Candido}{CANDIDO}{2024}
+{CANDIDO, G. \emph{R Quadrado: coeficiente de determinação}. 2024.
+Acesso em: 23 abr. 2026.
+Dispon{\'\i}vel em: \url{https://medium.com/@lg0702/r-quadrado-3318259ff2e2}.}
+
 \bibitem[Chowdhury 2024]{padding}
 \abntrefinfo{Chowdhury}{CHOWDHURY}{2024}
 {CHOWDHURY, M. \emph{Padding and Strides in CNN}. 2024.
@@ -89,6 +95,12 @@ ISSN 1981-4089.}
 Acesso em: 11 abr. 2026.
 Dispon{\'\i}vel em: \url{https://www.tensorflow.org/}.}
 
+\bibitem[{Grupo Agro Paraná} 2024]{AgroParanaUltrassom}
+\abntrefinfo{{Grupo Agro Paraná}}{{Grupo Agro Paraná}}{2024}
+{{Grupo Agro Paraná}. \emph{Ultrassom de carcaça: precisão genética com tecnologia}. 2024.
+Acesso em: 19 abr. 2026.
+Dispon{\'\i}vel em: \url{https://grupoagroparana.com.br/ultrassom-de-carcaca-precisao-genetica-com-tecnologia/}.}
+
 \bibitem[Guaraldo 2021]{embrapa2}
 \abntrefinfo{Guaraldo}{GUARALDO}{2021}
 {GUARALDO, M.~C. \emph{Brasil é o quarto maior produtor de grãos e o maior exportador de carne bovina do mundo, diz estudo}. 2021.
@@ -123,6 +135,10 @@ ISBN 978-65-86399-14-5.}
 Acesso em: 11 abr. 2026.
 Dispon{\'\i}vel em: \url{https://keras.io/}.}
 
+\bibitem[Korshunova 2018]{Korshunova2018}
+\abntrefinfo{Korshunova}{KORSHUNOVA}{2018}
+{KORSHUNOVA, K.~P. A convolutional fuzzy neural network for image classification. In:  \emph{Proceedings of the IEEE Conference}. [S.l.]: IEEE, 2018.}
+
 \bibitem[Lamas 2023]{embrapa1}
 \abntrefinfo{Lamas}{LAMAS}{2023}
 {LAMAS, F.~M. \emph{Artigo - A evolução da agricultura no Brasil}. 2023.
@@ -140,10 +156,27 @@ Dispon{\'\i}vel em: \url{http://yann.lecun.com/exdb/mnist/}.}
 {LETTVIN, J.~Y.; MATURANA, H.~R.; MCCULLOCH, W.~S.; PITTS, W.~H. What the frog's eye tells the frog's brain.
 \emph{Proceedings of the Institute of Radio Engineers}, v.~47, n.~11, p. 1940--1951, 1959.}
 
+\bibitem[{Linux Mint Team} 2026]{LinuxMintSite}
+\abntrefinfo{{Linux Mint Team}}{{Linux Mint Team}}{2026}
+{{Linux Mint Team}. \emph{Linux Mint}. 2026.
+Acesso em: 23 abr. 2026.
+Dispon{\'\i}vel em: \url{https://linuxmint.com/}.}
+
 \bibitem[McCulloch e Pitts 1943]{warrenpits}
 \abntrefinfo{McCulloch e Pitts}{MCCULLOCH; PITTS}{1943}
 {MCCULLOCH, W.; PITTS, W. A logical calculus of the ideas immanent in nervous activity.
 \emph{Bulletin of Mathematical Biophysics}, 1943.}
+
+\bibitem[Melo \textit{et al.} 2022]{JadersonMelo2022UNetpp}
+\abntrefinfo{Melo \textit{et al.}}{MELO \textit{et al.}}{2022}
+{MELO, M. Jaderson~de; GON{\c{C}}ALVES, D. N.; GOMES, M. de N.~B.; FARIA, G.; SILVA, J. de A.; RAMOS, A.~P. M.; OSCO, L. P.; FURUYA, M.~T. G.; JUNIOR, J. M.; GON{\c{C}}ALVES, W. N. Automatic segmentation of cattle rib-eye area in ultrasound images using the {UNet++} deep neural network.
+\emph{Computers and Electronics in Agriculture}, Elsevier, v.~195, p. 106818, 2022.}
+
+\bibitem[{Microsoft} 2015]{VSCodeSite}
+\abntrefinfo{{Microsoft}}{{Microsoft}}{2015}
+{{Microsoft}. \emph{Visual Studio Code}. 2015.
+Acesso em: 23 abr. 2026.
+Dispon{\'\i}vel em: \url{https://code.visualstudio.com/}.}
 
 \bibitem[M{\"u}ller 2008]{Muller2008ReviewBoden}
 \abntrefinfo{M{\"u}ller}{M{\"U}LLER}{2008}
@@ -161,6 +194,11 @@ Dispon{\'\i}vel em: \url{https://imagej.net/ij/}.}
 {O'SHEA, K.; NASH, R. An introduction to convolutional neural networks.
 \emph{arXiv preprint arXiv:1511.08458}, 2015.
 Dispon{\'\i}vel em: \url{https://arxiv.org/abs/1511.08458}.}
+
+\bibitem[Purwono \textit{et al.} 2025]{intro:unetfuzzy}
+\abntrefinfo{Purwono \textit{et al.}}{PURWONO \textit{et al.}}{2025}
+{PURWONO, P.; NATALIANI, Y.; PURNOMO, H.~D.; TIMOTIUS, I.~K. Dfu-fuzzyliteunet: A lightweight u-net with fuzzy sigmoid and lite transformer for diabetic foot ulcer segmentation.
+\emph{Biomedical Signal Processing and Control}, Elsevier, v.~108, p. 107902, 2025.}
 
 \bibitem[Ronneberger, Fischer e Brox 2015]{Ronneberger2015UNet}
 \abntrefinfo{Ronneberger, Fischer e Brox}{RONNEBERGER; FISCHER; BROX}{2015}

@@ -1,0 +1,61 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {chapter}{Agradecimentos}{4}{chapter*.1}%
+\contentsline {chapter}{Resumo}{5}{chapter*.2}%
+\contentsline {chapter}{Lista de Figuras}{10}{chapter*.3}%
+\contentsline {chapter}{Lista de Tabelas}{11}{chapter*.4}%
+\contentsline {chapter}{Introdução}{18}{figure.caption.10}%
+\contentsline {chapter}{\numberline {1}Redes Neurais}{19}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Neurônio Biológico e Artificial}{19}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Neurônio Biológico}{19}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Unidade}{20}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3} Tipos de Função de Ativação}{21}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Perceptron e Algoritmo de Aprendizagem}{22}{subsection.1.1.4}%
+\contentsline {section}{\numberline {1.2}Redes Neurais}{26}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Arquiteturas de Redes Neurais}{27}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}\textit {Backpropagation}}{29}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Gradiente Descendente Estocástico}{31}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}\textit {Overfitting}}{32}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Hiperparâmetros}{33}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Regularização}{34}{subsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.2.7}\textit {Momentum} e Adam}{35}{subsection.1.2.7}%
+\contentsline {subsection}{\numberline {1.2.8}\textit {Vanishing Gradient}}{36}{subsection.1.2.8}%
+\contentsline {subsection}{\numberline {1.2.9}Função de Perda \textit {Binary Cross-Entropy}}{37}{subsection.1.2.9}%
+\contentsline {subsection}{\numberline {1.2.10}Exemplos}{38}{subsection.1.2.10}%
+\contentsline {section}{\numberline {1.3}Rede Neural para Análise de Imagens}{41}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Córtex Visual Humano e Visão Computacional}{41}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Redes Neurais Convolucionais}{42}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Convolução}{43}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Correlação Cruzada}{50}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}\textit {Kernel} Multicamadas}{50}{subsection.1.3.5}%
+\contentsline {subsection}{\numberline {1.3.6}\textit {Padding}}{50}{subsection.1.3.6}%
+\contentsline {subsection}{\numberline {1.3.7}\textit {Stride}}{51}{subsection.1.3.7}%
+\contentsline {subsection}{\numberline {1.3.8}\textit {Pooling}}{52}{subsection.1.3.8}%
+\contentsline {subsection}{\numberline {1.3.9}Convolução Transposta}{54}{subsection.1.3.9}%
+\contentsline {chapter}{\numberline {2}Teoria dos Conjuntos Fuzzy}{56}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Teoria dos Conjuntos Fuzzy}{56}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Conjuntos Fuzzy}{56}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Operações entre Conjuntos Fuzzy}{57}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Normas Triangulares}{58}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Níveis de um Conjunto Fuzzy}{59}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Números Fuzzy}{60}{subsection.2.1.5}%
+\contentsline {section}{\numberline {2.2}Sistema Baseado em Regras Fuzzy}{60}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Regras e Inferência Fuzzy}{61}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Sistema Baseado em Regras Fuzzy}{61}{subsection.2.2.2}%
+\contentsline {chapter}{\numberline {3}U-Net e U-Net com Sistema Adaptativo de Inferência Neuro-Fuzzy}{67}{chapter.3}%
+\contentsline {section}{\numberline {3.1}U-net: Rede Convolucional para Segmentação de Imagens}{67}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}U-Net}{74}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Dice}{75}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}U-Net \textit {Multitask} com Inferência Fuzzy}{76}{subsection.3.1.3}%
+\contentsline {chapter}{\numberline {4}Segmentação de Imagens de Ultrassom Bovino: Metodologia e Resultados}{80}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Descrição do Problema}{80}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Raças Nelore e Caracu}{80}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Área de Olho de Lombo (AOL), Espessura de Gordura no Lombo (EGL) e Espessura de Gordura na Garupa (EGG)}{83}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Tensorflow/Keras}{85}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Aquisição e Pré-processamento das Imagens}{86}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Máscaras}{88}{subsection.4.1.5}%
+\contentsline {section}{\numberline {4.2}Treinamento e Métricas de Avaliação}{89}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}\textit {Hardware} e \textit {Software}}{93}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Resultados e Análise}{94}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}AOL}{94}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}EGL}{94}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}EGG}{94}{subsection.4.2.5}%

@@ -1,0 +1,61 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Ilustração da localização das regiões de interesse.}}{14}{figure.caption.7}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Imagens de ultrassom das regiões de interesse.}}{15}{figure.caption.8}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Exemplo de segmentação de uma imagem de ultrassom.}}{16}{figure.caption.9}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Fluxo de treinamento e comparação dos modelos propostos para a obtenção das medidas de AOL, EGL e EGG.}}{18}{figure.caption.10}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Estrutura de um neurônio típico.}}{20}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Modelo de uma unidade de McCulloch e Pitts.}}{21}{figure.caption.12}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Gráficos das Funções de Ativação.}}{23}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Representação da taxa de aprendizagem.}}{25}{figure.caption.15}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Organização da Seção 1.2.}}{26}{figure.caption.16}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Estrutura visual básica de uma unidade e uma rede neural com duas camadas ocultas.}}{27}{figure.caption.17}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Arquiteturas de Redes Neurais.}}{29}{figure.caption.18}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Ilustração do processo de \textit {backpropagation} em uma rede neural.}}{30}{figure.caption.19}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Comparação entre o método de descida do gradiente tradicional e o Gradiente Descendente Estocástico.}}{32}{figure.caption.20}%
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Ilustração do \textit {Overfitting}.}}{33}{figure.caption.21}%
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Ilustração do \textit {Dropout} removendo 60\% das unidades aleatoriamente durante uma época de treinamento.}}{35}{figure.caption.22}%
+\contentsline {figure}{\numberline {1.12}{\ignorespaces Ilustração do \textit {Early Stopping}.}}{35}{figure.caption.23}%
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Gráfico da derivada da função sigmoid logística.}}{37}{figure.caption.24}%
+\contentsline {figure}{\numberline {1.14}{\ignorespaces Exemplos de dígitos manuscritos do conjunto de dados MNIST.}}{38}{figure.caption.25}%
+\contentsline {figure}{\numberline {1.15}{\ignorespaces Arquitetura da rede neural para classificação de dígitos manuscritos. Inicialmente, é enviado o número de pixels da imagem (784) para a camada de entrada (unidade $x_{784} = 0,4$ intensidade do pixel), que é processada por uma camada oculta com 30 unidades, e a camada de saída tem 9 unidades, correspondendo às 10 classes de dígitos (0 a 9).}}{39}{figure.caption.26}%
+\contentsline {figure}{\numberline {1.16}{\ignorespaces Fluxo de dados durante o processo de treinamento e avaliação da rede neural.}}{40}{figure.caption.27}%
+\contentsline {figure}{\numberline {1.17}{\ignorespaces Paraboloide hiperbólico.}}{41}{figure.caption.28}%
+\contentsline {figure}{\numberline {1.18}{\ignorespaces Gráfico da superfície e aproximação da superfície obtida pela MLP e a projeção do E no plano xy.}}{41}{figure.caption.29}%
+\contentsline {figure}{\numberline {1.19}{\ignorespaces Exemplo de uma imagem/matriz $10\times 10$ em escala de cinza, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco).}}{43}{figure.caption.30}%
+\contentsline {figure}{\numberline {1.20}{\ignorespaces Ilustração da operação de convolução discreta. O kernel $w$ é deslizado sobre o vetor $x$, e em cada posição, a soma ponderada dos valores de $x$ cobertos pelo kernel é calculada para gerar o valor correspondente na saída.}}{46}{figure.caption.31}%
+\contentsline {figure}{\numberline {1.21}{\ignorespaces Exemplo de convolução bidimensional. A matriz de entrada $X$ (matriz $7\times 7$) é convoluída com o \textit {kernel} $W$ (matriz $2\times 2$) para produzir a saída $S$ (matriz $6\times 6$). O \textit {kernel} é ``deslizado'' sobre a matriz de entrada, formando sub-matrizes, e em cada posição, a soma ponderada dos valores dos pixels cobertos pelo \textit {kernel} é calculada e o resultado é aplicado em uma função de ativação ($\sigma $) para gerar o valor correspondente ($\hat {y}_{11}$) na matriz de saída. $b$ sendo o viés adicionado à soma ponderada.}}{48}{figure.caption.32}%
+\contentsline {figure}{\numberline {1.22}{\ignorespaces Aplicações de diferentes \textit {kernels} em uma imagem. A imagem original é representada em (a), juntamente com o \textit {kernel} identidade, que não faz modificações. Em (b) a imagem passou por um \textit {kernel} que aumenta a nitidez reforçando o pixel central e aumentando a diferença dele em relação à sua vizinhança. Em (c) foi usado um \textit {kernel} de desfoque, que substitui um pixel pela média dele com seus vizinhos. A imagem em (d) é o resultado de aplicar na imagem em escala de cinza um \textit {kernel} que reforça suas linhas verticais, enquanto (e) reforça suas linhas horizontais. O \textit {kernel} em (f) reforça os contornos (bordas) da imagem.}}{49}{figure.caption.33}%
+\contentsline {figure}{\numberline {1.23}{\ignorespaces Aplicação de \textit {padding} em uma imagem. Em (a) a imagem original passou por zero \textit {padding}. Em (b) a imagem original passou por \textit {reflection padding}. A imagem em (c) passou por um \textit {padding} constante, semelhante em (a), mas com valor diferente de zero.}}{51}{figure.caption.34}%
+\contentsline {figure}{\numberline {1.24}{\ignorespaces Exemplo de Max \textit {pooling} com tamanho de 2x2. A imagem original é reduzida para a imagem menor após a aplicação do Max \textit {pooling}. Cada bloco de 2x2 pixels na imagem original é substituído pelo valor máximo dentro desse bloco na imagem reduzida.}}{52}{figure.caption.35}%
+\contentsline {figure}{\numberline {1.25}{\ignorespaces Arquitetura típica de uma Rede Neural Convolucional com uma camada de convolução e uma camada de \textit {pooling}, em que é enviado para rede a imagem de um cachorro e é feita a classificação do objeto na imagem.}}{53}{figure.caption.37}%
+\contentsline {figure}{\numberline {1.26}{\ignorespaces Exemplo da operação de convolução transposta.}}{55}{figure.caption.39}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Operações entre conjuntos fuzzy.}}{58}{figure.caption.40}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Arquitetura de um Sistema Baseado em Regras Fuzzy (SBRF).}}{62}{figure.caption.41}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Exemplo de inferência fuzzy utilizando o método de Mamdani.}}{63}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Exemplo de inferência fuzzy utilizando o método de Takagi-Sugeno.}}{64}{figure.caption.43}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Imagem de entrada $X$ e resposta desejada $Y$.}}{68}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Aplicação de um \textit {kernel} de convolução na imagem de entrada $X$. O resultado da convolução é um mapa de características que destaca as regiões de interesse na imagem.}}{68}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Aplicação de padding na imagem de entrada $X$ para preservar suas dimensões durante a operação de convolução.}}{69}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Aplicação da função de ativação ReLU no mapa de características resultante da convolução.}}{69}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Aplicação de uma camada de \textit {Max pooling} no mapa de características resultante.}}{70}{figure.caption.48}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Aplicação da operação de convolução transposta no mapa de \textit {pooling} para expandir suas dimensões espaciais e voltar às dimensões originais da imagem de entrada.}}{70}{figure.caption.49}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Estrutura em forma de U da arquitetura U-Net. O \textit {encoder} é responsável por extrair características da imagem de entrada, enquanto o \textit {decoder} reconstrói a imagem, utilizando as características extraídas pelo \textit {encoder}.}}{71}{figure.caption.50}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Exemplo de conexões de atalho (\textit {skip connections}) na arquitetura U-Net.}}{71}{figure.caption.51}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Exemplo de conexões de atalho (\textit {skip connections}) na arquitetura U-Net. As conexões de atalho permitem que as informações de baixo nível, como bordas e texturas, sejam diretamente transferidas do \textit {encoder} para o \textit {decoder}, facilitando a reconstrução precisa da imagem segmentada.}}{72}{figure.caption.52}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Aplicação de uma última camada de convolução para gerar a imagem de saída $Y$. O \textit {kernel} utilizado tem dimensões $(1\times 1 \times 2)$, um canal para cada imagem resultante da concatenação.}}{73}{figure.caption.53}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Aplicação de um limiar (\textit {threshold}) para gerar a imagem binária final. A imagem segmentada resultante da aplicação da função de ativação sigmoid tem valores entre 0 e 1, representando a probabilidade de cada pixel pertencer à classe segmentada. O limiar é aplicado para converter esses valores em uma imagem binária, onde pixels com valores acima do limiar são classificados como pertencentes à classe segmentada (1), enquanto pixels com valores abaixo do limiar são classificados como pertencentes ao plano de fundo (0).}}{73}{figure.caption.54}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Arquitetura completa da U-Net.}}{75}{figure.caption.55}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Função de pertinência gaussiana com centro em $c = 0$ e largura $\sigma = 1$.}}{78}{figure.caption.56}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Arquitetura da U-Net com a adição de uma camada \textit {Multitask} e uma camada de inferência fuzzy.}}{79}{figure.caption.57}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Região do olho de lombo (em amarelo), localizada entre a 12ª e 13ª costela e da garupa (em azul).}}{81}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Aquisição da imagem de ultrassom da região do olho de lombo.}}{82}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Demarcação manual da Área de Olho de Lombo (AOL) utilizando o aplicativo \textit {ImageJ}.}}{83}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Demarcação manual da Espessura de Gordura no Lombo (EGL) utilizando o aplicativo \textit {ImageJ}.}}{84}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Demarcação manual da Espessura de Gordura na Garupa (EGG) utilizando o aplicativo \textit {ImageJ}.}}{85}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Exemplo do processo de pré-processamento das imagens de ultrassom.}}{87}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Exemplo das máscaras de segmentação criadas para as imagens de ultrassom.}}{89}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Arquitetura da U-Net utilizada e as dimensões das imagens ao longo da rede.}}{91}{figure.caption.65}%

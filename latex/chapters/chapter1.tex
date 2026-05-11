@@ -1,8 +1,12 @@
-Neste capítulo, serão apresentados os conceitos fundamentais relacionados às redes neurais, que são essenciais para o desenvolvimento do trabalho. A Seção \ref{sec_1} aborda a inspiração biológica por trás dos neurônios artificiais, enquanto a Seção \ref{sec_2} explora as arquiteturas de redes neurais, algoritmos de aprendizagem e desafios associados ao treinamento dessas redes. Esses conceitos formam a base para a construção da rede neural proposta na Seção \ref{sec:unet}. Todos os códigos e algorítmos presentes neste trabalho foram implementados utilizando a linguagem de programação Python, com o auxílio de bibliotecas como \textit{NumPy}, \textit{Matplotlib}, \textit{openCV}, \textit{Pillow} e \textit{Pandas}.
+
+
+
+% !TeX root = ../main.tex
+
 \section{Neurônio Biológico e Artificial}
 \label{sec_1}
 
-Na área de Inteligência Artifical, comumente utiliza-se o termo \textit{neurônio artifical} para se referir a uma unidade de processamento em um modelo de rede neural. O neurônio artificial é inspirado no funcionamento do neurônio biológico, que é a unidade básica do sistema nervoso. Assim como os neurônios biológicos, os neurônios artificiais recebem entradas, processam essas entradas e produzem uma saída. A principal função de um neurônio artificial é realizar uma combinação linear das entradas, seguida por uma função de ativação não linear, que determina a saída do neurônio. A semelhança entre esses dois objetos (Neurônio artificial/Neurônio Biológico) só está na inspiração, sendo bem diferentes em seu funcionamento, com isso, neste trabalho utiliza-se o termo \textit{unidade} \cite{cnn} para se referir ao neurônio artificial. Os conceitos apresentados a seguir são fundamentais para o entendimento do funcionamento das redes neurais, que serão abordados na seção \ref{redesNeurais}.
+Na área de Inteligência Artifical, comumente utiliza-se o termo \textit{neurônio artifical} para se referir a uma unidade de processamento em um modelo de rede neural. O neurônio artificial é inspirado no funcionamento do neurônio biológico, que é a unidade básica do sistema nervoso. Assim como os neurônios biológicos, os neurônios artificiais recebem entradas, processam essas entradas e produzem uma saída. A principal função de um neurônio artificial é realizar uma combinação linear das entradas, seguida por uma função de ativação não linear, que determina a saída do neurônio. A semelhança entre esses dois objetos (Neurônio artificial/Neurônio Biológico) só está na inspiração, sendo bem diferentes em seu funcionamento, com isso, neste trabalho utiliza-se o termo \textit{unidade} \cite{cnn} para se referir ao neurônio artificial. Os conceitos apresentados a seguir são fundamentais para o entendimento do funcionamento das redes neurais, que serão abordados na Seção \ref{redesNeurais}.
 
 \subsection{Neurônio Biológico}
 Para entender o funcionamento da unidade matemática é nescessário entender o funcionamento do neurônio biológico.
@@ -101,10 +105,10 @@ Em geral, o objetivo da função de ativação é limitar a saída de uma unidad
 \end{figure}
 
 
-A principal desvantegem na unidade de McCulloch e Pitts é a ausência de um algoritmo de aprendizagem, ou seja, uma maneira de ajustar os pesos e o viés da unidade para que este seja capaz de resolver um problema específico. Essa limitação foi superada em 1958 por Frank Rosenblatt, que propôs o \textit{Perceptron} \cite{rosemblatt}, um modelo de unidade com um algoritmo de aprendizagem capaz de ajustar os pesos e o viés da unidade. 
+A principal desvantagem na unidade de McCulloch e Pitts é a ausência de um algoritmo de aprendizagem, ou seja, uma maneira de ajustar os pesos e o viés da unidade para que este seja capaz de resolver um problema específico. Essa limitação foi superada em 1958 por Frank Rosenblatt, que propôs o \textit{Perceptron} \cite{rosemblatt}, um modelo de unidade com um algoritmo de aprendizagem capaz de ajustar os pesos e o viés da unidade. 
 
 \subsection{Perceptron e Algoritmo de Aprendizagem}
-O Perceptron é um modelo de unidade que utiliza um algoritmo de aprendizagem supervisionada para ajustar seus pesos e viés com base em um conjunto de dados ``rotulados"{\footnote{Dados rotulados são conjuntos de dados de entrada associados a saídas desejadas, ou seja, para cada conjunto de entradas, há uma saída correta conhecida.}}. O objetivo do Perceptron é encontrar uma função que mapeie corretamente as entradas para as saídas desejadas, minimizando o erro entre as previsões do modelo e os valores reais.
+O Perceptron é um modelo de unidade que utiliza um algoritmo de aprendizagem supervisionada para ajustar seus pesos e viés com base em um conjunto de dados ``rotulados"{\footnote{Dados rotulados são conjuntos de dados de entrada associados a saídas desejadas, ou seja, para cada conjunto de entradas, há uma saída correta conhecida definida por algum especialista.}}. O objetivo do Perceptron é encontrar uma função que mapeie corretamente as entradas para as saídas desejadas, minimizando o erro entre as previsões do modelo e os valores reais.
 
 Para esclarecer o funcionamento do Perceptron e do algoritmo de aprendizagem, é proposto o Exemplo \ref{ex1}.
 
@@ -113,6 +117,8 @@ Para esclarecer o funcionamento do Perceptron e do algoritmo de aprendizagem, é
 Um investidor busca decidir qual ação adquirir com base nas variáveis: o valor é caro?, é confiável? e é volátil?. Para isso, dispõe das avaliações de quatro colegas que também analisam essas mesmas características antes de realizar seus investimentos.
 \end{exemplo}
 
+
+Na Tabela \ref{tab:1} são apresentadas as avaliações dos colegas e a decisão final de compra em que $0$ representa ``não", $1$ representa ``sim", $x_1, \hdots, x_4$ representam as respostas de cada colegas e $y$ a decisão final de cada um.
 \begin{table}[htpb]
     \centering
     \caption{Banco de dados com as avaliações dos colegas e a decisão final de compra.}
@@ -132,22 +138,31 @@ Um investidor busca decidir qual ação adquirir com base nas variáveis: o valo
 
 \end{array}$
 \end{table}
-Na Tabela \ref{tab:1} são apresentadas as avaliações dos colegas e a decisão final de compra em que $0$ representa ``não", $1$ representa ``sim", $x_1, \cdots, x_4$ representam as respostas de cada colegas e $y$ a decisão final de cada um. Com isso, o Perceptron terá três variáveis de entrada e como saída, a decisão sobre a compra da ação. Os pesos iniciais são definidos aleatoriamente como: $w_1 = w_2 = w_3 = 0$ e o viés como $b = 0$. A função de ativação utilizada é a função ReLU~(\ref{eq:relu}). Testando o primeiro dado de entrada $x_1 = (0,1,0)$ e $y = 1$, obtém-se: 
+Com isso, o Perceptron terá três variáveis de entrada e como saída, a decisão sobre a compra da ação. Os pesos iniciais são definidos aleatoriamente como: $w_1 = w_2 = w_3 = 0$ e o viés como $b = 0$. A função de ativação utilizada é a função ReLU~(\ref{eq:relu}). Testando o primeiro dado de entrada $x_1 = (0,1,0)$ e $y = 1$, obtém-se: 
 
 $$
 z = x_1 \cdot w_1 + b = 0 \Rightarrow \hat{y} = \sigma(0) = 0,    
 $$
-o símbolo $\cdot$ representa o produto escalar entre os vetores. Como $y = 1 \neq \hat{y} = 0$, em que $\hat{y}$ é a resposta da rede definido como na equação (\ref{eq:predicao}). O Perceptron comete um erro e é necessário aplicar o algoritmo de aprendizagem (a unidade de McCulloch e Pitts pararia aqui). Para isso, define-se uma função de custo, responsável por quantificar o erro cometido durante o treinamento. Neste exemplo, utiliza-se o Erro Quadrático Médio, dado por: 
+o símbolo ``$\cdot$'' representa o produto escalar entre os vetores. Como $y = 1 \neq \hat{y} = 0$, em que $\hat{y}$ é a resposta da rede definido como na equação (\ref{eq:predicao}). O Perceptron comete um erro e é necessário aplicar o algoritmo de aprendizagem (a unidade de McCulloch e Pitts pararia aqui). Para isso, define-se uma função de custo, responsável por quantificar o erro cometido durante o treinamento. Neste exemplo, utiliza-se o Erro Quadrático Médio, dado por: 
 \begin{equation}
  \label{fuc:custo}
     C(w_i,b_i) = \frac{\sum_{i=1}^k(y_i - \hat{y}_i)^2}{n},   
 \end{equation} 
-em que $y_i$ é a resposta do dado de entrada  $x_i$ e $n$ representa a quantidade de dados presentes no conjunto de treinamento. $C(w_i,b_i)$ não depende de $w_i$ e $b_i$ explicitamente, mas sim por meio de $\hat{y}_i$, ou seja, $C(w_i,b_i) = C(\hat{y}_i(w_i,b_i))$, já que $\hat{y}_i = \sigma(z_i)$ e $z_i = x_i\cdot w_i + b_i$. No caso do Exemplo \ref{ex1}, $x_i$ e $w_i$ são vetores.
+em que $y_i$ é a resposta do dado de entrada  $x_i$ e $n$ representa a quantidade de dados presentes no conjunto de treinamento. $C(w_j,b_j)$ não depende de $w_j$ e $b_j$ explicitamente, mas sim por meio de $\hat{y}_i$, ou seja:
+$$
+\left\{\begin{array}{ccc}
+    C(w_j, b_j) & = & C(\hat{y}_i(w_j,b_j)) \\
+    \hat{y}_i & = & \sigma(z_i) \\
+    z_i & = & \sum_{j=1}^{3}x_j^{(i)}\times w_j + b_j \\
+\end{array}\right.
+,$$
+em que $i = 1, 2, \dots, 4$.
+
 
 O processo de treinamento ajusta iterativamente os pesos e o viés por meio do método da Descida do Gradiente (SG - \textit{Gradient Descent}), cujo objetivo é minimizar a função de custo. Esse método utiliza as derivadas parciais da função de custo em relação aos pesos e ao viés, o que indica a direção de maior crescimento da função. Para reduzir o erro, atualizam-se os parâmetros na direção oposta ao gradiente. As derivadas são:
 
 \begin{align}
-    \frac{\partial C(w_i,b_i)}{\partial w_i} = - 2\cdot\frac{\sum_{i=1}^k(y_i - \hat{y}_i) \cdot \sigma'(z_i)\cdot x_i}{n};\\;
+    \frac{\partial C(w_i,b_i)}{\partial w_i} = - 2\cdot\frac{\sum_{i=1}^k(y_i - \hat{y}_i) \cdot \sigma'(z_i)\cdot x_i}{n};\\
     \frac{\partial C(w_i,b_i)}{\partial b_i} = - 2\cdot\frac{\sum_{i=1}^k(y_i - \hat{y}_i)\cdot \sigma'(z_i)}{n}.
 \end{align}
     
@@ -207,59 +222,7 @@ Comumente o banco de dados é dividido em dois conjuntos: o conjunto de treiname
 
 \section{Redes Neurais}
 \label{redesNeurais}
-\begin{figure}[h!]
-\centering
-\caption{Organização da Seção 1.2.}
-\begin{tikzpicture}[
-    node distance=1.5cm,
-    every node/.style={font=\small},
-    main/.style={
-        draw,
-        rounded corners=6pt,
-        thick,
-        minimum width=4cm,
-        minimum height=1.2cm,
-        align=center
-    },
-    sub/.style={
-        draw,
-        rounded corners=4pt,
-        thin,
-        minimum width=3.5cm,
-        minimum height=1cm,
-        align=center
-    },
-    arrow/.style={
-        -{Latex[length=3mm]},
-        thick
-    }
-]
 
-\node[main] (sec) {\textbf{Seção 1.2}\\Redes Neurais};
-
-\node[sub, right =of sec] (s31) {1.2.1 Arquiteturas de Redes Neurais};
-\node[sub, below left=of s31] (s32) {1.2.2 \textit{Backpropagation}};
-\node[sub, right=of s32] (s33) {1.2.3 Gradiente Descendente Estocástico};
-\node[sub, below =of s32] (s34) {1.2.4 \textit{Overfitting}};
-\node[sub, right=of s34] (s35) {1.2.5 Hiperparâmetros};
-\node[sub, right=of s35] (s36) {1.2.6 Regularização};
-\node[sub, below=of s34] (s37) {1.2.7 \textit{Momentum} e \\ Adam};
-\node[sub, right =of s37] (s38) {1.2.8 \textit{Vanishing Gradient}};
-\node[sub, right=of s38] (s39) {1.2.9 Exemplos};
-
-\draw[arrow] (sec) -- (s31);
-\draw[arrow] (s31) -- (s32);
-\draw[arrow] (s32) -- (s33);
-\draw[arrow] (s33) -- (s34);
-\draw[arrow] (s34) -- (s35);
-\draw[arrow] (s35) -- (s36);
-\draw[arrow] (s36) -- (s37);
-\draw[arrow] (s37) -- (s38);
-\draw[arrow] (s38) -- (s39);
-
-\end{tikzpicture}
-\caption*{\footnotesize Fonte: Elaboração do Autor.}
-\end{figure}
 \label{sec_2}
 Nesta seção serão apresentados os conceitos relacionados às redes neurais, sendo muito importantes para o andamento do trabalho, todos os conceitos apresentados nesta seção serão utilizados na construção da rede neural proposta na Seção \ref{sec:unet}.
 
@@ -317,9 +280,10 @@ b_1\\b_2\\\vdots\\b_m
 Essa forma representa a saída de uma camada caso a rede tenha apenas uma camada oculta, para redes neurais com mais camadas ocultas, a notação matricial torna-se mais complexa, mas o princípio de multiplicação de matrizes e adição de vetores permanece o mesmo.
 
 \subsection{Arquiteturas de Redes Neurais}
-Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar com diferentes tipos de problemas e dados. Algumas das arquiteturas mais comuns incluem (\cite{arquiteturas}): 
+Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar com diferentes tipos de problemas e dados. Algumas das arquiteturas mais comuns incluem \cite{arquiteturas}:
+\label{sec:arquiteturas}
 \begin{itemize}
-    \item Redes Neurais Feedforward (FNNs): São as redes neurais mais simples, onde a informação flui em uma única direção, da camada de entrada para a camada de saída, passando pelas camadas ocultas. FNNs são amplamente utilizadas para tarefas de classificação e regressão.
+    \item Redes Neurais \textit{Feedforward} (RNF): São as redes neurais mais simples, onde a informação flui em uma única direção, da camada de entrada para a camada de saída, passando pelas camadas ocultas. RNFs são amplamente utilizadas para tarefas de classificação e regressão.
     
     \item Redes Neurais Convolucionais (RNCs): São projetadas para processar dados com uma estrutura de grade, como imagens. Estas utilizam operações de convolução para extrair características espaciais dos dados de entrada. RNCs são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos e detecção de faces.
     
@@ -358,7 +322,7 @@ Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar co
     \label{fig1:ex}
 \end{figure}
 
-As Figuras \ref{fig1:ex}(a) e \ref{fig1:ex}(c) ilustram a arquitetura de uma Rede Neural \textit{Feedforward}, com o funcionamento semelhante ao desenvolvido na equação (\ref{eq:redeNeuralGeral}). A Figura \ref{fig1:ex}(b) mostra a arquitetura de uma Rede Neural Recorrente, estas redes possuem conexões recorrentes, ou seja, a saída de uma unidade é realimentada como entrada para a mesma unidade ou para unidades anteriores, permitindo que informações sejam mantidas ao longo do tempo, por não estar no escopo deste trabalho, não serão abordados os detalhes matemáticos de funcionamento das RNNs.
+As Figuras \ref{fig1:ex}(a) e \ref{fig1:ex}(c) ilustram a arquitetura de uma Rede Neural \textit{Feedforward}, com o funcionamento semelhante ao desenvolvido na equação (\ref{eq:redeNeuralGeral}). A Figura \ref{fig1:ex}(b) mostra a arquitetura de uma Rede Neural Recorrente, estas redes possuem conexões recorrentes, ou seja, a saída de uma unidade é realimentada como entrada para a mesma unidade ou para unidades anteriores, permitindo que informações sejam mantidas ao longo do tempo, por não estar no escopo deste trabalho, não é abordado os detalhes matemáticos de funcionamento das RNNs.
 
 \subsection{\textit{Backpropagation}}
 \label{subsec:bacprop}
@@ -389,7 +353,7 @@ O algoritmo de \textit{backpropagation} pode ser resumido nos seguintes passos, 
 \end{algorithm}
 
 \vspace{0.5cm}
-Na Figura \ref{backprop} ilustra uma rede neural simples e a equação (\ref{derivadas}) mostra o cálculo do gradiente para ajustar o peso da primeira camada ($w_1$) utilizando a regra da cadeia,
+Na Figura \ref{backprop} é ilustrado uma rede neural simples e a equação (\ref{derivadas}) mostra o cálculo do gradiente para ajustar o peso da primeira camada ($w_1$) utilizando a regra da cadeia,
 
 \begin{figure}[htpb]
     \centering
@@ -459,7 +423,7 @@ O \textit{overfitting} ocorre quando o modelo é muito complexo em relação à 
 \end{figure}
 
 \subsection{Hiperparâmetros}
-Um algoritmo de aprendizado pode ser visto como uma função que recebe dados de treinamento como entrada e produz como saída uma função ou modelo (isto é um conjunto de funções). No entanto, na prática muitos algoritmos de aprendizado possuem parâmetros adicionais que não são aprendidos diretamente a partir dos dados de treinamento, mas que influenciam o processo de aprendizado. Esses parâmetros são chamados de hiperparâmetros e sua escolha adequada é crucial para o desempenho do modelo \cite{yoshuabengio2012}. Alguns exemplos comuns de hiperparâmetros incluem:
+Um algoritmo de aprendizado pode ser visto como uma função que recebe dados de treinamento como entrada e produz como saída uma função ou modelo (isto é, um conjunto de funções). No entanto, na prática muitos algoritmos de aprendizado possuem parâmetros adicionais que não são aprendidos diretamente a partir dos dados de treinamento, mas que influenciam o processo de aprendizado. Esses parâmetros são chamados de hiperparâmetros e sua escolha adequada é crucial para o desempenho do modelo \cite{yoshuabengio2012}. Alguns exemplos comuns de hiperparâmetros incluem:
 \begin{itemize}
     \item Taxa de Aprendizado: Controla o tamanho dos passos dados durante a atualização dos pesos do modelo. Uma taxa de aprendizado muito alta pode levar a oscilações e impedir a convergência, enquanto uma taxa muito baixa pode resultar em um processo de treinamento lento. Valores típicos para a taxa de aprendizado variam entre $0,01$ e $0,1$, dependendo do problema e do algoritmo utilizado.
     
@@ -573,7 +537,7 @@ em que $y_i$ é o valor de saída verdadeiro da $i$-ésima amostra (0 ou 1), $\h
     \label{mnist}
 \end{figure}
 
-Cada imagem é representada como uma matriz de $28\times28$, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). Para o reconhecimento dos digitos utilizou-se uma rede \textit{feedforward} e os métodos presententes em (\ref{subsec:bacprop}), (\ref{subsec:sgd}), (\ref{regularizacao}) e (\ref{sec:vanishing}) para o treinamento e otimização dos pesos.  Para compor a camada de entrada da rede neural, cada imagem é ``achatada" em um vetor de 784 elementos $(28\times28 = 784)$, onde cada elemento corresponde à intensidade de um pixel. O objetivo da rede neural \textit{feedforward} com camadas totalmente conectadas é aprender a classificar corretamente cada imagem em uma das 10 classes correspondentes aos dígitos de 0 a 9. Como a camada de saída da rede neural deve ter 10 unidades (um para cada classe), a arquitetura da rede pode ser definida como [784, 30, 9], onde a camada de entrada tem 784 unidades, a camada oculta tem 30 unidades (valor escolhido aleatóriamente) e a camada de saída tem 9 unidades, como mostra a Figura \ref{mnist_rede}. 
+Cada imagem é representada como uma matriz de $28\times28$, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). Para o reconhecimento dos digitos utilizou-se uma rede \textit{feedforward} e os métodos presentes nas Seções \ref{subsec:bacprop}, \ref{subsec:sgd}, \ref{regularizacao} e \ref{sec:vanishing} para o treinamento e otimização dos pesos.  Para compor a camada de entrada da rede neural, cada imagem é ``achatada" em um vetor de 784 elementos $(28\times28 = 784)$, onde cada elemento corresponde à intensidade de um pixel. O objetivo da rede neural \textit{feedforward} com camadas totalmente conectadas é aprender a classificar corretamente cada imagem em uma das 10 classes correspondentes aos dígitos de 0 a 9. Como a camada de saída da rede neural deve ter 10 unidades (um para cada classe), a arquitetura da rede pode ser definida como [784, 30, 9], onde a camada de entrada tem 784 unidades, a camada oculta tem 30 unidades (valor escolhido aleatóriamente) e a camada de saída tem 9 unidades, como mostra a Figura \ref{mnist_rede}. 
 
 \begin{figure}[htpb]
     \centering
@@ -589,7 +553,7 @@ A função de ativação utilizada é a função sigmoid logística vista na equ
 
 % Outra forma de interpretar a saída da rede é utilizando a Função Limiar (Equação \ref{funcaoLimiar}) e quatro neurônios na camada de saída, em que cada neurônio representaria um valor binário ($0$ ou $1$), então caso a rede recebesse o dígito $9$ e sua respota fosse correta, a saída seria $1001$ que é nove em binário. O problema de treinar uma rede neural com essa arquitetura é que ela estaria mais sucetível a erro, pois errando qualquer uma das quatro saídas, a resposta seria incorreta, enquanto utilizando a função sigmoid logística, mesmo que a rede errasse a previsão da classe correta, ela poderia ainda assim atribuir uma probabilidade alta para a classe correta, o que é mais tolerante a erros.
 
-Para o treinamento da rede é utilizado o algoritmo de \textit{backpropagation} (Algoritmo \ref{alg:backprop_etapas}) e o Gradiente Descendente Estocástico, com uma taxa de aprendizagem de $0,1$ e a normalização $L1$ visto na equação (\ref{eq:l1}). O treinamento é realizado para 30 épocas. O banco de dados é dividido em um conjunto de treinamento com $60.000$ imagens e um conjunto de teste com $10.000$ imagens, aleatóriamente. Após o treinamento, a rede neural é avaliada no conjunto de teste para medir sua acurácia, que é a proporção de previsões corretas em relação ao total de previsões feitas:
+Para o treinamento da rede é utilizado o algoritmo de \textit{backpropagation} (Algoritmo \ref{alg:backprop_etapas}) e o Gradiente Descendente Estocástico, com uma taxa de aprendizagem de $0,1$ e a normalização $L1$ visto na equação (\ref{eq:l1}). O treinamento é realizado para 30 épocas. O banco de dados é dividido em um conjunto de treinamento com $60.000$ imagens e um conjunto de teste com $10.000$ imagens,  separadas aleatoriamente. Após o treinamento, a rede neural é avaliada no conjunto de teste para medir sua acurácia, que é a proporção de previsões corretas em relação ao total de previsões feitas:
 \begin{equation}
     \label{eq:acuracia}
     \text{Acurácia} = \frac{\text{Número de Previsões Corretas}}{\text{Número Total de Previsões}}.
@@ -606,9 +570,9 @@ A Figura \ref{fluxo} mostra o fluxo de dados durante o processo de treinamento e
 
 Com as configurações mencionadas, a rede neural alcançou uma acurácia de aproximadamente 95\% no conjunto de teste, o que indica que esta foi capaz de aprender a classificar corretamente a maioria das imagens de dígitos manuscritos.
 
-\item Reconstrução de uma Figura Geométrica: Pode-se usar redes neurais para reconstruir malhas geométricas \cite{Sena2024}. Neste caso, utilizou-se uma rede \textit{Multi layer perceptron} (MLP) com duas unidades na camada de entrada, dez neurônios na camada oculta e um neurônio na camada de saída, para aproximar o gráfico do parapoloide hiperbólico $z = x^2 - y^2$. A rede é treinada utilizando o algoritmo de \textit{backpropagation} e o Gradiente Descendente Estocástico, com uma taxa de aprendizagem de $0,01$ e a normalização $L2$ visto na equação (\ref{eq:l2}). O treinamento é realizado para 1000 épocas com todos os neurônios tendo função de ativação sigmoide logística . Os dados considerados são nós de uma malha cartesiana uniforme $x,y \in [-1,1]$, divididos em duzentas partes  com $z =~x^2 -~y^2$. São considerados $20\%$ para os \textit{dados de teste} e $80\%$ para os \textit{dados de treino}, retirando os pontos pertencentes à bola fechada de centro $0$ e raio $0.5$, ou seja, é construído um corte no paraboloide hiperbólico. Como resposta, a rede fornece o valor de $z \approx x^2 - y^2$.
+\item Reconstrução de uma Figura Geométrica: Pode-se usar redes neurais para reconstruir malhas geométricas \cite{Sena2024}. Neste caso, utilizou-se uma rede \textit{Multi layer perceptron} (MLP) com duas unidades na camada de entrada, dez neurônios na camada oculta e um neurônio na camada de saída, para aproximar o gráfico do parapoloide hiperbólico $z = x^2 - y^2$. A rede é treinada utilizando o algoritmo de \textit{backpropagation} e o Gradiente Descendente Estocástico, com uma taxa de aprendizagem de $0,01$ e a normalização $L2$ visto na equação (\ref{eq:l2}). O treinamento é realizado para 1000 épocas com todos os neurônios tendo função de ativação sigmoide logística . Os dados considerados são nós de uma malha cartesiana uniforme $x,y \in [-1,1]$, divididos em duzentas partes  com $z =~x^2 -~y^2$. São considerados $20\%$ para os \textit{dados de teste} e $80\%$ para os \textit{dados de treino}, retirando os pontos pertencentes à bola fechada de centro $0$ e raio $0,5$, ou seja, é construído um corte no paraboloide hiperbólico. Como resposta, a rede fornece o valor de $z \approx x^2 - y^2$.
 
-A Figura \ref{img1}(a) apresenta os dados utilizados no treinamento, enquanto a Figura \ref{img1}(b) mostra os valores reconstruídos pela rede. A abordagem proposta obteve uma acurácia de $93\%$ na reconstrução do paraboloide. O cálculo da acurácia foi realizado a partir dos dados de teste, considerando a condição $|\hat{y} - y| \leq 0.01$, em que $\hat{y}$ representa a resposta fornecida pela rede e $y$ a solução analítica.
+A Figura \ref{img1}(a) apresenta os dados utilizados no treinamento, enquanto a Figura \ref{img1}(b) mostra os valores reconstruídos pela rede. A abordagem proposta obteve uma acurácia de $93\%$ na reconstrução do paraboloide. O cálculo da acurácia foi realizado a partir dos dados de teste, considerando a condição $|\hat{y} - y| \leq 0,01$, em que $\hat{y}$ representa a resposta fornecida pela rede e $y$ a solução analítica.
 
 \begin{figure}[!h]
     \centering
@@ -629,11 +593,11 @@ A Figura \ref{img1}(a) apresenta os dados utilizados no treinamento, enquanto a 
     \label{img1}
 \end{figure}
 
-Como toda aproximação, existe um erro entre a forma analítica e a aproximada pela MLP, ao calcular a saída para os dados $x =1, y=1$ a rede responde $-0.0192$. Observa-se que o erro excede a precisão definida na acurácia, uma vez que, dos $6443$ pontos no conjunto de teste, aproximadamente $6014$ estão dentro da margem de tolerância, resultando na acurácia de $93\%$. Caso a precisão fosse ampliada para $0.02$, a acurácia alcançaria $99\%$, podendo apresentar erro superior a $0.02$. Na Figura \ref{img2}(a) são apresentados o gráfico da função $z$ e a superfície aproximada pela rede. A projeção da superfície do erro absoluto, dado por:  $E = |\hat{y} - y| \leq 0.02$, em que $\hat{y}$ representa a resposta fornecida pela rede e $y$ a solução analítica é exibida na Figura \ref{img2}(b), em que os pontos de $E$ com as cores mais claras estão próximos de $0.02$ e os mais escuros, próximos de $0$.
+Como toda aproximação, existe um erro entre a forma analítica e a aproximada pela MLP, ao calcular a saída para os dados $x =1, y=1$ a rede responde $-0,0192$. Observa-se que o erro excede a precisão definida na acurácia, uma vez que, dos $6443$ pontos no conjunto de teste, aproximadamente $6014$ estão dentro da margem de tolerância, resultando na acurácia de $93\%$. Caso a precisão fosse ampliada para $0,02$, a acurácia alcançaria $99\%$, podendo apresentar erro superior a $0,02$. Na Figura \ref{img2}(a) são apresentados o gráfico da função $z$ e a superfície aproximada pela rede. A projeção da superfície do erro absoluto, dado por:  $E = |\hat{y} - y| \leq 0,02$, em que $\hat{y}$ representa a resposta fornecida pela rede e $y$ a solução analítica é exibida na Figura \ref{img2}(b), em que os pontos de ``$E$'' com as cores mais claras estão próximos de $0,02$ e os mais escuros, próximos de $0$.
 
 \begin{figure}[!h]
     \centering
-    \caption{Gráfico da superfície e aproximação da superfície obtida pela MLP e a projeção do E no plano xy.}
+    \caption{Gráfico da superfície e aproximação da superfície obtida pela MLP e a projeção do E no plano $xy$.}
     \begin{minipage}{0.46\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figures/recontrucaof3.png}
@@ -678,7 +642,7 @@ Uma imagem virtual é uma representação visual de um objeto, cena ou conceito,
 
 \subsection{Redes Neurais Convolucionais}
 \label{redesConvolucionais}
-As redes neurais convolucionais (RNCs ou do ingles \textit{Convolutional Neural Networks} - CNNs) são uma classe especial de redes neurais projetadas para processar dados com uma estrutura de grade e que tenham uma relação de vizinhaça entre os elementos, como imagens~\cite{medium}, foram baseadas do Cortex Visual Humano~(\ref{CoViHu}). Estas são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos, detecção de faces e segmentação\footnote{Segmentação de imagens é uma modificação feita na área de  visão computacional que envolve a divisão de uma imagem em regiões ou segmentos distintos, cada um representando um objeto ou parte de um objeto. O objetivo da segmentação é atribuir uma etiqueta a cada pixel da imagem, indicando a qual classe ou categoria ele pertence.} de imagens. As RNCs são inspiradas na organização do córtex visual, onde diferentes regiões do cérebro são responsáveis por processar diferentes partes do campo visual.
+As redes neurais convolucionais (RNCs ou do ingles \textit{Convolutional Neural Networks} - CNNs) são uma classe especial de redes neurais projetadas para processar dados com uma estrutura de grade e que tenham uma relação de vizinhaça entre os elementos, como imagens~\cite{medium}, foram baseadas do Cortex Visual Humano, Seção \ref{CoViHu}. Estas são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos, detecção de faces e segmentação\footnote{Segmentação de imagens é uma modificação feita na área de  visão computacional que envolve a divisão de uma imagem em regiões ou segmentos distintos, cada um representando um objeto ou parte de um objeto. O objetivo da segmentação é atribuir uma etiqueta a cada pixel da imagem, indicando a qual classe ou categoria ele pertence.} de imagens. As RNCs são inspiradas na organização do córtex visual, onde diferentes regiões do cérebro são responsáveis por processar diferentes partes do campo visual.
 
 \subsection{Convolução}
 \begin{exemplo}
@@ -693,7 +657,7 @@ $$
 s(t) = (x*w)(t).
 $$
 
-No exemplo \ref{ex:convolucao}, é preciso que $w$ seja uma função densidade de probabilidade válida para que a saída seja uma média ponderada e $w$ precisa ser igual a zero para $a < 0$. Estas restrições são particulares do exemplo, em geral, convolução é definida para quaisquer funções e integrais. 
+No Exemplo \ref{ex:convolucao}, é preciso que $w$ seja uma função densidade de probabilidade válida para que a saída seja uma média ponderada e $w$ precisa ser igual a zero para $a < 0$. Estas restrições são particulares do exemplo, em geral, convolução é definida para quaisquer funções e integrais. 
 
 Na terminologia da rede convolucional, o primeiro termo ($x$) é frequentemente chamado de \textit{input} (entrada), o segundo termo ($w$) é chamado de \textit{kernel} (núcleo) ou filtro, e o resultado ($s$) é chamado de \textit{feature map} (mapa de características).
 
@@ -778,12 +742,12 @@ o que implica que o vetor resultante ($y[n]$) tem comprimento $M+N-1$
 \end{proof}
 
 
-No Exemplo \ref{ex:conv_discreta}, a convolução entre os vetores $x[n]$ e $w[n]$ resultou em um vetor de comprimento $4$, que é igual a $3 + 2 - 1 = 4$. Para voltar ao comprimento original do vetor $x[n]$, pode-se fazer um truncamento do vetor resultante, ou seja, remover a mesma quantidade de elementos do início e do final do vetor resultante, o que é conhecido como convolução ``\textit{same}"\footnote{A convolução \textit{same} é usanda quando a dimensão do dado de entrada deve ser mantida na saída, quando isso não é nescessário, a convolução pode receber outro nome, como por exemplo, convolução \textit{valid} \cite{padding}, utilizada, quando os valores da saída são somente calculados quando o \textit{kernel} está totalmente contido na entrada.} (ou mesmo em português). No exemplo \ref{ex:conv_discreta}, removendo o primeiro e o último elemento do vetor resultante, obtém-se a convolução \textit{same}:
+No Exemplo \ref{ex:conv_discreta}, a convolução entre os vetores $x[n]$ e $w[n]$ resultou em um vetor de comprimento $4$, que é igual a $3 + 2 - 1 = 4$. Para voltar ao comprimento original do vetor $x[n]$, pode-se fazer um truncamento do vetor resultante, ou seja, remover a mesma quantidade de elementos do início e do final do vetor resultante, o que é conhecido como convolução ``\textit{same}"\footnote{A convolução \textit{same} é usanda quando a dimensão do dado de entrada deve ser mantida na saída, quando isso não é nescessário, a convolução pode receber outro nome, como por exemplo, convolução \textit{valid} \cite{padding}, utilizada, quando os valores da saída são somente calculados quando o \textit{kernel} está totalmente contido na entrada.} (ou ``mesma'' em português). No exemplo \ref{ex:conv_discreta}, removendo o primeiro e o último elemento do vetor resultante, obtém-se a convolução \textit{same}:
 $$
     (x*w)_{same}[n] = \{1, 2\}.
 $$
 
-Pode-se pensar na operação de convolução discreta como o precesso de multiplicação e soma, em que o kernel $w$ vai sendo ``passado'' sobre o vetor $x$ ponto a ponto, como mostra a Figura \ref{fig:conv1d}.
+Pode-se pensar na operação de convolução discreta como o processo de multiplicação e soma, em que o kernel $w$ vai sendo ``passado'' sobre o vetor $x$ ponto a ponto, como é mostrado na Figura \ref{fig:conv1d}.
 
 \begin{figure}[htpb]
     \centering
@@ -819,13 +783,13 @@ considerando que $X$ é a matriz da imagem de entrada, $W$ é a matriz do kernel
             0 & -1 
         \end{bmatrix}
     $$
-    para produzir a saída $S$. Então, como nos exemplos anteriores, é necessário inverter o \textit{kernel} $W$ e depois deslizar o \textit{kernel} sobre a matriz de entrada $X$. Neste exemplo, a convolução é \textit{same}.
+    para produzir a saída $S$. Então, como nos exemplos anteriores, é necessário inverter o \textit{kernel} $W$ e depois deslizar o \textit{kernel} sobre a matriz de entrada $X$. Neste exemplo, a convolução é a ``\textit{same}''.
     $$
     W \to \hat{W} = \begin{bmatrix}-1 & 0 \\
             0 & 1 
         \end{bmatrix},
     $$
-$\hat{W} = J_iWJ_j$ em que $J_i$ e $J_j$ são matrizes de permutação que realizam a rotação de $180$ graus do \textit{kernel} original $W$. Para facilitar o calculo da convolução, pode-se separar $X$ com blocos de $2\times2$ (tamanho do \textit{kernel}) e calcular a convolução para cada bloco. Para o bloco superior esquerdo de $X$ até o bloco inferior direito, temos:
+$\hat{W} = J_iWJ_j$ em que $J_i$ e $J_j$ são matrizes de permutação que realizam a rotação de $180$ graus do \textit{kernel} original $W$. Para facilitar o cálculo da convolução, pode-se separar $X$ com blocos de $2\times2$ (tamanho do \textit{kernel}) e calcular a convolução para cada bloco. Para o bloco superior esquerdo de $X$ até o bloco inferior direito, temos:
 \begin{align*}
     S(0,0) &= \begin{bmatrix}
             1 & 2 \\
@@ -882,7 +846,7 @@ O cálculo da largura e da altura da imagem de saída pode ser feito utilizando 
     \label{altura_conv}
     h_{out} = h_{in} - h_{ker} +1, 
 \end{equation}
-em que $w_{out}$ e $h_{out}$ são a largura e a altura da imagem de saída, $w_{in}$ e $h_{in}$ são a largura e a altura da imagem de entrada, e $w_{ker}$ e $h_{ker}$ são a largura e a altura do \textit{kernel}, respectivamente. A Figura \ref{convolucao} mostra diferentes aplicações de \textit{kernels} em uma imagem.
+em que $w_{out}$ e $h_{out}$ são a largura e a altura da imagem de saída, $w_{in}$ e $h_{in}$ são a largura e a altura da imagem de entrada, e $w_{ker}$ e $h_{ker}$ são a largura e a altura do \textit{kernel}, respectivamente. Na Figura \ref{convolucao} é mostrado diferentes aplicações de \textit{kernels} em uma imagem.
 \begin{figure}[H]
     \centering
     \caption{Aplicações de diferentes \textit{kernels} em uma imagem. A imagem original é representada em (a), juntamente com o \textit{kernel} identidade, que não faz modificações. Em (b) a imagem passou por um \textit{kernel} que aumenta a nitidez reforçando o pixel central e aumentando a diferença dele em relação à sua vizinhança. Em (c) foi usado um \textit{kernel} de desfoque, que substitui um pixel pela média dele com seus vizinhos. A imagem em (d) é o resultado de aplicar na imagem em escala de cinza um \textit{kernel} que reforça suas linhas verticais, enquanto (e) reforça suas linhas horizontais. O \textit{kernel} em (f) reforça os contornos (bordas) da imagem.}
@@ -907,14 +871,14 @@ Em uma imagem com mais de um canal, como no caso de uma imagem VVA (vermelho, ve
 
 \subsection{\textit{Padding}}
 \label{padding}
-Durante a aplicação da convolução, é comum que a dimensão espacial (largura e altura) da imagem de saída seja menor do que a da imagem de entrada. Isso ocorre porque o \textit{kernel} não pode ser aplicado nas bordas da imagem sem ultrapassar seus limites. Para mitigar essa redução de dimensão, uma técnica chamada \textit{padding} \cite{cnn} é frequentemente utilizada. O \textit{padding} envolve adicionar uma borda de pixels ao redor da imagem original antes de aplicar a convolução. Esses pixels adicionais podem ser preenchidos com zeros \textit{(zero-padding)} ou com valores replicados dos pixels mais próximos da borda da imagem original, \textit{(reflection padding)}. O uso de \textit{padding} permite que o \textit{kernel} seja aplicado em todas as regiões da imagem, incluindo as bordas, preservando assim as dimensões espaciais da imagem de entrada na saída. A Figura \ref{padding} ilustra a aplicação de diferentes tipos de \textit{padding} em uma imagem.
+Durante a aplicação da convolução, é comum que a dimensão espacial (largura e altura) da imagem de saída seja menor do que a da imagem de entrada. Isso ocorre porque o \textit{kernel} não pode ser aplicado nas bordas da imagem sem ultrapassar seus limites. Para mitigar essa redução de dimensão, uma técnica chamada \textit{padding} \cite{cnn} é frequentemente utilizada. O \textit{padding} envolve adicionar uma borda de pixels ao redor da imagem original antes de aplicar a convolução. Esses pixels adicionais podem ser preenchidos com zeros \textit{(zero-padding)} ou com valores replicados dos pixels mais próximos da borda da imagem original, \textit{(reflection padding)}. O uso de \textit{padding} permite que o \textit{kernel} seja aplicado em todas as regiões da imagem, incluindo as bordas, preservando assim as dimensões espaciais da imagem de entrada na saída. Na Figura \ref{padding} é ilustrada a aplicação de diferentes tipos de \textit{padding} em uma imagem.
 
 \begin{figure}[htpb]
     \centering
     \caption{Aplicação de \textit{padding} em uma imagem. Em (a) a imagem original passou por zero \textit{padding}. Em (b) a imagem original passou por \textit{reflection padding}. A imagem em (c) passou por um \textit{padding} constante, semelhante em (a), mas com valor diferente de zero.}
     \includegraphics[width=0.7\linewidth]{padding.png}
     \caption*{\footnotesize Fonte: Adaptado de \cite{medium}.}
-    \label{padding}
+    \label{padding2}
 \end{figure}
 
 O cálculo da largura e da altura da imagem de saída com \textit{padding} pode ser ajustado conforme as seguintes fórmulas:
@@ -981,7 +945,7 @@ Como consequência imediata da aplicação do \textit{pooling}, a informação f
 
 
 \begin{exemplo}
-A Figura \ref{cnn} apresenta uma arquitetura típica de uma Rede Neural Convolucional (CNN), com uma camada de convolução e uma camada de \textit{pooling}. Como a imagem têm três canais (RBG) de dimensões $19\times 20 \times 3$ o \textit{kernel} de convolução também tem três canais ($3\times 3\times 3$), a aplicação da convolução resulta em um mapa de características com um canal ($17\times 18 \times 1$). O mapa de características é então processado por uma camada de \textit{pooling} ($2\times 2\times 1$), que reduz suas dimensões espaciais ($8 \times 9 \times 1$). Após essa etapa a rede transforma o mapa de características em um vetor unidimensional ($72\times 1$), que é processado por camadas totalmente conectadas, visto na Seção \ref{redesNeurais}  para realizar a classificação do objeto em cachorro ou gato, com a rede escolhendo a classe com maior probabilidade como resultado final (cachorro). 
+Na Figura \ref{cnn} é apresentada uma arquitetura típica de uma Rede Neural Convolucional (CNN), com uma camada de convolução e uma camada de \textit{pooling}. Como a imagem têm três canais (RBG) de dimensões $19\times 20 \times 3$ o \textit{kernel} de convolução também tem três canais ($3\times 3\times 3$), a aplicação da convolução resulta em um mapa de características com um canal ($17\times 18 \times 1$). O mapa de características é então processado por uma camada de \textit{pooling} ($2\times 2\times 1$), que reduz suas dimensões espaciais ($8 \times 9 \times 1$). Após essa etapa a rede transforma o mapa de características em um vetor unidimensional ($72\times 1$), que é processado por camadas totalmente conectadas, visto na Seção \ref{redesNeurais}  para realizar a classificação do objeto em cachorro ou gato, com a rede escolhendo a classe com maior probabilidade como resultado final (cachorro). 
 \end{exemplo}
 
 \begin{figure}[htpb]
@@ -1004,7 +968,7 @@ A convolução transposta\footnote{O nome sugere uma operação inversa à convo
 \end{equation}
 em que $w_{in}$ e $h_{in}$ são a largura e a altura da imagem de entrada, $s_w$ e $s_h$ são os valores do \textit{stride} na largura e na altura, $w_{pad}$ e $h_{pad}$ são a quantidade de pixels adicionados como \textit{padding} na largura e na altura (geralmento os valores para o \textit{padding} são zero), e $w_{kernel}$ e $h_{kernel}$ são a largura e a altura do \textit{kernel}, respectivamente. Cada entrada da imagem de saída é calculada como uma soma ponderada dos valores da imagem de entrada multiplicados pelos pesos do \textit{kernel}. A convolução transposta pode ser implementada utilizando o seguinte Algoritmo \ref{alg:deconv}.
 \begin{algorithm}[htpb]
-\caption{Convolução Transposta}
+\caption{Convolução Transposta.}
 \label{alg:deconv}
 \KwIn{$X$ (matriz de entrada), $W$ (\textit{kernel}), $s_w$ (\textit{stride} na largura), $s_h$ (\textit{stride} na altura), $w_{pad}$ (\textit{padding} na largura), $h_{pad}$ (\textit{padding} na altura)}
 \KwOut{$Y$ (matriz de saída)}
@@ -1022,15 +986,16 @@ $Y \gets$ matriz de zeros de tamanho $w_{out} \times h_{out}$\;
 }
 \end{algorithm}
 
-A Figura \ref{fig:conTrans} exemplifica a operação de convolução transposta, em que uma matriz de entrada $X$ (matriz $2\times2$) é operada com um \textit{kernel} $W$ (matriz $2\times2$) para produzir a saída $Y$ (matriz $3\times3$). 
-\begin{figure}[htpb]
+Na Figura \ref{fig:conTrans} é exemplificada a operação de convolução transposta, em que uma matriz de entrada $X$ (matriz $2\times2$) é operada com um \textit{kernel} $W$ (matriz $2\times2$) para produzir a saída $Y$ (matriz $3\times3$). 
+\begin{figure}[H]
     \centering
     \caption{Exemplo da operação de convolução transposta.}
     \includegraphics[width=0.7\linewidth]{deconv.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{fig:conTrans}
 \end{figure}
+A cor (por exemplo, azul claro) na imagem de entrada representa a posição do pixel e quais casas ele influencia na operação de convolução transposta.  
 
-\textcolor{red}{Colocar o exeplo dos dígitos manuscritos}
+
 
 % \subsection{\texiti{Intersection over Union} IOU}

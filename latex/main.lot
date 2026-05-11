@@ -1,6 +1,10 @@
 \babel@toc {brazil}{}\relax 
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces Banco de dados com as avaliações dos colegas e a decisão final de compra.}}{23}{table.caption.14}%
+\contentsline {table}{\numberline {1.1}{\ignorespaces Banco de dados com as avaliações dos colegas e a decisão final de compra.}}{25}{table.caption.14}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Evolução das dimensões no exemplo simplificado da U-Net.}}{76}{table.caption.55}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Quantidade de modelos desenvolvidos para cada medida.}}{94}{table.caption.69}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Resumo da configuração de treinamento adotada nos experimentos.}}{95}{table.caption.70}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{100}{table.caption.76}%

@@ -11,11 +11,16 @@
 Acessado: 2026-04-03.
 Dispon{\'\i}vel em: \url{https://www.abccaracu.com.br/historia-da-raca-caracu}.}
 
-\bibitem[{ABIEC} 2021]{abiec}
-\abntrefinfo{{ABIEC}}{{ABIEC}}{2021}
-{{ABIEC}. \emph{Beef Report 2025 | Perfil da Pecuária no Brasil}. 2021.
+\bibitem[ABIEC 2021]{abiec}
+\abntrefinfo{ABIEC}{ABIEC}{2021}
+{ABIEC. \emph{Beef Report | Perfil da Pecuária no Brasil}. 2021.
 Acessado: 2026-04-3.
 Dispon{\'\i}vel em: \url{https://abiec.com.br/publicacoes/beef-report-2025-perfil-da-pecuaria-no-brasil/}.}
+
+\bibitem[{Aloka Co., Ltd.} 1990]{AlokaSSD5001990}
+\abntrefinfo{{Aloka Co., Ltd.}}{{Aloka Co., Ltd.}}{1990}
+{{Aloka Co., Ltd.} \emph{Aloka Echo Camera Model SSD-500: Operator's Manual}.
+Japan, 1990. Manual No. MN1-0346, Effective software version 5.0, issued August 27, 1990.}
 
 \bibitem[Bear, Connors e Paradiso 2017]{neurociencias}
 \abntrefinfo{Bear, Connors e Paradiso}{BEAR; CONNORS; PARADISO}{2017}
@@ -26,24 +31,6 @@ ISBN 9788582713091.}
 \abntrefinfo{Bengio}{BENGIO}{2012}
 {BENGIO, Y. Practical recommendations for gradient-based training of deep architectures.
 \emph{Cornell University}, Version 2, 2012.}
-
-\bibitem[Book 2025]{arquiteturas}
-\abntrefinfo{Book}{BOOK}{2025a}
-{BOOK, D.~L. \emph{Capítulo 10: As Principais Arquiteturas de Redes Neurais}. 2025.
-Acessado: 2026-03-26.
-Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/}.}
-
-\bibitem[Book 2025]{overfitting}
-\abntrefinfo{Book}{BOOK}{2025b}
-{BOOK, D.~L. \emph{Capítulo 19: Overfitting e Regularização: Parte 1}. 2025.
-Acessado: 2026-01-26.
-Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/overfitting-e-regularizacao-parte-1/}.}
-
-\bibitem[Book 2025]{regularizacao}
-\abntrefinfo{Book}{BOOK}{2025c}
-{BOOK, D.~L. \emph{Capítulo 22 – Regularização L1}. 2025.
-Acessado: 2026-03-26.
-Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/}.}
 
 \bibitem[Candido 2024]{Candido2024}
 \abntrefinfo{Candido}{CANDIDO}{2024}
@@ -62,11 +49,34 @@ Dispon{\'\i}vel em: \url{https://medium.com/@minhazc.engg/padding-and-strides-in
 {CREVIER, D. \emph{AI: The Tumultuous History of the Search for Artificial Intelligence}. New York: Basic Books, 1993.
 ISBN 0-465-02997-3.}
 
-\bibitem[{Data Science Academy} 2025]{onehot}
-\abntrefinfo{{Data Science Academy}}{{Data Science Academy}}{2025}
-{{Data Science Academy}. \emph{Comparativo Técnico – Label Encoding vs One-Hot Encoding em Machine Learning}. 2025.
+\bibitem[{DATA SCIENCE ACADEMY} 2025]{onehot}
+\abntrefinfo{{DATA SCIENCE ACADEMY}}{{DATA SCIENCE ACADEMY}}{2025}
+{{DATA SCIENCE ACADEMY}. \emph{Comparativo Técnico – Label Encoding vs One-Hot Encoding em Machine Learning}. 2025.
 Acessado: 2026-04-13.
 Dispon{\'\i}vel em: \url{https://blog.dsacademy.com.br/comparativo-tecnico-label-encoding-vs-one-hot-encoding-em-machine-learning/}.}
+
+\bibitem[{DEEP LEARNING BOOK} 2025]{arquiteturas}
+\abntrefinfo{{DEEP LEARNING BOOK}}{{DEEP LEARNING BOOK}}{2025a}
+{{DEEP LEARNING BOOK}. \emph{Capítulo 10: As Principais Arquiteturas de Redes Neurais}. 2025.
+Acessado: 2026-03-26.
+Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/}.}
+
+\bibitem[{DEEP LEARNING BOOK} 2025]{overfitting}
+\abntrefinfo{{DEEP LEARNING BOOK}}{{DEEP LEARNING BOOK}}{2025b}
+{{DEEP LEARNING BOOK}. \emph{Capítulo 19: Overfitting e Regularização: Parte 1}. 2025.
+Acessado: 2026-01-26.
+Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/overfitting-e-regularizacao-parte-1/}.}
+
+\bibitem[{DEEP LEARNING BOOK} 2025]{regularizacao}
+\abntrefinfo{{DEEP LEARNING BOOK}}{{DEEP LEARNING BOOK}}{2025c}
+{{DEEP LEARNING BOOK}. \emph{Capítulo 22 – Regularização L1}. 2025.
+Acessado: 2026-03-26.
+Dispon{\'\i}vel em: \url{https://www.deeplearningbook.com.br/}.}
+
+\bibitem[Dice 1945]{dice}
+\abntrefinfo{Dice}{DICE}{1945}
+{DICE, L.~R. Measures of the amount of ecologic association between species.
+\emph{Ecology}, v.~26, n.~3, p. 297--302, 1945.}
 
 \bibitem[Elharrouss \textit{et al.} 2025]{Elharrouss2025}
 \abntrefinfo{Elharrouss \textit{et al.}}{ELHARROUSS \textit{et al.}}{2025}
@@ -76,28 +86,29 @@ Dispon{\'\i}vel em: \url{https://arxiv.org/abs/2504.04242}.}
 
 \bibitem[Felicio 2010]{cap3:nelore_caracu}
 \abntrefinfo{Felicio}{FELICIO}{2010}
-{FELICIO, P.~E. de. Classificação, tipificação e qualidade da carne bovina.
+{FELICIO, P.~E. Classificação, tipificação e qualidade da carne bovina.
 \emph{VI Congresso Brasileiro de Ciência e Tecnologia de Carnes}, São Pedro, SP, Brasil, p.~9, 2010.}
 
 \bibitem[Garcao 2015]{garcao2015pecuaria}
 \abntrefinfo{Garcao}{GARCAO}{2015}
-{GARCAO, L.~M. da C. Características socioeconômicas da pecuária brasileira: características socioeconômicas de los bovinos brasileños.
+{GARCAO, L. M.~C. Características socioeconômicas da pecuária brasileira: características socioeconômicas de los bovinos brasileños.
 \emph{Revista Mirante}, Anápolis, GO, Brasil, jun. 2015.
 ISSN 1981-4089.}
 
 \bibitem[Goodfellow, Bengio e Courville 2016]{Goodfellow-et-al-2016}
 \abntrefinfo{Goodfellow, Bengio e Courville}{GOODFELLOW; BENGIO; COURVILLE}{2016}
-{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. [S.l.]: MIT Press, 2016. \url{http://www.deeplearningbook.org}.}
+{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. MIT Press, 2016.
+Dispon{\'\i}vel em: \url{http://www.deeplearningbook.org}.}
 
-\bibitem[{Google LLC} 2015]{TensorFlowSite}
-\abntrefinfo{{Google LLC}}{{Google LLC}}{2015}
-{{Google LLC}. \emph{TensorFlow}. 2015.
+\bibitem[{GOOGLE LLC} 2015]{TensorFlowSite}
+\abntrefinfo{{GOOGLE LLC}}{{GOOGLE LLC}}{2015}
+{{GOOGLE LLC}. \emph{TensorFlow}. 2015.
 Acesso em: 11 abr. 2026.
 Dispon{\'\i}vel em: \url{https://www.tensorflow.org/}.}
 
-\bibitem[{Grupo Agro Paraná} 2024]{AgroParanaUltrassom}
-\abntrefinfo{{Grupo Agro Paraná}}{{Grupo Agro Paraná}}{2024}
-{{Grupo Agro Paraná}. \emph{Ultrassom de carcaça: precisão genética com tecnologia}. 2024.
+\bibitem[{GRUPO AGRO PARANÁ} 2024]{AgroParanaUltrassom}
+\abntrefinfo{{GRUPO AGRO PARANÁ}}{{GRUPO AGRO PARANÁ}}{2024}
+{{GRUPO AGRO PARANÁ}. \emph{Ultrassom de carcaça: precisão genética com tecnologia}. 2024.
 Acesso em: 19 abr. 2026.
 Dispon{\'\i}vel em: \url{https://grupoagroparana.com.br/ultrassom-de-carcaca-precisao-genetica-com-tecnologia/}.}
 
@@ -105,22 +116,16 @@ Dispon{\'\i}vel em: \url{https://grupoagroparana.com.br/ultrassom-de-carcaca-pre
 \abntrefinfo{Guaraldo}{GUARALDO}{2021}
 {GUARALDO, M.~C. \emph{Brasil é o quarto maior produtor de grãos e o maior exportador de carne bovina do mundo, diz estudo}. 2021.
 Acessado: 2026-04-3.
-Dispon{\'\i}vel em: \url{https://www.embrapa.br/busca-de-noticias/-/noticia/62619259/brasil-e-o-quarto-maior-produtor-de-graos-e-o-maior-exportador-de-carne-bovina-do-mundo-diz-estudo}.}
-
-\bibitem[Harisha 2023]{dice}
-\abntrefinfo{Harisha}{HARISHA}{2023}
-{HARISHA, L. \emph{Dice Coefficient! What is it?} 2023.
-Acessado: 2026-03-28.
-Dispon{\'\i}vel em: \url{https://lathashreeh.medium.com/dice-coefficient-what-is-it-ff090ec97bda}.}
+Dispon{\'\i}vel em: \url{https://www.embrapa.br/busca-de-noticias/-/noticia/62619259/}.}
 
 \bibitem[Hecht-Nielsen 1992]{hechtnielsen1992}
 \abntrefinfo{Hecht-Nielsen}{HECHT-NIELSEN}{1992}
 {HECHT-NIELSEN, R. Theory of the backpropagation neural network.
 \emph{Academic Press}, 1992.}
 
-\bibitem[{HumanSignal} 2020]{LabelStudioSite}
-\abntrefinfo{{HumanSignal}}{{HumanSignal}}{2020}
-{{HumanSignal}. \emph{Label Studio: Open Source Data Labeling Platform}. 2020.
+\bibitem[{HUMANSIGNAL} 2020]{LabelStudioSite}
+\abntrefinfo{{HUMANSIGNAL}}{{HUMANSIGNAL}}{2020}
+{{HUMANSIGNAL}. \emph{Label Studio: Open Source Data Labeling Platform}. 2020.
 Acesso em: 11 abr. 2026.
 Dispon{\'\i}vel em: \url{https://labelstud.io/}.}
 
@@ -129,15 +134,16 @@ Dispon{\'\i}vel em: \url{https://labelstud.io/}.}
 {JAFELICE, R. S.~M.; BARROS, L.~C.; BASSANEZI, R.~C. \emph{Teoria dos Conjuntos Fuzzy com Aplicações}. 3. ed. São Paulo -SP, Brasil: SBMAC, 2023.
 ISBN 978-65-86399-14-5.}
 
-\bibitem[{Keras Team} 2015]{KerasSite}
-\abntrefinfo{{Keras Team}}{{Keras Team}}{2015}
-{{Keras Team}. \emph{Keras: Deep Learning for Humans}. 2015.
+\bibitem[{KERAS TEAM} 2015]{KerasSite}
+\abntrefinfo{{KERAS TEAM}}{{KERAS TEAM}}{2015}
+{{KERAS TEAM}. \emph{Keras: Deep Learning for Humans}. 2015.
 Acesso em: 11 abr. 2026.
 Dispon{\'\i}vel em: \url{https://keras.io/}.}
 
-\bibitem[Korshunova 2018]{Korshunova2018}
-\abntrefinfo{Korshunova}{KORSHUNOVA}{2018}
-{KORSHUNOVA, K.~P. A convolutional fuzzy neural network for image classification. In:  \emph{Proceedings of the IEEE Conference}. [S.l.]: IEEE, 2018.}
+\bibitem[Kirichev, Slavov e Momcheva 2021]{Kirichev_unetfuzzy}
+\abntrefinfo{Kirichev, Slavov e Momcheva}{KIRICHEV; SLAVOV; MOMCHEVA}{2021}
+{KIRICHEV, M.~M.; SLAVOV, T.~S.; MOMCHEVA, G.~D. Fuzzy {U}-net neural network architecture optimization for image segmentation.
+\emph{IOP Conference Series: Materials Science and Engineering}, IOP Publishing, 2021.}
 
 \bibitem[Lamas 2023]{embrapa1}
 \abntrefinfo{Lamas}{LAMAS}{2023}
@@ -156,9 +162,9 @@ Dispon{\'\i}vel em: \url{http://yann.lecun.com/exdb/mnist/}.}
 {LETTVIN, J.~Y.; MATURANA, H.~R.; MCCULLOCH, W.~S.; PITTS, W.~H. What the frog's eye tells the frog's brain.
 \emph{Proceedings of the Institute of Radio Engineers}, v.~47, n.~11, p. 1940--1951, 1959.}
 
-\bibitem[{Linux Mint Team} 2026]{LinuxMintSite}
-\abntrefinfo{{Linux Mint Team}}{{Linux Mint Team}}{2026}
-{{Linux Mint Team}. \emph{Linux Mint}. 2026.
+\bibitem[{LINUX MINT TEAM} 2026]{LinuxMintSite}
+\abntrefinfo{{LINUX MINT TEAM}}{{LINUX MINT TEAM}}{2026}
+{{LINUX MINT TEAM}. \emph{Linux Mint}. 2026.
 Acesso em: 23 abr. 2026.
 Dispon{\'\i}vel em: \url{https://linuxmint.com/}.}
 
@@ -169,12 +175,12 @@ Dispon{\'\i}vel em: \url{https://linuxmint.com/}.}
 
 \bibitem[Melo \textit{et al.} 2022]{JadersonMelo2022UNetpp}
 \abntrefinfo{Melo \textit{et al.}}{MELO \textit{et al.}}{2022}
-{MELO, M. Jaderson~de; GON{\c{C}}ALVES, D. N.; GOMES, M. de N.~B.; FARIA, G.; SILVA, J. de A.; RAMOS, A.~P. M.; OSCO, L. P.; FURUYA, M.~T. G.; JUNIOR, J. M.; GON{\c{C}}ALVES, W. N. Automatic segmentation of cattle rib-eye area in ultrasound images using the {UNet++} deep neural network.
+{MELO, M. J.; GON{\c{C}}ALVES, D. N.; GOMES, M. N.~B.; FARIA, G.; SILVA, J. A.; RAMOS, A.~P. M.; OSCO, L. P.; FURUYA, M.~T. G.; JUNIOR, J. M.; GON{\c{C}}ALVES, W. N. Automatic segmentation of cattle rib-eye area in ultrasound images using the {UNet++} deep neural network.
 \emph{Computers and Electronics in Agriculture}, Elsevier, v.~195, p. 106818, 2022.}
 
-\bibitem[{Microsoft} 2015]{VSCodeSite}
-\abntrefinfo{{Microsoft}}{{Microsoft}}{2015}
-{{Microsoft}. \emph{Visual Studio Code}. 2015.
+\bibitem[{MICROSOFT} 2015]{VSCodeSite}
+\abntrefinfo{{MICROSOFT}}{{MICROSOFT}}{2015}
+{{MICROSOFT}. \emph{Visual Studio Code}. 2015.
 Acesso em: 23 abr. 2026.
 Dispon{\'\i}vel em: \url{https://code.visualstudio.com/}.}
 
@@ -183,9 +189,9 @@ Dispon{\'\i}vel em: \url{https://code.visualstudio.com/}.}
 {M{\"U}LLER, V.~C. Review of margaret boden, ``mind as machine: A history of cognitive science".
 \emph{Minds and Machines}, Springer, v.~18, n.~1, p. 121--125, 2008.}
 
-\bibitem[{National Institutes of Health} 2026]{ImageJ}
-\abntrefinfo{{National Institutes of Health}}{{National Institutes of Health}}{2026}
-{{National Institutes of Health}. \emph{ImageJ: Image Processing and Analysis in Java}. 2026.
+\bibitem[{NATIONAL INSTITUTES OF HEALTH} 2026]{ImageJ}
+\abntrefinfo{{NATIONAL INSTITUTES OF HEALTH}}{{NATIONAL INSTITUTES OF HEALTH}}{2026}
+{{NATIONAL INSTITUTES OF HEALTH}. \emph{ImageJ: Image Processing and Analysis in Java}. 2026.
 Acessado em: 2026-04-04.
 Dispon{\'\i}vel em: \url{https://imagej.net/ij/}.}
 
@@ -197,8 +203,20 @@ Dispon{\'\i}vel em: \url{https://arxiv.org/abs/1511.08458}.}
 
 \bibitem[Purwono \textit{et al.} 2025]{intro:unetfuzzy}
 \abntrefinfo{Purwono \textit{et al.}}{PURWONO \textit{et al.}}{2025}
-{PURWONO, P.; NATALIANI, Y.; PURNOMO, H.~D.; TIMOTIUS, I.~K. Dfu-fuzzyliteunet: A lightweight u-net with fuzzy sigmoid and lite transformer for diabetic foot ulcer segmentation.
+{PURWONO, P.; NATALIANI, Y.; PURNOMO, H.~D.; TIMOTIUS, I.~K. Dfu-fuzzyliteunet: A lightweight {U}-net with fuzzy sigmoid and lite transformer for diabetic foot ulcer segmentation.
 \emph{Biomedical Signal Processing and Control}, Elsevier, v.~108, p. 107902, 2025.}
+
+\bibitem[{PYTHON SOFTWARE FOUNDATION} 1990]{tkinter}
+\abntrefinfo{{PYTHON SOFTWARE FOUNDATION}}{{PYTHON SOFTWARE FOUNDATION}}{1990}
+{{PYTHON SOFTWARE FOUNDATION}. \emph{tkinter --- Python interface to Tcl/Tk}. 1990.
+Acesso em: 23 abr. 2026.
+Dispon{\'\i}vel em: \url{https://docs.python.org/3/library/tkinter.html}.}
+
+\bibitem[{PYTHON SOFTWARE FOUNDATION} 1991]{python}
+\abntrefinfo{{PYTHON SOFTWARE FOUNDATION}}{{PYTHON SOFTWARE FOUNDATION}}{1991}
+{{PYTHON SOFTWARE FOUNDATION}. \emph{Python}. 1991.
+Acesso em: 23 abr. 2026.
+Dispon{\'\i}vel em: \url{https://www.python.org/}.}
 
 \bibitem[Ronneberger, Fischer e Brox 2015]{Ronneberger2015UNet}
 \abntrefinfo{Ronneberger, Fischer e Brox}{RONNEBERGER; FISCHER; BROX}{2015}
@@ -216,7 +234,7 @@ Dispon{\'\i}vel em: \url{https://arxiv.org/abs/1511.08458}.}
 
 \bibitem[Sena, Jafelice e Santos 2024]{Sena2024}
 \abntrefinfo{Sena, Jafelice e Santos}{SENA; JAFELICE; SANTOS}{2024}
-{SENA, V.; JAFELICE, R. S.~M.; SANTOS, C. A.~R. dos. Reconstrução geométrica de uma função através de uma rede neural. In:  \emph{Anais da XXIV Semana da Matemática e XIV Semana da Estatística (SEMAT \& SEMEST)}. Uberlândia, MG, Brasil: [s.n.], 2024. Dispon{\'\i}vel em: \url{https://drive.google.com/file/d/1OmN2Gq6i3nHR7ZtEVitc5iCVH0ZFUY\_8/view}.}
+{SENA, V.; JAFELICE, R. S.~M.; SANTOS, C. A.~R. dos. Reconstrução geométrica de uma função através de uma rede neural. In:  \emph{Anais da XXIV Semana da Matemática e XIV Semana da Estatística (SEMAT \& SEMEST)}. Uberlândia, MG, Brasil: UFU, 2024. Dispon{\'\i}vel em: \url{https://drive.google.com/file/d/1OmN2Gq6i3nHR7ZtEVitc5iCVH0ZFUY\_8/view}.}
 
 \bibitem[Sovierzoski 2010]{convolucao}
 \abntrefinfo{Sovierzoski}{SOVIERZOSKI}{2010}
@@ -258,7 +276,7 @@ Dispon{\'\i}vel em: \url{https://arxiv.org/abs/2603.18042}.}
 
 \bibitem[Werbos 1990]{paulwerbos}
 \abntrefinfo{Werbos}{WERBOS}{1990}
-{WERBOS, P.~J. Backpropagation through time: What it does and how to do it.
+{WERBOS, P.~J. Backpropagation through time: What it does and how to do it?
 \emph{PROCEEDINGS OF THE IEEE}, 1990.}
 
 \bibitem[Wilson 1998]{cap3:carcaça}

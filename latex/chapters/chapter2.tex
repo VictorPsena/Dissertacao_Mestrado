@@ -1,9 +1,11 @@
-\section{Teoria dos Conjuntos Fuzzy}
+% !TeX root = ../main.tex
 
-O capítulo 2 apresenta a teoria dos conjuntos fuzzy e os sistemas baseados em regras fuzzy, que são fundamentais para o desenvolvimento do modelo de segmentação de imagens proposto neste trabalho. A seção 2.1 introduz os conceitos básicos da teoria dos conjuntos fuzzy, incluindo a definição de conjuntos fuzzy, operações entre conjuntos fuzzy, normas triangulares, níveis de um conjunto fuzzy e números fuzzy. A seção 2.2 apresenta os sistemas baseados em regras fuzzy, descrevendo suas componentes e os métodos de inferência e defuzzificação utilizados para produzir saídas a partir de entradas dadas por conjuntos fuzzy.
+\section{Teoria}
+
+% O capítulo 2 apresenta a teoria dos conjuntos fuzzy e os sistemas baseados em regras fuzzy, que são fundamentais para o desenvolvimento do modelo de segmentação de imagens proposto neste trabalho. A seção 2.1 introduz os conceitos básicos da teoria dos conjuntos fuzzy, incluindo a definição de conjuntos fuzzy, operações entre conjuntos fuzzy, normas triangulares, níveis de um conjunto fuzzy e números fuzzy. A seção 2.2 apresenta os sistemas baseados em regras fuzzy, descrevendo suas componentes e os métodos de inferência e defuzzificação utilizados para produzir saídas a partir de entradas dadas por conjuntos fuzzy.
 
 \label{sec:fuzzy}
-A teoria dos conjuntos fuzzy, introduzida por Lotfi A. Zadeh em 1965 \cite{zadeh1965fuzzy}, é uma extensão da teoria clássica dos conjuntos, permitindo a representação de incerteza e imprecisão. Diferentemente dos conjuntos clássicos, onde um elemento pertence ou não a um conjunto, nos conjuntos fuzzy cada elemento possui um grau de pertinência, variando entre 0 e 1. Essa abordagem é especialmente útil em situações onde as fronteiras entre categorias não são claramente definidas, permitindo uma modelagem mais flexível e realista de fenômenos complexos. As definições e propriedades dos conjuntos fuzzy presentes neste capítulo foram baseadas em \cite{fuzzy}.
+A teoria dos conjuntos fuzzy, introduzida por Lotfi A. Zadeh em 1965 \cite{zadeh1965fuzzy}, é uma extensão da teoria clássica dos conjuntos, permitindo a representação de incerteza e imprecisão. Diferentemente dos conjuntos clássicos, em que um elemento pertence ou não a um conjunto, nos conjuntos fuzzy cada elemento possui um grau de pertinência, variando entre 0 e 1. Essa abordagem é especialmente útil em situações onde as fronteiras entre categorias não são claramente definidas, permitindo uma modelagem mais flexível e realista de fenômenos complexos. As definições e propriedades dos conjuntos fuzzy presentes neste capítulo foram baseadas em \cite{fuzzy}.
 
 \subsection{Conjuntos Fuzzy}
 Um \textit{subconjunto fuzzy} $A$ de um conjunto universo $X$ é definido por uma função de pertinência $\mu_A$ que atribui a cada elemento $x \in X$ um valor $\mu_A(x) \in [0, 1]$, representando o grau de pertencimento de $x$ ao conjunto $A$. Assim:
@@ -94,7 +96,7 @@ Uma co-norma triangular (s-norma) é uma operação binária $S: [0, 1] \times [
 \end{definicao}
 
 \begin{exemplo}
-    Soma Limitada: $S: [0,1] \times [0,1] \to [0,1]$ Com $xSy = \min(1, x+y)$
+    União Padrão: $S: [0,1] \times [0,1] \to [0,1]$ com $xSy = \max(x, y)$
 \end{exemplo}
 \begin{definicao}
 Uma norma triangular (t-norma) é uma operação binária $T: [0, 1] \times [0, 1] \rightarrow [0, 1]$ que satisfaz as seguintes propriedades:
@@ -106,7 +108,7 @@ Uma norma triangular (t-norma) é uma operação binária $T: [0, 1] \times [0, 
 \end{itemize}
 \end{definicao}
 \begin{exemplo}
-    Diferença Limitada: $T: [0,1] \times [0,1] \to [0,1]$ Com $xTy = \max(0, x+y-1)$
+    Intersecção Padrão: $T: [0,1] \times [0,1] \to [0,1]$ com $xTy = \min(x,y)$
 \end{exemplo}
 
 \subsection{Níveis de um Conjunto Fuzzy}
@@ -116,15 +118,17 @@ $$[A]^{\alpha} = \{x \in X \mid \mu_A(x) \geq \alpha\}.$$
 \end{definicao}
 
 \begin{definicao}
+    O suporte de um conjunto fuzzy $A$ são todos os elementos de $X$ que têm grau de pertinência maior que zero em $A$, ou seja:
+$$supp(A) = \{x \in X \mid \mu_A(x) > 0\}.$$
+\end{definicao}
+
+\begin{definicao}
     O nível zero de um conjunto fuzzy $A$ do universo $X$, em que $X$ é um espaço topológico, é o fecho topológico do suporte de $A$, ou seja:
 $$[A]^0 = \overline{supp(A)}.$$
 \end{definicao}
 
 
-\begin{definicao}
-    O suporte de um conjunto fuzzy $A$ são todos os elementos de $X$ que têm grau de pertinência maior que zero em $A$, ou seja:
-$$supp(A) = \{x \in X \mid \mu_A(x) > 0\}.$$
-\end{definicao}
+
 
 \begin{exemplo}
 Seja $A$ o conjunto fuzzy representando a categoria ``quente" do Exemplo \ref{ex:fuzzy}, com a função de pertinência definida por:
@@ -212,33 +216,37 @@ O SBRF pode ser visto com um mapeamento entre a entrada e a saída da forma $y =
             \textbf{{\text{Regra}}  2}: \text{SE} \ (x \ \text{é} \ A_2 \ \text{E} \ y \ \text{é} \ B_2) \ \text{ENTAO} \ (z \ \text{é} \ C_2.)
             $$
         \end{itemize}
-        A Figura \ref{fig:mamdani} ilustra um exemplo do método de Mamdani, em que duas regras são aplicadas para inferir a saída $z$ a partir das entradas $x$ e $y$.
-        \begin{figure}[htpb]
+        Na Figura \ref{fig:mamdani} é ilustrado um exemplo do método de Mamdani, em que duas regras são aplicadas para inferir a saída $z$ a partir das entradas $x$ e $y$.
+        \begin{figure}[H]
             \centering
             \caption{Exemplo de inferência fuzzy utilizando o método de Mamdani.}
             \includegraphics[width=0.7\textwidth]{figures/mamdani.png}
             \caption*{\footnotesize Fonte: Adaptado de \cite{fuzzy}.}
             \label{fig:mamdani}
         \end{figure}
-        
         Com~base~no Exemplo \ref{ex:fuzzy} uma regra que poderia ser formulada utilizando o método de Mamdani é a seguinte:
         $$\textbf{{\text{Regra}}  1}: \text{SE} \ (x \ \text{é} \ A) \ \text{ENTAO} \ (z \ \text{é} \ C),$$
         em que $A$ é o conjunto fuzzy representando a categoria ``quente" e $C$ é um conjunto fuzzy representando a categoria ``baixo", da variável de saída ``temperatura do ar condicionado". Assim, a regra estabelece que se a temperatura $x$ é considerada quente, ou seja, a função de pertinência de $x$ é alta para o conjunto fuzzy $A$, então $z$ tem uma função de pertinência alta para o conjunto fuzzy $C$.
-        \item \textbf{Método de Takagi-Sugeno}: Neste caso, o consequente de cada regra é uma função das variáveis de entrada. Por exemplo, pode-se supor que a função que mapeia a entrada e a saída para cada regra é uma combinação linear das entradas, ou seja, $z = a_1x_1 + a_2x_2 + \cdots + a_nx_n + b$. Assim, as regras do método de Takagi-Sugeno podem ser formuladas da seguinte forma:
+        \begin{itemize}
+        \item \textbf{Método de Takagi-Sugeno}: Neste caso, o consequente de cada regra é uma função das variáveis de entrada. Por exemplo, pode-se supor que a função que mapeia a entrada e a saída para cada regra é uma combinação linear das entradas, ou seja: 
+        $$z = a_1x_1 + a_2x_2 + \cdots+ a_nx_n + b.$$ 
+        Assim, as regras do método de Takagi-Sugeno podem ser formuladas da seguinte forma:
         $$
         \textbf{{\text{Regra}} r}: \text{SE}  \ (x_1 \ \text{é} \ A_1 \ \text{E} \ x_2 \ \text{é} \ A_2 \cdots \ x_n \ \text{é} \ A_n) \ \text{ENTAO} \ (z = f_r(x_1, x_2, \ldots, x_n)).
         $$
-        A Figura \ref{tks} ilustra um exemplo do método de Takagi-Sugeno, em que duas regras são aplicadas para inferir a saída $z$ a partir das entradas $x$ e $y$. A saída do sistema é obtida pela média ponderada das saídas de cada regra, usando-se o grau de ativação destas regras como ponderação.
-        \begin{figure}[htpb]
+        Na Figura \ref{tks} é ilustrado um exemplo do método de Takagi-Sugeno, em que duas regras são aplicadas para inferir a saída $z$ a partir das entradas $x$ e $y$. A saída do sistema é obtida pela média ponderada das saídas de cada regra, usando-se o grau de ativação destas regras como ponderação.
+        \end{itemize}
+        \begin{figure}[H]
             \centering
             \caption{Exemplo de inferência fuzzy utilizando o método de Takagi-Sugeno.}
             \includegraphics[width=0.7\textwidth]{figures/tks.png}
             \caption*{\footnotesize Fonte: Adaptado de \cite{fuzzy}.}
             \label{tks}
         \end{figure}
+    
     \item O \textbf{processador de saída} (defuzzificação) realiza a defuzzificação, ou seja, converte os conjuntos fuzzy de saída em números reais. Em sistemas fuzzy, em geral a saída é um conjunto fuzzy. Assim, devemos escolher um método de defuzzificação para obter um número real a partir do conjunto fuzzy de saída. O método de defuzzificação mais utilizado é o método de Centro de gravidade, que calcula o centro de massa do conjunto fuzzy de saída para obter um valor real representativo da saída do sistema.
     \begin{itemize}
-        \item \textbf{Método de Centro de Gravidade}: O método de centro de gravidade é semelhante a média ponderada para distribuições de dados, com a diferença que os pesos são os valores $C(z_i)$ que indicam o grau de compatibilidade do valor $z_i$ com o conceito modelado pelo conjunto fuzzy $C$. Para domínios discretos, o método de centro de gravidade é dado por:
+        \item \textbf{Método de Centro de Gravidade}: O método de centro de gravidade, aplicada ao método de Mamdani, é semelhante a média ponderada para distribuições de dados, com a diferença que os pesos são os valores $C(z_i)$ que indicam o grau de compatibilidade do valor $z_i$ com o conceito modelado pelo conjunto fuzzy $C$. Para domínios discretos, o método de centro de gravidade é dado por:
         $$
         G(C) = \frac{\sum_{i=0}^{n} z_i \times C(z_i)}{\sum_{i=0}^{n} C(z_i)}.
         $$
@@ -246,7 +254,7 @@ O SBRF pode ser visto com um mapeamento entre a entrada e a saída da forma $y =
 \end{itemize}
 
 \begin{exemplo}
-Considere um sistema de controle de velocidade de um ventilador com duas variáveis de entrada: temperatura $x$ (em °C) e umidade $y$ (em \%). O objetivo é determinar a velocidade $z$ do ventilador (em RPM) utilizando um SBRF com o método de Takagi-Sugeno.
+Considere um sistema de controle de velocidade de um ventilador com duas variáveis de entrada: temperatura $x$ (em °C) e umidade do ar $y$ (em \%). O objetivo é determinar a velocidade $z$ do ventilador (em Rotações por Minuto - RPM) utilizando um SBRF com o método de Takagi-Sugeno.
 
 As variáveis linguísticas são definidas pelas seguintes funções de pertinência trapezoidais:
 \begin{itemize}
@@ -272,30 +280,61 @@ As variáveis linguísticas são definidas pelas seguintes funções de pertinê
 \end{itemize}
 
 As regras fuzzy pelo método de Takagi-Sugeno são:
-$$\textbf{Regra 1}: \text{SE } (x \text{ é } A_1 \text{ E } y \text{ é } B_1) \text{ ENTÃO } z_1 = 5x + 2y,$$
-$$\textbf{Regra 2}: \text{SE } (x \text{ é } A_2 \text{ E } y \text{ é } B_2) \text{ ENTÃO } z_2 = x + y.$$
 $$
-\textbf{Regra 3}: \text{SE } (x \text{ é } A_3 \text{ E } y \text{ é } B_3) \text{ ENTÃO } z_3 = 2x + 3y.
+\begin{cases}
+  \textbf{Regra 1}: \text{SE } (x \text{ é } A_1 \text{ E } y \text{ é } B_1) \text{ ENTÃO } z_1 = 5x + 2y; \\
+  \textbf{Regra 2}: \text{SE } (x \text{ é } A_2 \text{ E } y \text{ é } B_2) \text{ ENTÃO } z_2 = x + y; \\
+  \textbf{Regra 3}: \text{SE } (x \text{ é } A_3 \text{ E } y \text{ é } B_3) \text{ ENTÃO } z_3 = 2x + 3y; \\
+  \textbf{Regra 4}: \text{SE } (x \text{ é } A_1 \text{ E } y \text{ é } B_2) \text{ ENTÃO } z_4 = 3x + y; \\
+  \textbf{Regra 5}: \text{SE } (x \text{ é } A_2 \text{ E } y \text{ é } B_1) \text{ ENTÃO } z_5 = 4x + 2y; \\
+  \textbf{Regra 6}: \text{SE } (x \text{ é } A_3 \text{ E } y \text{ é } B_1) \text{ ENTÃO } z_6 = 2x + y; \\
+  \textbf{Regra 7}: \text{SE } (x \text{ é } A_1 \text{ E } y \text{ é } B_3) \text{ ENTÃO } z_7 = 3x + 4y; \\
+  \textbf{Regra 8}: \text{SE } (x \text{ é } A_2 \text{ E } y \text{ é } B_3) \text{ ENTÃO } z_8 = 4x + 3y; \\
+  \textbf{Regra 9}: \text{SE } (x \text{ é } A_3 \text{ E } y \text{ é } B_2) \text{ ENTÃO } z_9 = 5x + y.
+\end{cases}
 $$
-
 Para as entradas $x = 35$°C e $y = 70$\%, os graus de pertinência são:
 $$\mu_{A_1}(35) = \frac{35 - 20}{20} = 0{,}75, \quad \mu_{A_2}(35) = 0{,}25, \quad \mu_{A_3}(35) = 1 - \mu_{A_1}(35) - \mu_{A_2}(35) = 0.$$
 $$\mu_{B_1}(70) = \frac{70 - 40}{40} = 0{,}75, \quad \mu_{B_2}(70) = 0{,}25, \quad \mu_{B_3}(70) = 1 - \mu_{B_1}(70) - \mu_{B_2}(70) = 0.$$
 
 Os graus de ativação de cada regra, utilizando o operador do mínimo, são:
-$$w_1 = \min(\mu_{A_1}(35),\ \mu_{B_1}(70)) = \min(0{,}75;\ 0{,}75) = 0{,}75,$$
-$$w_2 = \min(\mu_{A_2}(35),\ \mu_{B_2}(70)) = \min(0{,}25;\ 0{,}25) = 0{,}25.$$
-$$w_3 = \min(\mu_{A_3}(35),\ \mu_{B_3}(70)) = \min(0;\ 0) = 0.$$
-
-
+$$
+\begin{cases}
+    w_1 = \min(\mu_{A_1}(35),\ \mu_{B_1}(70)) = \min(0{,}75;\ 0{,}75) = 0{,}75;\\
+    w_2 = \min(\mu_{A_2}(35),\ \mu_{B_2}(70)) = \min(0{,}25;\ 0{,}25) = 0{,}25;\\
+    w_3 = \min(\mu_{A_3}(35),\ \mu_{B_3}(70)) = \min(0;\ 0) = 0;\\
+    w_4 = \min(\mu_{A_1}(35),\ \mu_{B_2}(70)) = \min(0{,}75;\ 0{,}25) = 0{,}25;\\
+    w_5 = \min(\mu_{A_2}(35),\ \mu_{B_1}(70)) = \min(0{,}25;\ 0{,}75) = 0{,}25;\\
+    w_6 = \min(\mu_{A_3}(35),\ \mu_{B_1}(70)) = \min(0;\ 0{,}75) = 0;\\
+    w_7 = \min(\mu_{A_1}(35),\ \mu_{B_3}(70)) = \min(0{,}75;\ 0) = 0;\\
+    w_8 = \min(\mu_{A_2}(35),\ \mu_{B_3}(70)) = \min(0{,}25;\ 0) = 0;\\
+    w_9 = \min(\mu_{A_3}(35),\ \mu_{B_2}(70)) = \min(0;\ 0{,}25) = 0.\\
+\end{cases}
+$$
 As saídas de cada regra são:
-$$z_1 = 5 \cdot 35 + 2 \cdot 70 = 175 + 140 = 315,$$
-$$z_2 = 35 + 70 = 105.$$
-$$z_3 = 2 \cdot 35 + 3 \cdot 70 = 70 + 210 = 280.$$
-
+$$
+\begin{cases}
+z_1 = 5 \cdot 35 + 2 \cdot 70 = 315; \\
+z_2 = 35 + 70 = 105; \\
+z_3 = 2 \cdot 35 + 3 \cdot 70 = 280; \\
+z_4 = 3 \cdot 35 + 70 = 175; \\
+z_5 = 4 \cdot 35 + 2 \cdot 70 = 280; \\
+z_6 = 2 \cdot 35 + 70 = 140; \\
+z_7 = 3 \cdot 35 + 4 \cdot 70 = 385; \\
+z_8 = 4 \cdot 35 + 3 \cdot 70 = 350; \\
+z_9 = 5 \cdot 35 + 70 = 245.
+\end{cases}
+$$
 A saída final é obtida pela média ponderada:
-$$z = \frac{w_1 \cdot z_1 + w_2 \cdot z_2 + w_3 \cdot z_3}{w_1 + w_2 + w_3} = \frac{0{,}75 \times 315 + 0{,}25 \times 105 + 0 \times 280}{0{,}75 + 0{,}25 + 0}$$ $$= \frac{236{,}25 + 26{,}25 + 0}{1} =  262{,}5 \text{ RPM}.$$
+$$z = \frac{w_1 \cdot z_1 + w_2 \cdot z_2 + w_3 \cdot z_3 + w_4 \cdot z_4 + w_5 \cdot z_5 + w_6 \cdot z_6 + w_7 \cdot z_7 + w_8 \cdot z_8 + w_9 \cdot z_9}{w_1 + w_2 + w_3 + w_4 + w_5 + w_6 + w_7 + w_8 + w_9} = 
+$$
+$$
+\frac{0{,}75 \times 315 + 0{,}25 \times 105 +  0{,}25 \times 175 + 0{,}25 \times 280}{0{,}75 + 0{,}25 + 0{,}25 + 0{,}25}
+$$ 
 
-Portanto, para uma temperatura de $35$°C e umidade de $70$\%, o sistema Takagi-Sugeno determina que a velocidade do ventilador deve ser de $262{,}5$ RPM, uma boa velocidade para refrescar o ambiente.
+$$= \frac{236{,}25 + 26{,}25 + 0 + 43{,}75 + 70 + 0 + 0 + 0 + 0}{1,5} =  262{,}5 \text{ RPM}.
+$$
+
+Portanto, para uma temperatura de $35$°C e umidade do ar de $70$\%, o sistema baseado em regrás fuzzy com o método de Takagi-Sugeno determina que a velocidade do ventilador deve ser de $262{,}5$ RPM, uma boa velocidade para refrescar o ambiente.
 \end{exemplo}
 

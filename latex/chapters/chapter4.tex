@@ -1,12 +1,16 @@
+% !TeX root = ../main.tex
 
-Neste capítulo serão desenvolvidos os principais conceitos abordados nos capítulos anteriores. Primeiramente, será feita uma descrição detalhada do problema, incluindo as características das raças Nelore e Caracu, as medidas de interesse (AOL, EGL e EGG), a utilização do TensorFlow/Keras para a implementação do modelo, o processo de aquisição e pré-processamento das imagens de ultrassom e a criação das máscaras de segmentação. Em seguida, serão feitas comparações entre os modelos treinados, utilizando métricas de avaliação adequadas para a tarefa de segmentação de imagens. Duas redes serão implementadas, uma U-Net tradicional e uma U-Net com a integração do sistema de inferência neuro-fuzzy adaptativo (ANFIS), para avaliar o impacto da integração do ANFIS na performance do modelo. 
+\section{Base de Dados e Planejamento Experimental}
 
-\section{Descrição do Problema}
+\subsection{Contexto do problema e medidas avaliadas}
 
-\subsection{Raças Nelore e Caracu}
-A raça Nelore é originária da Índia, onde seus ancestrais, os bovinos da raças Ongole, eram criados há milênios por sua rusticidade, resistência a climas tropicais e capacidade de adaptação a ambientes variádos, esses animais foram trazidos ao Brasil no final do século XIX, em um momento de expansão da pecuária nacional \cite{hist_nelore}. A raça Caracu, por sua vez, tem origem na região da Península Ibérica,chegando no Brasil  logo após o descobrimento, no tempo do Brasil Colônia, os animais da raça Caracu são extremamente funcionais, com alta adaptabilidade e rusticidade, além de serem resistentes a doenças e parasitas \cite{hist_caracu}. O Brasil é um dos maiores criadores mundiais de bovinos da raça Nelore, com uma população estimada em mais de 230 milhões de cabeças \cite{embrapa1}, enquanto a raça Caracu é menos numerosa, mas ainda assim desempenha um papel importante na pecuária brasileira, especialmente em regiões onde a resistência a condições adversas é crucial. Uma das principais formas de avaliar o desenvolvimento e a qualidade fenótipa dos animais é por meio da análise de imagens de ultrassom em que, entre outras, é possível obter informações da carcaça do animal. Entre os recursos e metodologias existentes para avaliação de carcaças e de características associadas à qualidade da carne, a ultrassonografia se destaca, especialmente, por possibilitar o exame \textit{in vivo}, uma única vez na vida do animal \cite{cap3:medidaAol}, em tempo relativamente curto, com boa precisão a custos relativamente baixos. O objetivo é conhecer o potencial dos indivíduos e do rebanho como um todo, para musculosidade, precocidade de acabamento e qualidade da carne.
+A raça Nelore é originária da Índia, onde seus ancestrais, os bovinos da raças Ongole, eram criados há milênios por sua rusticidade, resistência a climas tropicais e capacidade de adaptação a ambientes variádos, esses animais foram trazidos ao Brasil no final do século XIX, em um momento de expansão da pecuária nacional \cite{hist_nelore}. A raça Caracu, por sua vez, tem origem na região da Península Ibérica,chegando no Brasil  logo após o descobrimento, os animais da raça Caracu são extremamente funcionais, com alta adaptabilidade e rusticidade, além de serem resistentes a doenças e parasitas \cite{hist_caracu}. O Brasil é um dos maiores criadores mundiais de bovinos da raça Nelore, com uma população estimada em mais de 230 milhões de cabeças \cite{embrapa1}, enquanto a raça Caracu é menos numerosa, mas ainda assim desempenha um papel importante na pecuária brasileira. 
 
-A avaliação é de extrema importância pois existe uma variabilidade nas características que estão relacionadas com a qualidade de desossa, que por sua vez influenciam a comercialização e os resultados econômicos dos produtores \cite{cap3:nelore_caracu}. Dependedo da região do corpo do animal onde a imagem de ultrassom é obtida, é possível extrair diferentes informações, neste trabalho serão utilizadas imagens de ultrassom da região do olho de lombo, que localiza-se entre a 12ª e 13ª costela \cite{cap3:carcaça} e da garupa, como mostra a Figura \ref{fig:regiao_ol}. 
+
+Uma das principais formas de avaliar o desenvolvimento e a qualidade fenótipa dos animais é por meio da análise de imagens de ultrassonografia em que é possível obter informações da carcaça do animal. Entre os recursos e metodologias existentes para avaliação de carcaças e de características associadas à qualidade da carne, a ultrassonografia se destaca. A avaliação é de extrema importância pois existe uma variabilidade nas características que estão relacionadas com a qualidade de desossa, que por sua vez influenciam a comercialização e os resultados econômicos dos produtores \cite{cap3:nelore_caracu}.
+
+Dependedo da região do corpo do animal onde a imagem de ultrassom é obtida, é possível extrair diferentes informações, neste trabalho serão utilizadas imagens de ultrassom da região do olho de lombo, que localiza-se entre a 12ª e 13ª costela \cite{cap3:carcaça} e da Garupa, como mostra a Figura \ref{fig:regiao_ol}. 
+
 \begin{figure}[H]
     \centering
     \caption{Região do olho de lombo (em amarelo), localizada entre a 12ª e 13ª costela e da garupa (em azul).}
@@ -14,27 +18,29 @@ A avaliação é de extrema importância pois existe uma variabilidade nas carac
     \caption*{Fonte: Adaptado de \cite{cap3:carcaça}.}
     \label{fig:regiao_ol}
 \end{figure}
-Na região de olho do lombo é possível obter informações de duas medidas importantes para a avaliação da carcaça, a Área de Olho de Lombo (AOL) e a Espessura de Gordura no Lombo (EGL). Na Garupa é possivel obter a Espessura de Gordura na Garupa (EGG). As imagens de ultrassom foram obtidas por meio do aparelho de ultrassom Aloka SSD-500, com todos os animais sendo machos por volta de um ano de idade e estando vivos, localizados no Centro Avançado de Pesquisa Tecnológica do Agronegócio em Setãozinho-SP. A Figura \ref{fig1:OL}(a) mostra a imagem do especialista obtendo a imagem de ultrassom da região, já a Figura \ref{fig1:OL}(b) mostra a imagem de ultrassom, a Figura \ref{fig1:OL}(c) mostra a imagem de ultrassom da garupa e a Figura \ref{fig1:OL}(d) mostra o especialista obtendo a imagem de ultrassom da garupa.
+
+Na região de olho do lombo é possível obter informações de duas medidas importantes para a avaliação da carcaça, a Área de Olho de Lombo (AOL) e a Espessura de Gordura no Lombo (EGL). Na Garupa é possível obter a informação da Espessura de Gordura na Garupa (EGG). As imagens de ultrassom foram obtidas por meio do aparelho de ultrassom Aloka SSD-500 \cite{AlokaSSD5001990}, com todos os animais sendo machos por volta de um ano de idade, localizados no Centro Avançado de Pesquisa Tecnológica do Agronegócio em Setãozinho-SP. A Figura \ref{fig1:OL}(a) mostra a imagem do especialista obtendo a imagem de ultrassom da região do olho de lombo, já a Figura \ref{fig1:OL}(b) mostra a imagem de ultrassom, a Figura \ref{fig1:OL}(c) mostra a imagem de ultrassom da garupa e a Figura \ref{fig1:OL}(d) mostra o especialista obtendo a imagem de ultrassom da garupa.
+
 \textcolor{red}{esperando elas mandarem as imagens}
-\begin{figure}[htpb]
+\begin{figure}[H]
     \centering
     \caption{Aquisição da imagem de ultrassom da região do olho de lombo.}
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\textwidth]{figures/olho_lombo.png}
         \caption{Especialista obtendo a imagem de ultrassom da região do olho de lombo.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\textwidth]{figures/OL.jpg}
         \caption{Imagem de ultrassom da região do olho de lombo.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\textwidth]{figures/cap3/EGG.jpg}
         \caption{Imagem de ultrassom da garupa.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\textwidth]{figures/cap3/EGG.jpg}
         \caption{Especialista obtendo a imagem de ultrassom da garupa.}
     \end{subfigure}
@@ -42,13 +48,7 @@ Na região de olho do lombo é possível obter informações de duas medidas imp
      \label{fig1:OL}
 \end{figure}
 
-
-
-\textcolor{red}{Colocar mais informações}
-
-\subsection{Área de Olho de Lombo (AOL), Espessura de Gordura no Lombo (EGL) e Espessura de Gordura na Garupa (EGG)}
-\label{AolEglEgg}
-A área de olho de lombo é uma medida que representa a área da seção transversal do músculo  \textit{Longissimus dorsi} (Contrafilé), medida em centímetro quadrados entre a 12ª e 13ª costela. A área está altamente correlacionada com o produto final. Essa característica tem herdabilidade moderada de 35\% e indica musculosidade e rendimento da carcaça \cite{cap3:carcaça}, uma maior área é preferível pelos produtores. Do ponto de vista produtivo, pode-se afirmar que animais com valores de AOL superiores a $75$ cm$^2$, ao abate, apresentam elevados rendimentos de cortes cárneos na indústria figorífica \cite{cap3:medidaAol}. A Figura \ref{cap3:AOL} mostra a demarcação manual da área feita no aplicatvio \textit{ImageJ} \cite{ImageJ} em que a região interna a demarção amarela é a AOL.
+A área de olho de lombo é uma medida que representa a área da seção transversal do músculo  \textit{Longissimus dorsi} (Contrafilé), medida em centímetro quadrados entre a 12ª e 13ª costela. Uma maior área é preferível pelos produtores. Do ponto de vista produtivo, pode-se afirmar que animais com valores de AOL superiores a $75$ cm$^2$, ao abate, apresentam elevados rendimentos de cortes cárneos na indústria figorífica \cite{cap3:medidaAol}. Na Figura \ref{cap3:AOL} é mostrada a demarcação manual da área feita utilizando o aplicativo de manipulação e edição de imagens \textit{ImageJ} \cite{ImageJ} em que a região interna a demarção amarela é a AOL.
 \begin{figure}[H]
     \centering
     \caption{Demarcação manual da Área de Olho de Lombo (AOL) utilizando o aplicativo \textit{ImageJ}.}
@@ -57,50 +57,42 @@ A área de olho de lombo é uma medida que representa a área da seção transve
     \label{cap3:AOL}
 \end{figure}
 
-A espessura de gordura no lombo (EGL) é uma medida que representa a espessura da camada de gordura sobre o músculo \textit{Longissimus dorsi} (Contrafilé),  sendo sua espessura (EGL) medida, em milímetros, a $3/4$ da distância medial do músculo, entre a 12ª e 13ª costela. Esta gordura de cobertura é extremamente importante para a proteção da carcaça contra a rápida e intensa queda de temperatura nas câmaras frias, que pode provocar o endurecimento (perda em maciez de até 5 vezes) e o escurecimento da carne em carcaças pobres em acabamento \cite{cap3:medidaAol}, a Figura \ref{cap3:AOL}, mostra a EGL em azul dentro da demarcação vermelha. Do ponto de vista de melhoramento genético, a característica da  EGL é um importante indicativo da precocidade sexual e de terminação, ou seja, animais que iniciam a deposição de gordura mais cedo tendem a ser mais precoces, sexualmente, e tendem a apresentar carcaças prontas para o abate em menores idades. Vale ressaltar ainda que EGL apresenta características antagônicas à musculosidade (AOL) e tamanho, ou seja, a seleção exclusiva para precocidade de terminação, implicará na produção de animais com alta deposição de gordura, mas com menores proporções de cortes cárneos na carcaça e menores pesos ao abate e a idade adulta \cite{cap3:medidaAol}. A Figura \ref{cap3:EGL} mostra a demarcação manual feita no aplicativo \textit{ImageJ} em que a linha amarela dentro do círculo amarelo representa a demarcação da EGL. 
+A espessura de gordura no lombo (EGL) é uma medida que representa a espessura da camada de gordura sobre o músculo \textit{Longissimus dorsi},  sendo sua espessura (EGL) medida, em milímetros, a $3/4$ da distância medial do músculo. Esta gordura de cobertura é extremamente importante para a proteção da carcaça contra a rápida e intensa queda de temperatura nas câmaras frias, que pode provocar o endurecimento (perda em maciez de até 5 vezes) e o escurecimento da carne em carcaças pobres em acabamento \cite{cap3:medidaAol}.
+
+A EGL apresenta características antagônicas à AOL, ou seja, animais com maior deposição de gordura implicará em uma menor proporção de AOL na carcaça e menor peso ao abate \cite{cap3:medidaAol}. Na Figura \ref{cap3:EGL} é mostrada a demarcação manual feita no aplicativo \textit{ImageJ} em que a linha vermelha representa a demarcação da EGL. 
+
 \begin{figure}[htpb]
     \centering
     \caption{Demarcação manual da Espessura de Gordura no Lombo (EGL) utilizando o aplicativo \textit{ImageJ}.}
-    \includegraphics[width=0.8\textwidth]{figures/egl.png}
+    \includegraphics[width=1\textwidth]{figures/introducao/EGL.png}
     \caption*{Fonte: Elaboração do Autor.}
     \label{cap3:EGL}
 \end{figure}
 
-A espessura de gordura na garupa (EGG) é uma medida que representa a espessura da camada de gordura sobre a região da garupa, sendo medida em milímetros. A EGG é uma medida complementar à EGL, indicada principalmente para situações em que os animais têm a deposição de gordura subcutânea comprometida, principalmente por nutrição inadequada, como pode ocorrer, por exemplo, com animais em sistemas extensivos de pastejo. Como o processo de deposição de gordura de acabamento inicia-se das extremidades para o centro do corpo, os valores de gordura encontrados na garupa serão superiores e, consequentemente, minimizam possíveis erros de interpretação dado a baixa variação da medida \cite{cap3:medidaAol}. A medida é obtida observando o músculo \textit{Biceps Femoris}, comumente chamado de ponta da picanha. A Figura \ref{cap3:EGG} mostra a demarcação manual feita no aplicativo \textit{ImageJ} em que a linha amarela dentro do círculo amarelo representa a demarcação da EGG.
+A espessura de gordura na garupa (EGG) é uma medida que representa a espessura da camada de gordura sobre a região da garupa, sendo medida em milímetros. A EGG é uma medida complementar à EGL, indicada principalmente para situações em que os animais têm a deposição de gordura subcutânea comprometida, principalmente por nutrição inadequada, como pode ocorrer, por exemplo, com animais em sistemas extensivos de pastejo \cite{cap3:medidaAol}. A medida é obtida no encontro do músculo \textit{Biceps Femoris}, comumente chamado de ponta da picanha, com a camada de gordura subcutânea \cite{cap3:carcaça}. Na Figura \ref{cap3:EGG} é mostrada a demarcação manual feita no aplicativo \textit{ImageJ}.
 
 \begin{figure}[htpb]
    \centering
    \caption{Demarcação manual da Espessura de Gordura na Garupa (EGG) utilizando o aplicativo \textit{ImageJ}.}
-   \includegraphics[width=0.8\textwidth]{figures/cap3/medidaEGG.png}
+   \includegraphics[width=1\textwidth]{figures/cap3/medidaEGG.png}
    \caption*{Fonte: Elaboração do Autor.}
    \label{cap3:EGG}
 \end{figure}
-A espessura é obtida medindo a altura da gordura que encontra-se no começo do \textit{Biceps Femoris} (da esquerda para a direita) \cite{cap3:carcaça}. 
-\subsection{Tensorflow/Keras}
-Para desenvolver os modelos, algumas bibliotecas foram utilizadas, sendo elas o TensorFlow e o Keras. O TensorFlow é uma biblioteca de código aberto desenvolvida pelo Google \cite{TensorFlowSite} para computação numérica e aprendizado de máquina. Ele é amplamente utilizado para criar e treinar modelos de aprendizado profundo, incluindo redes neurais convolucionais (CNNs) como a U-Net. O Keras \cite{KerasSite} é uma \textit{Application Programming Interface} - API (Interface de programação de Aplicações) de alto nível que roda sobre o TensorFlow, facilitando a construção e o treinamento de modelos de aprendizado profundo. Ele oferece uma interface simples e intuitiva para definir camadas, otimizar modelos e realizar tarefas comuns em aprendizado de máquina. Para este trabalho, utilizaremos o TensorFlow e o Keras para implementar a arquitetura da U-Net e integrar o sistema de inferência neuro-fuzzy adaptativo (ANFIS) para segmentação de imagens de ultrassom. As principais funções e classes do TensorFlow e Keras que serão utilizadas incluem:
-\begin{itemize}
-    \item \textit{Input}: Função para definir a entrada do modelo.
-    \item \textit{Conv2D}: Camada de convolução bidimensional para extrair características das imagens.
-    \item \textit{MaxPooling2D}: Camada de \textit{pooling} para reduzir a dimensionalidade das características extraídas.
-    \item \textit{Conv2DTranspose}: Camada de convolução transposta para realizar a operação de espansão da imagem na arquitetura da U-Net.
-    \item \textit{Concatenate}: Função para concatenar as camadas de características durante a fase de expansão da U-Net.
-    \item \textit{Dense}: Camadas com unidades totalmente conectadas, especialmente útil para a parte de \textit{Multitask} da U-Net.
-    \item \textit{Model}: Classe base para criar modelos personalizados.
-    \item \textit{compile}: Função para configurar o modelo para treinamento, especificando o otimizador, a função de perda e as métricas de avaliação.
-    \item \textit{fit}: Função para treinar o modelo com os dados de treinamento.
-    \item \textit{evaluate}: Função para avaliar o desempenho do modelo com os dados de teste.
-    \item \textit{predict}: Função para fazer previsões com o modelo treinado.
-    \item \textit{Reshape}: Função para transformar a dimensão dos dados.
-    \item \textit{Dropout}: Camada para regularização do modelo, ajudando a prevenir o \textit{overfitting}.
-\end{itemize}
-Cada uma dessas funções e classes foram implementadas em um algoritmo de treinamento para a U-Net \textit{Multitask} e a U-Net \textit{Multitask} com inferência Fuzzy.
-\subsection{Aquisição e Pré-processamento das Imagens}
-O total de imagens enviadas e demarcadas pelo Centro Avançado de Pesquisa Tecnológica do Agronegócio, foram 134 imagens de ultrassom (134 imagens da região de olho do lombo e 134 imagens da região da garupa), sendo 108 da raça Nelore e 27 da raça Caracu. Essas imagens foram divididas em conjuntos de treinamento (70\%), validação (20\%) e teste (10\%). Devido à quantidade extremamente reduzida de imagens disponível para o treinamento de um modelo de aprendizado profundo, foi necessário aplicar um processo de aumento de dados (\textit{data augmentation}) para ampliar o conjunto de amostras utilizado no treinamento. Além disso, foi realizado um recorte nas imagens para remover informações irrelevantes, que poderiam introduzir vieses no treinamento e comprometer o desempenho do modelo. O processo de aumento de dados incluiu as seguintes transformações:
+A linha vertical amarela representa a demarcação da EGG. 
+
+
+\subsection{Conjunto de dados}
+
+O total de imagens enviadas pelo CAPTA com a delimitação do contorno da região feita por uma especialista foram 134 imagens de ultrassom (134 imagens da região de olho do lombo e 134 imagens da região da garupa), sendo 108 da raça Nelore e 27 da raça Caracu. Além das imagens enviadas, foram enviadas também as medidas numéricas correspondentes à delimitação da  AOL, EGL e EGG. As medidas foram enviadas em um arquivo do Excel, em que a primeria coluna continha o número de identificação do animal, a segunda coluna continha a medida da AOL, a terceira coluna continha a medida da EGL e a quarta coluna continha a medida da EGG. Essas medidas foram utilizadas para calcular o erro absoluto médio (MAE) entre as medidas preditas pelo modelo e as medidas reais. 
+
+\subsection{Pré-processamento e Máscaras de Segmentação}
+
+As imagens foram divididas em conjuntos de treinamento (70\%), validação (20\%) e teste (10\%). A biblioteca do Python, \textit{label studio} \cite{LabelStudioSite}, foi utilizada para criar as máscras de segmentação para as regiões correspondentes à AOL, EGL e EGG com base nas delimitações das regiões feitas pela especialista. Foram utilizadas como ``rótulos", ou seja, cada imagem do banco de dados tinha uma máscara correspondente. Devido a pequena quantidade de imagens para o treinamento de um modelo de aprendizado profundo, foi necessário aplicar um processo de aumento de dados, do inglês \textit{data augmentation}, para ampliar o conjunto de imagens utilizado no treinamento. Além disso, foi realizado um recorte nas imagens para remover informações irrelevantes, que poderiam introduzir vieses no treinamento e comprometer o desempenho dos modelos. O processo de aumento de dados incluiu as seguintes transformações:
 \begin{itemize}
     \item Rotação: As imagens foram rotacionadas em ângulos dentro do intervalo de $[-15^\circ, 15^\circ]$ para criar variações na orientação das imagens.
     \item Aumento e redução de brilho: As imagens foram aumentadas e reduzidas em brilho para simular diferentes condições de iluminação.
 \end{itemize}
-Todas as modificações feitas foram realizadas observando as características das imagens de ultrassom presentes no banco de dados. Como cada imagem foi modificada tres vezes, o processo de aumento de dados resultou em um total de $372$ imagens para o treinamento do modelo (adicionando também as imagens originais), pois $70\% \times 134 = 93$ e $93 \times 4 = 372$. O pré-processamento das imagens incluiu a normalização dos valores dos pixels para o intervalo $[0, 1]$ e o redimensionamento das imagens para um tamanho fixo de $256 \times 256$\footnote{As imagens após o corte inicial tinham dimensões de 333x403, a escolha de 256x256 foi feita para que a imagem não fosse muito expandida (aumento de pixels) e que não perdesse muita resolução (diminuição de pixels). Outros testes foram feitos para resolusões diferentes que resultaram em um desempenho inferior.} pixels. Além disso, as máscaras de segmentação foram criadas manualmente, com a ajuda de uma especialista, utilizando a biblioteca do Python, \textit{label studio} \cite{LabelStudioSite}, em que as regiões correspondentes à AOL, EGL e EGG foram segmentadas para serem utilizadas como ``rótulos" durante o treinamento do modelo. A Figura \ref{cap3:preprocessamento} mostra um exemplo do processo de pré-processamento.
+Todas as modificações feitas foram realizadas observando as características das imagens de ultrassom presentes no banco de dados. Como cada imagem foi modificada tres vezes, o processo de aumento de dados resultou em um total de $372$ imagens para o treinamento do modelo (adicionando também as imagens originais). Após o aumento de dados, as imagens foram normalizadas, com os valores dos pixels ajustados para o intervalo $[0, 1]$, e redimensionadas para um tamanho fixo de $256 \times 256$\footnote{As imagens após o corte inicial tinham dimensões de 333x403, a escolha de 256x256 foi feita para que a imagem não fosse muito expandida (aumento de pixels) e que não perdesse muita resolução (diminuição de pixels). Outros testes foram feitos para resolusões diferentes que resultaram em um desempenho inferior.} pixels.  Na Figura \ref{cap3:preprocessamento} é mostrado o processo de pré-processamento de uma imagem.
 \begin{figure}[H]
     \centering
     \caption{Exemplo do processo de pré-processamento das imagens de ultrassom.}
@@ -108,12 +100,12 @@ Todas as modificações feitas foram realizadas observando as características d
     \caption*{Fonte: Elaboração do Autor.}
     \label{cap3:preprocessamento}  
 \end{figure}
-Além das imagens foram eviadas as medidas numéricas correspondentes à AOL, EGL e EGG, que foram obtidas por meio de demarcação manual utilizando o aplicativo \textit{ImageJ} \cite{ImageJ}, como mostrado nas Figuras \ref{cap3:AOL}, \ref{cap3:EGL} e \ref{cap3:EGG}. As medidas foram enviadas em um arquivo do Excel, em que a primeria coluna continha o número de identificação do animal, a segunda coluna continha a medida da AOL, a terceira coluna continha a medida da EGL e a quarta coluna continha a medida da EGG. Essas medidas foram utilizadas para calcular o erro absoluto médio (MAE) entre as medidas preditas pelo modelo e as medidas reais.
-\subsection{Máscaras}
-Cada medida presente nas imagens de ultrassom são números reais, por exemplo, a AOL é medida em centímetros quadrados, a EGL e a EGG são medidas em milímetros. Uma ideia inicial foi desenvolver uma \textit{CNN} (\ref{redesConvolucionais}) que recebia as imagens de ultrassom e retornava como saída os valores numéricos correspondentes à AOL, EGL e EGG, ou seja, uma rede de regressão. No entanto, devido à quantidade extremamente baixa de imagens disponíveis para o treinamento do modelo, foi necessário realizar uma adaptação na abordagem inicial. Em vez de treinar uma \textit{CNN} para prever os valores numéricos das medidas, optou-se por criar máscaras de segmentação para cada medida (AOL, EGL e EGG) a partir das imagens de ultrassom  \cite{JadersonMelo2022UNetpp}. As máscaras de segmentação da AOL foram criadas demarcando a região correspondente à área do músculo, as máscaras de segmentação da EGL foram criadas demarcando a região correspondente à camada de gordura sobre o músculo da AOL (\textit{Longissimus dorsi}) e as máscaras de segmentação da EGG foram criadas demarcando a região correspondente à camada de gordura sobre a região da garupa e também demarcando o músculo \textit{Biceps Femoris} pois, a medida da EGG acontece em um local específico da região.
+Na Figura \ref{cap3:preprocessamento} uma imagem é pré-processada e a máscara de segmentação correspondente a medida de AOL é criada para cada nova imagem adicionada, observa-se que a imagem rotacionada mantém consistência com a máscara, ou seja, a máscara acompanha corretamente a rotação da imagem.
 
-Foram treinados quatro modelos, um para cada medida, dois modelos para as máscaras da EGG. Após o treinamento, a saída do modelo é processada para extrair as medidas numéricas correspondentes. Para a AOL, a área da região segmentada é calculada e convertida para centímetros quadrados. Para a EGL, a espessura da camada de gordura é medida a partir de $3/4$ da região segmentada, da esquerda para a direita, e convertida para milímetros. Para o EGG, a espessura da camada de gordura na garupa é medida na gordura que fica sobre o começo do músculo \textit{Biceps Femoris}. Essa abordagem permitiu contornar a limitação de dados e ainda assim obter as medidas numéricas desejadas a partir das imagens de ultrassom. 
-As máscaras de segmentação estão em preto e branco, onde as regiões em branco representam as áreas de interesse (AOL, EGL e EGG) e as regiões em preto representam o fundo da imagem. A Figura \ref{cap3:mascaras} mostra um exemplo das máscaras de segmentação criadas para as imagens de ultrassom.
+Cada medida extraída nas imagens de ultrassom (AOL, EGL e EGG) são números reais. Uma ideia inicial foi desenvolver uma CNN (\ref{redesConvolucionais}) que recebia como entrada as imagens de ultrassom e retornava como saída os valores numéricos correspondentes à AOL, EGL e EGG, ou seja, uma rede de regressão. No entanto, devido à quantidade baixa de imagens disponíveis para o treinamento do modelo, foi necessário realizar uma adaptação na abordagem inicial. Em vez de treinar uma CNN para prever os valores numéricos das medidas, optou-se, após análise literária, por criar máscaras de segmentação para cada medida (AOL, EGL e EGG) a partir das imagens de ultrassom  \cite{JadersonMelo2022UNetpp}. As máscaras de segmentação foram criadas a apartir das delimitações feitas pela especialista. 
+
+Os modelos desenvolvidos recebem a imagem de ultrassom como entrada e fazem um processo de segmentação da imagem, gerando como saída uma máscara de segmentação. Cada medida (AOL, EGL e EGG) tem uma máscara de segmentação correspondente, uma para a AOL, uma para a EGL e duas para a EGG. Como a medida da EGG é obtida a partir da espessura da camada de gordura sobre o músculo \textit{Biceps Femoris}, foram criadas duas máscaras de segmentação para a EGG, uma para a camada de gordura e outra para o músculo \textit{Biceps Femoris}. Por conta disso foram desenvolvidos e treinados oito modelos diferentes, quatro modelos U-Net multitarefa e quatro modelos U-Net Fuzzy. Após o treinamento, a saída de cada modelo é uma máscara de segmentação, a partir dessa máscara é possível extrair as medidas numéricas correspondentes à AOL, EGL e EGG. Para a AOL, a medida é obtida a partir da contagem do número de pixels classificados como pertencentes a região de interesse (pixel brancos) e convertida para centímetros quadrados. 
+Para EGL, os pixels pertencentes à região de interesse são contados e convertidos em milímetros, com isso é possível obter a largura da camada de gordura, a $3/4$ desta largura é obtida a altura da camada de gordura, que é a medida da EGL. Para a EGG, como duas máscaras são criadas por dois modelos diferentes, quando uma imagem é enviada e processada pelos modelos, um retorna a máscara de segmentação da camada de gordura presente na Garupa e o outro retorna a máscara de segmentação do músculo \textit{Biceps Femoris}. A partir dessas duas máscaras é possível obter a medida da EGG, primeiramente salvando a localização da coluna que se inicia o músculo \textit{Biceps Femoris} (da esquerda para a direita) na segunda máscara e calculando a espessura da gordura na primeira máscara presente na mesma coluna, ou seja, a espessura da camada de gordura na garupa é medida na gordura que fica sobre o começo do músculo \textit{Biceps Femoris}. Na Figura \ref{cap3:mascaras} é mostrado um exemplo das máscaras de segmentação criadas para as imagens de ultrassom.
 \begin{figure}[htpb]
     \centering
     \caption{Exemplo das máscaras de segmentação criadas para as imagens de ultrassom.}
@@ -129,91 +121,205 @@ As máscaras de segmentação estão em preto e branco, onde as regiões em bran
      \caption*{Fonte: Elaboração do Autor.}
      \label{cap3:mascaras}
 \end{figure}
-A Figura \ref{cap3:mascaras}(a) mostra a segmentação da AOL e EGL na região do olho de lombo. A Figura \ref{cap3:mascaras}(b) mostra a segmentação da EGG na região da garupa.
 
-Cada imagem de animal presente no banco de dados vinha com um número de indentificação, como pode ser visto em cada uma das Figuras \ref{fig1:OL}, \ref{cap3:AOL}, \ref{cap3:EGL} e \ref{cap3:EGG} (canto superior esquerdo começando com ``me"). Animais com o primeiro dígito começando em $6$, são animais da raça Nelore, enquanto animais com o primeiro dígito começando em $2$, são animais da raça Caracu. Essa indentificação serviu para terminar o desenvolvimento dos dados e criar as variáveis de entrada da rede no pardrão visto na seção \ref{multitask}, ou seja, cada variável de entrada da rede será composta por uma imagem de ultrassom e a raça do animal correspondente à imagem, sendo codificada no formato \textit{One-Hot Encoding}, em que a raça Nelore é representada por $[1, 0]$ e a raça Caracu é representada por $[0, 1]$.
+Na Figura \ref{cap3:mascaras}(a) é mostrada a delimitação da região feita pela especialista e a respectiva máscara de segmentação. Na Figura \ref{cap3:mascaras}(b) é mostrada a delimitação da região feita pela especialista e as respectivas máscaras de segmentação, a máscara superior é a máscara de segmentação da camada de gordura e a máscara inferior é a máscara de segmentação do músculo \textit{Biceps Femoris}. Cada imagem de animal presente no banco de dados vinha com um número de indentificação. Animais com o primeiro dígito começando em $6$, são animais da raça Nelore, enquanto animais com o primeiro dígito começando em $2$, são animais da raça Caracu. Essa indentificação serviu para terminar o desenvolvimento do banco de dados e criar como abordado na seção \ref{multitask}.
 
-\section{Treinamento e Métricas de Avaliação}
-Como foram desenvolvidos quatro modelos, o processo de treinamento foi realizado separadamente para cada modelo. O treinamento incluiu a definição da arquitetura da U-Net, a configuração dos hiperparâmetros do modelo, a escolha da função de perda, do otimizador e a execução do processo de treinamento utilizando os dados de treinamento e validação. 
 
-Cada medida (AOL, EGL e EGG) teve dois modelos, um modelo U-Net \textit{Multitask} e um modelo de U-Net \textit{Multitask} com fuzzy. 
-\begin{itemize}
-    \item U-Net: Algumas modificações foram feitas no modelo original proposto por \cite{Ronneberger2015UNet}, sendo elas:
-    \begin{itemize}
-        \item  No \textit{encoder} a rede é divida em blocos, cada bloco é composto por duas camadas de convolução (\textit{Conv2D}) com \textit{kernels} de tamanho $3\times 3$, \textit{stride} de tamanho $1$, \textit{padding} ``\textit{same}"\footnote{Na U-Net original é utilizada a convolução válida (\textit{padding = valid}), que diminui a resolução em cada etapa de convolução e introduz menos ruido para a rede, já que não é necessário expandir as bordas da imagens (\ref{padding}), entretanto optou-se pela convolução \textit{same} pois obteve-se melhor resultado.} e função de ativação ReLU, seguidas por uma camada de \textit{MaxPooling} para reduzir a dimensão da imagem, com \textit{kernel} de tamanho $2\times 2$, \textit{stride} de tamanho $2$. No total foram 4 blocos no \textit{encoder}, com o número de filtros dobrando a cada bloco, começando com $32$ filtros no primeiro bloco e chegando a $128$ filtros no quarto bloco.
-        
-        \item  No \textit{baseline} tem-se duas camadas de convolução (\textit{Conv2D}) com \textit{kernel} de tamanho $3\times 3$, \textit{stride} de tamanho $1$, \textit{padding} ``\textit{same}" e função de ativação ReLU.
-        
-        \item Para levar em consideração a raça do animal ([0,1] Nelore e [1,0] Caracu) é adicionada uma camada \textit{Multitask} na parte de \textit{baseline} da U-Net, de forma similar a vista na subseção \ref{multitask}.
-        
-        \item  No \textit{decoder} a rede também é divida em blocos, cada bloco é composto por uma camada de convolução transposta (\textit{Conv2DTranspose}) com \textit{kernel} de tamanho $2\times 2$, \textit{stride} de tamanho $2$ e \textit{padding} ``\textit{same}", seguida por uma camada de concatenação para concatenar as características extraídas pelo \textit{encoder} com as características extraídas pelo \textit{decoder}, seguida por uma camada de convolução (\textit{Conv2D}) com \textit{kernel} de tamanho $3\times 3$, \textit{stride} de tamanho $1$, \textit{padding} ``\textit{same}" e função de ativação ReLU. Como a dimensão da imagem não é reduzida em cada etapa de convolução do \textit{encoder} não é necessário realizar a técnica de \textit{copy and crop} vista na U-Net original (\ref{sec:unet}), pois as características extraídas pelo \textit{encoder} e pelo \textit{decoder} possuem a mesma dimensão espacial como mostra a Figura \ref{dimensoesIMG}, o que facilita a concatenação das características.
-        
-        No total foram 4 blocos no \textit{decoder}, com o número de filtros reduzindo pela metade a cada bloco, começando com $256$ filtros no primeiro bloco e chegando a $32$ filtros no quarto bloco. A camada de saída é composta por uma camada de convolução (\textit{Conv2D}) com um único \textit{kernel} de tamanho $1\times 1$, \textit{stride} de tamanho $1$ e função de ativação \textit{Sigmoid} para produzir a máscara de segmentação.
-    \end{itemize}
-    A Figura \ref{dimensoesIMG} mostra a arquitetura da U-Net utilizada e como as dimensões das imagens vão se modificando ao longo da rede.
-    \begin{figure}[htpb]
-        \centering
-        \caption{Arquitetura da U-Net utilizada e as dimensões das imagens ao longo da rede.}
-        \includegraphics[width=0.8\textwidth]{figures/cap3/imgdimensoes.png}  
-        \caption*{Fonte: Elaboração do Autor.}
-        \label{dimensoesIMG}
-    \end{figure}
-    A cor azul representa as camadas de convolução com filtros de tamanho $3\times 3$, a cor roxa representa as camadas de \textit{MaxPooling}, a cor laranja representa as camadas de convolução transposta (\textit{UpSample}) com filtros de tamanho $2\times 2$ e a cor verde representa as camadas de concatenação e convoluções com filtros de tamanho $2\times 2$. As setas indicam o caminho dos dados ao longo da rede, mostrando como as características extraídas pelo \textit{encoder} são concatenadas com as características extraídas pelo \textit{decoder} (\textit{Skip Connection}) para produzir a máscara de segmentação final. O \textit{Multitask} após o \textit{baseline} é a representação visual das equações vistas na subseção (\ref{multitask}), com \textit{Dense} e \textit{Multiply} sendo as funções do \textit{Tensorflow} utilizadas para criar a camada.
+\section{Configuração dos Modelos}
 
-    Em todos os blocos foram adicionadas camadas de \textit{Dropout} (\ref{regularizacao}) com uma taxa de $0.1$ para regularização do modelo e prevenção de \textit{overfitting} (\ref{overfitting}). O modelo foi treinado utilizando o otimizador Adam com taxa de aprendizado inicial de $0.001$ (\ref{adam}), utilizando a descida do gradiente estocástico com um tamanho de lote de $4$ (\ref{subsec:sgd}), um número máximo de épocas definido em $100$ e função de custo sendo a \textit{Binary Cross-Entropy} (\ref{BCE}). O processo de treinamento foi monitorado utilizando os dados de validação com o \textit{EarlyStopping} (\ref{regularizacao}) para evitar também o \textit{overfitting}. 
+Esta seção descreve os procedimentos adotados para a comparação experimental entre os modelos propostos. Como os fundamentos teóricos, as arquiteturas e a formulação matemática das métricas já foram apresentados no Capítulo 3, o foco desta seção recai sobre os modelos comparados, a configuração de treinamento, as métricas utilizadas na avaliação e o ambiente computacional empregado nos experimentos.
 
-    \item U-Net \textit{Multitask} com inferência Fuzzy: Como comentado na subseção (\ref{multitask}) a U-Net \textit{Multitask} com inferência Fuzzy compartilha quase todos as definições da U-Net \textit{Multitask} (\textit{encoder} e \textit{decoder} iguais), entretanto, o \textit{baseline} é alterado para incluir mais uma modificação importante, a integração do sistema de inferência neuro-fuzzy adaptativo (ANFIS). Com isso, algumas variáveis extras precisam ser definidas:
-    \begin{itemize}
-        \item Número de Conjuntos Fuzzy: O número de conjuntos fuzzy para cada variável de entrada do ANFIS foi definido como $3$, ou seja, ``Tendência baixa de pertencer a região segmentada", ``Tendência média de pertencer a região segmentada" e ``Tendência alta de pertencer a região segmentada". 
-        \item Número de Regras Fuzzy: O número de regras fuzzy foi definido como $9$, considerando todas as combinações possíveis dos conjuntos fuzzy para a variável de entrada do \textit{baseline}.
-    \end{itemize}
-\end{itemize}
-Os modelos foram avalidos utilizando as seguintes métricas de avaliação:
-\begin{itemize}
-    \item Dice \textit{Coefficient}: Principal medida para avaliar o desempenho dos modelos na segmentação das imagens, como abordado na subseção (\ref{subsec:dice}). 
-    \item Acurácia: A acurácia é uma métrica de avaliação utilizada para medir a proporção de pixels classificados corretamente pelo modelo em relação ao total de pixels na imagem. Para o contexto de segmentação de imagens \cite{JadersonMelo2022UNetpp}, se $C_T$ for os pixels da região de AOL traçada pelo especialista e $C$ o conjunto dos pixels obtidos pelo método de predição. Os pexels definidos como verdadeiros positivos são $VP = C_T \cap C$, enquanto os pixels definidos como verdadeiros negativos são $VN = \{p|p \notin C_T \land p \notin C\}$. Os pixels falsos positivos são $FP = \{p|p \notin C_T \land p \in C\}$ enquanto os pixels falsos negativos satisfazem $FN = \{p|p \in C_T \land p \notin C\}$. Com isso, a acurácia é calculada utilizando a fórmula (\ref{unet_acuracia}).
-    \begin{equation}
-        \label{unet_acuracia}
-        \text{Acurácia} = \frac{VP + VN}{VP + VN + FP + FN}.
-    \end{equation}
-    Para o contexto de segmentação de imagens, a acurácia nem sempre é tão precisa quanto o Dice. Caso a imagem de segmentação seja uma região pequena em comparação com o fundo da imagem, o modelo pode classificar a maioria dos pixels como fundo e ainda assim obter uma acurácia alta, mesmo que a segmentação da região de interesse seja ruim.
-    \item Número de Épocas: O número de épocas é uma métrica que indica o número de vezes que o modelo foi treinado com todo o conjunto de dados de treinamento. Ele é importante para avaliar a convergência do modelo, ou seja, se o modelo está aprendendo e melhorando seu desempenho ao longo do tempo. Também é um importante indicador de \textit{overffiting} (\ref{overfitting}).
-    \item $R^2$: O coeficiente de determinação ($R^2$) \cite{Candido2024} é uma métrica de avaliação utilizada para medir a proporção da variância dos dados que é explicada pelo modelo. Ele varia entre $0$ e $1$, em que $1$ indica que o modelo explica toda a variância dos dados e $0$ indica que o modelo não explica nenhuma variância dos dados. O $R^2$ é calculado utilizando a seguinte fórmula:
-    \begin{equation}       
-         R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
-    \end{equation}
-    em que $y_i$ são as medidas reais, $\hat{y}_i$ são as medidas preditas pelo modelo e $\bar{y}$ é a média das medidas reais. O $R^2$ é uma métrica importante para avaliar a qualidade das previsões do modelo, especialmente em tarefas de regressão, em que o objetivo é prever valores numéricos a partir de dados de entrada. Como o objetivo é prever as medidas numéricas correspondentes à AOL, EGL e EGG a partir das imagens de ultrassom, o $R^2$ é uma métrica relevante para avaliar a precisão das previsões do modelo em relação às medidas reais.
-    \item Erro Absoluto Médio (MAE): O erro absoluto médio (MAE) \cite{JadersonMelo2022UNetpp} é uma métrica de avaliação utilizada para medir a média dos erros absolutos entre as medidas preditas pelo modelo e as medidas reais. Ele é calculado utilizando a seguinte fórmula:
-    \begin{equation}        
-        \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
-    \end{equation}
-    em que $y_i$ são as medidas reais e $\hat{y}_i$ são as medidas preditas pelo modelo.
-\end{itemize}
+\subsection{Modelos comparados}
 
-\subsection{\textit{Hardware} e \textit{Software}}
-O desenvolvimento e treinamento dos modelos foram realizados utilizando um notebook Asus TUF \textit{Gaming} F15 com as seguintes especificações de hardware:
-\begin{itemize}
-    \item Processador: Intel Core i7-12700H
-    \item Memória RAM: 8 GB
-    \item Placa de Vídeo: NVIDIA GeForce RTX 3050 mobile com 4 GB de memória dedicada
-    \item Armazenamento: SSD de 512 GB
-\end{itemize}
-O \textit{software} utilizado para o desenvolvimento e treinamento dos modelos foi o \textit{Visual Studio Code} \cite{VSCodeSite}, com a extensão do Python instalada. O sistema operacional foi o Linux Mint 22.3 "Zena" \cite{LinuxMintSite}. O treinamento das redes foi realizado na GPU, utilizando o TensorFlow com suporte para GPU, o que permitiu acelerar o processo de treinamento dos modelos.
+Foram comparadas duas arquiteturas para a segmentação das imagens de ultrassom: a U-Net multitarefa e a U-Net Fuzzy. A U-Net multitarefa incorpora, no \textit{baseline} da rede, a informação categórica da raça do animal, enquanto a U-Net Fuzzy mantém essa estrutura e adiciona uma camada de inferência fuzzy baseada em ANFIS, conforme descrito no Capítulo 3. Em ambas as arquiteturas, a entrada do modelo é composta pela imagem de ultrassom e pela codificação da raça do animal no formato \textit{One-Hot Encoding}.
 
-\subsection{Resultados e Análise}
+A comparação foi realizada separadamente para cada tarefa de segmentação associada às medidas avaliadas. Para a AOL e a EGL, foi treinado um modelo de cada arquitetura. Para a EGG, devido à necessidade de identificar simultaneamente a camada de gordura e o músculo \textit{Biceps Femoris}, foram treinados dois modelos por arquitetura, um para cada estrutura anatômica. Assim, no total, foram avaliados oito modelos.
+
+\begin{table}[H]
+    \centering
+    \caption{Quantidade de modelos desenvolvidos para cada medida.}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Tarefa de segmentação} & \textbf{U-Net multitarefa} & \textbf{U-Net Fuzzy} \\
+        \hline
+        AOL & 1 & 1 \\
+        \hline
+        EGL & 1 & 1 \\
+        \hline
+        EGG - camada de gordura & 1 & 1 \\
+        \hline
+        EGG - músculo \textit{Biceps Femoris} & 1 & 1 \\
+        \hline
+        Total & 4 & 4 \\
+        \hline
+    \end{tabular}
+    \caption*{Fonte: Elaboração do Autor.}
+    \label{tab:modelos_comparados}
+\end{table}
+
+\subsection{Configuração de treinamento}
+
+Todos os modelos foram treinados a partir das imagens previamente recortadas, normalizadas no intervalo $[0,1]$ e redimensionadas para $256 \times 256$ pixels. As imagens destinadas ao treinamento foram submetidas ao processo de aumento de dados descrito anteriormente, com o objetivo de ampliar a variabilidade do conjunto amostral e reduzir o risco de sobreajuste.
+
+A configuração de treinamento foi mantida, em sua maior parte, idêntica para as duas arquiteturas, a fim de tornar a comparação entre os modelos mais consistente. Em ambos os casos, foi utilizado o otimizador Adam, com taxa de aprendizado inicial de $0{,}001$, tamanho de lote igual a $4$, número máximo de $100$ épocas e função de custo \textit{Binary Cross-Entropy}. Além disso, foram empregadas camadas de \textit{Dropout} com taxa de $0{,}2$ e o critério de \textit{EarlyStopping}, com base no desempenho no conjunto de validação, para reduzir a ocorrência de \textit{overfitting}.
+
+Para a U-Net Fuzzy, além dessa configuração comum, foram definidos $3$ conjuntos fuzzy para a variável de entrada do módulo de inferência e $9$ regras fuzzy, considerando as combinações possíveis entre os conjuntos. Para reduzir o efeito da aleatoriedade inerente ao processo de treinamento, cada modelo foi treinado quatro vezes, sendo os resultados apresentados na próxima seção uma média dos valores obtidos.
+
+\begin{table}[H]
+    \centering
+    \caption{Resumo da configuração de treinamento adotada nos experimentos.}
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Parâmetro} & \textbf{Valor} \\
+        \hline
+        Tamanho da imagem de entrada & $256 \times 256$ pixels \\
+        \hline
+        Normalização & intervalo $[0,1]$ \\
+        \hline
+        Otimizador & Adam \\
+        \hline
+        Taxa de aprendizado inicial & $0{,}001$ \\
+        \hline
+        Tamanho do lote & $4$ \\
+        \hline
+        Número máximo de épocas & $100$ \\
+        \hline
+        Função de custo & \textit{Binary Cross-Entropy} \\
+        \hline
+        \textit{Dropout} & $0{,}2$ \\
+        \hline
+        Critério de parada & \textit{EarlyStopping} \\
+        \hline
+        Número de execuções por modelo & $4$ \\
+        \hline
+        Conjuntos fuzzy & $3$ \\
+        \hline
+        Regras fuzzy & $9$ \\
+        \hline
+    \end{tabular}
+    \caption*{Fonte: Elaboração do Autor.}
+    \label{tab:config_treinamento}
+\end{table}
+
+\subsection{Métricas de avaliação}
+
+O desempenho dos modelos foi analisado sob duas perspectivas complementares: a qualidade da segmentação gerada e a precisão das medidas numéricas extraídas a partir das máscaras preditas.
+
+No contexto da segmentação, foi adotado o coeficiente de Dice como principal métrica de avaliação, por quantificar diretamente a sobreposição entre a máscara predita pelo modelo e a máscara de referência elaborada pela especialista. A acurácia foi utilizada como métrica complementar, permitindo observar a proporção global de pixels classificados corretamente. Também foram analisados o comportamento da função de custo ao longo das épocas e o número de épocas necessárias até a convergência, como indicadores da estabilidade do processo de treinamento.
+
+No contexto da mensuração das características da carcaça, foram utilizadas a reta de regressão linear, o coeficiente de determinação ($R^2$) e o erro absoluto médio (\textit{Mean Absolute Error} - MAE). O coeficiente $R^2$ foi empregado para avaliar o grau de associação entre as medidas preditas pelos modelos e as medidas fornecidas pela especialista, enquanto o MAE foi utilizado para quantificar, em unidade física, a magnitude média do erro entre os valores estimados e os valores de referência. Dessa forma, a combinação dessas métricas permitiu avaliar não apenas a capacidade dos modelos em segmentar corretamente as regiões de interesse, mas também sua utilidade prática na obtenção das medidas AOL, EGL e EGG.
+
+\subsection{Ambiente computacional}
+
+Os experimentos foram conduzidos em um notebook Asus TUF \textit{Gaming} F15, equipado com processador Intel Core i7-12700H, $8$ GB de memória RAM, unidade SSD de $512$ GB e placa de vídeo NVIDIA GeForce RTX 3050 Mobile com $4$ GB de memória dedicada. O sistema operacional utilizado foi o Linux Mint 22.3 ``Zena'' \cite{LinuxMintSite}.
+
+A implementação dos modelos foi realizada na linguagem Python, versão 3.11.15 \cite{python}, com uso das bibliotecas TensorFlow 2.21.0, com suporte a GPU, e Keras 3.13.2 \cite{TensorFlowSite, KerasSite}. O desenvolvimento foi realizado no ambiente Visual Studio Code \cite{VSCodeSite}. O treinamento das redes neurais foi executado com aceleração por GPU, o que contribuiu para reduzir o tempo computacional necessário para a realização dos experimentos.
+
+
+\section{Resultados e Análise}
+
+Esta seção apresenta os resultados obtidos pelos modelos U-Net multitarefa e U-Net Fuzzy para a segmentação das imagens de ultrassom e para a mensuração das características AOL, EGL e EGG. Para cada medida, são analisados o desempenho de segmentação, a correspondência entre os valores preditos e as medidas de referência fornecidas pela especialista, bem como a comparação entre as duas arquiteturas. Os valores apresentados correspondem à média de quatro execuções independentes de cada modelo.
 \subsection{AOL}
-\begin{itemize}
-    \item U-Net \textit{Multitask}: O modelo de U-Net \textit{Multitask} para a AOL apresentou um desempenho satisfatório, com uma boa capacidade de segmentação da região correspondente à área do músculo. Os seguintes resultados foram obtidos para as métricas de avaliação, com o modelo sendo treinando quatro vezes para garantir a consistência dos resultados (validação cruzada):
-    \begin{itemize}
-        \item Dice \textit{Coefficient}: O modelo alcançou um Dice \textit{Coefficient} médio de $93,85\%$ no conjunto de validação, indicando uma boa sobreposição entre as máscaras de segmentação preditas e as máscaras de segmentação reais.
-        \item Acurácia: Como a região segmentada é relativamente grande em comparação com o fundo da imagem, a acurácia serviu como uma métrica complementar, o modelo apresentou uma acurácia média de $94,75\%$, indicando que a maioria dos pixels foram classificados corretamente como pertencentes à região segmentada ou ao fundo.
-        \item Número de Épocas: A média de convergência do modelo foi de 80 épocas das 100 épocas máximas definidas.
-        \item $R^2$: O modelo apresentou um $R^2$ médio de $0,9367$ entre as medidas preditas e as medidas reais da AOL.
-        \item Erro Absoluto Médio (MAE): O modelo apresentou um erro absoluto médio (MAE) de $2,15$ cm$^2$ entre as medidas preditas e as medidas reais da AOL, indicando que, em média, as previsões do modelo estavam a uma distância de $2,15$ cm$^2$ das medidas reais.
-       \end{itemize}
-    
-    \item U-Net \textit{Multitask} com inferência Fuzzy: O modelo de U-Net \textit{Multitask} com inferência Fuzzy para a AOL apresentou um desempenho superior em comparação com o modelo de U-Net \textit{Multitask} sem fuzzy. A integração do sistema de inferência neuro-fuzzy adaptativo (ANFIS) permitiu que o modelo capturasse melhor as nuances e incertezas presentes nas imagens de ultrassom, resultando em uma segmentação mais precisa da região correspondente à área do músculo. As métricas de avaliação indicaram uma redução significativa no erro absoluto médio (MAE) em comparação com o modelo sem fuzzy, demonstrando a eficácia da integração do ANFIS na melhoria do desempenho do modelo para a tarefa de segmentação da AOL.   
-\end{itemize}
+\subsubsection{U-Net multitarefa}
+
+Para a mensuração da AOL, o modelo U-Net multitarefa apresentou bom desempenho na tarefa de segmentação. No conjunto de validação, obteve coeficiente de Dice médio de $92,73\%$ e acurácia média de $94,75\%$, indicando elevada sobreposição entre as máscaras preditas e as máscaras de referência. Em média, a convergência do treinamento ocorreu após $80$ épocas.
+
+Em relação às medidas numéricas, o modelo alcançou erro absoluto médio (MAE) de $2,988$ cm$^2$ e coeficiente de determinação $R^2$ igual a $0,5578$. Esse resultado indica que, embora o modelo tenha segmentado adequadamente a região de interesse, a correspondência entre as medidas preditas e as medidas reais foi moderada. No conjunto de teste, o erro máximo observado foi de $7,905$ cm$^2$, o erro mínimo foi de $0,005$ cm$^2$, a média predita foi de $39,880$ cm$^2$ e a média real foi de $40,559$ cm$^2$.
+
+A Figura \ref{cap3:metricasAOL}(a) apresenta a relação entre as medidas preditas e as medidas reais da AOL. Observa-se que os pontos acompanham a reta identidade, embora com dispersão compatível com o valor moderado de $R^2$. Já a Figura \ref{cap3:metricasAOL}(b) mostra o comportamento da função de custo, da acurácia e do coeficiente de Dice ao longo do treinamento. A função de custo reduziu até valores próximos de $0,09$, enquanto as curvas de acurácia e Dice apresentaram comportamento relativamente estável entre treinamento e validação. Embora haja indícios de \textit{overfitting} a partir de aproximadamente $20$ épocas, o modelo manteve capacidade de generalização satisfatória.
+
+\begin{figure}[htpb]
+    \centering
+    \caption{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit{Dice} e acurácia ao longo das épocas.}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/cap3/rquadradounet.jpeg}
+        \caption{$R^2$ entre as medidas preditas e as medidas reais da AOL.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{1\textwidth}
+        \includegraphics[width=\textwidth]{figures/cap3/AOL_Unet128_k_4.png}
+        \caption{Gráficos de custo, \textit{Dice} e acurácia ao longo das épocas para o modelo de U-Net multitarefa.}
+    \end{subfigure}
+    \caption*{Fonte: Elaboração do Autor.}
+    \label{cap3:metricasAOL}
+\end{figure}
+
+
+\subsubsection{U-Net Fuzzy}
+
+Para a AOL, o modelo U-Net Fuzzy apresentou desempenho superior ao da U-Net multitarefa na maior parte das métricas analisadas. No conjunto de validação, o modelo alcançou coeficiente de Dice médio de $93,29\%$ e acurácia média de $95,15\%$, indicando melhor sobreposição entre as máscaras preditas e as máscaras de referência. A convergência ocorreu, em média, após $89$ épocas, valor superior ao observado para o modelo sem inferência fuzzy.
+
+No que se refere às medidas numéricas, o modelo apresentou MAE de $2,312$ cm$^2$ e $R^2$ de $0,7423$, sugerindo melhor associação entre as medidas preditas e as medidas reais da AOL. No conjunto de teste, o erro máximo foi de $6,644$ cm$^2$, o erro mínimo foi de $0,225$ cm$^2$, a média predita foi de $39,865$ cm$^2$ e a média real foi de $40,559$ cm$^2$.
+
+A Figura \ref{cap3:metricasAOL_fuzzy}(a) mostra que as medidas preditas pelo modelo fuzzy apresentaram menor dispersão em relação à reta identidade, o que é coerente com o aumento do valor de $R^2$. Na Figura \ref{cap3:metricasAOL_fuzzy}(b), observa-se que as curvas de custo, acurácia e Dice apresentaram maior oscilação ao longo do treinamento. Esse comportamento pode estar associado ao aumento de complexidade introduzido pela camada de inferência fuzzy, especialmente nas etapas iniciais do processo de otimização.
+
+\begin{figure}[H]
+    \centering
+    \caption{$R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit{Dice} e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL.}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/cap3/rquadradofuzzy.jpeg}
+        \caption{$R^2$ entre as medidas preditas e as medidas reais da AOL.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{1\textwidth}
+        \includegraphics[width=\textwidth]{figures/cap3/AOL_fuzzy128_k_4.png}
+        \caption{Gráficos de custo, \textit{Dice} e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL.}
+    \end{subfigure}
+    \caption*{Fonte: Elaboração do Autor.}
+    \label{cap3:metricasAOL_fuzzy}
+\end{figure}
+
+
+
+
+\subsubsection{Comparação entre os modelos}
+
+Na Tabela \ref{cap3:tabelaAOL} são resumidos os resultados obtidos para a AOL. De modo geral, o modelo U-Net Fuzzy superou o modelo U-Net multitarefa em todas as métricas principais, apresentando maior coeficiente de Dice, maior acurácia, menor erro absoluto médio e maior coeficiente de determinação. Esses resultados indicam que a integração do ANFIS contribuiu positivamente para a segmentação da região de interesse e para a extração das medidas numéricas da AOL.
+
+Por outro lado, o modelo fuzzy demandou maior número de épocas até a convergência e apresentou maior instabilidade nas curvas de treinamento. Assim, embora tenha alcançado melhor desempenho final, seu comportamento ao longo do treinamento foi menos estável que o observado no modelo multitarefa. Ainda assim, para a tarefa de mensuração da AOL, os resultados obtidos indicam vantagem do modelo U-Net Fuzzy.
+
+\begin{table}[H]
+    \centering
+    \caption{Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Métrica} & \textbf{U-Net Multitarefa} & \textbf{U-Net Fuzzy} \\
+        \hline
+        Coeficiente de Dice & $92,73\%$ & $93,29\%$ \\
+        \hline
+        Acurácia & $94,75\%$ & $95,15\%$ \\
+        \hline
+        Número de Épocas & 80 & 89 \\
+        \hline
+        $R^2$ & $0,5578$ & $0,7423$ \\
+        \hline
+        Erro Absoluto Médio (MAE) & $2,988$ cm$^2$ & $2,312$ cm$^2$ \\
+        \hline
+        Erro Máximo & $7,905$ cm$^2$ & $6,644$ cm$^2$ \\
+        \hline
+        Erro Mínimo & $0,005$ cm$^2$ & $0,225$ cm$^2$ \\
+        \hline
+        Média Predita & $39,880$ cm$^2$ & $39,865$ cm$^2$ \\
+        \hline
+        Média Real & $40,559$ cm$^2$ & $40,559$ cm$^2$ \\
+        \hline
+    \end{tabular}
+    \caption*{Fonte: Elaboração do Autor.}
+    \label{cap3:tabelaAOL}
+\end{table}
+
+
+
 \subsection{EGL}
-\subsection{EGG}
+\subsubsection{U-Net multitarefa}
+Para a mensuração da EGL, o modelo U-Net multitarefa apresentou desempenho regular na tarefa de segmentação, influênciado pela pequena quantidade de imagens disponíveis para o treinamento e pela complexidade da tarefa. No conjunto de validação, obteve coeficiente de Dice médio de $60,78\%$ e acurácia média de $99,99\%$. Observa-se que, embora a acurácia seja extremamente alta, o coeficiente de Dice é relativamente baixo, o que pode ser atribuído à dificuldade em delimitar a camada de gordura presente na região do olho de lombo, que é uma estrutura anatômica de menor dimensão e com menor contraste. Em média, a convergência do treinamento ocorreu após $88$ épocas. 
+
+
+Nas médias numéricas o modelo alcançou erro absoluto médio (MAE) de $0,018$ mm e coeficiente de determinação $R^2$ igual a $0,4321$. 
+
+
+
+Esse resultado indica que o modelo teve dificuldade em segmentar adequadamente a camada de gordura, o que comprometeu a precisão das medidas preditas. No conjunto de teste, o erro máximo observado foi de $3,456$ mm, o erro mínimo foi de $0,123$ mm, a média predita foi de $5,678$ mm e a média real foi de $6,123$ mm.
+
+Em relação às medidas numéricas, o modelo alcançou erro absoluto médio (MAE) de $2,988$ cm$^2$ e coeficiente de determinação $R^2$ igual a $0,5578$. Esse resultado indica que, embora o modelo tenha segmentado adequadamente a região de interesse, a correspondência entre as medidas preditas e as medidas reais foi moderada. No conjunto de teste, o erro máximo observado foi de $7,905$ cm$^2$, o erro mínimo foi de $0,005$ cm$^2$, a média predita foi de $39,880$ cm$^2$ e a média real foi de $40,559$ cm$^2$
 

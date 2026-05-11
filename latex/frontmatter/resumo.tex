@@ -1,26 +1,19 @@
 \chapter*{Resumo}
 \addcontentsline{toc}{chapter}{Resumo}
-\textcolor{red}{Algumas coisas que posso colocar no resumo.}
-
-
-A pecuária bovina é um dos pilares fundamentais da economia brasileira. O Brasil possui um dos maiores rebanhos bovinos comerciais do mundo e é o principal exportador
-de carne bovina, o que torna a avaliação precisa das características da carcaça dos
-animais uma demanda estratégica para o setor pecuário. A ultrassonografia permite
-mensurar, \textit{in vivo}, indicadores como a Área de Olho de Lombo (AOL), a
+A pecuária bovina é um dos pilares fundamentais da economia brasileira.  A ultrassonografia de bovinos permite
+mensurar, \textit{in vivo}, a Área de Olho de Lombo (AOL), a
 Espessura de Gordura no Lombo (EGL) e a Espessura de Gordura na Garupa (EGG),
-relacionados à musculosidade, precocidade de terminação e qualidade da carne. Entretanto, a delimitação manual das regiões de interesse em imagens ultrassonográficas é um processo subjetivo, demorado e dependente da experiência do especialista. Neste trabalho, foram desenvolvidos e comparados dois
-modelos de segmentação automática dessas regiões em imagens de ultrassom de bovinos
-das raças Nelore e Caracu: uma rede neural convolucional U-Net com abordagem
-\textit{Multitask} e uma U-Net \textit{Multitask} integrada ao Sistema de Inferência Neuro-Fuzzy Adaptativo (ANFIS). As imagens foram obtidas de animais vivos
-no Centro Avançado de Pesquisa Tecnológica do Agronegócio (CAPTA) em Sertãozinho-SP,
-totalizando 135 imagens (108 Nelore e 27 Caracu), ampliadas por técnicas de
-expansão do conjunto de dados. As máscaras de segmentação foram criadas manualmente com
-o auxílio de uma especialista, servindo como referência para o treinamento e avaliação dos modelos. O desempenho dos métodos foi avaliado por meio do coeficiente de
-Dice, que quantifica a similaridade entre a segmentação produzida pelo modelo e a
-referência do especialista. Os resultados indicam que ... \textcolor{red}{[completar
-com os resultados comparativos entre U-Net e U-Net+ANFIS]}. O trabalho contribui
-para a automatização da mensuração de características da carcaça bovina, podendo
+relacionados à musculosidade, 
+desenvolvimento precoce de gordura na carcaça e qualidade da carne. Entretanto, a delimitação manual destes indicadores em imagens ultrassonográficas é um processo subjetivo, demorado e dependente da experiência do especialista. O objetivo deste trabalho é desenvolver e comparar dois modelos para  delimitar e mensurar automaticamente esses indicadores em imagens de ultrassom de duas raças bovinas. O primeiro modelo é uma rede neural convolucional U-Net  e o segundo, U-Net Fuzzy, é uma U-Net integrada ao Sistema de Inferência Neuro-Fuzzy Adaptativo, em inglês \textit{Adaptive Neuro-Fuzzy Inference System} (ANFIS). As imagens foram obtidas de animais vivos do Centro Avançado de Pesquisa Tecnológica do Agronegócio (CAPTA) em Sertãozinho-SP,
+totalizando 135 imagens, das quais 108 são Nelore e 27 Caracu, que foram ampliadas por técnicas de
+expansão de dados, como a inclusão das mesmas imagens com redução e aumento de brilho. As máscaras de segmentação utilizadas como referência, conhecidas como \textit{Ground Truth}, foram criadas manualmente com o auxílio de uma especialista, consistindo em imagens binárias utilizadas para isolar regiões específicas dentro da imagen, servindo como referência para o treinamento e avaliação dos modelos. O desempenho dos modelos é avaliado por meio de métricas como acurácia, erro absoluto médio, em inglês \textit{Mean Absolute Error} (MAE) e o coeficiente de Dice, que quantifica a similaridade entre a segmentação produzida pelo modelo e as mascaras de segmentação desenvolvidas pela especialista. Os resultados indicam que o modelo U-Net Fuzzy é superior ao modelo U-Net para mensurar os indicadores AOL e EGG em todas as métricas de avaliação, com destaque para a acurácia de $94,17\%$ na AOL e $98,6\%$ na EGG. Em contrapartida, o U-Net obteve melhor resultado em todas as métricas para o indicador EGL, com  foco especial para a métrica coeficiente de Dice de $70,25\%$. Por fim, foi desenvolvido um aplicativo computacional capaz de detectar regiões específicas e medir automaticamente os indicadores de interesse em imagens de ultrassom de bovinos utilizando ambos os modelos, podendo
 auxiliar nos processos de seleção e manejo dos rebanhos.
 
-\textbf{Palavras-chave:} Segmentação de imagens. Ultrassonografia bovina. U-Net.
-ANFIS. Conjuntos fuzzy. Área de Olho de Lombo. Redes neurais convolucionais.
+\textbf{Palavras-chave:} Ultrassonografia bovina; Delimitação de imagens; Redes neurais; U-Net;
+ANFIS.
+
+%O Brasil possui um dos maiores rebanhos bovinos comerciais do mundo e é o principal exportador
+%de carne bovina, o que torna a avaliação precisa das características da carcaça dos
+%animais uma demanda estratégica para o setor pecuário.
+
+

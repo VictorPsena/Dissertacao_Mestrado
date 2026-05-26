@@ -17,9 +17,9 @@ Dispon{\'\i}vel em: \url{https://www.abccaracu.com.br/historia-da-raca-caracu}.}
 Acessado: 2026-04-3.
 Dispon{\'\i}vel em: \url{https://abiec.com.br/publicacoes/beef-report-2025-perfil-da-pecuaria-no-brasil/}.}
 
-\bibitem[{Aloka Co., Ltd.} 1990]{AlokaSSD5001990}
-\abntrefinfo{{Aloka Co., Ltd.}}{{Aloka Co., Ltd.}}{1990}
-{{Aloka Co., Ltd.} \emph{Aloka Echo Camera Model SSD-500: Operator's Manual}.
+\bibitem[{Aloka Co. Ltd.} 1990]{AlokaSSD5001990}
+\abntrefinfo{{Aloka Co. Ltd.}}{{Aloka Co. Ltd.}}{1990}
+{{Aloka Co. Ltd.} \emph{Aloka Echo Camera Model SSD-500: Operator's Manual}.
 Japan, 1990. Manual No. MN1-0346, Effective software version 5.0, issued August 27, 1990.}
 
 \bibitem[Bear, Connors e Paradiso 2017]{neurociencias}
@@ -97,20 +97,13 @@ ISSN 1981-4089.}
 
 \bibitem[Goodfellow, Bengio e Courville 2016]{Goodfellow-et-al-2016}
 \abntrefinfo{Goodfellow, Bengio e Courville}{GOODFELLOW; BENGIO; COURVILLE}{2016}
-{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. MIT Press, 2016.
-Dispon{\'\i}vel em: \url{http://www.deeplearningbook.org}.}
+{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. [S.l.]: MIT Press, 2016. \url{http://www.deeplearningbook.org}.}
 
 \bibitem[{GOOGLE LLC} 2015]{TensorFlowSite}
 \abntrefinfo{{GOOGLE LLC}}{{GOOGLE LLC}}{2015}
 {{GOOGLE LLC}. \emph{TensorFlow}. 2015.
 Acesso em: 11 abr. 2026.
 Dispon{\'\i}vel em: \url{https://www.tensorflow.org/}.}
-
-\bibitem[{GRUPO AGRO PARANÁ} 2024]{AgroParanaUltrassom}
-\abntrefinfo{{GRUPO AGRO PARANÁ}}{{GRUPO AGRO PARANÁ}}{2024}
-{{GRUPO AGRO PARANÁ}. \emph{Ultrassom de carcaça: precisão genética com tecnologia}. 2024.
-Acesso em: 19 abr. 2026.
-Dispon{\'\i}vel em: \url{https://grupoagroparana.com.br/ultrassom-de-carcaca-precisao-genetica-com-tecnologia/}.}
 
 \bibitem[Guaraldo 2021]{embrapa2}
 \abntrefinfo{Guaraldo}{GUARALDO}{2021}
@@ -178,6 +171,12 @@ Dispon{\'\i}vel em: \url{https://linuxmint.com/}.}
 {MELO, M. J.; GON{\c{C}}ALVES, D. N.; GOMES, M. N.~B.; FARIA, G.; SILVA, J. A.; RAMOS, A.~P. M.; OSCO, L. P.; FURUYA, M.~T. G.; JUNIOR, J. M.; GON{\c{C}}ALVES, W. N. Automatic segmentation of cattle rib-eye area in ultrasound images using the {UNet++} deep neural network.
 \emph{Computers and Electronics in Agriculture}, Elsevier, v.~195, p. 106818, 2022.}
 
+\bibitem[Mercadante \textit{et al.} 2010]{Mercadante2010}
+\abntrefinfo{Mercadante \textit{et al.}}{MERCADANTE \textit{et al.}}{2010}
+{MERCADANTE, M. E.~Z.; SILVA, S.~d. Luz~e; BUENO, M.~S.; TAROUCO, J.~U.; YOKOO, M. J.~I. Repetibilidade da mensuração de imagens das características de carcaça obtidas por ultrassonografia em fêmeas nelore.
+\emph{Revista Brasileira de Zootecnia}, v.~39, n.~4, p. 752--757, 2010.
+ISSN 1806-9290.}
+
 \bibitem[{MICROSOFT} 2015]{VSCodeSite}
 \abntrefinfo{{MICROSOFT}}{{MICROSOFT}}{2015}
 {{MICROSOFT}. \emph{Visual Studio Code}. 2015.
@@ -206,17 +205,17 @@ Dispon{\'\i}vel em: \url{https://arxiv.org/abs/1511.08458}.}
 {PURWONO, P.; NATALIANI, Y.; PURNOMO, H.~D.; TIMOTIUS, I.~K. Dfu-fuzzyliteunet: A lightweight {U}-net with fuzzy sigmoid and lite transformer for diabetic foot ulcer segmentation.
 \emph{Biomedical Signal Processing and Control}, Elsevier, v.~108, p. 107902, 2025.}
 
-\bibitem[{PYTHON SOFTWARE FOUNDATION} 1990]{tkinter}
+\bibitem[{PYTHON SOFTWARE FOUNDATION} 1990]{python}
 \abntrefinfo{{PYTHON SOFTWARE FOUNDATION}}{{PYTHON SOFTWARE FOUNDATION}}{1990}
-{{PYTHON SOFTWARE FOUNDATION}. \emph{tkinter --- Python interface to Tcl/Tk}. 1990.
-Acesso em: 23 abr. 2026.
-Dispon{\'\i}vel em: \url{https://docs.python.org/3/library/tkinter.html}.}
-
-\bibitem[{PYTHON SOFTWARE FOUNDATION} 1991]{python}
-\abntrefinfo{{PYTHON SOFTWARE FOUNDATION}}{{PYTHON SOFTWARE FOUNDATION}}{1991}
-{{PYTHON SOFTWARE FOUNDATION}. \emph{Python}. 1991.
+{{PYTHON SOFTWARE FOUNDATION}. \emph{Python}. 1990.
 Acesso em: 23 abr. 2026.
 Dispon{\'\i}vel em: \url{https://www.python.org/}.}
+
+\bibitem[{PYTHON SOFTWARE FOUNDATION} 1991]{tkinter}
+\abntrefinfo{{PYTHON SOFTWARE FOUNDATION}}{{PYTHON SOFTWARE FOUNDATION}}{1991}
+{{PYTHON SOFTWARE FOUNDATION}. \emph{tkinter --- Python interface to Tcl/Tk}. 1991.
+Acesso em: 23 abr. 2026.
+Dispon{\'\i}vel em: \url{https://docs.python.org/3/library/tkinter.html}.}
 
 \bibitem[Ronneberger, Fischer e Brox 2015]{Ronneberger2015UNet}
 \abntrefinfo{Ronneberger, Fischer e Brox}{RONNEBERGER; FISCHER; BROX}{2015}
@@ -267,6 +266,15 @@ ISBN 978-3030343712.}
 {TREVISAN, V. \emph{Como funcionam as Redes Neurais Convolucionais (CNNs)}. 2021.
 Acessado: 2025-12-16.
 Dispon{\'\i}vel em: \url{https://medium.com/data-hackers/como-funcionam-as-redes-neurais-convolucionais-cnns-71978185c1}.}
+
+\bibitem[{UNITED STATES DEPARTMENT OF AGRICULTURE} 2026]{USDA2026}
+\abntrefinfo{{UNITED STATES DEPARTMENT OF AGRICULTURE}}{{UNITED STATES DEPARTMENT OF AGRICULTURE}}{2026}
+{{UNITED STATES DEPARTMENT OF AGRICULTURE}. \emph{Livestock and Poultry: World Markets and Trade}.
+Washington, DC, USA, 2026. Acesso em: 23 abr. 2026. Dispon{\'\i}vel em: \url{https://www.fas.usda.gov/data/livestock-and-poultry-world-markets-and-trade}.}
+
+\bibitem[Vaswani \textit{et al.} 2017]{Vaswani2017}
+\abntrefinfo{Vaswani \textit{et al.}}{VASWANI \textit{et al.}}{2017}
+{VASWANI, A.; SHAZEER, N.; PARMAR, N.; USZKOREIT, J.; JONES, L.; GOMEZ, A.~N.; KAISER, {\L}.; POLOSUKHIN, I. Attention is all you need. In:  \emph{Advances in Neural Information Processing Systems 30 (NeurIPS 2017)}. Curran Associates, Inc., 2017. p. 5998--6008. Dispon{\'\i}vel em: \url{https://arxiv.org/abs/1706.03762}.}
 
 \bibitem[Verma \textit{et al.} 2026]{Verma2026}
 \abntrefinfo{Verma \textit{et al.}}{VERMA \textit{et al.}}{2026}

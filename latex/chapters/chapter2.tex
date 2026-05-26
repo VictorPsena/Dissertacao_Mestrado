@@ -1,8 +1,8 @@
 % !TeX root = ../main.tex
-
+No cotidiano, o ser humano raramente raciocina por categorias absolutamente rígidas. Ao avaliar se um dia está quente, se uma pessoa é alta ou se uma imagem está nítida, por exemplo, normalmente não pensamos em termos de “pertence” ou “não pertence”, como estabelece a lógica clássica dos conjuntos. Em vez disso, pensamos em graus: algo pode ser um pouco quente, muito quente, quase alto ou razoavelmente nítido. É justamente essa forma mais gradual e flexível de interpretar a realidade que motiva a teoria dos conjuntos fuzzy. Ao permitir que um elemento pertença a um conjunto com diferentes graus de pertinência, essa abordagem se torna mais adequada para representar incertezas, imprecisões e transições suaves entre categorias. Neste capítulo, são apresentados os principais conceitos da teoria dos conjuntos fuzzy e dos sistemas baseados em regras fuzzy, que servirão de base para o desenvolvimento do modelo proposto neste trabalho.
 \section{Teoria}
 
-% O capítulo 2 apresenta a teoria dos conjuntos fuzzy e os sistemas baseados em regras fuzzy, que são fundamentais para o desenvolvimento do modelo de segmentação de imagens proposto neste trabalho. A seção 2.1 introduz os conceitos básicos da teoria dos conjuntos fuzzy, incluindo a definição de conjuntos fuzzy, operações entre conjuntos fuzzy, normas triangulares, níveis de um conjunto fuzzy e números fuzzy. A seção 2.2 apresenta os sistemas baseados em regras fuzzy, descrevendo suas componentes e os métodos de inferência e defuzzificação utilizados para produzir saídas a partir de entradas dadas por conjuntos fuzzy.
+
 
 \label{sec:fuzzy}
 A teoria dos conjuntos fuzzy, introduzida por Lotfi A. Zadeh em 1965 \cite{zadeh1965fuzzy}, é uma extensão da teoria clássica dos conjuntos, permitindo a representação de incerteza e imprecisão. Diferentemente dos conjuntos clássicos, em que um elemento pertence ou não a um conjunto, nos conjuntos fuzzy cada elemento possui um grau de pertinência, variando entre 0 e 1. Essa abordagem é especialmente útil em situações onde as fronteiras entre categorias não são claramente definidas, permitindo uma modelagem mais flexível e realista de fenômenos complexos. As definições e propriedades dos conjuntos fuzzy presentes neste capítulo foram baseadas em \cite{fuzzy}.
@@ -16,13 +16,13 @@ O valor $\mu_A(x) = 0$ indica que $x$ não pertence ao conjunto $A$, enquanto $\
 
 \begin{exemplo}
     \label{ex:fuzzy}
-Considere o conjunto universo $X$ representando a temperatura em graus Celsius, e o conjunto fuzzy $A$ representando a categoria ``quente". A função de pertinência $\mu_A$ pode ser definida da seguinte forma:
+Considere o conjunto universo $X$ representando a temperatura em graus Celsius, e o conjunto fuzzy $A$ representando a categoria ``alta". A função de pertinência $\mu_A$ pode ser definida da seguinte forma:
 $$\mu_A(x) = \begin{cases}
 0 & \text{se } 0 \leq x \leq 20 \\
 \frac{x - 20}{10} & \text{se } 20 < x < 30 \\
 1 & \text{se } x \geq 30
 \end{cases}$$
-Neste exemplo, temperaturas de 20°C ou menos não são consideradas quentes ($\mu_A(x) = 0$), enquanto temperaturas de 30°C ou mais são consideradas completamente quentes ($\mu_A(x) = 1$). Temperaturas entre 20°C e 30°C têm um grau de pertinência que varia linearmente entre 0 e~1, refletindo a natureza gradual do conceito de ``quente".
+Neste exemplo, temperaturas de 20°C ou menos não são consideradas altas ($\mu_A(x) = 0$), enquanto temperaturas de 30°C ou mais são consideradas completamente altas ($\mu_A(x) = 1$). Temperaturas entre 20°C e 30°C têm um grau de pertinência que varia linearmente entre 0 e~1, refletindo a natureza gradual do conceito de temperatura alta.
 
 \end{exemplo}
 
@@ -150,7 +150,7 @@ Portanto, o suporte de $A$ é o intervalo $(20, \infty)$, representando as tempe
 \end{exemplo}
 
 \subsection{Números Fuzzy}
-Um número fuzzy é um subconjunto fuzzy do conjunto dos números reais, caracterizado por uma função de pertinência que atribui a cada número real um grau de pertencimento. Os números fuzzy são frequentemente utilizados para representar quantidades imprecisas ou vagamente definidas, como ``muito quente" ou ``pouco tempo".
+Um número fuzzy é um subconjunto fuzzy do conjunto dos números reais, caracterizado por uma função de pertinência que atribui a cada número real um grau de pertencimento. Os números fuzzy são frequentemente utilizados para representar quantidades imprecisas ou vagamente definidas.
 
 \begin{definicao}
 Um conjunto fuzzy $N$ é chamado de número fuzzy quando o conjunto universo, em que $N$ é definido, é o conjunto dos números reais $\mathbb{R}$, e a função de pertinência $\mu_N$ é tal que:
@@ -206,7 +206,7 @@ O SBRF pode ser visto com um mapeamento entre a entrada e a saída da forma $y =
     
     \item A \textbf{base de regras} contém um conjunto de regras fuzzy que descrevem o comportamento do sistema, essas regras são formuladas por especialistas com base em seu conhecimento sobre o domínio do problema. A base de regras descreve relações entre as variáveis linguísticas para serem utilizadas pela máquina de inferência fuzzy.
      
-    \item A \textbf{máquina de inferência fuzzy} fornece a saída a partir de cada entrada fuzzy e da relação definida pela base de regras. A máquina de inferência fuzzy pode ser vista como um mecanismo de mapeamento entre os conjuntos fuzzy de entrada e os conjuntos fuzzy de saída, utilizando as regras da base de regras para inferir a saída correspondente a cada entrada. Neste trabalho é utilizado o método de inferência de Mamdani, que é um dos métodos mais comuns para sistemas baseados em regras fuzzy com variáveis linguísticas.
+    \item A \textbf{máquina de inferência fuzzy} fornece a saída a partir de cada entrada fuzzy e da relação definida pela base de regras. A máquina de inferência fuzzy pode ser vista como um mecanismo de mapeamento entre os conjuntos fuzzy de entrada e os conjuntos fuzzy de saída, utilizando as regras da base de regras para inferir a saída correspondente a cada entrada. Neste trabalho é utilizado o método de inferência de Takagi-Sugeno, que é um dos métodos mais comuns para sistemas baseados em regras fuzzy com variáveis linguísticas.
         \begin{itemize}
             \item \textbf{Método de inferência de Mamdani}: Uma regra $SE$ (antecendente) $ENTAO$ (consequente) é definida pelo produto cartesiano fuzzy dos conjuntos fuzzy que compõem o antecedente e o consequente da regra. O método de Mamdani agrega as regras através do operador lógico $OU$, que é modelado pelo operador do máximo e, em cada regra, o operador lógico $E$ é modelado pelo operador do mínimo. As regras são:
             $$
@@ -248,7 +248,7 @@ O SBRF pode ser visto com um mapeamento entre a entrada e a saída da forma $y =
     \begin{itemize}
         \item \textbf{Método de Centro de Gravidade}: O método de centro de gravidade, aplicada ao método de Mamdani, é semelhante a média ponderada para distribuições de dados, com a diferença que os pesos são os valores $C(z_i)$ que indicam o grau de compatibilidade do valor $z_i$ com o conceito modelado pelo conjunto fuzzy $C$. Para domínios discretos, o método de centro de gravidade é dado por:
         $$
-        G(C) = \frac{\sum_{i=0}^{n} z_i \times C(z_i)}{\sum_{i=0}^{n} C(z_i)}.
+        G(C) = \frac{\sum_{i=0}^{n} z_i \cdot C(z_i)}{\sum_{i=0}^{n} C(z_i)}.
         $$
     \end{itemize}    
 \end{itemize}
@@ -337,4 +337,4 @@ $$
 
 Portanto, para uma temperatura de $35$°C e umidade do ar de $70$\%, o sistema baseado em regrás fuzzy com o método de Takagi-Sugeno determina que a velocidade do ventilador deve ser de $262{,}5$ RPM, uma boa velocidade para refrescar o ambiente.
 \end{exemplo}
-
+Com isso, é encerrado o capítulo de lógica fuzzy, começando com a definição de conjuntos fuzzy e terminando com a definição de sistemas baseados em regras fuzzy. No próximo capítulo, será introduzida a principal rede estudada neste trabalho.

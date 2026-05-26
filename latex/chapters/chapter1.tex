@@ -1,16 +1,21 @@
 
+\vspace{1cm}
 
+\begin{flushright}
+\textit{``A sorte é uma função matemática com parâmetros desconhecidos.''(João N. S. Filho)}
+\end{flushright}
+\vspace{1cm}
 
 % !TeX root = ../main.tex
-
+A ideia de máquinas inteligentes desperta fascínio e receio há décadas. No imaginário popular, esse medo costuma aparecer em obras de ficção científica, como \textit{O Exterminador do Futuro}, em que sistemas artificiais ultrapassam o controle humano e passam a agir de forma autônoma. Embora esse cenário ainda pertença ao campo da ficção, ele revela uma inquietação real: até que ponto uma máquina pode aprender, decidir e interpretar o mundo? Na prática, os modelos atuais estão muito distantes de uma inteligência artificial consciente, mas representam o estágio mais avançado já alcançado pelo ser humano na construção de sistemas capazes de reconhecer padrões, extrair informações e auxiliar na resolução de problemas complexos. Nesse contexto, compreender os fundamentos das redes neurais torna-se essencial para entender como essas tecnologias funcionam e por que elas têm alcançado resultados tão expressivos em tarefas de geração de texto, classificação de objetos e análise de imagens.
 \section{Neurônio Biológico e Artificial}
-\label{sec_1}
 
-Na área de Inteligência Artifical, comumente utiliza-se o termo \textit{neurônio artifical} para se referir a uma unidade de processamento em um modelo de rede neural. O neurônio artificial é inspirado no funcionamento do neurônio biológico, que é a unidade básica do sistema nervoso. Assim como os neurônios biológicos, os neurônios artificiais recebem entradas, processam essas entradas e produzem uma saída. A principal função de um neurônio artificial é realizar uma combinação linear das entradas, seguida por uma função de ativação não linear, que determina a saída do neurônio. A semelhança entre esses dois objetos (Neurônio artificial/Neurônio Biológico) só está na inspiração, sendo bem diferentes em seu funcionamento, com isso, neste trabalho utiliza-se o termo \textit{unidade} \cite{cnn} para se referir ao neurônio artificial. Os conceitos apresentados a seguir são fundamentais para o entendimento do funcionamento das redes neurais, que serão abordados na Seção \ref{redesNeurais}.
+\label{sec_1}
+Na área de Inteligência Artifical, comumente utiliza-se o termo \textit{neurônio artifical} para se referir a uma unidade de processamento em um modelo de rede neural. O neurônio artificial é inspirado no funcionamento do neurônio biológico, que é a unidade básica do sistema nervoso. Assim como os neurônios biológicos, os artificiais recebem entradas, processam essas entradas e produzem uma saída. A principal função de um neurônio artificial é realizar uma combinação linear das entradas, seguida por uma função de ativação não linear, que determina a saída do neurônio. A semelhança entre esses dois objetos (Neurônio artificial/Neurônio Biológico) só está na inspiração, sendo bem diferentes em seu funcionamento, com isso, neste trabalho utiliza-se o termo \textit{unidade}  para se referir ao neurônio artificial \cite{cnn}. Os conceitos apresentados a seguir são fundamentais para o entendimento do funcionamento das redes neurais, que são abordadas na Seção \ref{redesNeurais}.
 
 \subsection{Neurônio Biológico}
-Para entender o funcionamento da unidade matemática é nescessário entender o funcionamento do neurônio biológico.
-Neurônios são ``células excitáveis'' que se comunicam ao transmitir impulsos elétricos. Células \textit{excitáveis} são definidas como células capazes de produzir sinais elétricos amplos e rápidos denominados \textit{potencias de ação} (veja \cite{FisioHumana}). A maioria dos neurônios contém três componentes principais: um corpo celular, o(s) dendrito(s) e um axônio. O corpo celular, chamado de \textit{soma} contém o núcleo celular, local onde parte da informação recebida de outras partes do corpo é manipulada. Os \textit{dendritos} se ramificam a partir do corpo celular, são responsáveis por receber e integrar uma imensa quantidade de sinais provenientes de outros neurônios. Outra ramificação advinda do corpo celular é o \textit{axônio}. Diferente dos dendritos, cuja função é \textit{receber} informação, um axônio \textit{envia} informações. Grande parte dos neurônios tem apenas um axônio, mas os axônios conseguem se ramificar, enviando, assim, sinais a mais de um destino.
+Para entender o funcionamento da unidade é nescessário entender o funcionamento do neurônio biológico.
+Neurônios são ``células excitáveis'' que se comunicam ao transmitir impulsos elétricos. Células \textit{excitáveis} são definidas como capazes de produzir sinais elétricos amplos e rápidos denominados \textit{potencias de ação} (veja \cite{FisioHumana}). A maioria dos neurônios contém três componentes principais: um corpo celular, o(s) dendrito(s) e um axônio. O corpo celular, chamado de \textit{soma} contém o núcleo celular, local onde parte da informação recebida de outras partes do corpo é manipulada. Os \textit{dendritos} se ramificam a partir do corpo celular, são responsáveis por receber e integrar uma imensa quantidade de sinais provenientes de outros neurônios. Outra ramificação advinda do corpo celular é o \textit{axônio}. Diferente dos dendritos, cuja função é \textit{receber} informação, um axônio \textit{envia} informações. Grande parte dos neurônios tem apenas um axônio, mas os axônios conseguem se ramificar, enviando, assim, sinais a mais de um destino.
 Esses três componentes, de forma resumida, formam o neurônio biológico, como mostrado na Figura \ref{neuronio}.
 
 \begin{figure}[htbp]
@@ -21,57 +26,56 @@ Esses três componentes, de forma resumida, formam o neurônio biológico, como 
     \label{neuronio}
 \end{figure}
 
-Outro fator importante em um neurônio biológico são os potenciais de ação, gerados nos dendritos, são avaliados e ponderados por meio da \textit{força sináptica} \cite{neurociencias}, que nos diz o quão importante a informação. Após esse processo, são enviados para o núcleo celular. Entre o corpo celular e o axônio será decidido se o potencial é excitatório ou inibitório. A decisão é feita caso o potencial de ação supere ou não um \textit{limiar}. Caso seja excitatório, a informação é passada a diante, caso seja inibitório,  a informação é suprimida.
+Outro fator importante em um neurônio biológico são os potenciais de ação, gerados nos dendritos, são avaliados e ponderados por meio da \textit{força sináptica}, que diz o quão importante é a informação \cite{neurociencias}. Após esse processo, os potenciais de ação são enviados para o núcleo celular. Entre o corpo celular e o axônio será decidido se o potencial é excitatório ou inibitório. A decisão é feita caso o potencial de ação supere ou não um \textit{limiar}. Caso seja excitatório, a informação é passada a diante, caso seja inibitório,  a informação é suprimida.
 
 \subsection{Unidade}
 \label{unidade}
-A partir das informações obtidas com o estudo do neurônio biológico, pesquisadores tentaram simular seu funcionamento em computador. A implementação mais bem aceita de simulação foi proposta por dois pesquisadores, o neurobiologista Warren McCulloch e o matematico Walter Pitts em 1943 em \cite{warrenpits} que utilizaram-se da lógica proposicional para descrever o funcionamento do sistema nervoso central, Figura \ref{neu_matematico}. McCulloch acreditava que o neurônio biológico tinha uma natureza binária, ou seja, um neurônio influência outro ou não, entretanto, posteriormente essa crença mostrou-se errônea com os avanços de estudos na área.  
+A partir das informações obtidas com o estudo do neurônio biológico, pesquisadores tentaram simular seu funcionamento em computador. A implementação mais bem aceita de simulação foi proposta por dois pesquisadores, o neurobiologista Warren McCulloch e o matematico Walter Pitts em 1943  que utilizaram da lógica proposicional para descrever o funcionamento do sistema nervoso central \cite{warrenpits}. McCulloch acreditava que o neurônio biológico tinha uma natureza binária, ou seja, um neurônio influência outro ou não, entretanto, posteriormente essa crença mostrou-se errônea com os avanços de estudos na área.  
 
-
-
-As variáveis $x_1, x_2, x_3, \cdots, x_n$ são denominadas  \textit{dados de entrada}, em analogia às sinapses de um neurônio biológico. Os valores $w_1, w_2, w_3, \cdots, w_n$ são os \textit{pesos} associados a cada dado de entrada, os pesos nos dizem o quão importante é a entrada para a \textit{soma}, parte central na Figura \ref{neu_matematico}. 
-\begin{figure}[htpb]
+As variáveis $x_1, x_2, x_3, \cdots, x_n$ são denominadas  \textit{dados de entrada}, em analogia às sinapses de um neurônio biológico. Os valores $w_1, w_2, w_3, \cdots, w_n$ são os \textit{pesos} associados a cada dado de entrada. O viés tem a mesma funcionalidade do limiar no neurônio biológico, determinando se o neurônio será ativado ou não. Para resumir a notação, defini-se o viés de $b$, do inglês \textit{bias}. Na soma, a variável $z$ é obtida fazendo a combinação linear das variáveis: $$x_1 \cdot w_1+x_2 \cdot w_2+x_3 \cdot w_3+ \cdots + x_n \cdot w_n + b = z = \sum_{i=1}^{n}x_i \cdot w_i + b.$$ Em seguida, o valor $z$ é aplicado a uma \textit{função de ativação} $\sigma: \mathbb{R} \to \mathbb{R}$, resultando na saída~$\hat{y}$,~ou seja:
+\begin{equation}
+    \label{eq:predicao}
+\hat{y} = \sigma\left(\sum_{i=1}^{n}w_i\cdot x_i + b\right).     
+\end{equation}
+Na Figura \ref{neu_matematico} é possível visualizar o modelo de uma unidade de McCulloch e Pitts. 
+\begin{figure}[H]
     \centering
     \caption{Modelo de uma unidade de McCulloch e Pitts.}
     \includegraphics[width=0.7\linewidth]{neu_matematico.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{neu_matematico}
 \end{figure}
-O viés tem a mesma funcionalidade do limiar no neurônio biológico, determinando se o neurônio será ativado ou não. Para resumir a notação, defini-se o viés de $b$ (do inglês, \textit{bias}). Na soma, a variável $z$ é obtida fazendo a combinação linear das variáveis: $$x_1 \times w_1+x_2 \times w_2+x_3 \times w_3+ \cdots + x_n \times w_n + b = z = \sum_{i=1}^{n}x_i \times w_i + b.$$ Em seguida, o valor $z$ é aplicado a uma \textit{função de ativação} $\sigma: \mathbb{R} \to \mathbb{R}$, resultando na saída~$\hat{y}$,~ou seja:
-\begin{equation}
-    \label{eq:predicao}
-\hat{y} = \sigma\left(\sum_{i=1}^{n}w_i\times x_i + b\right).     
-\end{equation}
+Em que $x_1, x_2, x_3, \cdots, x_n$ são os dados de entrada, $w_1, w_2, w_3, \cdots, w_n$ são os pesos associados a cada dado de entrada e $b$ é o viés. O valor $z$ é a combinação linear das variáveis e $\hat{y}$ é a saída da unidade após a aplicação da função de ativação $\sigma$.
 
 \subsection{ Tipos de Função de Ativação}
 
-A função de ativação, representada por $\sigma$, define a saída de uma unidade, pode-se definir diferentes tipos de funções de ativação, como a função de limiar, função linear por partes e a função sigmoidal.
+A função de ativação, representada por $\sigma$, define a saída de uma unidade, pode-se definir diferentes tipos de funções de ativação, dependendo do comportamento desejado para a unidade. As funções de ativação mais comuns incluem:
 
 \begin{itemize}
-    \item Função de Limiar: Para este tipo de função de ativação, descrito na equação (\ref{funcaoLimiar}), a unidade é ativada (ou seja, produz uma saída de 1) se a soma ponderada das entradas mais o viés for maior ou igual a zero. Caso contrário, a saída é 0.
+    \item Função de Limiar: Para este tipo de função de ativação, descrito na equação (\ref{funcaoLimiar}), a unidade é ativada, ou seja, produz uma saída de 1, se a soma ponderada das entradas mais o viés for maior ou igual a zero. Caso contrário, a saída é 0, definida por:
     \begin{equation}
         \label{funcaoLimiar}
         \sigma(z) = \begin{cases}
         1, & \text{se } z \geq 0 \\        0, & \text{se } z < 0        \end{cases}.
     \end{equation}
 
-    \item Função Sigmoidal: A função sigmoidal, cujo o gráfico tem a forma de um ``S", é de longe a forma mais comum de função de ativação utilizada na construção de unidades. Esta é definida como uma função estritamente crescente que exibe um baleanceamento adequado entre comportamento linear e não linear. Um exemplo de função sigmoidal é a \textit{sigmoid logística}\footnote{A função sigmoid logística foi amplamente usada no início das pesquisas em redes neurais pois a resposta do neurônio biológico é aproximadamente similar. Isso ficou claro em estudos feitos nos neurônios dos olhos de animais \cite{Lettvin1959}, neste caso, sapos. O principal motivo para o seu desuso foi a dificuldade de treinamento em redes neurais profundas devido ao problema do \textit{vanish gradient}, subseção \ref{sec:vanishing}.}, definida por:
+    \item Função Sigmoidal: A função sigmoidal, cujo o gráfico tem a forma de um ``S", é definida como uma função estritamente crescente que exibe um baleanceamento adequado entre comportamento linear e não linear. Um exemplo de função sigmoidal é a \textit{sigmoid logística}, que foi amplamente usada no início das pesquisas em redes neurais pois a resposta do neurônio biológico é aproximadamente similar a função sigmoidal. Isso ficou claro em estudos feitos nos neurônios dos olhos de animais, neste caso, sapos \cite{Lettvin1959}. O principal motivo para o seu desuso foi a dificuldade de treinamento em redes neurais profundas devido ao problema do \textit{vanish gradient}, visto na Subseção \ref{sec:vanishing}. A função é definida por:
     \begin{equation}
     \label{eq:sigmoid}   
     \sigma(z) = \frac{1}{1+ \exp(-\alpha z)},   
     \end{equation}
 
-    em que $\alpha$ é um parâmetro que controla a inclinação da curva. A função sigmoid logística tem um conjunto de propriedades que se mostrarão muito úteis nos cálculos relacionados à aprendizagem dos pesos:
+    em que $\alpha$ é um parâmetro que controla a inclinação da curva. A função sigmoid logística tem um conjunto de propriedades que se mostram úteis nos cálculos relacionados à aprendizagem dos pesos:
     
     \begin{enumerate}
     \item Não linear;
     \item Contínua e diferenciável em todo o domínio de $\mathbb{R}$;
-    \item A derivada tem forma simples e é expressa pela própria função: $\sigma'(z) = \sigma(z)(1-\sigma(z))$;
+    \item A derivada tem forma simples e é expressa pela própria função: $$\sigma'(z) = \sigma(z)(1-\sigma(z));$$
     \item É estritamente monótona, ou seja, $z_1 \leq z_2 \iff \sigma(z_1) \leq \sigma(z_2)$.
     \end{enumerate}
 
 
-    \item Função \textit{Rectified Linear Unit} (ReLU): A função ReLU (do inglês, Unidade Linear Retificada) é definida como $\sigma(z) = \max(0, z)$. Esta é amplamente utilizada em redes neurais profundas (estudada na Seção \ref{redesNeurais}) devido à sua simplicidade computacional. A função ReLU ativa a unidade apenas quando a soma ponderada das entradas mais o viés é positiva, caso contrário, a saída é zero, ou seja:
+    \item Função \textit{Rectified Linear Unit} (ReLU): A função ReLU, em português, Unidade Linear Retificada, é definida como $\sigma(z) = \max(0, z)$. Esta é amplamente utilizada em redes neurais profundas, estudadas na Seção \ref{redesNeurais}, devido à sua simplicidade computacional. A função ReLU ativa a unidade apenas quando a soma ponderada das entradas mais o viés é positiva, caso contrário, a saída é zero, ou seja:
     \begin{equation}
         \label{eq:relu}
         \sigma(z) = \begin{cases}
@@ -82,7 +86,7 @@ A função de ativação, representada por $\sigma$, define a saída de uma unid
     
 \end{itemize}
 
-Em geral, o objetivo da função de ativação é limitar a saída de uma unidade para um intervalo de valores, na Figura \ref{fig-1:ex}(a) é mostrado o gráfico da função sigmoid logística, enquanto na Figura \ref{fig-1:ex}(b) é mostrado o gráfico da função \textit{Rectified Linear Unit}. 
+Em geral, o objetivo da função de ativação é limitar a saída de uma unidade para um intervalo de valores. Na Figura \ref{fig-1:ex}(a) é mostrado o gráfico da função sigmoid logística, e na Figura \ref{fig-1:ex}(b) é mostrado o gráfico da função \textit{Rectified Linear Unit}. 
 
 
 \begin{figure}[htpb]
@@ -114,94 +118,95 @@ Para esclarecer o funcionamento do Perceptron e do algoritmo de aprendizagem, é
 
 \begin{exemplo}
 \label{ex1}
-Um investidor busca decidir qual ação adquirir com base nas variáveis: o valor é caro?, é confiável? e é volátil?. Para isso, dispõe das avaliações de quatro colegas que também analisam essas mesmas características antes de realizar seus investimentos.
+Um investidor busca decidir qual ação adquirir com base nas variáveis: valor da ação, confiabilidade e volatilidade. Para isso, dispõe das avaliações de quatro colegas que também analisam essas mesmas características antes de realizar seus investimentos.
 \end{exemplo}
 
-
-Na Tabela \ref{tab:1} são apresentadas as avaliações dos colegas e a decisão final de compra em que $0$ representa ``não", $1$ representa ``sim", $x_1, \hdots, x_4$ representam as respostas de cada colegas e $y$ a decisão final de cada um.
-\begin{table}[htpb]
+Na Tabela \ref{tab:1} são apresentadas as avaliações dos colegas e a decisão final de compra, ou seja, o valor da ação é considerado baixo ou alto, a confiabilidade é considerada baixa ou alta, a volatilidade é considerada baixa ou alta e se comprou ou não, com $0$ representando ``não", $1$ representando ``sim". $x^{(1)}, \hdots, x^{(4)}$ representando as respostas de cada colega e $y =~(y_1, y_2, y_3, y_4)$ a decisão final de cada um.
+\begin{table}[H]
     \centering
     \caption{Banco de dados com as avaliações dos colegas e a decisão final de compra.}
     \label{tab:1}
     $\begin{array}{ccccc}
     \hline
-    & \text{valor} & \text{confiança} & \text{volatilidade} & y \\
+    & \text{valor da ação} & \text{confiabilidade} & \text{volatilidade} & y \\
     \hline
-    x_1 & 0 & 1 & 0 & 1 \\
+    x^{(1)} & 0 & 1 & 0 & 1 \\
     \hline
-    x_2 & 1 & 0 & 1 & 0 \\
+    x^{(2)} & 1 & 0 & 1 & 0 \\
     \hline
-    x_3 & 1 & 1 & 1 & 0 \\
+    x^{(3)} & 1 & 1 & 1 & 0 \\
     \hline
-    x_4 & 0 & 0 & 0 & 1 \\
+    x^{(4)} & 0 & 0 & 0 & 1 \\
     \hline
 
 \end{array}$
 \end{table}
-Com isso, o Perceptron terá três variáveis de entrada e como saída, a decisão sobre a compra da ação. Os pesos iniciais são definidos aleatoriamente como: $w_1 = w_2 = w_3 = 0$ e o viés como $b = 0$. A função de ativação utilizada é a função ReLU~(\ref{eq:relu}). Testando o primeiro dado de entrada $x_1 = (0,1,0)$ e $y = 1$, obtém-se: 
-
+Com isso, o Perceptron terá três variáveis de entrada e como saída, a decisão sobre a compra da ação. Os pesos iniciais são definidos aleatoriamente como: $w =(w_1, w_2, w_3) = (0, 0, 0)$ e o viés como $b = 0$, utilizando a função de ativação ReLU~(\ref{eq:relu}). Para o caso geral, com $x^{(i)} = (x^{(i)}_1, x^{(i)}_2, x^{(i)}_3 )$, têm-se:
 $$
-z = x_1 \cdot w_1 + b = 0 \Rightarrow \hat{y} = \sigma(0) = 0,    
+\hat{y}_i = \sigma(z_i), \ \text{em que} \ z_i =  \sum_{j=1}^{3}x^{(i)}_j\cdot w_j + b
 $$
-o símbolo ``$\cdot$'' representa o produto escalar entre os vetores. Como $y = 1 \neq \hat{y} = 0$, em que $\hat{y}$ é a resposta da rede definido como na equação (\ref{eq:predicao}). O Perceptron comete um erro e é necessário aplicar o algoritmo de aprendizagem (a unidade de McCulloch e Pitts pararia aqui). Para isso, define-se uma função de custo, responsável por quantificar o erro cometido durante o treinamento. Neste exemplo, utiliza-se o Erro Quadrático Médio, dado por: 
+para $i = 1, \hdots, 4$, em que $\hat{y}_i$ é a resposta da rede.
+Testando para o primeiro dado de entrada, ou seja, $x^{(1)} = (0,1,0)$ e $y_1 = 1$:
+$$
+z_1 = \sum_{j=1}^{3}x^{(1)}_j\cdot w_j + b, \ \text{então} \ \hat{y}_1 = \sigma(z_1) = 0
+$$
+Como $y_1 = 1 \neq \hat{y}_1 = 0$. O Perceptron comete um erro e é necessário aplicar o algoritmo de aprendizagem, a unidade de McCulloch e Pitts encerraria na etapa anterior. Para isso, define-se uma função de custo, responsável por quantificar o erro cometido durante o treinamento. Neste exemplo, utiliza-se o Erro Quadrático Médio, dado por: 
 \begin{equation}
  \label{fuc:custo}
-    C(w_i,b_i) = \frac{\sum_{i=1}^k(y_i - \hat{y}_i)^2}{n},   
+    C(w_j,b) = \frac{\sum_{i=1}^4(y_i - \hat{y}_i)^2}{n},   
 \end{equation} 
-em que $y_i$ é a resposta do dado de entrada  $x_i$ e $n$ representa a quantidade de dados presentes no conjunto de treinamento. $C(w_j,b_j)$ não depende de $w_j$ e $b_j$ explicitamente, mas sim por meio de $\hat{y}_i$, ou seja:
+com $n$ representando a quantidade de dados presentes no conjunto de treinamento. $C(w_j,b)$ não depende de $w_j$ e $b$ explicitamente, mas sim por meio de $\hat{y}_i$, ou seja:
 $$
 \left\{\begin{array}{ccc}
-    C(w_j, b_j) & = & C(\hat{y}_i(w_j,b_j)) \\
+    C(w_j, b) & = & C(\hat{y}_i(w_j,b)) \\
     \hat{y}_i & = & \sigma(z_i) \\
-    z_i & = & \sum_{j=1}^{3}x_j^{(i)}\times w_j + b_j \\
+    z_i & = & \sum_{j=1}^{3}x_j^{(i)}\cdot w_j + b \\
 \end{array}\right.
-,$$
-em que $i = 1, 2, \dots, 4$.
+.$$
 
-
-O processo de treinamento ajusta iterativamente os pesos e o viés por meio do método da Descida do Gradiente (SG - \textit{Gradient Descent}), cujo objetivo é minimizar a função de custo. Esse método utiliza as derivadas parciais da função de custo em relação aos pesos e ao viés, o que indica a direção de maior crescimento da função. Para reduzir o erro, atualizam-se os parâmetros na direção oposta ao gradiente. As derivadas são:
+O processo de treinamento ajusta iterativamente os pesos e o viés por meio do método da Descida do Gradiente, do inglês \textit{Gradient Descent} - GD, cujo objetivo é minimizar a função de custo. Esse método utiliza as derivadas parciais da função de custo em relação aos pesos e ao viés, o que indica a direção de maior crescimento da função. Para reduzir o erro, atualizam-se os parâmetros na direção oposta ao gradiente. As derivadas são:
 
 \begin{align}
-    \frac{\partial C(w_i,b_i)}{\partial w_i} = - 2\cdot\frac{\sum_{i=1}^k(y_i - \hat{y}_i) \cdot \sigma'(z_i)\cdot x_i}{n};\\
-    \frac{\partial C(w_i,b_i)}{\partial b_i} = - 2\cdot\frac{\sum_{i=1}^k(y_i - \hat{y}_i)\cdot \sigma'(z_i)}{n}.
+    \frac{\partial C(w_j,b)}{\partial w_j} = - 2\cdot\frac{\sum_{i=1}^4(y_i - \hat{y}_i) \cdot \sigma'(z_i)\cdot x^{(i)}_j}{n};\\
+    \frac{\partial C(w_j,b)}{\partial b} = - 2\cdot\frac{\sum_{i=1}^4(y_i - \hat{y}_i)\cdot \sigma'(z_i)}{n}.
 \end{align}
     
 
-No o Exemplo \ref{ex1} assume-se $\sigma'(z) = 1$ para simplificação. Como a derivada aponta para a região de maior valor da função, multipica-se por $-1$ para obter a direção da região de minimização. Com isso, é obtido o Algoritmo \ref{alg:gradiente}.
+No Exemplo \ref{ex1} assume-se $\sigma'(z_i) = 1$ para simplificação. Como a derivada aponta para a região de maior valor da função, multiplica-se por $-1$ para obter a direção da região de minimização. O método de GD é apresentado no Algoritmo \ref{alg:gradiente}.
 \vspace{0.5cm}
 
 \begin{algorithm}[H]
 \caption{Método da Descida do Gradiente.}
 \label{alg:gradiente}
-\KwIn{Taxa de aprendizado $\eta$, função de custo $C(w,b)$, pesos iniciais $w_1, w_2, \dots, w_n$ e viés $b$}
+\KwIn{Taxa de aprendizado $\eta$, função de custo $C$, função de ativação $\sigma$, pesos iniciais $w_1, w_2, \dots, w_k$ e viés $b$}
 \KwOut{Pesos e viés ajustados}
 
 \BlankLine
-Inicializar os pesos $w_i$ e o viés $b$ com valores pequenos aleatórios\;
+Inicializar os pesos $w_m$ e o viés $b$ com valores pequenos aleatórios, para todo $m = 1, 2, \dots, k$\;
 \Repeat{convergência ou número máximo de iterações}{
     Calcular a saída do modelo\;
-    $\hat{y}_i \leftarrow \sigma\left(\sum_{i=1}^{n} w_i \cdot x_i + b\right)$\;
+    $\hat{y}_p \leftarrow \sigma\left(\sum_{m=1}^{k} w_m \cdot x^{(i)}_m + b\right)$\;
     
     Calcular o erro\;
-    $\Delta_w \leftarrow \frac{\sum_{i=1}^{n}(y_i - \hat{y_i})\cdot \sigma'(z_i)\cdot x_i}{n}$\;
-    $\Delta_b \leftarrow \frac{\sum_{i=1}^{n}(y_i - \hat{y_i})\cdot \sigma'(z_i)}{n}$\;
+    $\Delta(w_m) \leftarrow \frac{\sum_{q=1}^{n}(y_q - \hat{y}_q)\cdot \sigma'(z_q)\cdot x^{(q)}_m}{n}$\;
+    $\Delta(b) \leftarrow \frac{\sum_{q=1}^{n}(y_q - \hat{y}_q)\cdot \sigma'(z_q)}{n}$\;
     
     Atualizar os pesos e o viés\;
-    $w_i \leftarrow w_i + \eta \, \Delta_w $, \quad para todo $i = 1, 2, \dots, n$\;
-    $b \leftarrow b + \eta \, \Delta_b$\;
+    $w_m \leftarrow w_m + \eta \, \Delta(w_m) $, \quad para todo $m = 1, 2, \dots, k$\;
+    $b \leftarrow b + \eta \, \Delta(b)$\;
 }
-\Return $w_i, b$\;
+\Return $w_m, b$\;
 \end{algorithm}
 \vspace{0.5cm}
-A taxa de aprendizagem ($\eta$) presente no Algoritmo \ref{alg:gradiente}  pode ser interpretada como o tamanho do passo dado em direção ao mínimo da função de custo, como mostra a Figura \ref{gradiente}. Quando o valor dessa taxa é muito pequeno, o processo de convergência torna-se mais lento, exigindo um número maior de iterações para atingir o mínimo. Por outro lado, se o passo for muito grande, o algoritmo pode ultrapassar o ponto de mínimo, dificultando ou até impedindo a convergência adequada, para o Exemplo \ref{ex1} é utilizada uma taxa de aprendizado de $0,1$.
-\begin{figure}[htpb]
+A taxa de aprendizagem ($\eta$) presente no Algoritmo \ref{alg:gradiente}  pode ser interpretada como o tamanho do passo dado em direção ao mínimo da função de custo, como mostrado na Figura \ref{gradiente}. Quando o valor dessa taxa é muito pequeno, o processo de convergência torna-se mais lento, exigindo um número maior de iterações para atingir o mínimo. Por outro lado, se o passo for muito grande, o algoritmo pode ultrapassar o ponto de mínimo, dificultando ou até impedindo a convergência adequada, para o Exemplo \ref{ex1} é utilizada uma taxa de aprendizado de $0,1$.
+\begin{figure}[H]
     \centering
     \caption{Representação da taxa de aprendizagem.}
-    \includegraphics[width=0.7\linewidth]{gradientedes.png}
+    \includegraphics[width=0.8\linewidth]{gradientedes.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{gradiente}
 \end{figure}
-
+Na Figura \ref{gradiente} é apresentada uma ilustração da taxa de aprendizagem, em que o ponto amarelo representa o ponto de mínimo da função de custo, representada pela cor laranja, os pontos azuis representam o momento em que é feito o ajuste dos pesos e do viés e as setas pretas indicam a direção inversa do gradiente.
 Aplicando o Algoritmo \ref{alg:gradiente} no Exemplo \ref{ex1}, os seguintes ajustes são feitos nos pesos e no viés após uma passada pelos 4 dados presentes no banco de dados:
 
 $$w = (-0,1, 0,1, -0,1), \ b= 0,1.$$
@@ -209,36 +214,51 @@ $$w = (-0,1, 0,1, -0,1), \ b= 0,1.$$
 Verificando as previsões da rede para os parâmetros atualizados, é obtido:
 
 \begin{itemize}
-    \item[$x_1$:] $(0,1,0) \Rightarrow z = 0 \cdot (-0,1) + 1 \cdot 0,1 + 0 \cdot(-0,1) + 0,1 = 0,2 \Rightarrow \hat{y} = 1$;
-    \item[$x_2$:] $(1,0,1) \Rightarrow z = -0,1 + 0+ -0,1 + 0,1 = -0,1 \Rightarrow \hat{y} = 0$;
-    \item[$x_3$:] $(1,1,1) \Rightarrow z = -0,1 + 0,1 - 0,1 + 0,1 = 0 \Rightarrow \hat{y} = 0$;
-    \item[$x_4$:]$ (0,0,0)\Rightarrow z = 0 + 0 + 0 + 0,1 = 0,1\Rightarrow \hat{y} = 1$.
+    \item[$x^{(1)}$:] $(0,1,0) \Rightarrow z_1 = 0 \cdot (-0,1) + 1 \cdot 0,1 + 0 \cdot(-0,1) + 0,1 = 0,2 \Rightarrow \hat{y}_1 = 1$;
+    \item[$x^{(2)}$:] $(1,0,1) \Rightarrow z_2 = -0,1 + 0+ -0,1 + 0,1 = -0,1 \Rightarrow \hat{y}_2 = 0$;
+    \item[$x^{(3)}$:] $(1,1,1) \Rightarrow z_3 = -0,1 + 0,1 - 0,1 + 0,1 = 0 \Rightarrow \hat{y}_3 = 0$;
+    \item[$x^{(4)}$:]$ (0,0,0)\Rightarrow z_4 = 0 + 0 + 0 + 0,1 = 0,1\Rightarrow \hat{y}_4 = 1$.
 \end{itemize}
 
-Basta observar que $\hat{y} = \sigma(z)$ e $\sigma(z)$ é a função de ativação utilizada. Assim, após uma única época com $\eta = 0,1$ os pesos e o viés encontrados classificam corretamente todos os exemplos do conjunto de treinamento.
+Assim, após uma única etapa de atualização dos pesos e do viés com $\eta = 0,1$, os parâmetros encontrados classificam corretamente todos os exemplos do conjunto de treinamento.
 
-Comumente o banco de dados é dividido em dois conjuntos: o conjunto de treinamento e o conjunto de teste. O conjunto de treinamento é utilizado para ajustar os pesos e o viés do Perceptron, enquanto o conjunto de teste é utilizado para avaliar o desempenho do modelo em dados não vistos durante o treinamento. Essa divisão é essencial para garantir que o modelo aprenda a generalizar bem para novos dados, evitando o problema do \textit{overfitting}(na Seção \ref{overfitting}), que ocorre quando o modelo se ajusta excessivamente aos dados de treinamento, perdendo a capacidade de generalização.
+Comumente o banco de dados é dividido em dois conjuntos: o conjunto de treinamento e o conjunto de teste. O conjunto de treinamento é utilizado para ajustar os pesos e o viés do Perceptron, enquanto o conjunto de teste é utilizado para avaliar o desempenho do modelo em dados não vistos durante o treinamento. Essa divisão é essencial para garantir que o modelo aprenda a generalizar bem para novos dados, evitando o problema do \textit{overfitting}, visto na Seção \ref{overfitting}, que ocorre quando o modelo se ajusta excessivamente aos dados de treinamento, perdendo a capacidade de generalização.
 
 
 \section{Redes Neurais}
 \label{redesNeurais}
 
 \label{sec_2}
-Nesta seção serão apresentados os conceitos relacionados às redes neurais, sendo muito importantes para o andamento do trabalho, todos os conceitos apresentados nesta seção serão utilizados na construção da rede neural proposta na Seção \ref{sec:unet}.
+Nesta seção são apresentados os conceitos relacionados às redes neurais, os quais são fundamentais para o desenvolvimento deste trabalho. Os conceitos apresentados nesta seção são utilizados na construção da rede neural proposta na Seção \ref{sec:unet}.
 
-As redes neurais são um ``encadeamento" de múltiplas unidades, onde a saída de uma unidade é a entrada de outra. Redes neurais podem ser organizadas em camadas: uma \textit{camada de entrada}, uma ou mais \textit{camadas ocultas} e uma \textit{camada de saída}. Cada camada é composta por várias unidades e cada unidade em uma camada está conectada a todas as unidades na camada seguinte. A Figura \ref{fig0:ex}(a) ilustra a estrutura básica de uma unidade vista na Seção \ref{unidade}. Já a Figura \ref{fig0:ex}(b) mostra uma rede neural com duas camadas ocultas, em que a camada de entrada tem três unidades, a primeira camada oculta tem cinco unidades, a segunda camada oculta tem quatro unidades e a camada de saída tem duas unidades. Matematicamente, é possível representar uma rede neural com duas camadas ocultas e uma saída da seguinte maneira:
+As redes neurais consistem em um ``encadeamento" de múltiplas unidades, em que a saída de uma unidade é a entrada de outra. Redes neurais podem ser organizadas em camadas: uma \textit{camada de entrada}, uma ou mais \textit{camadas ocultas} e uma \textit{camada de saída}. Cada camada é composta por várias unidades e cada unidade em uma camada está conectada a todas as unidades na camada seguinte. A Figura \ref{fig0:ex}(a) ilustra a estrutura básica de uma unidade vista na Seção \ref{unidade}. Já a Figura \ref{fig0:ex}(b) mostra uma rede neural com duas camadas ocultas, em que a camada de entrada tem três unidades, a primeira camada oculta tem cinco unidades, a segunda camada oculta tem quatro unidades e a camada de saída tem duas unidades. Matematicamente, é possível representar uma rede neural com duas camadas ocultas e uma saída da seguinte maneira:
 
 \begin{equation}
     \label{eq:redeNeural}
-    \hat{y} = \sigma_s\left[\sum_{i=1}^4\sigma^2_i\left(\sum_{j=1}^5\sigma^1_j\left(\sum_{k=1}^3 w_{jk}^1 x_k + b_j^1\right)w_{ij}^2 + b_i^2\right)w_i^s + b^s\right],
+    \hat{y} = \sigma_s\left[\sum_{i=1}^4\sigma^{(2)}_i\left(\sum_{j=1}^5\sigma^{(1)}_j\left(\sum_{k=1}^3 w_{jk}^{(1)} x_k + b_j^{(1)}\right)w_{ij}^{(2)} + b_i^{(2)}\right)w_i^{(s)} + b^{(s)}\right],
 \end{equation}
-em que $\sigma^1_j$ é a função de ativação da $j$-ésima unidade da primeira camada oculta, $\sigma^2_i$ é a função de ativação da $i$-ésima unidade da segunda camada oculta e $\sigma_s$ é a função de ativação da $s$-ésima unidade da camada de saída. Os pesos e os vieses são representados por $w_{jk}^1$, $b_j^1$, $w_{ij}^2$, $b_i^2$, $w_i^s$ e $b^s$. Generalizando a notação, para uma rede neural com $L$ camadas ocultas, a saída da rede pode ser expressa como:
+em que $\sigma^{(1)}_j$ é a função de ativação da $j$-ésima unidade da primeira camada oculta, $\sigma^{(2)}_i$ é a função de ativação da $i$-ésima unidade da segunda camada oculta e $\sigma^{(s)}$ é a função de ativação da $s$-ésima unidade da camada de saída. Os pesos e os vieses são representados por $w_{jk}^{(1)}$, $w_{ij}^{(2)}$, $b_i^{(2)}$, $w_i^{(s)}$ e $b_j^{(1)}$, $b^{(s)}$, respectivamente. De forma geral, para uma rede neural com $L$ camadas ocultas, a saída da rede pode ser expressa como:
+\begingroup
+\small
 \begin{equation}
     \label{eq:redeNeuralGeral}
-    \hat{y} = \sigma_s\left[\sum_{i_L=1}^{n_L}\sigma^L_{i_L}\left(\sum_{i_{L-1}=1}^{n_{L-1}}\sigma^{L-1}_{i_{L-1}}\left(\cdots \sum_{k=1}^{n_1}\sigma^1_k\left(\sum_{m=1}^{n_0} w_{km}^1 x_m + b_k^1\right)w_{jk}^2 + b_j^2\right)w_{ij}^L + b_i^L\right)w_i^s + b^s\right].
+    \begin{split}
+        \hat{y} = \sigma_s\Biggl[
+        &\sum_{i_L=1}^{n_L}\sigma^{(L)}_{i_L}\Biggl(
+            \sum_{i_{L-1}=1}^{n_{L-1}}\sigma^{(L-1)}_{i_{L-1}}\Bigl(
+            \cdots \\
+        &\qquad \cdots
+            \sum_{k=1}^{n_1}\sigma^{(1)}_k\Bigl(
+                \sum_{m=1}^{n_0} w_{km}^{(1)} x_m + b_k^{(1)}
+            \Bigr)w_{jk}^{(2)} + b_j^{(2)}
+            \Bigr)w_{ij}^{(L)} + b_i^{(L)}
+        \Biggr)w_i^{(s)} + b^{(s)}
+        \Biggr].
+    \end{split}
 \end{equation}
-
-
+\endgroup
+em que $n_l$ representa o número de unidades na $l$-ésima camada oculta, para $l = 1, 2, \ldots, L$.
+\textcolor{red}{verificar novamente}
 \begin{figure}[htpb]
     \centering
     \caption{Estrutura visual básica de uma unidade e uma rede neural com duas camadas ocultas.}
@@ -259,7 +279,7 @@ em que $\sigma^1_j$ é a função de ativação da $j$-ésima unidade da primeir
     \label{fig0:ex}
 \end{figure}
 
-Outra forma de representar uma rede neural é utilizando a notação matricial, em que as entradas, os pesos e os vieses são representados por matrizes e vetores. Para uma rede neural com $n$ entradas, uma camada oculta com $m$ neurônios e uma saída, a saída da rede pode ser expressa como:
+Outra forma de representar uma rede neural é por meio da notação matricial, em que as entradas, os pesos e os vieses são representados por matrizes e vetores. Para uma rede neural com $n$ entradas, uma camada oculta com $m$ neurônios e uma única saída, a saída da rede pode ser expressa como:
 
 \[
 \underbrace{\begin{bmatrix}
@@ -274,86 +294,18 @@ x_1\\x_2\\\vdots\\x_n
 +
 \underbrace{\begin{bmatrix}
 b_1\\b_2\\\vdots\\b_m
-\end{bmatrix}}_{m \times 1}
+\end{bmatrix}}_{m \times 1}.
 \]
 
 Essa forma representa a saída de uma camada caso a rede tenha apenas uma camada oculta, para redes neurais com mais camadas ocultas, a notação matricial torna-se mais complexa, mas o princípio de multiplicação de matrizes e adição de vetores permanece o mesmo.
-
-\subsection{Arquiteturas de Redes Neurais}
-Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar com diferentes tipos de problemas e dados. Algumas das arquiteturas mais comuns incluem \cite{arquiteturas}:
-\label{sec:arquiteturas}
-\begin{itemize}
-    \item Redes Neurais \textit{Feedforward} (RNF): São as redes neurais mais simples, onde a informação flui em uma única direção, da camada de entrada para a camada de saída, passando pelas camadas ocultas. RNFs são amplamente utilizadas para tarefas de classificação e regressão.
-    
-    \item Redes Neurais Convolucionais (RNCs): São projetadas para processar dados com uma estrutura de grade, como imagens. Estas utilizam operações de convolução para extrair características espaciais dos dados de entrada. RNCs são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos e detecção de faces.
-    
-    \item Redes Neurais Recorrentes (RNNs): São projetadas para lidar com dados sequenciais, onde a saída em um determinado momento depende das entradas anteriores. RNNs possuem conexões recorrentes que permitem que informações sejam mantidas ao longo do tempo. Estas são amplamente utilizadas em tarefas como processamento de linguagem natural e reconhecimento de fala.
-    
-    \item Redes Neurais Generativas Adversariais (GANs): Consistem em duas redes neurais que competem entre si: um gerador e um discriminador. O gerador cria dados falsos, enquanto o discriminador tenta distinguir entre dados reais e falsos. GANs são amplamente utilizadas para geração de imagens realistas e outras tarefas criativas.
-    
-    \item \textit{Encoder-Decoder}: São arquiteturas que consistem em duas partes principais: o \textit{encoder}, que comprime os dados de entrada em uma representação latente, e o \textit{decoder}, que reconstrói os dados a partir dessa representação. Essas redes são amplamente utilizadas em tarefas como tradução automática e geração de texto.
-\end{itemize}
-É possível utilizar duas arquiteturas em conjunto, como abordado na Seção \ref{sec:unet}.
-
-\begin{figure}[H]
-    \centering
-    \caption{Arquiteturas de Redes Neurais.}
-    \begin{subfigure}{0.4\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/FNNs.png}
-        \caption{Redes Neurais \textit{Feedforward} (FNNs).}
-    \end{subfigure}
-    \hspace{30mm}
-    \begin{subfigure}{0.4\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/RNNs.png}
-        \caption{Redes Neurais Recorrentes (RNNs).}
-
-    \end{subfigure}
-    \hspace{30mm}
-    \begin{subfigure}{0.4\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/EncDec.png}
-        \caption{\textit{Encoder-Decoder.}}
-
-    \end{subfigure}
-
-    \caption*{\footnotesize Fonte: Elaboração do Autor.}
-    \label{fig1:ex}
-\end{figure}
-
-As Figuras \ref{fig1:ex}(a) e \ref{fig1:ex}(c) ilustram a arquitetura de uma Rede Neural \textit{Feedforward}, com o funcionamento semelhante ao desenvolvido na equação (\ref{eq:redeNeuralGeral}). A Figura \ref{fig1:ex}(b) mostra a arquitetura de uma Rede Neural Recorrente, estas redes possuem conexões recorrentes, ou seja, a saída de uma unidade é realimentada como entrada para a mesma unidade ou para unidades anteriores, permitindo que informações sejam mantidas ao longo do tempo, por não estar no escopo deste trabalho, não é abordado os detalhes matemáticos de funcionamento das RNNs.
 
 \subsection{\textit{Backpropagation}}
 \label{subsec:bacprop}
 Assim como no perceptron, as redes neurais utilizam algoritmos de aprendizagem para ajustar seus pesos e vieses com o objetivo de minimizar uma função de custo. O algoritmo mais comum utilizado para esse propósito é o \textit{backpropagation} (retropropagação) \cite{hechtnielsen1992} e \cite{paulwerbos}, que é uma extensão do método da descida do gradiente. O \textit{backpropagation} é utilizado para calcular os gradientes da função de custo em relação aos pesos e vieses de todas as camadas da rede neural, permitindo a atualização eficiente desses parâmetros durante o treinamento. O algoritmo funciona propagando o erro da saída da rede de volta para as camadas anteriores, ajustando os pesos com base na contribuição de cada unidade para o erro total. 
 
 Esse processo é repetido iterativamente até que a função de custo seja minimizada, resultando em uma rede neural treinada capaz de realizar previsões precisas em novos dados. Essa propagação do erro é feita utilizando a regra da cadeia do cálculo diferencial, que permite calcular as derivadas parciais de funções compostas. 
-O algoritmo de \textit{backpropagation} pode ser resumido nos seguintes passos, apresentados no Algoritmo \ref{alg:backprop_etapas}.
 
-\vspace{0.5cm}
-\begin{algorithm}[H]
-\caption{Etapas do treinamento via \textit{backpropagation}.}
-\label{alg:backprop_etapas}
-\KwIn{Dados de treinamento $(x,y)$, taxa de aprendizado $\eta$, pesos $W$ e vieses $b$}
-\KwOut{Pesos $W$ e vieses $b$ atualizados}
-
-\BlankLine
-\Repeat{critério de parada (ex.: nº de épocas ou convergência)}{
-    \textbf{Passo para frente:} propagar $x$ pela rede (camada a camada) e obter $\hat{y}$\;
-
-    \textbf{Cálculo do Erro:} calcular o erro comparando $\hat{y}$ com $y$ usando uma função de custo \;
-
-    \textbf{Passo para trás:} retropropagar o erro e calcular os gradientes $\nabla_W C$ e $\nabla_b C$ (regra da cadeia)\;
-
-    \textbf{Atualização:} atualizar pesos e vieses (descida do gradiente)\;
-    $W \leftarrow W - \eta \,\nabla_W C$\;
-    $b \leftarrow b - \eta \,\nabla_b C$\;
-}
-\end{algorithm}
-
-\vspace{0.5cm}
-Na Figura \ref{backprop} é ilustrado uma rede neural simples e a equação (\ref{derivadas}) mostra o cálculo do gradiente para ajustar o peso da primeira camada ($w_1$) utilizando a regra da cadeia,
+Na Figura \ref{backprop} é ilustrada uma rede neural simples e a equação (\ref{derivadas}) mostra o cálculo do gradiente para ajustar o peso da primeira camada ($w_1$) utilizando a regra da cadeia,
 
 \begin{figure}[htpb]
     \centering
@@ -366,93 +318,108 @@ Na Figura \ref{backprop} é ilustrado uma rede neural simples e a equação (\re
 
 \begin{align}
     \label{derivadas}
-    \nabla_wC = \frac{\partial C(w,b)}{\partial w_1} = \frac{C(w,b)}{\sigma(z_3)}\cdot \frac{\sigma(z_3)}{z_3} \cdot \frac{z_3}{\sigma(z_2)} \cdot \frac{\sigma(z_2)}{z_2} \cdot \frac{z_2}{\sigma(z_1)}\cdot \frac{\sigma(z_1)}{z_1} \cdot \frac{z_1}{w_1},
+    \nabla_wC = \frac{\partial C(w_1,b_1)}{\partial w_1} = \frac{C(w_1,b_1)}{\sigma(z_3)}\cdot \frac{\sigma(z_3)}{z_3} \cdot \frac{z_3}{\sigma(z_2)} \cdot \frac{\sigma(z_2)}{z_2} \cdot \frac{z_2}{\sigma(z_1)}\cdot \frac{\sigma(z_1)}{z_1} \cdot \frac{z_1}{w_1},
 \end{align}
-em que $z_1 = w_1\cdot x +b_1$, $z_2 = \sigma(z_1)\cdot w_2 + b_3$ e $z_3 = \sigma(z_2)\cdot w_3 + b_3$ são as saídas das camadas ocultas e $C(w,b)$ é a função de custo do erro quadrático médio, ou seja, $ C(w,b) = \frac{(\hat{y} - \sigma(z_3))^2}{n}$, $n$ sendo o número de amostras no conjunto de dados.
+em que $z_1 = w_1\cdot x +b_1$, $z_2 = \sigma(z_1)\cdot w_2 + b_2$ e $z_3 = \sigma(z_2)\cdot w_3 + b_3$ são as saídas das camadas ocultas e $C(w_i,b_i)$ é a função de custo do erro quadrático médio, para $i = 1,2,3$, ou seja, $ C(w_1,b_1) = \frac{(\hat{y} - \sigma(z_3))^2}{n}$, com $n$ sendo o número de amostras no conjunto de dados.
+
+O algoritmo de \textit{backpropagation} pode ser resumido nos seguintes passos, apresentados no Algoritmo \ref{alg:backprop_etapas}.
+
+\vspace{0.5cm}
+\begin{algorithm}[H]
+\caption{Etapas do treinamento via \textit{backpropagation}.}
+\label{alg:backprop_etapas}
+\KwIn{Dados de treinamento $(x,y)$, taxa de aprendizado $\eta$, Matriz de pesos $W$ e vetor de vieses $b$;}
+\KwOut{Matriz de pesos $W$ e vetor de vieses $b$ atualizados;}
+
+\BlankLine
+\Repeat{critério de parada (ex.: nº de épocas ou convergência)}{
+    \textbf{Passo para frente:} propagar $x$ pela rede (camada a camada) e obter $\hat{y}$\;
+
+    \textbf{Cálculo do Erro:} calcular o erro comparando $\hat{y}$ com $y$ usando uma função de custo\;
+
+    \textbf{Passo para trás:} retropropagar o erro e calcular os gradientes $\nabla_W C$ e $\nabla_b C$ (regra da cadeia)\;
+
+    \textbf{Atualização:} atualizar pesos e vieses (descida do gradiente)\;
+    $W \leftarrow W - \eta \,\nabla_W C$\;
+    $b \leftarrow b - \eta \,\nabla_b C$\;
+}
+\end{algorithm}
+
+\vspace{0.5cm}
 
 \subsection{Gradiente Descendente Estocástico}
 \label{subsec:sgd}
-O Gradiente Descendente Estocástico (SGD - Stochastic Gradient Descent) \cite{sebastianruder2016} é uma variação do método de descida do gradiente tradicional, amplamente utilizado no treinamento de redes neurais e outros modelos de aprendizado de máquina. A principal diferença entre o SGD e o método de descida do gradiente padrão é a forma como os gradientes são calculados e atualizados durante o treinamento. No método de descida do gradiente tradicional, os gradientes são calculados usando todo o conjunto de dados de treinamento, ou seja, os pesos são atualizados uma vez em cada época de treinamento, o que pode ser computacionalmente caro e demorado, especialmente para grandes conjuntos de dados. Em contraste, o SGD calcula os gradientes usando apenas uma amostra aleatória (ou um pequeno lote) do conjunto de dados em cada iteração, ou seja, caso o conjunto de dados tenha um tamanho de $1000$ e o tamanho do lote seja $10$, o SGD atualizará os pesos $100$ vezes por época. Isso torna o processo de atualização dos pesos mais rápido e eficiente, permitindo que o modelo aprenda mais rapidamente. 
+O Gradiente Descendente Estocástico, em inglês \textit{Stochastic Gradient Descent} (SGD) é uma variação do método de descida do gradiente tradicional, amplamente utilizado no treinamento de redes neurais e outros modelos de aprendizagem de máquina \cite{sebastianruder2016}. A principal diferença entre o SGD e o método de descida do gradiente padrão é a forma como os gradientes são calculados e atualizados durante o treinamento. No método de descida do gradiente tradicional, os gradientes são calculados usando todo o conjunto de dados de treinamento. Assim, os pesos são atualizados uma vez em cada época de treinamento, o que pode ser computacionalmente caro e demorado, especialmente para grandes conjuntos de dados. Em contraste, o SGD calcula os gradientes usando apenas uma amostra aleatória, ou um pequeno lote, do inglês \textit{mini-batch}, do conjunto de dados em cada iteração, ou seja, caso o conjunto de dados tenha um tamanho de $1000$ e o tamanho do lote seja $10$, o SGD atualiza os pesos $100$ vezes por época. Isso torna o processo de atualização dos pesos mais rápido e eficiente, permitindo que o modelo aprenda mais rapidamente. 
 Apesar da Descida do Gradiente padrão fornecer uma direção mais precisa para o mínimo global da função de custo, o SGD é capaz de chegar próximo do mínimo de forma mais rápida e eficiente.
 
-
-A Figura \ref{fig:sgd}(a) ilustra como funciona o Gradiente Descendente Estocástico, em que cada seta preta indica uma atualização dos pesos do modelo. A Figura \ref{fig:sgd}(b) ilustra o caminho percorrido pelo método de descida do gradiente tradicional, enquanto a Figura \ref{fig:sgd}(c) ilustra o caminho percorrido pelo SGD.
+A Figura \ref{fig:sgd}(a) ilustra o funcionamento do SGD, em que cada seta preta indica uma atualização dos pesos do modelo. A Figura \ref{fig:sgd}(b) ilustra o caminho percorrido pelo método de descida do gradiente tradicional.
 \begin{figure}[H]
     \centering
-     \caption{Comparação entre o método de descida do gradiente tradicional e o Gradiente Descendente Estocástico.}   
+     \caption{Comparação entre os métodos de descida do gradiente.}   
 
     \begin{subfigure}{0.4\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/SG.png}
-        \caption{Descida do Gradiente Tradicional.}
+        \includegraphics[width=\linewidth]{figures/SGD.png}
+        \caption{Gradiente Descendente Estocástico.}
 
     \end{subfigure}
     \hspace{30mm}
     \begin{subfigure}{0.4\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/SGD.png}
-        \caption{Gradiente Descendente Estocástico.}
-    \end{subfigure}
-    \hspace{30mm }
-        \begin{subfigure}{0.5\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/lote.png}
-        \caption{Separando em lotes o banco de dados para o SGD.}
-   
+        \includegraphics[width=\linewidth]{figures/SG.png}
+        \caption{Descida do Gradiente Tradicional.}
     \end{subfigure}
     \footnotesize
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{fig:sgd}
 \end{figure}
-
-
-
+O gráfico da Figura \ref{fig:sgd} representa a função de custo em um espaço de parâmetros.
 
 \subsection{\textit{Overfitting}}
 \label{overfitting}
-O \textit{Overfitting} \cite{overfitting} (do inglês ``Sobreajuste" ou ``Ajuste Excessivo") é um problema comum em aprendizado de máquina, onde um modelo aprende os detalhes e o ruído dos dados de \mbox{treinamento} a tal ponto que este se torna incapaz de generalizar para novos dados. Isso significa que o modelo tem um desempenho excelente nos dados de treinamento, mas falha ao fazer previsões precisas em dados não vistos anteriormente. 
+O \textit{overfitting}, em português ``Sobreajuste" ou ``Ajuste Excessivo", é um problema comum em aprendizagem de máquina, em que um modelo aprende os detalhes e o ruído dos dados de \mbox{treinamento} a tal ponto que este se torna incapaz de generalizar para novos dados \cite{overfitting}. Isso significa que o modelo tem um desempenho excelente nos dados de treinamento, mas falha ao fazer previsões precisas em dados não vistos anteriormente. 
 
-O \textit{overfitting} ocorre quando o modelo é muito complexo em relação à quantidade e qualidade dos dados disponíveis para treinamento. Modelos com muitos parâmetros, como redes neurais profundas, são particularmente suscetíveis ao \textit{overfitting}, especialmente quando o conjunto de dados de treinamento é pequeno ou contém ruído significativo. Na Figura \ref{fit} é apresentada uma ilustração do \textit{overfitting}, em que os pontos vermelhos são os dados de treinamento e os pontos azuis são os dados de teste, a curva verde representa um modelo que se ajusta perfeitamente aos dados de treinamento, mas falha em generalizar para novos dados, enquanto a curva azul seria um modelo ideal mais general.
+O \textit{overfitting} ocorre quando o modelo é muito complexo em relação à quantidade e qualidade dos dados disponíveis para treinamento. Modelos com muitos parâmetros, como redes neurais profundas, são particularmente suscetíveis ao \textit{overfitting}, especialmente quando o conjunto de dados de treinamento é pequeno ou contém ruído significativo. Na Figura \ref{fit} é apresentada uma ilustração do \textit{overfitting}, em que os pontos vermelhos são os dados de treinamento e os pontos azuis são os dados de teste. A curva verde representa um modelo que se ajusta perfeitamente aos dados de treinamento, mas falha em generalizar para novos dados, enquanto a curva azul seria um modelo ideal mais general.
 
 \begin{figure}[htpb]
     \centering
-    \caption{Ilustração do \textit{Overfitting}.}
+    \caption{Ilustração do \textit{overfitting}.}
     \includegraphics[width=0.7\linewidth]{figures/overffit.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{fit}
 \end{figure}
 
 \subsection{Hiperparâmetros}
-Um algoritmo de aprendizado pode ser visto como uma função que recebe dados de treinamento como entrada e produz como saída uma função ou modelo (isto é, um conjunto de funções). No entanto, na prática muitos algoritmos de aprendizado possuem parâmetros adicionais que não são aprendidos diretamente a partir dos dados de treinamento, mas que influenciam o processo de aprendizado. Esses parâmetros são chamados de hiperparâmetros e sua escolha adequada é crucial para o desempenho do modelo \cite{yoshuabengio2012}. Alguns exemplos comuns de hiperparâmetros incluem:
+Um algoritmo de aprendizado pode ser visto como uma função que recebe dados de treinamento como entrada e produz como saída um modelo matemático. No entanto, na prática muitos algoritmos de aprendizado possuem parâmetros adicionais que não são aprendidos diretamente a partir dos dados de treinamento, mas que influenciam o processo de aprendizado. Esses parâmetros são chamados de hiperparâmetros e sua escolha adequada é crucial para o desempenho do modelo \cite{yoshuabengio2012}. Alguns exemplos comuns de hiperparâmetros incluem:
 \begin{itemize}
-    \item Taxa de Aprendizado: Controla o tamanho dos passos dados durante a atualização dos pesos do modelo. Uma taxa de aprendizado muito alta pode levar a oscilações e impedir a convergência, enquanto uma taxa muito baixa pode resultar em um processo de treinamento lento. Valores típicos para a taxa de aprendizado variam entre $0,01$ e $0,1$, dependendo do problema e do algoritmo utilizado.
+    \item Taxa de Aprendizado: Controla o tamanho dos passos dados durante a atualização dos pesos do modelo. Uma taxa de aprendizado muito alta pode levar a oscilações e impedir a convergência, enquanto uma taxa muito baixa pode resultar em um processo de treinamento lento. Valores típicos para a taxa de aprendizado variam entre $0,01$ e $0,1$, dependendo do problema e do algoritmo utilizado  \cite{yoshuabengio2012}.
     
-    \item Número de Épocas: Define quantas vezes o algoritmo de aprendizado passará por todo o conjunto de dados de treinamento. Um número muito alto pode levar ao \textit{overfitting}, enquanto um número muito baixo pode resultar em \textit{underfitting} (subajuste). Uma técnica comum para determinar o número ideal de épocas é o uso do \textit{Early Stopping} (do inglês Parada Antecipada), que monitora o desempenho do modelo em um conjunto de validação e interrompe o treinamento quando o desempenho começa a piorar.
+    \item Número de Épocas: Define quantas vezes o algoritmo de aprendizado passará por todo o conjunto de dados de treinamento. Um número muito alto pode levar ao \textit{overfitting}, enquanto um número muito baixo pode resultar em \textit{underfitting} (subajuste). Uma técnica comum para determinar o número ideal de épocas é o uso do \textit{Early Stopping} (do inglês Parada Antecipada), que monitora o desempenho do modelo em um conjunto de validação e interrompe o treinamento quando o desempenho começa a piorar \cite{yoshuabengio2012}.
     
-    \item Tamanho do Lote: Refere-se ao número de amostras de dados usadas para calcular o gradiente em cada iteração do treinamento. Tamanhos de lote menores podem levar a atualizações mais ruidosas, enquanto tamanhos maiores podem resultar em um treinamento mais estável, embora mais lento. Os valores escolhidos geralmente variam entre $1$ e $32$, sendo que valores acima de $10$ tiram proveito da Unidade Central de Processamento (do inglês \textit{Central Processing Unit} - CPU) e da Unidade de Processamento Gráfico (do inglês \textit{Graphics Processing Unit} - GPU), que oferece ganho de velocidade dos produtos matriz-matriz em relação aos produtos matriz-vetor.
+    \item Tamanho do Lote: Refere-se ao número de amostras de dados usadas para calcular o gradiente em cada iteração do treinamento. Tamanhos de lote menores podem levar a atualizações mais ruidosas, enquanto tamanhos maiores podem resultar em um treinamento mais estável, embora mais lento. Os valores escolhidos geralmente variam entre $1$ e $32$. \cite{yoshuabengio2012}.
     
-    \item Arquitetura do Modelo: Inclui o número de camadas, o número de unidades em cada camada e o tipo de funções de ativação utilizadas. Modelos mais complexos podem capturar padrões mais sofisticados, mas também são mais propensos ao \textit{overfitting}.
+    \item Arquitetura do Modelo: Inclui o número de camadas, o número de unidades em cada camada e o tipo de funções de ativação utilizadas. Modelos mais complexos podem capturar padrões mais sofisticados, mas também são mais propensos ao \textit{overfitting} \cite{yoshuabengio2012}.
 \end{itemize}
 
 \subsection{Regularização}
 \label{regularizacao}
-A regularização \cite{regularizacao} é uma técnica utilizada para prevenir o \textit{overfitting} em modelos de aprendizado de máquina, adicionando uma penalidade à função de custo que o modelo tenta minimizar durante o treinamento. Essa penalidade incentiva o modelo a manter os pesos dos parâmetros pequenos, o que ajuda a evitar que ele se ajuste excessivamente aos dados de treinamento. Existem várias técnicas de regularização, sendo as mais comuns:
+A regularização  é uma técnica utilizada para prevenir o \textit{overfitting} em modelos de aprendizagem de máquina, adicionando uma penalidade à função de custo \cite{regularizacao}. Essa penalidade incentiva o modelo a manter os valores reduzidos para os pesos, o que ajuda a evitar que ele se ajuste excessivamente aos dados de treinamento. Existem várias técnicas de regularização, sendo as mais comuns:
 \begin{itemize}
-    \item Regularização L1 (Norma 1): Adiciona uma penalidade proporcional à soma dos valores absolutos dos pesos dos parâmetros à função de custo. Isso pode levar a soluções esparsas, onde alguns pesos são reduzidos a zero, efetivamente removendo certas características do modelo. A equação da função de custo com regularização L1 é dada por:
+    \item Regularização L1 (Norma 1): Adiciona uma penalidade proporcional à soma dos valores absolutos dos pesos  à função de custo. Isso pode levar a soluções esparsas, onde alguns pesos são reduzidos a zero. A equação da função de custo com regularização L1 é dada por:
     \begin{equation}
         \label{eq:l1}
-        C(w,b) = C_0(w,b) + \frac{\lambda}{n} \sum_{i} |w_i|,
+        C(w_j,b) = C_0(w_j,b) + \frac{\lambda}{n} \sum_{i} |w_i|,
     \end{equation}
-    em que $C_0(w,b)$ é a função de custo original, $\lambda$ é o parâmetro de regularização que controla a força da penalidade, $w_i$ são os pesos dos parâmetros do modelo e $n$ é o número de amostras no conjunto de dados.
+    em que $C_0(w_j,b)$ é a função de custo original, $\lambda$ é o parâmetro de regularização que controla a força da penalidade, $w_i, w_j$ são os pesos do modelo, $b$ é o viés e $n$ é o número de amostras no conjunto de dados \cite{regularizacao}.
     
-    \item Regularização L2 (Norma 2): Adiciona uma penalidade proporcional à soma dos quadrados dos pesos dos parâmetros à função de custo. Isso incentiva o modelo a distribuir os pesos de forma mais uniforme, evitando que alguns pesos se tornem muito grandes. A equação da função de custo com regularização L2 é dada por:
+    \item Regularização L2 (Norma 2): Adiciona uma penalidade proporcional à soma dos quadrados dos pesos à função de custo. Isso incentiva o modelo a distribuir os pesos de forma mais uniforme, evitando que alguns pesos se tornem muito grandes. A equação da função de custo com regularização L2 é dada por:
     \begin{equation}
         \label{eq:l2}
-        C(w,b) = C_0(w,b) + \frac{\lambda}{n} \sum_{i} w_i^2,
+        C(w_j,b) = C_0(w_j,b) + \frac{\lambda}{n} \sum_{i} w_i^2,
     \end{equation}
-    em que os termos são definidos da mesma forma que na regularização L1.
+    em que os termos são definidos da mesma forma que na regularização L1 \cite{regularizacao}.
     
-    \item \textit{Dropout}: Durante o treinamento, essa técnica desativa aleatoriamente uma fração das unidades em cada camada da rede neural para cada época. Isso força a rede a aprender representações mais robustas e reduz a dependência de unidades específicas, ajudando a prevenir o \textit{overfitting}. Em termos gerais, ao aplicar o \textit{dropout} estamos treinando uma coleção de sub-redes dentro da rede original, o que pode promover a generalização do modelo.
+    \item \textit{Dropout}: Durante o treinamento, essa técnica desativa aleatoriamente uma fração das unidades em cada camada da rede neural para cada época. Isso força a rede a aprender representações mais robustas e reduz a dependência de unidades específicas, ajudando a prevenir o \textit{overfitting}. Em termos gerais, ao aplicar o \textit{dropout} estão sendo treinadas uma coleção de sub-redes dentro da rede original, o que pode promover a generalização do modelo \cite{regularizacao}.
     \begin{figure}[htpb]
         \centering
         \caption{Ilustração do \textit{Dropout} removendo 60\% das unidades aleatoriamente durante uma época de treinamento.}
@@ -473,7 +440,7 @@ A regularização \cite{regularizacao} é uma técnica utilizada para prevenir o
 
 \subsection{\textit{Momentum} e Adam}
 \label{adam}
-O \textit{Momentum} (Momento) \cite{momentum} é uma técnica utilizada para acelerar o processo de treinamento de redes neurais, especialmente em situações onde a função de custo apresenta regiões íngremes ou planas. A ideia principal do \textit{momentum} é acumular uma média ponderada dos gradientes anteriores para suavizar as atualizações dos pesos, permitindo que o modelo mantenha uma direção consistente durante o treinamento. Isso ajuda a evitar oscilações e acelera a convergência para o mínimo da função de custo. Dada uma função de custo $C(w, b)$ a ser minimizada, o \textit{momentum} clássico é definido por:
+O \textit{Momentum}, do português Momento, é uma técnica utilizada para acelerar o processo de treinamento de redes neurais, especialmente em situações onde a função de custo apresenta regiões íngremes ou planas \cite{momentum}. A ideia principal do \textit{momentum} é acumular uma média ponderada dos gradientes anteriores para suavizar as atualizações dos pesos, permitindo que o modelo mantenha uma direção consistente durante o treinamento. Isso ajuda a evitar oscilações e acelera a convergência para o mínimo da função de custo. Dada uma função de custo $C(w_t, b_t)$ a ser minimizada, o \textit{momentum} clássico é definido por:
 
 \begin{equation}
     \begin{cases}
@@ -481,25 +448,26 @@ O \textit{Momentum} (Momento) \cite{momentum} é uma técnica utilizada para ace
         \theta_{t+1} = \theta_t + v_{t+1},
     \end{cases}
 \end{equation}
-em que $\epsilon > 0$ é a taxa de aprendizagem, $\beta \in [0,1]$ é o coeficiente de \textit{momentum}, $v_t$ é a velocidade acumulada no tempo $t$, $\theta_t = (w_t, b_t)$ representa os parâmetros do modelo (pesos e vieses) no tempo $t$ e $\nabla C(w_t, b_t)$ é o gradiente da função de custo em relação aos parâmetros do modelo. O coeficiente de \textit{momentum} $\beta$ controla a influência dos gradientes anteriores nas atualizações atuais. \textit{Adaptive Moment Estimation - Adam} \cite{sebastianruder2016} é um método que calcula taxas de aprendizagem ($\eta$) adaptativas para cada parâmetro do modelo, combinando as vantagens do \textit{momentum} e do método de descida do gradiente. Atualmente, o Adam é um dos otimizadores mais populares para treinamento de redes neurais, devido à sua eficiência e capacidade de lidar com grandes conjuntos de dados e parâmetros.
+em que $\epsilon > 0$ é a taxa de aprendizagem, $\beta \in [0,1]$ é o coeficiente de \textit{momentum}, $v_t$ é a velocidade acumulada no tempo $t$, $\theta_t = (w_t, b_t)$ representa os parâmetros do modelo (pesos e vieses) no tempo $t$ e $\nabla C(w_t, b_t)$ é o gradiente da função de custo em relação aos parâmetros do modelo. O coeficiente de \textit{momentum} $\beta$ controla a influência dos gradientes anteriores nas atualizações atuais. \textit{Adaptive Moment Estimation - Adam}  é um método que calcula taxas de aprendizagem ($\eta$) adaptativas para cada parâmetro do modelo, em cada passo de atualização dos pesos durante o treinamento. O Adam combina as vantagens do \textit{momentum} e do método de descida do gradiente \cite{sebastianruder2016}. Atualmente, o Adam é um dos algoritmos de otimização mais populares para treinamento de redes neurais, devido à sua eficiência e capacidade de lidar com grandes conjuntos de dados e parâmetros.
 
 \subsection{\textit{Vanishing Gradient}}
 \label{sec:vanishing}
-O problema do \textit{vanishing gradient} (gradiente que desaparece)  ocorre durante o treinamento de redes neurais profundas, em que os gradientes calculados durante o processo de \textit{backpropagation} tornam-se extremamente pequenos à medida que são propagados para as camadas mais próximas da entrada. Isso acontece devido à multiplicação repetida de pequenas derivadas associadas às funções de ativação e aos pesos das camadas. Como resultado, os pesos das camadas iniciais da rede recebem atualizações insignificantes, dificultando o aprendizado efetivo dessas camadas. Como neste trabalho serão utilizadas redes neurais profundas, é importante entender o impacto do problema do \textit{vanishing gradient} e as técnicas para mitigá-lo.
+O problema do \textit{vanishing gradient}, do português gradiente que desaparece, ocorre durante o treinamento de redes neurais profundas, em que os gradientes calculados durante o processo de \textit{backpropagation} tornam-se extremamente pequenos à medida que são propagados para as camadas mais próximas da entrada. Isso acontece devido à multiplicação repetida de pequenas derivadas associadas às funções de ativação e aos pesos das camadas. Como resultado, os pesos das camadas iniciais da rede recebem atualizações insignificantes, dificultando o aprendizado efetivo dessas camadas. Como neste trabalho serão utilizadas redes neurais profundas, é importante entender o impacto do problema do \textit{vanishing gradient} e as técnicas para mitigá-lo.
 \begin{exemplo}
 \label{ex2}
-Considere uma rede neural profunda com várias camadas ocultas, em que cada camada utiliza a função de ativação sigmoid logística, definida como:
+Considere uma rede neural profunda com $N$ camadas ocultas, em que todas as unidades em cada camada utilizam a função de ativação sigmoid logística, definida como:
 \begin{equation}
     \sigma(z) = \frac{1}{1 + e^{-z}}.
 \end{equation}
+\end{exemplo}
 A derivada dessa função é dada por:
 \begin{equation}
-    \sigma'(z) = \sigma(z)(1 - \sigma(z)).
+    \sigma'(z) = \sigma(z)\cdot (1 - \sigma(z)).
 \end{equation}
 
 
-Durante o processo de backpropagation, o gradiente da função de custo em relação aos pesos das camadas iniciais é calculado utilizando a regra da cadeia. Isso envolve a multiplicação das derivadas das funções de ativação de cada camada, como mostra a equação (\ref{derivadas}). Como a derivada da função sigmoid é sempre menor que 0,25 (o valor máximo ocorre em $z=0$), a multiplicação repetida dessas pequenas derivadas resulta em gradientes que se tornam cada vez menores à medida que são propagados para trás através das camadas da rede. Por exemplo, se uma rede possui 10 camadas ocultas, o gradiente pode ser reduzido a um valor extremamente pequeno, como $10^{-6}$ ou menor, tornando as atualizações dos pesos nas camadas iniciais praticamente insignificantes.
-\end{exemplo}
+Durante o processo de backpropagation, o gradiente da função de custo em relação aos pesos das camadas iniciais é calculado utilizando a regra da cadeia. Isso envolve a multiplicação das derivadas das funções de ativação de cada camada, como mostra a equação (\ref{derivadas}). Como a derivada da função sigmoid é sempre menor que 0,25, o valor máximo ocorre em $z=0$, como mostrado na Figura \ref{sigmoide}. A multiplicação repetida dessas pequenas derivadas resulta em gradientes que se tornam cada vez menores à medida que são propagados para trás através das camadas da rede. Por exemplo, se uma rede possui 10 camadas ocultas, o gradiente pode ser reduzido a um valor extremamente pequeno, como $10^{-9}$ ou menor, tornando as atualizações dos pesos nas camadas iniciais praticamente insignificantes.
+
 \begin{figure}[htpb]
     \centering
     \caption{Gráfico da derivada da função sigmoid logística.}
@@ -509,25 +477,68 @@ Durante o processo de backpropagation, o gradiente da função de custo em rela�
 \end{figure}
 
 
-O problema do \textit{vanishing gradient} é particularmente comum em redes neurais recorrentes (RNNs) e em redes \textit{feedforward} profundas que utilizam funções de ativação como a sigmoid ou a tangente hiperbólica. Para contornar o problema do \textit{vanishing gradient}, várias técnicas podem ser empregadas, incluindo:
+O problema do \textit{vanishing gradient} é particularmente comum em redes neurais  que utilizam funções de ativação como a \textit{sigmoid} ou a tangente hiperbólica. Para contornar o problema do \textit{vanishing gradient}, várias técnicas podem ser empregadas, incluindo:
 \begin{itemize}
-    \item Funções de Ativação Alternativas: Funções de ativação como ReLU e suas variantes (Leaky ReLU, Parametric ReLU) têm derivadas constantes para valores positivos, o que ajuda a manter os gradientes maiores durante o \textit{backpropagation}.
-    \item \textit{Batch Normalization}: Normaliza as ativações de cada camada durante o treinamento, o que pode ajudar a estabilizar os gradientes e acelerar o processo de aprendizado.
+    \item Funções de Ativação Alternativas: Funções de ativação como a ReLU e suas variantes (Leaky ReLU, Parametric ReLU) têm derivadas constantes para valores positivos, o que ajuda a manter os gradientes maiores durante o \textit{backpropagation}.
+    \item \textit{Batch Normalization}: Normaliza as ativações de cada camada durante o treinamento, o que pode ajudar a estabilizar os gradientes e acelerar o processo de aprendizagem.
 \end{itemize}
 
-\subsection{Função de Perda \textit{Binary Cross-Entropy}}
+\subsection{Função de Custo \textit{Binary Cross-Entropy}}
 \label{BCE}
-O \textit{Vanishing Gradient} acontece principalmente em redes neurais profundas que utilizam funções de ativação como a \textit{sigmoid} ou a tangente hiperbólica, uma das formar de contornar esse problema é utilizando a função de perda \textit{Binary Cross-Entropy} (BCE) \cite{Elharrouss2025}, que é comumente utilizada em tarefas de classificação binária. A função de perda BCE é definida como:
+O \textit{Vanishing Gradient} acontece principalmente em redes neurais profundas que utilizam funções de ativação como a \textit{sigmoid}, uma das formas de contornar esse problema é utilizando a função de custo \textit{Binary Cross-Entropy} - BCE, que é comumente utilizada em tarefas de classificação binária \cite{Elharrouss2025}. A função de custo BCE é definida como:
 \begin{equation}
     \text{BCE}(y, \hat{y}) = -\frac{1}{n} \sum_{i=1}^{n} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right],
 \end{equation}
-em que $y_i$ é o valor de saída verdadeiro da $i$-ésima amostra (0 ou 1), $\hat{y}_i$ é a previsão da rede para a $i$-ésima amostra (probabilidade de pertencer à classe 1) e $n$ é o número total de amostras no conjunto de dados. A função de perda BCE é especialmente eficaz para lidar com o problema do \textit{vanishing gradient}, pois ela penaliza fortemente as previsões incorretas, o que pode ajudar a manter os gradientes maiores durante o processo de \textit{backpropagation}. 
+em que $y_i$ é o valor de saída verdadeiro da $i$-ésima amostra (0 ou 1), $\hat{y}_i$ é a previsão da rede para a $i$-ésima amostra (probabilidade de pertencer à classe 1) e $n$ é o número total de amostras no conjunto de dados. A função de custo BCE é especialmente eficaz para lidar com o problema do \textit{vanishing gradient}, pois ela penaliza fortemente as previsões incorretas, o que pode ajudar a manter os gradientes maiores durante o processo de \textit{backpropagation}. 
 
-\subsection{Exemplos}
+\subsection{Arquiteturas de Redes Neurais}
+Existem diversas arquiteturas de redes neurais, cada uma projetada para lidar com diferentes tipos de problemas e dados. Algumas das arquiteturas mais comuns incluem \cite{arquiteturas}:
+\label{sec:arquiteturas}
 \begin{itemize}
+    \item Redes Neurais \textit{Multi Layer Perceptron} (MLP): São redes neurais \textit{feedforward}, ou seja, a entrada passa por uma ou mais camadas ocultas até ser processada pela camada de saída. Cada unidade em uma camada oculta está conectada a todas as unidades na camada seguinte, e as informações fluem apenas em uma direção, da entrada para a saída. Após cada saída a rede ajusta os pesos utilizando o algoritmo de \textit{backpropagation}. MLPs são amplamente utilizadas para tarefas de classificação e regressão \cite{arquiteturas}.
+    
+    \item Redes Neurais Convolucionais (RNCs): São projetadas para processar dados com uma estrutura de grade, como imagens. Estas utilizam operações de convolução para extrair características espaciais dos dados de entrada. RNCs são amplamente utilizadas em tarefas de visão computacional, como reconhecimento de objetos e detecção de faces \cite{arquiteturas}. 
+    
+    \item Redes Neurais Recorrentes (RNNs): São projetadas para lidar com dados sequenciais, onde a saída em um determinado instante depende das entradas anteriores. RNNs possuem conexões recorrentes que permitem que informações sejam mantidas ao longo do tempo. Estas são amplamente utilizadas em tarefas como processamento de linguagem natural e reconhecimento de fala \cite{arquiteturas}.
+    
+    \item Redes Neurais Generativas Adversariais (GANs): Consistem em duas redes neurais que competem entre si: um gerador e um discriminador. O gerador cria dados sintéticos, enquanto o discriminador tenta distinguir entre dados reais e sintéticos. GANs são amplamente utilizadas para geração de imagens realistas e outras tarefas criativas \cite{arquiteturas}.
+    
+    \item \textit{Encoder-Decoder}: São arquiteturas que consistem em duas partes principais: o \textit{encoder}, que comprime os dados de entrada em uma representação latente, e o \textit{decoder}, que reconstrói os dados a partir dessa representação. Essas redes são amplamente utilizadas em tarefas como tradução automática e geração de texto \cite{arquiteturas}.
+\end{itemize}
+Também é possível combinar diferentes arquiteturas de redes neurais, como abordado na Seção \ref{sec:unet}. Na Figura \ref{fig1:ex} são ilustradas as arquiteturas de Redes Neurais.
+\begin{figure}[H]
+    \centering
+    \caption{Arquiteturas de Redes Neurais.}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/FNNs.png}
+        \caption{Redes Neurais \textit{Multi Layer Perceptron} (MLP).}
+    \end{subfigure}
+    \hspace{30mm}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/RNNs.png}
+        \caption{Redes Neurais Recorrentes (RNNs).}
 
+    \end{subfigure}
+    \hspace{30mm}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/EncDec.png}
+        \caption{\textit{Encoder-Decoder.}}
 
-    \item Dígitos Manuscritos: Para exemplicar o funcionamento de como uma rede neural faz o reconhecimento de imagens, considere a tarefa de classificação de dígitos manuscritos utilizando o conjunto de dados MNIST \cite{mnist}. O conjunto de dados MNIST consiste em $70.000$ imagens em escala de cinza de dígitos manuscritos (0 a 9), cada uma com uma resolução de $28\times28$ pixels, como mostra a Figura \ref{mnist}.  
+    \end{subfigure}
+
+    \caption*{\footnotesize Fonte: Elaboração do Autor.}
+    \label{fig1:ex}
+\end{figure}
+
+As Figuras \ref{fig1:ex}(a) e \ref{fig1:ex}(c) ilustram a arquitetura de uma rede neural \textit{multi layer perceptron}, com o funcionamento semelhante ao desenvolvido na equação (\ref{eq:redeNeuralGeral}). A Figura \ref{fig1:ex}(b) mostra a arquitetura de uma rede neural recorrente, estas redes possuem conexões recorrentes, ou seja, a saída de uma unidade é realimentada como entrada para a mesma unidade ou para unidades anteriores, permitindo que informações sejam mantidas ao longo do tempo, por não estar no escopo deste trabalho, não é abordado os detalhes matemáticos de funcionamento das RNNs.
+
+\subsection{Aplicação da Arquitetura MLP para Classificação de Dígitos Manuscritos}
+\label{sec:aplicacao_mlp}
+
+Para exemplicar o funcionamento de como uma rede neural faz o reconhecimento de imagens, considere a tarefa de classificação de dígitos manuscritos utilizando o conjunto de dados MNIST \cite{mnist}. O conjunto de dados MNIST consiste em $70.000$ imagens em escala de cinza de dígitos manuscritos (0 a 9), cada uma com uma resolução de $28\times28$ pixels, como mostra~a~Figura~\ref{mnist}.  
 
 \begin{figure}[htpb]
     \centering
@@ -537,11 +548,11 @@ em que $y_i$ é o valor de saída verdadeiro da $i$-ésima amostra (0 ou 1), $\h
     \label{mnist}
 \end{figure}
 
-Cada imagem é representada como uma matriz de $28\times28$, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). Para o reconhecimento dos digitos utilizou-se uma rede \textit{feedforward} e os métodos presentes nas Seções \ref{subsec:bacprop}, \ref{subsec:sgd}, \ref{regularizacao} e \ref{sec:vanishing} para o treinamento e otimização dos pesos.  Para compor a camada de entrada da rede neural, cada imagem é ``achatada" em um vetor de 784 elementos $(28\times28 = 784)$, onde cada elemento corresponde à intensidade de um pixel. O objetivo da rede neural \textit{feedforward} com camadas totalmente conectadas é aprender a classificar corretamente cada imagem em uma das 10 classes correspondentes aos dígitos de 0 a 9. Como a camada de saída da rede neural deve ter 10 unidades (um para cada classe), a arquitetura da rede pode ser definida como [784, 30, 9], onde a camada de entrada tem 784 unidades, a camada oculta tem 30 unidades (valor escolhido aleatóriamente) e a camada de saída tem 9 unidades, como mostra a Figura \ref{mnist_rede}. 
+Cada imagem é representada como uma matriz de $28\times28$, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco). Para o reconhecimento dos digitos utilizou-se uma rede \textit{feedforward} e os métodos presentes nas Seções \ref{subsec:bacprop}, \ref{subsec:sgd}, \ref{regularizacao} e \ref{sec:vanishing} para o treinamento e otimização dos pesos.  Para compor a camada de entrada da rede neural, cada imagem é ``achatada" em um vetor de 784 elementos $(28\times28 = 784)$, onde cada elemento corresponde à intensidade de um pixel. O objetivo da rede neural \textit{feedforward} com camadas totalmente conectadas é aprender a classificar corretamente cada imagem em uma das 10 classes correspondentes aos dígitos de 0 a 9. Como a camada de saída da rede neural deve ter 10 unidades (um para cada classe), a arquitetura da rede pode ser definida como [784, 30, 10], onde a camada de entrada tem 784 unidades, a camada oculta tem 30 unidades (valor escolhido aleatóriamente) e a camada de saída tem 10 unidades, como mostra a Figura \ref{mnist_rede}. 
 
 \begin{figure}[htpb]
     \centering
-    \caption{Arquitetura da rede neural para classificação de dígitos manuscritos. Inicialmente, é enviado o número de pixels da imagem (784) para a camada de entrada (unidade $x_{784} = 0,4$ intensidade do pixel), que é processada por uma camada oculta com 30 unidades, e a camada de saída tem 9 unidades, correspondendo às 10 classes de dígitos (0 a 9).}
+    \caption{Arquitetura da rede neural para classificação de dígitos manuscritos. Inicialmente, é enviado o número de pixels da imagem (784) para a camada de entrada (unidade $x_{784} = 0,4$ intensidade do pixel), que é processada por uma camada oculta com 30 unidades, e a camada de saída tem 10 unidades, correspondendo às 10 classes de dígitos (0 a 9).}
     \includegraphics[width=0.7\linewidth]{MNIST.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{mnist_rede}
@@ -549,7 +560,7 @@ Cada imagem é representada como uma matriz de $28\times28$, em que cada pixel t
 
 
 
-A função de ativação utilizada é a função sigmoid logística vista na equação (\ref{eq:sigmoid}), que é comumente usada em tarefas de classificação. A saída da rede é um vetor de $10$ elementos, em que cada elemento representa a probabilidade da imagem pertencer a uma das classes de dígitos. A classe com a maior probabilidade é escolhida como a previsão da rede para a imagem de entrada (para a Figura \ref{mnist_rede} a resposta da rede é $5$, que foi a unidade com a maior probabilidade). ]
+A função de ativação utilizada é a função sigmoid logística vista na equação (\ref{eq:sigmoid}), que é comumente usada em tarefas de classificação. A saída da rede é um vetor de $10$ elementos, em que cada elemento representa a probabilidade da imagem pertencer a uma das classes de dígitos. A classe com a maior probabilidade é escolhida como a previsão da rede para a imagem de entrada (para a Figura \ref{mnist_rede} a resposta da rede é $5$, que foi a unidade com a maior probabilidade). 
 
 % Outra forma de interpretar a saída da rede é utilizando a Função Limiar (Equação \ref{funcaoLimiar}) e quatro neurônios na camada de saída, em que cada neurônio representaria um valor binário ($0$ ou $1$), então caso a rede recebesse o dígito $9$ e sua respota fosse correta, a saída seria $1001$ que é nove em binário. O problema de treinar uma rede neural com essa arquitetura é que ela estaria mais sucetível a erro, pois errando qualquer uma das quatro saídas, a resposta seria incorreta, enquanto utilizando a função sigmoid logística, mesmo que a rede errasse a previsão da classe correta, ela poderia ainda assim atribuir uma probabilidade alta para a classe correta, o que é mais tolerante a erros.
 
@@ -570,7 +581,8 @@ A Figura \ref{fluxo} mostra o fluxo de dados durante o processo de treinamento e
 
 Com as configurações mencionadas, a rede neural alcançou uma acurácia de aproximadamente 95\% no conjunto de teste, o que indica que esta foi capaz de aprender a classificar corretamente a maioria das imagens de dígitos manuscritos.
 
-\item Reconstrução de uma Figura Geométrica: Pode-se usar redes neurais para reconstruir malhas geométricas \cite{Sena2024}. Neste caso, utilizou-se uma rede \textit{Multi layer perceptron} (MLP) com duas unidades na camada de entrada, dez neurônios na camada oculta e um neurônio na camada de saída, para aproximar o gráfico do parapoloide hiperbólico $z = x^2 - y^2$. A rede é treinada utilizando o algoritmo de \textit{backpropagation} e o Gradiente Descendente Estocástico, com uma taxa de aprendizagem de $0,01$ e a normalização $L2$ visto na equação (\ref{eq:l2}). O treinamento é realizado para 1000 épocas com todos os neurônios tendo função de ativação sigmoide logística . Os dados considerados são nós de uma malha cartesiana uniforme $x,y \in [-1,1]$, divididos em duzentas partes  com $z =~x^2 -~y^2$. São considerados $20\%$ para os \textit{dados de teste} e $80\%$ para os \textit{dados de treino}, retirando os pontos pertencentes à bola fechada de centro $0$ e raio $0,5$, ou seja, é construído um corte no paraboloide hiperbólico. Como resposta, a rede fornece o valor de $z \approx x^2 - y^2$.
+\subsection{Aplicação da Arquitetura MLP Para Reconstrução de Figura Geométrica}
+Pode-se usar redes neurais para reconstruir malhas geométricas \cite{Sena2024}. Neste caso, utilizou-se uma rede \textit{Multi layer perceptron} (MLP) com duas unidades na camada de entrada, dez neurônios na camada oculta e um neurônio na camada de saída, para aproximar o gráfico do parapoloide hiperbólico $z = x^2 - y^2$. A rede é treinada utilizando o algoritmo de \textit{backpropagation} e o Gradiente Descendente Estocástico, com uma taxa de aprendizagem de $0,01$ e a normalização $L2$ visto na equação (\ref{eq:l2}). O treinamento é realizado para 1000 épocas com todos os neurônios tendo função de ativação sigmoide logística . Os dados considerados são nós de uma malha cartesiana uniforme $x,y \in [-1,1]$, divididos em duzentas partes  com $z =~x^2 -~y^2$. São considerados $20\%$ para os \textit{dados de teste} e $80\%$ para os \textit{dados de treino}, retirando os pontos pertencentes à bola fechada de centro $0$ e raio $0,5$, ou seja, é construído um corte no paraboloide hiperbólico. Como resposta, a rede fornece o valor de $z \approx x^2 - y^2$.
 
 A Figura \ref{img1}(a) apresenta os dados utilizados no treinamento, enquanto a Figura \ref{img1}(b) mostra os valores reconstruídos pela rede. A abordagem proposta obteve uma acurácia de $93\%$ na reconstrução do paraboloide. O cálculo da acurácia foi realizado a partir dos dados de teste, considerando a condição $|\hat{y} - y| \leq 0,01$, em que $\hat{y}$ representa a resposta fornecida pela rede e $y$ a solução analítica.
 
@@ -613,7 +625,6 @@ Como toda aproximação, existe um erro entre a forma analítica e a aproximada 
     \label{img2}
 \end{figure}
 
-\end{itemize}
 
 
 
@@ -908,7 +919,7 @@ O \textit{pooling} (em tradução livre, \textit{agrupamento}) é uma operação
 
 \begin{figure}[htpb]
     \centering
-    \caption{Exemplo de Max \textit{pooling} com tamanho de 2x2. A imagem original é reduzida para a imagem menor após a aplicação do Max \textit{pooling}. Cada bloco de 2x2 pixels na imagem original é substituído pelo valor máximo dentro desse bloco na imagem reduzida.}
+    \caption{Exemplo de Max \textit{pooling} com dimensões $2\times 2$. A imagem original é reduzida para a imagem menor após a aplicação do Max \textit{pooling}. Cada bloco de $2\times 2$ pixels na imagem original é substituído pelo valor máximo dentro desse bloco na imagem reduzida.}
     \includegraphics[width=0.5\linewidth]{pooling.png}
     \caption*{\footnotesize Fonte: Adaptado de \cite{medium}.}
     \label{pooling}
@@ -994,8 +1005,8 @@ Na Figura \ref{fig:conTrans} é exemplificada a operação de convolução trans
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{fig:conTrans}
 \end{figure}
-A cor (por exemplo, azul claro) na imagem de entrada representa a posição do pixel e quais casas ele influencia na operação de convolução transposta.  
+As cores (por exemplo, azul claro) na imagem de entrada representam a posição do pixel e quais casas ele influencia na operação de convolução transposta.  
 
-
+Com isso, é encerrado o capítulo de redes neurais, começando com a definição de unidade artificial e terminando com a definição de convolução e suas variações. No próximo capítulo, será introduzida a teoria dos conjuntos fuzzy, que é utilizada para o desenvolvimento da rede U-Net Fuzzy.
 
 % \subsection{\texiti{Intersection over Union} IOU}

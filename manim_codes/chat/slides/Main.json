@@ -1,0 +1,65 @@
+{
+  "slides": [
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/Main/b0e02e0ecba08e2c2d537394d781bf349a5ce9ca0a9ffb5b3a990ecc5d8a1005.mp4",
+      "rev_file": "slides/files/Main/b0e02e0ecba08e2c2d537394d781bf349a5ce9ca0a9ffb5b3a990ecc5d8a1005_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/Main/b9575ac3258c83950b3a8f390f41c8e8513cdd513b825cfda2f2e0d30d5a634a.mp4",
+      "rev_file": "slides/files/Main/b9575ac3258c83950b3a8f390f41c8e8513cdd513b825cfda2f2e0d30d5a634a_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/Main/cc1a0cd4b8861a2c7855e4ce58cc72f9c06ceff9d72bfc1d75aa1990ba3cb74e.mp4",
+      "rev_file": "slides/files/Main/cc1a0cd4b8861a2c7855e4ce58cc72f9c06ceff9d72bfc1d75aa1990ba3cb74e_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/Main/4de70e8439c9072612be5473e676408a960fa3688375726e34170add23cade83.mp4",
+      "rev_file": "slides/files/Main/4de70e8439c9072612be5473e676408a960fa3688375726e34170add23cade83_reversed.mp4"
+    }
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "white"
+}

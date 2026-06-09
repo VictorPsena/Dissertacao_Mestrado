@@ -1,25 +1,27 @@
 % !TeX root = ../main.tex
-
+O processo para desenvolver uma rede neural envolve vários desafios, desde a obtenção de um conjunto de dados adequado, passando pelo pré-processamento das imagens, configuração dos modelos e avaliação dos resultados. Neste capítulo, são descritos os procedimentos adotados para cada uma dessas etapas, bem como os resultados obtidos e as análises realizadas.
 \section{Base de Dados e Planejamento Experimental}
-Para que os modelos propostos possam ser avaliados, é necessário um conjunto de dados que permita a comparação entre as arquiteturas. Esta seção apresenta o banco de dados utilizado, o processo de pré-processamento das imagens, a configuração dos modelos comparados e as métricas adotadas para a avaliação do desempenho dos modelos.
+Para que os modelos propostos possam ser avaliados, é necessário um conjunto de dados que permita a comparação entre as arquiteturas. Esta Seção apresenta o banco de dados utilizado, o processo de pré-processamento das imagens, a configuração dos modelos comparados e as métricas adotadas para a avaliação do desempenho dos modelos.
 \subsection{Contexto do Problema e Medidas Avaliadas}
 
-A raça Nelore é originária da Índia, onde seus ancestrais, os bovinos da raças Ongole, eram criados há milênios por sua rusticidade, resistência a climas tropicais e capacidade de adaptação a ambientes variádos, esses animais foram trazidos ao Brasil no final do século XIX, em um momento de expansão da pecuária nacional \cite{hist_nelore}. A raça Caracu, por sua vez, tem origem na região da Península Ibérica,chegando no Brasil  logo após o descobrimento, os animais da raça Caracu são extremamente funcionais, com alta adaptabilidade e rusticidade, além de serem resistentes a doenças e parasitas \cite{hist_caracu}. O Brasil é um dos maiores criadores mundiais de bovinos da raça Nelore, com uma população estimada em mais de 230 milhões de cabeças \cite{embrapa1}, enquanto a raça Caracu é menos numerosa, mas ainda assim desempenha um papel importante na pecuária brasileira. 
+A raça Nelore é originária da Índia, onde seus ancestrais, os bovinos da raças Ongole, eram criados há milênios por sua rusticidade, resistência a climas tropicais e capacidade de adaptação a ambientes variádos, esses animais foram trazidos ao Brasil no final do século XIX, em um momento de expansão da pecuária nacional \cite{hist_nelore}. A raça Caracu, por sua vez, tem origem na região da Península Ibérica,chegando no Brasil  logo após o descobrimento, os animais da raça Caracu são extremamente funcionais, com alta adaptabilidade e rusticidade, além de serem resistentes a doenças e parasitas \cite{hist_caracu}. O Brasil é um dos maiores criadores mundiais de bovinos da raça Nelore, com uma população estimada em mais de 230 milhões de cabeças, enquanto a raça Caracu é menos numerosa, mas ainda assim desempenha um papel importante na pecuária brasileira \cite{embrapa1}. 
 
 
 Uma das principais formas de avaliar o desenvolvimento e a qualidade fenótipa dos animais é por meio da análise de imagens de ultrassonografia em que é possível obter informações da carcaça do animal. Entre os recursos e metodologias existentes para avaliação de carcaças e de características associadas à qualidade da carne, a ultrassonografia se destaca. A avaliação é de extrema importância pois existe uma variabilidade nas características que estão relacionadas com a qualidade de desossa, que por sua vez influenciam a comercialização e os resultados econômicos dos produtores \cite{cap3:nelore_caracu}.
 
-Dependedo da região do corpo do animal onde a imagem de ultrassom é obtida, é possível extrair diferentes informações, neste trabalho serão utilizadas imagens de ultrassom da região do olho de lombo, que localiza-se entre a 12ª e 13ª costela \cite{cap3:carcaça} e da Garupa, como mostra a Figura \ref{fig:regiao_ol}. 
+Dependedo da região do corpo do animal onde a imagem de ultrassom é obtida, é possível extrair diferentes informações, neste trabalho serão utilizadas imagens de ultrassom da região do músculo \textit{Longuissimus Dorsi} (Contra-filé), que localiza-se entre a 12ª e 13ª costela e da Garupa \cite{cap3:carcaça}. Na figura Figura \ref{fig:regiao_ol} é mostrada a localização dessas regiões no corpo do animal.
 
 \begin{figure}[H]
     \centering
-    \caption{Região do olho de lombo (em amarelo), localizada entre a 12ª e 13ª costela e da garupa (em azul).}
+    \caption{Região do músculo \textit{Longuissimus Dorsi} (em amarelo) e da garupa (em azul).}
     \includegraphics[width=0.5\textwidth]{figures/olho_lombo.png}
-    \caption*{Fonte: Adaptado de \cite{cap3:carcaça}.}
+    \caption*{Fonte: Adaptado de \citeonline{cap3:carcaça}.}
     \label{fig:regiao_ol}
 \end{figure}
 
-Na região de olho do lombo é possível obter informações de dois indicadores importantes para a avaliação da carcaça, a Área de Olho de Lombo (AOL) e a Espessura de Gordura subcutânea no Lombo (EGL). Na Garupa é possível obter a informação da Espessura de Gordura subcutânea na Garupa (EGG). As imagens de ultrassom foram obtidas por meio do aparelho de ultrassom Aloka SSD-500 \cite{AlokaSSD5001990}, com todos os animais sendo machos por volta de um ano de idade, localizados no Centro Avançado de Pesquisa e Desenvolvimento de Bovinos de Corte, Instituto de Zootecnia, SAA-SA, Sertãozinho - SP. A Figura \ref{fig1:OL}(a) mostra a imagem do especialista obtendo a imagem de ultrassom da região do olho de lombo, já a Figura \ref{fig1:OL}(b) mostra a imagem de ultrassom, a Figura \ref{fig1:OL}(c) mostra a imagem de ultrassom da garupa e a Figura \ref{fig1:OL}(d) mostra o especialista obtendo a imagem de ultrassom da garupa.
+Na região de olho do lombo é possível obter informações de dois indicadores para a avaliação da carcaça, a Área de Olho de Lombo (AOL) e a Espessura de Gordura subcutânea no Lombo (EGL). Na Garupa é possível obter a informação da Espessura de Gordura subcutânea na Garupa (EGG). 
+
+As imagens de ultrassom utilizadas foram obtidas por meio do aparelho de ultrassom Aloka SSD-500 \cite{AlokaSSD5001990}, com todos os animais sendo machos por volta de um ano de idade, localizados no Centro Avançado de Pesquisa e Desenvolvimento de Bovinos de Corte, Instituto de Zootecnia, SAA-SA, Sertãozinho - SP. Na Figura \ref{fig1:OL}(a) é mostrada a imagem do especialista obtendo a imagem de ultrassom da região do olho de lombo, na Figura \ref{fig1:OL}(b) é mostrada a imagem de ultrassom, na Figura \ref{fig1:OL}(c) mostra a imagem de ultrassom da garupa e na Figura \ref{fig1:OL}(d) é mostrada a imagem do especialista obtendo a imagem de ultrassom da garupa.
 
 \textcolor{red}{esperando elas mandarem as imagens}
 \begin{figure}[H]
@@ -44,26 +46,29 @@ Na região de olho do lombo é possível obter informações de dois indicadores
         \includegraphics[width=\textwidth]{figures/cap3/EGG.jpg}
         \caption{Especialista obtendo a imagem de ultrassom da garupa.}
     \end{subfigure}
-     \caption*{Fonte: Elaboração do Autor.}
+     \caption*{Fonte: Elaborado pelo Autor.}
      \label{fig1:OL}
 \end{figure}
 
-A área de olho de lombo é um indicador que representa a área da seção transversal do músculo  \textit{Longissimus dorsi} (Contrafilé), medida em centímetro quadrados entre a 12ª e 13ª costela. Uma maior área é preferível pelos produtores. Do ponto de vista produtivo, pode-se afirmar que animais com valores de AOL superiores a $75$ cm$^2$, ao abate, apresentam elevados rendimentos de cortes cárneos na indústria figorífica \cite{cap3:medidaAol}. Na Figura \ref{cap3:AOL} é mostrada a demarcação manual da área feita utilizando o aplicativo de manipulação e edição de imagens \textit{ImageJ} \cite{ImageJ} em que a região interna a demarção amarela é a AOL.
+A área de olho de lombo é um indicador que representa a área da seção transversal do músculo  \textit{Longissimus Dorsi}, medida em centímetro quadrados. Uma maior área é preferível pelos produtores. Do ponto de vista produtivo, pode-se afirmar que animais com valores de AOL superiores a $75$ cm$^2$, ao abate, apresentam elevados rendimentos de cortes cárneos na indústria figorífica \cite{cap3:medidaAol}. Na Figura \ref{cap3:AOL} é mostrada a demarcação manual da área feita utilizando o aplicativo de manipulação e edição de imagens \textit{ImageJ} em que a região interna a demarção amarela é a AOL \cite{ImageJ}.
+
+\textcolor{red}{trocar a imagem}
+
 \begin{figure}[H]
     \centering
     \caption{Demarcação manual da Área de Olho de Lombo (AOL) utilizando o aplicativo \textit{ImageJ}.}
-    \includegraphics[width=0.7\textwidth]{figures/AOL.png}
-    \caption*{Fonte: Elaboração do Autor.}
+    \includegraphics[width=0.7\textwidth]{figures/cap3/AOL.png}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:AOL}
 \end{figure}
 
-A espessura de gordura subcutânea no lombo (EGL) é um indicador que representa a espessura da camada de gordura sobre o músculo \textit{Longissimus dorsi},  sendo sua espessura (EGL) medida, em milímetros, a $3/4$ da distância medial do músculo. Esta gordura de cobertura é extremamente importante para a proteção da carcaça contra a rápida e intensa queda de temperatura nas câmaras frias, que pode provocar o endurecimento (perda em maciez de até 5 vezes) e o escurecimento da carne em carcaças pobres em acabamento \cite{cap3:medidaAol}. A EGL apresenta características antagônicas à AOL, ou seja, animais com maior deposição de gordura implicará em uma menor proporção de AOL na carcaça e menor peso ao abate \cite{cap3:medidaAol}. Na Figura \ref{cap3:EGL} é mostrada a demarcação manual feita no aplicativo \textit{ImageJ} em que a linha vermelha representa a demarcação da EGL. 
+A espessura de gordura subcutânea no lombo (EGL) é um indicador que representa a espessura da camada de gordura sobre o músculo \textit{Longissimus Dorsi},  sendo sua espessura (EGL) medida, em milímetros, a $3/4$ da distância medial do músculo. Esta gordura de cobertura é extremamente importante para a proteção da carcaça contra a rápida e intensa queda de temperatura nas câmaras frias, que pode provocar o endurecimento (perda em maciez de até 5 vezes) e o escurecimento da carne em carcaças pobres em acabamento \cite{cap3:medidaAol}. A EGL apresenta características antagônicas à AOL, ou seja, animais com maior deposição de gordura implicará em uma menor proporção de AOL na carcaça e menor peso ao abate \cite{cap3:medidaAol}. Na Figura \ref{cap3:EGL} é mostrada a demarcação manual feita no aplicativo \textit{ImageJ} em que a linha vermelha representa a demarcação da EGL. 
 
 \begin{figure}[H]
     \centering
     \caption{Demarcação manual da Espessura de Gordura subcutânea no Lombo (EGL) utilizando o aplicativo \textit{ImageJ}.}
     \includegraphics[width=1\textwidth]{figures/introducao/EGL.png}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:EGL}
 \end{figure}
 
@@ -71,9 +76,9 @@ A espessura de gordura subcutânea na garupa (EGG) é um indicador que represent
 
 \begin{figure}[htpb]
    \centering
-   \caption{Demarcação manual da Espessura de Gordura subcutânea na Garupa (EGG) utilizando o aplicativo \textit{ImageJ}.}
+   \caption{Demarcação manual da Espessura de Gordura subcutânea na Garupa.}
    \includegraphics[width=1\textwidth]{figures/cap3/medidaEGG.png}
-   \caption*{Fonte: Elaboração do Autor.}
+   \caption*{Fonte: Elaborado pelo Autor.}
    \label{cap3:EGG}
 \end{figure}
 A linha vertical amarela representa a demarcação da EGG. 
@@ -85,22 +90,22 @@ O total de imagens enviadas pelo Centro Avançado de Pesquisa e Desenvolvimento 
 
 \subsection{Pré-processamento e Máscaras de Segmentação}
 
-As imagens foram divididas em conjuntos de treinamento (70\%), validação (20\%) e teste (10\%). A biblioteca do Python, \textit{label studio} \cite{LabelStudioSite}, foi utilizada para criar o \textit{Ground Truth} para as regiões correspondentes à AOL, EGL e EGG com base nas delimitações das regiões feitas pela especialista, sendo estas utilizadas como ``rótulos", ou seja, cada imagem do banco de dados tinha um \textit{ground truth} correspondente. Devido a pequena quantidade de imagens para o treinamento de um modelo de aprendizado profundo, foi necessário aplicar um processo de aumento de dados, do inglês \textit{data augmentation}, para ampliar o conjunto de imagens utilizado no treinamento. Além disso, foi realizado um recorte nas imagens para remover informações irrelevantes, que poderiam introduzir vieses no treinamento e comprometer o desempenho dos modelos. O processo de aumento de dados incluiu as seguintes transformações:
+As imagens foram divididas em conjuntos de treinamento (70\%), validação (20\%) e teste (10\%). A biblioteca do Python, \textit{label studio} \cite{LabelStudioSite}, foi utilizada para criar o \textit{ground truth} para as regiões correspondentes à AOL, EGL e EGG com base nas delimitações das regiões feitas pela especialista, sendo estas utilizadas como ``rótulos", ou seja, cada imagem do banco de dados tinha um \textit{ground truth} correspondente. Devido a pequena quantidade de imagens para o treinamento de um modelo de aprendizado profundo, foi necessário aplicar um processo de aumento de dados, do inglês \textit{data augmentation}, para ampliar o conjunto de imagens utilizado no treinamento. Além disso, foi realizado um recorte nas imagens para remover informações irrelevantes, que poderiam introduzir vieses no treinamento e comprometer o desempenho dos modelos. O processo de aumento de dados incluiu as seguintes transformações:
 \begin{itemize}
     \item Rotação: As imagens foram rotacionadas em ângulos aleatórios dentro do intervalo de $[-15^\circ, 15^\circ]$ para criar variações na orientação das imagens.
     \item Aumento e redução de brilho: As imagens foram aumentadas e reduzidas em brilho para simular diferentes condições de iluminação.
 \end{itemize}
-Todas as modificações feitas foram realizadas observando as características das imagens de ultrassom presentes no banco de dados. Como cada imagem foi modificada tres vezes, o processo de aumento de dados resultou em um total de $372$ imagens para o treinamento do modelo (adicionando também as imagens originais). Após o aumento de dados, as imagens foram normalizadas, com os valores dos pixels ajustados para o intervalo $[0, 1]$, e redimensionadas para um tamanho fixo de $256 \times 256$\footnote{As imagens após o corte inicial tinham dimensões de 333x403, a escolha de 256x256 foi feita para que a imagem não fosse muito expandida (aumento de pixels) e que não perdesse muita resolução (diminuição de pixels). Outros testes foram feitos para resolusões diferentes que resultaram em um desempenho inferior.} pixels.  Na Figura \ref{cap3:preprocessamento} é mostrado o processo de pré-processamento de uma imagem.
+Todas as modificações feitas foram realizadas observando as características das imagens de ultrassom presentes no banco de dados. Como cada imagem foi modificada tres vezes, o processo de aumento de dados resultou em um total de $372$ imagens para o treinamento do modelo (adicionando também as imagens originais). Após o aumento de dados, as imagens foram normalizadas, com os valores dos pixels ajustados para o intervalo $[0, 1]$, e redimensionadas para um tamanho fixo de $256 \times 256$ pixels. As imagens após o corte inicial tinham dimensões de $333 \times 403$, a escolha de $256 \times 256$ foi feita para que a imagem não fosse muito expandida (aumento de pixels) e que não perdesse muita resolução (diminuição de pixels). Outros testes foram feitos para resolusões diferentes que resultaram em um desempenho inferior. Na Figura \ref{cap3:preprocessamento} é mostrado o processo de pré-processamento de uma imagem.
 \begin{figure}[H]
     \centering
     \caption{Exemplo do processo de pré-processamento das imagens de ultrassom.}
     \includegraphics[width=0.6\linewidth]{figures/cap3/augmentation.png}  
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:preprocessamento}  
 \end{figure}
 Na Figura \ref{cap3:preprocessamento} uma imagem é pré-processada e o \textit{ground truth} correspondente à medida de AOL da imagem original é adicionado a nova imagem criada. Observa-se que a imagem rotacionada mantém consistência com o \textit{ground truth}, ou seja, o \textit{ground truth} acompanha corretamente a rotação da imagem.
 
-Cada medida extraída nas imagens de ultrassom (AOL, EGL e EGG) são números reais. Uma ideia inicial foi desenvolver uma CNN (\ref{redesConvolucionais}) que recebia como entrada as imagens de ultrassom e retornava como saída os valores numéricos correspondentes à AOL, EGL e EGG, ou seja, uma rede de regressão. No entanto, devido à quantidade baixa de imagens disponíveis para o treinamento do modelo e a relação dos dados não linear, foi necessário realizar uma adaptação na abordagem inicial. Em vez de treinar uma CNN para prever os valores numéricos das medidas, optou-se, após análise literária, por criar \textit{ground truth} para cada indicador (AOL, EGL e EGG) a partir das imagens de ultrassom  \cite{JadersonMelo2022UNetpp}. Com isso, os modelos recebem como entradas durante o treinamento, uma imagem de ultrassom junto com seu respectivo \textit{ground truth} e retornam como saída uma máscara de segmentação..
+Cada medida extraída nas imagens de ultrassom (AOL, EGL e EGG) são números reais. Uma ideia inicial foi desenvolver uma CNN (\ref{redesConvolucionais}) que recebia como entrada as imagens de ultrassom e retornava como saída os valores numéricos correspondentes à AOL, EGL e EGG, ou seja, uma rede de regressão. No entanto, devido à quantidade baixa de imagens disponíveis para o treinamento do modelo, foi necessário realizar uma adaptação na abordagem inicial. Em vez de treinar uma CNN para prever os valores numéricos das medidas, optou-se, após análise literária, por criar \textit{ground truth} para cada indicador (AOL, EGL e EGG) a partir das imagens de ultrassom  \cite{JadersonMelo2022UNetpp}. Com isso, os modelos recebem como entradas durante o treinamento, uma imagem de ultrassom junto com seu respectivo \textit{ground truth} e retornam como saída uma máscara de segmentação..
 
 Para construir o \textit{ground truth} da EGL, foi necessário demarcar toda a camada de gordura a partir da qual esse indicador é obtido. De modo análogo, para o EGG, foi preciso demarcar tanto a região de gordura quanto a região do músculo \textit{Biceps Femoris}, gerando dois \textit{ground truths} distintos: um correspondente à gordura e outro ao músculo, já que o indicador é obtido a partir da espessura da camada de gordura precisamente localizada no início do músculo. Na Figura \ref{cap3:mascaras} é mostrado um exemplo das máscaras de segmentação criadas para as imagens de ultrassom.
 \begin{figure}[htpb]
@@ -115,7 +120,7 @@ Para construir o \textit{ground truth} da EGL, foi necessário demarcar toda a c
         \includegraphics[width=\textwidth]{figures/cap3/mascaras2.png}
         \caption{Segmentação da EGG na região da garupa.}
     \end{subfigure}
-     \caption*{Fonte: Elaboração do Autor.}
+     \caption*{Fonte: Elaborado pelo Autor.}
      \label{cap3:mascaras}
 \end{figure}
 
@@ -126,7 +131,7 @@ Cada imagem de animal presente no banco de dados vinha com um número de indenti
 
 \section{Configuração dos Modelos}
 
-Esta seção descreve os procedimentos adotados para a comparação experimental entre os modelos propostos. Como os fundamentos teóricos, as arquiteturas e a formulação matemática das métricas já foram apresentados no Capítulo 3, o foco desta seção recai sobre os modelos comparados, a configuração de treinamento, as métricas utilizadas na avaliação e o ambiente computacional empregado nos experimentos.
+Esta seção descreve os procedimentos adotados para a comparação experimental entre os modelos propostos.
 
 \subsection{Modelos Comparados}
 
@@ -137,7 +142,7 @@ A comparação foi realizada separadamente para cada um dos indicadores avaliado
 \begin{table}[H]
     \centering
     \caption{Quantidade de modelos desenvolvidos para cada medida.}
-    \begin{tabular}{|l|c|c|}
+    \begin{tabular}{lcc}
         \hline
         \textbf{Tarefa de segmentação} & \textbf{U-Net multitarefa} & \textbf{U-Net Fuzzy} \\
         \hline
@@ -152,7 +157,7 @@ A comparação foi realizada separadamente para cada um dos indicadores avaliado
         Total & 4 & 4 \\
         \hline
     \end{tabular}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{tab:modelos_comparados}
 \end{table}
 
@@ -161,14 +166,18 @@ Após o treinamento, a saída de cada modelo é uma máscara de segmentação e 
 
 Todos os modelos foram treinados a partir das imagens previamente recortadas, normalizadas no intervalo $[0,1]$ e redimensionadas para $256 \times 256$ pixels. As imagens destinadas ao treinamento foram submetidas ao processo de aumento de dados descrito anteriormente, com o objetivo de ampliar a variabilidade do conjunto amostral e reduzir o risco de \textit{overfitting}.
 
-A configuração de treinamento foi mantida, em sua maior parte, idêntica para as duas arquiteturas, a fim de tornar a comparação entre os modelos mais consistente. Em ambos os casos, foi utilizado o otimizador Adam, com taxa de aprendizado inicial de $0{,}001$, tamanho de lote igual a $4$, número máximo de $100$ épocas e função de custo \textit{Binary Cross-Entropy}. Além disso, foram empregadas camadas de \textit{Dropout} com taxa de $0{,}2$ e o critério de \textit{EarlyStopping}, definido em 15 épocas, com base no desempenho do coeficiente Dice no conjunto de validação, ou seja, caso o coeficiênte não melhore em 15 épocas, o treinamento é interrompido e são salvos os melhores pesos do modelo.
+A configuração de treinamento foi mantida, em sua maior parte, idêntica para as duas arquiteturas, a fim de tornar a comparação entre os modelos mais consistente. Em ambos os casos, foi utilizado o otimizador Adam, Seção \ref{adam}, com taxa de aprendizado inicial de $0{,}001$, tamanho de lote igual a $4$, número máximo de $100$ épocas e função de custo \textit{Binary Cross-Entropy}\ Seção \ref{BCE}. Além disso, foram empregadas camadas de \textit{Dropout} com taxa de $0{,}2$, Seção \ref{dropout} e o critério de \textit{EarlyStopping}, Seção \ref{earlystopping}, definido em 15 épocas, ou seja, com base no desempenho do coeficiente Dice,
 
-Para a U-Net Fuzzy, além dessas configurações comuns, foram definidos $3$ conjuntos fuzzy para a variável de entrada do módulo de inferência e $9$ regras fuzzy, considerando as combinações possíveis entre os conjuntos. Para reduzir o efeito da aleatoriedade inerente ao processo de treinamento, cada modelo foi treinado quatro vezes, sendo os resultados apresentados na próxima seção uma média dos valores obtidos.
+\textcolor{red}{explicar melhor o que é convergência}
+
+equação (\ref{eq:dice}), no conjunto de validação, ou seja, caso o coeficiênte não melhore em 15 épocas, o treinamento é interrompido e são salvos os melhores pesos do modelo.
+
+Para a U-Net Fuzzy, além dessas configurações comuns, foram definidos $3$ conjuntos fuzzy para a variável de entrada do módulo de fuzzy e $9$ regras, considerando as combinações possíveis entre os conjuntos. Para reduzir o efeito da aleatoriedade inerente ao processo de treinamento, cada modelo foi treinado quatro vezes, sendo os resultados apresentados na próxima seção uma média dos valores obtidos.
 
 \begin{table}[H]
     \centering
     \caption{Resumo da configuração de treinamento adotada nos experimentos.}
-    \begin{tabular}{|l|l|}
+    \begin{tabular}{ll}
         \hline
         \textbf{Parâmetro} & \textbf{Valor} \\
         \hline
@@ -197,7 +206,7 @@ Para a U-Net Fuzzy, além dessas configurações comuns, foram definidos $3$ con
         Regras fuzzy & $9$ \\
         \hline
     \end{tabular}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{tab:config_treinamento}
 \end{table}
 
@@ -211,7 +220,7 @@ No contexto da mensuração dos indicadores, foram utilizadas a reta de regress�
 
 \subsection{Ambiente Computacional}
 
-Os experimentos foram conduzidos em um notebook Asus TUF \textit{Gaming} F15, equipado com processador Intel Core i7-12700H, $8$ GB de memória RAM, unidade SSD de $512$ GB e placa de vídeo NVIDIA GeForce RTX 3050 Mobile com $4$ GB de memória dedicada. O sistema operacional utilizado foi o Linux Mint 22.3 ``Zena'' \cite{LinuxMintSite}.
+Os experimentos foram conduzidos em um notebook Asus TUF \textit{Gaming} F15, equipado com processador Intel Core i7-12700H, $8$ GB de memória RAM, unidade SSD de $512$ GB e placa de vídeo NVIDIA GeForce RTX 3050 Mobile com $4$ GB de memória VRAM. O sistema operacional utilizado foi o Linux Mint 22.3 ``Zena'' \cite{LinuxMintSite}.
 
 A implementação dos modelos foi realizada na linguagem Python, versão 3.11.15 \cite{python}, com uso das bibliotecas TensorFlow 2.21.0, com suporte a GPU, e Keras 3.13.2 \cite{TensorFlowSite, KerasSite}. O desenvolvimento foi realizado no ambiente Visual Studio Code \cite{VSCodeSite}. O treinamento das redes neurais foi executado com aceleração por GPU, o que contribuiu para reduzir o tempo computacional necessário para a realização dos experimentos.
 
@@ -233,7 +242,7 @@ A Figura \ref{cap3:metricasAOL}(a) mostra a relação entre as medidas preditas 
 \begin{figure}[H]
     \centering
     \caption{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit{Dice} e acurácia ao longo das épocas.}
-    \begin{subfigure}{0.38\textwidth}
+    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\textwidth]{figures/cap3/rquadradounet.jpeg}
         \caption{$R^2$ entre as medidas preditas e as medidas reais da AOL.}
     \end{subfigure}
@@ -242,7 +251,7 @@ A Figura \ref{cap3:metricasAOL}(a) mostra a relação entre as medidas preditas 
         \includegraphics[width=\textwidth]{figures/cap3/AOL_Unet128_k_4.png}
         \caption{Gráficos de custo, \textit{Dice} e acurácia ao longo das épocas para o modelo de U-Net multitarefa.}
     \end{subfigure}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:metricasAOL}
 \end{figure}
 A linha tracejada na Figura \ref{cap3:metricasAOL}(b) representa em qual época o modelo selecionou os melhores pesos por meio do critério de \textit{EarlyStopping}. 
@@ -259,7 +268,7 @@ Na Figura \ref{cap3:metricasAOL_fuzzy}(a) é mostrado menor dispersão das medid
 \begin{figure}[H]
     \centering
     \caption{$R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit{Dice} e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL.}
-    \begin{subfigure}{0.38\textwidth}
+    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\textwidth]{figures/cap3/rquadradofuzzy.jpeg}
         \caption{$R^2$ entre as medidas preditas e as medidas reais da AOL.}
     \end{subfigure}
@@ -268,7 +277,7 @@ Na Figura \ref{cap3:metricasAOL_fuzzy}(a) é mostrado menor dispersão das medid
         \includegraphics[width=\textwidth]{figures/cap3/AOL_fuzzy128_k_4.png}
         \caption{Gráficos de custo, \textit{Dice} e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL.}
     \end{subfigure}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:metricasAOL_fuzzy}
 \end{figure}
 
@@ -282,7 +291,7 @@ Por outro lado, o modelo fuzzy exigiu maior número de épocas até a convergên
 \begin{table}[H]
     \centering
     \caption{Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{ccc}
         \hline
         \textbf{Métrica} & \textbf{U-Net Multitarefa} & \textbf{U-Net Fuzzy} \\
         \hline
@@ -305,7 +314,7 @@ Por outro lado, o modelo fuzzy exigiu maior número de épocas até a convergên
         Média Real & $40,559$ cm$^2$ & $40,559$ cm$^2$ \\
         \hline
     \end{tabular}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:tabelaAOL}
 \end{table}
 
@@ -321,9 +330,9 @@ Na Figura \ref{comparacaoAOL} é apresentada uma comparação visual entre o \te
     \hfill
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{figures/cap3/demarcacaoAOL.png}
-        \caption{\textit{Ground truth} e máscaras de segmentação geradas pelos modelos.}
+        \caption{\textit{ground truth} e máscaras de segmentação geradas pelos modelos.}
     \end{subfigure}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{comparacaoAOL}
 \end{figure}
 Na Figura \ref{comparacaoAOL}(a) é apresentado a imagem de ultrassom original. Já Na Figura \ref{comparacaoAOL}(b) é mostrado a o \textit{ground truth} em vermelho, a máscara de segmentação gerada pelo modelo de U-Net multitarefa em azul e a máscara de segmentação gerada pelo modelo de U-Net Fuzzy em laranja, todas sobrepostas sobre a imagem original. Observa-se que ambas as máscaras apresentam boa sobreposição com o \textit{ground truth}, com diferenças bem sutis, o que é coerente com os valores elevados de coeficiente de Dice obtidos por ambos os modelos.
@@ -344,7 +353,7 @@ Na Figura \ref{cap3:metricasEGL}(a) é mostrada a relação entre as medidas pre
 \begin{figure}[H]
     \centering
     \caption{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit{Dice} e acurácia ao longo das épocas.}
-    \begin{subfigure}{0.38\textwidth}
+    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\textwidth]{figures/cap3/EGLrquadradoUnet.jpeg}
         \caption{$R^2$ entre as medidas preditas e as medidas reais da EGL.}
     \end{subfigure}
@@ -353,7 +362,7 @@ Na Figura \ref{cap3:metricasEGL}(a) é mostrada a relação entre as medidas pre
         \includegraphics[width=\textwidth]{figures/cap3/EGL_unet.png}
         \caption{Gráficos de custo, \textit{Dice} e acurácia ao longo das épocas para o modelo de U-Net multitarefa da EGL.}
     \end{subfigure}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:metricasEGL}
 \end{figure}
 
@@ -369,7 +378,7 @@ Na Figura \ref{cap3:metricasEGL_fuzzy}(a) é mostrada a relação entre as medid
 \begin{figure}[H]
     \centering
     \caption{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit{Dice} e acurácia ao longo das épocas.}
-    \begin{subfigure}{0.38\textwidth}
+    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\textwidth]{figures/cap3/eglrquadradofuzzy.png}
         \caption{$R^2$ entre as medidas preditas e as medidas reais da EGL.}
     \end{subfigure}
@@ -378,7 +387,7 @@ Na Figura \ref{cap3:metricasEGL_fuzzy}(a) é mostrada a relação entre as medid
         \includegraphics[width=\textwidth]{figures/cap3/EGL_fuzzy.png}
         \caption{Gráficos de custo, \textit{Dice} e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da EGL.}
     \end{subfigure}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:metricasEGL_fuzzy}
 \end{figure}
 
@@ -389,7 +398,7 @@ Na Tabela \ref{cap3:tabelaEGL} são resumidos os resultados obtidos para a EGL. 
 \begin{table}[H]
     \centering
     \caption{Resumo dos resultados obtidos para a EGL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{ccc}
         \hline
         \textbf{Métrica} & \textbf{U-Net Multitarefa} & \textbf{U-Net Fuzzy} \\
         \hline
@@ -412,7 +421,7 @@ Na Tabela \ref{cap3:tabelaEGL} são resumidos os resultados obtidos para a EGL. 
         Média Real & $0,134$ mm & $0,134$ mm \\
         \hline
     \end{tabular}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:tabelaEGL}
 \end{table}
 
@@ -430,9 +439,9 @@ Na Figura \ref{comparacaoEGL} é apresentada uma comparação visual entre o \te
     \hfill
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{figures/cap3/demarcacaoEGL.png}
-        \caption{\textit{Ground truth} e máscaras de segmentação geradas pelos modelos.}
+        \caption{\textit{ground truth} e máscaras de segmentação geradas pelos modelos.}
     \end{subfigure}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{comparacaoEGL}
 \end{figure}
 
@@ -455,7 +464,7 @@ Na Figura \ref{cap3:rquadrodoEGG} é mostrada a relação entre as medidas predi
     \centering
     \caption{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net multitarefa.}
     \includegraphics[width=0.5\textwidth]{figures/cap3/EGGrquadradoUnet.jpeg}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:rquadrodoEGG}
 \end{figure}
 
@@ -471,7 +480,7 @@ A Figura \ref{cap3:rquadrodoEGG_fuzzy} mostra a relação entre as medidas predi
     \centering
     \caption{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net Fuzzy.}
     \includegraphics[width=0.5\textwidth]{figures/cap3/EGGrquadradoFuzzy.jpeg}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:rquadrodoEGG_fuzzy}
 \end{figure}
 
@@ -481,7 +490,7 @@ Na Tabela \ref{cap3:tabelaEGG} são resumidos os resultados obtidos para a EGG. 
 \begin{table}[H]
     \centering
     \caption{Resumo dos resultados obtidos para a EGG, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{ccc}
         \hline
         \textbf{Métrica} & \textbf{U-Net Multitarefa} & \textbf{U-Net Fuzzy} \\
         \hline
@@ -504,7 +513,7 @@ Na Tabela \ref{cap3:tabelaEGG} são resumidos os resultados obtidos para a EGG. 
         Média Real & $4,781$ mm & $4,781$ mm \\
         \hline
     \end{tabular}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:tabelaEGG}
 \end{table}
 
@@ -521,40 +530,40 @@ Na Figura \ref{cap3:comparacaoEGG} são apresentadas uma comparação visual ent
         \includegraphics[width=\textwidth]{figures/cap3/mascarasEGGFuzzy.jpeg}
         \caption{Máscaras de segmentação geradas pelo modelo U-Net Fuzzy.}
     \end{subfigure}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap3:comparacaoEGG}
 \end{figure}
-A cor vermelha\footnote{As máscaras de segmentação estão em formato de delimitação, ou seja, o interior da máscara não está sendo mostrado, isso foi escolhido para facilitar a visualição da região segmentada.} representa a máscara de segmentação do músculo \textit{Biceps Femoris}, a cor laranja representa a máscara de segmentação da região de gordura e a cor branca representa o local em que foi obtido o valor do indicador da EGG. Observa-se que ambas as máscaras apresentam boa segmentação das regiões, embora haja diferenças sutis na delimitação do início do músculo \textit{Biceps Femoris}, o que pode explicar a maior dispersão observada na medida da EGG em ambos os modelos.
+As máscaras de segmentação estão em formato de delimitação, ou seja, o interior da máscara não está sendo mostrado, isso foi escolhido para facilitar a visualição da região segmentada. A cor vermelha representa a máscara de segmentação do músculo \textit{Biceps Femoris}, a cor laranja representa a máscara de segmentação da região de gordura e a cor branca representa o local em que foi obtido o valor do indicador da EGG. Observa-se que ambas as máscaras apresentam boa segmentação das regiões, embora haja diferenças sutis na delimitação do início do músculo \textit{Biceps Femoris}, o que pode explicar a maior dispersão observada na medida da EGG em ambos os modelos.
 
 Esse resultado sugere que, para a EGG, pequenas melhorias na segmentação isolada das estruturas anatômicas não se traduziram necessariamente em maior precisão da medida numérica final. Como a EGG depende da combinação de duas segmentações e da localização exata do início do músculo \textit{Biceps Femoris}, a propagação de pequenos erros compromete de forma mais acentuada a medida final. Nesse contexto, os resultados indicam vantagem da U-Net multitarefa para a obtenção da medida numérica da EGG.
 
 \section{Análise Geral dos Resultados}
-De forma geral, os resultados obtidos para os três indicadores analisados (AOL, EGL e EGG) indicam que a integração do módulo de inferência fuzzy na arquitetura de U-Net proporcionou melhorias na qualidade da segmentação, especialmente para a AOL. Como desenvolvido anteriormente, a arquitetura U-Net multitarefa/U-Net Fuzzy é formada por camadas de convolução, camadas de pooling e camadas de convolução transposta, além de conexões de salto entre as camadas correspondentes. Quando a imagem é processada pela primeira camada de convolução, são extraídas características e a imagem resultante passa a ser conhecida como mapa de características. Para entender o motivo do nome, é necessário visualizar o que acontece em cada etapa de processamento das arquiteturas. Na Figura \ref{cap4:unet} é mostrado o processo de extração de características e geração do mapa de características na primeira etapa de convolução dos modelos, para o indicador de AOL. Está etapa recebe uma imagem $(256 \times 256 \times 1)$ e trânsforma em um mapa de características $(256 \times 256 \times 32)$, ou seja, a imagem é processada por $32$ filtros de convolução, resultando em $32$ características, cada um com as mesmas dimensões da imagem original.
+De forma geral, os resultados obtidos para os três indicadores analisados (AOL, EGL e EGG) indicam que a integração do módulo de inferência fuzzy na arquitetura de U-Net proporcionou melhorias na qualidade da segmentação, especialmente para a AOL. Como desenvolvido anteriormente, a arquitetura U-Net multitarefa/U-Net Fuzzy é formada por camadas de convolução, camadas de pooling e camadas de convolução transposta, além de conexões de salto entre as camadas correspondentes. Quando a imagem é processada pela primeira camada de convolução, são extraídas características e a imagem resultante passa a ser conhecida como mapa de características. Para entender o motivo do nome, é necessário visualizar o que acontece em cada etapa de processamento das arquiteturas. Na Figura \ref{cap4:unet} é mostrado o processo de extração de características e geração do mapa de características na primeira etapa de convolução dos modelos, para o indicador de AOL. Está etapa recebe uma imagem $(256 \times 256 \times 1)$ e trânsforma em um mapa de características $(256 \times 256 \times 32)$, ou seja, a imagem é processada por $32$ \textit{kernels} de convolução, resultando em $32$ características, cada um com as mesmas dimensões da imagem original. Alguns mapas de características presentes nesta seção não apresentam todas as características extraídas, isso é feito para facilitar a visualização, pois o mapa de características pode conter centenas de características, o que dificultaria a visualização.
 \begin{figure}[htpb]
     \centering
     \caption{Processo de extração de características e geração do mapa de características na primeira etapa de convolução da U-Net.}
     \includegraphics[width=1.0\textwidth]{figures/cap4/fm/etp1.png}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap4:unet}
 \end{figure}
 Na Figura \ref{cap4:unet} é mostrada como é gerado o mapa de características na primeria etapa de convolução, após a época 60, isso implica que a rede já passou por um processo de otimização dos pesos e as características extraídas não são aleatórias, o que acontece em épocas iniciais, mas sim características relevantes para a rede produzir a máscara de segmentação. 
 
-Em cada etapa de convolução nem todos as características são relevantes para a rede criar a máscara de segmentação da imagem, observa-se por exemplo, que na última etapa de convolução do \textit{baseline} (antes de ser enviado para a camada Fuzzy ou para o \textit{decoder}), presente na Figura \ref{cap4:unet1}, algumas características não foram ativadas pela rede, ou seja, apresentam valores próximos de zero. Isso não significa que esta característica é irrelevante, mas sim que para a imagem de entrada, a rede não encontrou informações relevantes para ativar esta característica. As características que não foram ativadas estão brancas e com a borda vermelha para facilitar a visualização.
+Em cada etapa de convolução nem todos as características são relevantes para a rede criar a máscara de segmentação da imagem, observa-se por exemplo, que na última etapa de convolução do \textit{baseline} (antes de ser enviado para a camada multitarefa ou para o módulo Fuzzy), presente na Figura \ref{cap4:unet1}, algumas características não foram ativadas pela rede, ou seja, apresentam valores próximos de zero. Isso não significa que esta característica é irrelevante, mas sim que para a imagem de entrada, a rede não encontrou informações relevantes para ativar esta característica. As características que não foram ativadas estão brancas e com a borda vermelha para facilitar a visualização.
 \begin{figure}[htpb]
     \centering
-    \caption{Mapa de características na última etapa de convolução do \textit{encoder} da U-Net.}
+    \caption{Mapa de características na última etapa de convolução do \textit{baseline} da U-Net.}
     \includegraphics[width=0.8\textwidth]{figures/cap4/fm/etp9.png}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap4:unet1}
 \end{figure} 
 
-Observa-se que em algumas subfiguras da Figura \ref{cap4:unet1} a rede extraiu características relevantes para segmentar a região de AOL. Nesta etapa de convolução o mapa de características tem dimensões de $(16 \times 16 \times 256)$, ou seja, o mapa de características anterior foi processado por $256$ filtros de convolução, resultando em $256$ características, cada uma com dimensões de $16 \times 16$. Para ser possível visualiar essas características na Figura \ref{cap4:unet1} foram selecionadas apenas $64$ características.
+Observa-se que em algumas subfiguras da Figura \ref{cap4:unet1} a rede extraiu características relevantes para segmentar a região de AOL. Nesta etapa de convolução o mapa de características tem dimensões de $(16 \times 16 \times 256)$, ou seja, o mapa de características anterior foi processado por $256$ filtros de convolução, resultando em $256$ características, cada uma com dimensões de $16 \times 16$. Para ser possível visualizar essas características na Figura \ref{cap4:unet1} foram selecionadas apenas $64$ características.
 
-É no final do \textit{baseline} e início do \textit{decoder} que acontece a principal diferença entre os modelos, ou seja, a adição do módulo de inferência fuzzy. A U-Net Fuzzy apresenta um módulo de inferência fuzzy que recebe o mapa de características da última etapa de convolução do \textit{baseline} e processa este mapa para gerar um novo mapa de características, que é enviado para o \textit{decoder}. Já a U-Net multitarefa não possui este módulo e envia o mapa de características da última etapa de convolução do \textit{baseline} (Figura \ref{cap4:unet1}) diretamente para o \textit{decoder}.
-Na Figura \ref{cap4:UnetFuzzy} é possível vizualizar as diferenças entre os mapas de características gerados, com a Figura \ref{cap4:UnetFuzzy}(a) passando pelo módulo de inferência fuzzy e a Figura \ref{cap4:UnetFuzzy}(b) não.
+É no início do \textit{decoder} que acontece a principal diferença entre os modelos, ou seja, a adição do módulo de inferência fuzzy. A U-Net Fuzzy apresenta o módulo de inferência fuzzy que recebe o mapa de características da última etapa de convolução do \textit{baseline}, após a camada de multitarefa, e processa este mapa para gerar um novo mapa de características, que é enviado para o \textit{decoder}.
+Na Figura \ref{cap4:UnetFuzzy} é possível visualizar as diferenças entre os mapas de características gerados, com o mapa na Figura \ref{cap4:UnetFuzzy}(a) passando pelo módulo de inferência fuzzy e o mapa na Figura \ref{cap4:UnetFuzzy}(b) não. Estes mapas foram gerados no primeiro bloco do \textit{decoder}.
 \begin{figure}[htpb]
     \centering
-    \caption{Mapa de características gerado pelo módulo de inferência fuzzy e mapa de características sem o módulo de inferência fuzzy.}
+    \caption{Mapa de características gerado com o módulo de inferência fuzzy e mapa de características gerado sem o módulo de inferência fuzzy.}
     \begin{subfigure}{0.42\textwidth}
         \includegraphics[width=\textwidth]{figures/cap4/fm/etp10fuzzy.png}
         \caption{Mapa de características gerado pelo módulo de inferência fuzzy.}
@@ -564,13 +573,12 @@ Na Figura \ref{cap4:UnetFuzzy} é possível vizualizar as diferenças entre os m
         \includegraphics[width=\textwidth]{figures/cap4/fm/etp10unet.png}
         \caption{Mapa de características sem o módulo de inferência fuzzy.}
     \end{subfigure}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap4:UnetFuzzy}
 \end{figure} 
-Na Figura \ref{cap4:UnetFuzzy}(a) é possível notar um padrão quadriculado em algumas características, isso se deve ao fato de como o módulo fuzzy foi implementado no \textit{baseline}, com muitiplicações extras acontecendo em cada pixel do mapa de características, o que pode acarretar em alguns pixels indo rapidamente para valores próximos de zero, explicando o padrão quadriculado observado.  
-\textcolor{red}{verificar}
+Na Figura \ref{cap4:UnetFuzzy}(a) é possível notar um padrão quadriculado em algumas características, isso acontece devido a convolução transposta, Seção \ref{sec:conv_transposta}, e como foi escolhido plotar os mapas de características, com cada pixel passando por uma normalização para o intervalo [0, 1] ressaltando ainda mais o padrão quadriculado.  
 
-Como os modelos diferem na saída do \textit{baseline}, o \textit{decoder} de cada arquitetura passa a reconstruir a imagem de maneira distinta. Isso pode ser observado na Figura \ref{cap4:decoder}(a), em que são apresentados os mapas de características gerados no terceiro bloco do \textit{decoder} da U-Net Fuzzy e da U-Net multitarefa. No caso da U-Net Fuzzy, o mapa de características evidencia com maior nitidez a separação entre a região correspondente à AOL e as demais regiões da imagem de ultrassom. Já no modelo U-Net multitarefa, o mapa de características apresenta um padrão mais homogêneo com menor distinção entre a região de AOL e o restante da imagem, como é possível ser observado na Figura \ref{cap4:decoder}(b).
+Como os modelos diferem na saída do \textit{baseline}, o \textit{decoder} de cada arquitetura passa a reconstruir a imagem de maneira distinta. Isso pode ser observado na Figura \ref{cap4:decoder}(a), em que são apresentados os mapas de características gerados no terceiro bloco do \textit{decoder} da U-Net Fuzzy e da U-Net multitarefa (Figura \ref{unet}). No caso da U-Net Fuzzy, o mapa de características evidencia com maior nitidez a separação entre a região correspondente à AOL e as demais regiões da imagem de ultrassom. Já no modelo U-Net multitarefa, o mapa de características apresenta um padrão mais homogêneo com menor distinção entre a região de AOL e o restante da imagem, como é possível ser observado na Figura \ref{cap4:decoder}(b).
 \begin{figure}[H]
     \centering
     \caption{Mapa de características gerado no terceiro bloco do \textit{decoder} da U-Net Fuzzy e da U-Net multitarefa.}
@@ -583,7 +591,7 @@ Como os modelos diferem na saída do \textit{baseline}, o \textit{decoder} de ca
         \includegraphics[width=\textwidth]{figures/cap4/fm/etp14unet.png}
         \caption{Mapa de características do \textit{decoder} da U-Net multitarefa.}
     \end{subfigure}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap4:decoder}
 \end{figure}
 
@@ -597,7 +605,7 @@ Com o objetivo de facilitar a utilização dos modelos desenvolvidos, foi criado
         \centering
         \caption{Tela inicial do aplicativo para seleção do indicador e modelo.}
         \includegraphics[width=0.8\textwidth]{figures/cap4/app/app1.png}
-        \caption*{Fonte: Elaboração do Autor.}
+        \caption*{Fonte: Elaborado pelo Autor.}
         \label{cap4:app1}
     \end{figure}
 
@@ -606,7 +614,7 @@ Com o objetivo de facilitar a utilização dos modelos desenvolvidos, foi criado
         \centering
         \caption{Tela de seleção das imagens de ultrassom a serem processadas.}
         \includegraphics[width=0.8\textwidth]{figures/cap4/app/app2.png}
-        \caption*{Fonte: Elaboração do Autor.}
+        \caption*{Fonte: Elaborado pelo Autor.}
         \label{cap4:app2}
     \end{figure}
     Caso o indicador seja o AOL, todas as imagens selecionadas precisam ser do músculo \textit{longuissimos dorsi}, para que seja possível medir corretamente. A imagem selecionada não precisa passar por nenhum processo de pré-processamento, ou seja, o aplicativo é capaz de processar a imagem original, sem a necessidade de redimensionamento ou normalização prévia. O aplicativo realiza automaticamente o pré-processamento necessário para que a imagem seja compatível com os modelos de segmentação.
@@ -616,7 +624,7 @@ Com o objetivo de facilitar a utilização dos modelos desenvolvidos, foi criado
         \centering
         \caption{Tela de visualização dos resultados, com as máscaras de segmentação sobrepostas à imagem original e os valores numéricos do indicador.}
         \includegraphics[width=0.8\textwidth]{figures/cap4/app/app3.png}
-        \caption*{Fonte: Elaboração do Autor.}
+        \caption*{Fonte: Elaborado pelo Autor.}
         \label{cap4:app3}
     \end{figure}
     Antes que se possa visualizar os resultados, é necessário salvar o relatório gerado, com o aplicativo solicitando o local onde o arquivo Excel deve ser salvo. 
@@ -626,8 +634,8 @@ O aplicativo contêm algumas funções que reduzem o erro da rede, como por exem
     \centering
     \caption{Exemplo de uma imagem de ultrassom com baixa qualidade, em que a rede gerou uma segmentação errônea, e o aplicativo calculou apenas a região maior, eliminando as regiões menores.}
     \includegraphics[width=0.8\textwidth]{figures/cap4/app/app6.png}
-    \caption*{Fonte: Elaboração do Autor.}
+    \caption*{Fonte: Elaborado pelo Autor.}
     \label{cap4:app4}
 \end{figure}
 
-Posto isso, o capítulo é finalizado, começando com o contexto do problema, passando pela descrição dos resultados obtidos para cada indicador e finalizando com a apresentação do aplicativo computacional desenvolvido para facilitar a utilização dos modelos. No próximo capítulo, é discutido as principais dificuldades encontradas durante o desenvolvimento do trabalho, as limitações dos modelos e as perspectivas para trabalhos futuros.
+Posto isso, neste capítulo foi abordado o contexto do problema, a manipulação feita no banco de dados, os resultados das redes neurais utilizadas e o desenvolvimento do aplicativo. No próximo capítulo, são apresentadas as considerações finais do trabalho, incluindo as principais conclusões, limitações e sugestões para trabalhos futuros.

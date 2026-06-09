@@ -44,11 +44,6 @@ Dispon{\'\i}vel em: \url{https://medium.com/@lg0702/r-quadrado-3318259ff2e2}.}
 Acessado: 2026-04-14.
 Dispon{\'\i}vel em: \url{https://medium.com/@minhazc.engg/padding-and-strides-in-cnn-58dc56493887}.}
 
-\bibitem[Crevier 1993]{Crevier1993AI}
-\abntrefinfo{Crevier}{CREVIER}{1993}
-{CREVIER, D. \emph{AI: The Tumultuous History of the Search for Artificial Intelligence}. New York: Basic Books, 1993.
-ISBN 0-465-02997-3.}
-
 \bibitem[{DATA SCIENCE ACADEMY} 2025]{onehot}
 \abntrefinfo{{DATA SCIENCE ACADEMY}}{{DATA SCIENCE ACADEMY}}{2025}
 {{DATA SCIENCE ACADEMY}. \emph{Comparativo Técnico – Label Encoding vs One-Hot Encoding em Machine Learning}. 2025.
@@ -126,6 +121,11 @@ Dispon{\'\i}vel em: \url{https://labelstud.io/}.}
 \abntrefinfo{Jafelice, Barros e Bassanezi}{JAFELICE; BARROS; BASSANEZI}{2023}
 {JAFELICE, R. S.~M.; BARROS, L.~C.; BASSANEZI, R.~C. \emph{Teoria dos Conjuntos Fuzzy com Aplicações}. 3. ed. São Paulo -SP, Brasil: SBMAC, 2023.
 ISBN 978-65-86399-14-5.}
+
+\bibitem[Jang 1993]{Jang1993}
+\abntrefinfo{Jang}{JANG}{1993}
+{JANG, J.-S.~R. Anfis: Adaptive-network-based fuzzy inference system.
+\emph{IEEE Transactions on Systems, Man, and Cybernetics}, v.~23, n.~3, p. 665--685, 1993.}
 
 \bibitem[{KERAS TEAM} 2015]{KerasSite}
 \abntrefinfo{{KERAS TEAM}}{{KERAS TEAM}}{2015}
@@ -235,6 +235,10 @@ Dispon{\'\i}vel em: \url{https://docs.python.org/3/library/tkinter.html}.}
 \abntrefinfo{Sena, Jafelice e Santos}{SENA; JAFELICE; SANTOS}{2024}
 {SENA, V.; JAFELICE, R. S.~M.; SANTOS, C. A.~R. dos. Reconstrução geométrica de uma função através de uma rede neural. In:  \emph{Anais da XXIV Semana da Matemática e XIV Semana da Estatística (SEMAT \& SEMEST)}. Uberlândia, MG, Brasil: UFU, 2024. Dispon{\'\i}vel em: \url{https://drive.google.com/file/d/1OmN2Gq6i3nHR7ZtEVitc5iCVH0ZFUY\_8/view}.}
 
+\bibitem[Sena, Jafelice e Santos 2025]{Sena2025}
+\abntrefinfo{Sena, Jafelice e Santos}{SENA; JAFELICE; SANTOS}{2025}
+{SENA, V.; JAFELICE, R. S.~M.; SANTOS, C. A.~R. dos. Reconstrução geométrica de uma função através de uma rede neural. In:  \emph{Caderno de Resumos do I \textit{Workshop} de Matemática da UFU}. Uberlândia, MG, Brasil: UFU, 2025. Dispon{\'\i}vel em: \url{https://eventos.ufu.br/ime/wm}.}
+
 \bibitem[Sovierzoski 2010]{convolucao}
 \abntrefinfo{Sovierzoski}{SOVIERZOSKI}{2010}
 {SOVIERZOSKI, M.~A. Convolução de sinais: definição, propriedades e ferramentas.
@@ -260,6 +264,12 @@ ISBN 978-85-430-1426-5.}
 \abntrefinfo{Szeliski}{SZELISKI}{2010}
 {SZELISKI, R. \emph{Computer Vision: Algorithms and Applications}. Cham, Suíça: Springer, 2010.
 ISBN 978-3030343712.}
+
+\bibitem[{TileStats} 2025]{TileStatsUNet2025}
+\abntrefinfo{{TileStats}}{{TileStats}}{2025}
+{{TileStats}. \emph{U-Net Clearly Explained | Image Segmentation with AI}. 2025.
+Vídeo publicado em 23 jun. 2025. Acesso em: 05 jun. 2026.
+Dispon{\'\i}vel em: \url{https://www.youtube.com/watch?v=oxcgx75k6yU&t=1324s}.}
 
 \bibitem[Trevisan 2021]{medium}
 \abntrefinfo{Trevisan}{TREVISAN}{2021}

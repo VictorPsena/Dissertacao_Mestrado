@@ -1,0 +1,6 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/victors/Documents/Dissertacao_Mestrado/manim_codes/media/videos/dissertation_slides/480p15/partial_movie_files/DissertationSlides/793938918_1244432706_223132457.mp4'
+file 'file:/home/victors/Documents/Dissertacao_Mestrado/manim_codes/media/videos/dissertation_slides/480p15/partial_movie_files/DissertationSlides/2791924351_3075092174_2023860264.mp4'
+file 'file:/home/victors/Documents/Dissertacao_Mestrado/manim_codes/media/videos/dissertation_slides/480p15/partial_movie_files/DissertationSlides/2791924351_2133993973_2023860264.mp4'
+file 'file:/home/victors/Documents/Dissertacao_Mestrado/manim_codes/media/videos/dissertation_slides/480p15/partial_movie_files/DissertationSlides/2791924351_30261958_2023860264.mp4'
+file 'file:/home/victors/Documents/Dissertacao_Mestrado/manim_codes/media/videos/dissertation_slides/480p15/partial_movie_files/DissertationSlides/2791924351_2461379495_2023860264.mp4'

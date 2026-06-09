@@ -3,11 +3,10 @@
 \contentsline {table}{\numberline {1.1}{\ignorespaces Banco de dados com as avaliações dos colegas e a decisão final de compra.}}{26}{table.caption.12}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Evolução das dimensões no exemplo simplificado da U-Net.}}{77}{table.caption.53}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Quantidade de modelos desenvolvidos para cada medida.}}{96}{table.caption.68}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Resumo da configuração de treinamento adotada nos experimentos.}}{97}{table.caption.69}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{102}{table.caption.75}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Resumo dos resultados obtidos para a EGL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{107}{table.caption.82}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Resumo dos resultados obtidos para a EGG, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{110}{table.caption.89}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Quantidade de modelos desenvolvidos para cada medida.}}{103}{table.caption.68}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Resumo da configuração de treinamento adotada nos experimentos.}}{104}{table.caption.69}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{109}{table.caption.75}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Resumo dos resultados obtidos para a EGL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{113}{table.caption.82}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Resumo dos resultados obtidos para a EGG, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{116}{table.caption.89}%
 \addvspace {10\p@ }

@@ -1,27 +1,29 @@
 % !TeX root = ../main.tex
-Redes neurais convolucionais são frequentemente utilizadas em tarefas de classificação de imagens, nas quais o objetivo é atribuir uma classe à imagem como um todo. Entretanto, em muitas aplicações visuais, não basta apenas classificar a imagem inteira, é necessário também identificar com precisão a localização das estruturas de interesse. Nesses casos, utiliza-se a segmentação de imagens, isto é, o processo de classificar cada pixel da imagem em uma categoria específica. Para atender a essa necessidade, foi proposta a arquitetura U-Net \cite{Ronneberger2015UNet}, uma rede neural convolucional desenvolvida especificamente para tarefas de segmentação. Sua estrutura é composta por duas partes principais: o \textit{encoder}, responsável por extrair características da imagem de entrada, geralmente reduzindo suas dimensões espaciais e aumentando o número de canais, e o \textit{decoder}, responsável por reconstruir a representação espacial da imagem a partir das características extraídas. Essa organização dá origem ao formato em “U”, que motivou o nome da arquitetura.
+Redes neurais convolucionais são frequentemente utilizadas em tarefas de classificação de imagens, nas quais o objetivo é atribuir uma classe à imagem como um todo. Entretanto, em muitas aplicações visuais, não basta apenas classificar a imagem inteira, é necessário também identificar com precisão a localização das estruturas de interesse. Nesses casos, utiliza-se a segmentação de imagens, isto é, o processo de classificar cada pixel da imagem em uma categoria específica. Para atender a essa necessidade, foi proposta a arquitetura U-Net \cite{Ronneberger2015UNet}, uma rede neural convolucional desenvolvida especificamente para tarefas de segmentação. Sua estrutura é composta por duas partes principais: o \textit{encoder}, responsável por extrair características da imagem de entrada, geralmente reduzindo suas dimensões espaciais e aumentando o número de canais, e o \textit{decoder}, responsável por gerar a imagem a partir das características extraídas no \textit{encoder}. Este processo permite a geração de uma máscara de segmentação, isto é, uma imagem que indica a presença ou ausência da região de interesse. Quando estas máscaras são desenvolvidas manualmente por especialistas, são conhecidas como \textit{ground truth}. Essas máscaras são utilizadas como rótulos, ou seja, cada imagem enviada para treinamento da U-Net tem seu respectivo \textit{ground truth}. Essa organização dá origem ao formato em “U”, que motivou o nome da arquitetura.
 
-\section{Esclarecendo a Arquitetura U-Net}
+
+\section{Noções Básicas da Arquitetura U-Net}
 \label{sec:unet}
-Para compreender melhor a arquitetura da U-Net, é necessário entender as operações básicas envolvidas e como uma imagem é processada para gerar a saída desejada. Para isso, o Exemplo \ref{ex:unet} apresenta o funcionamento simplificado da U-Net, ilustrando as principais operações e etapas envolvidas no processo de segmentação de imagens.
-
+Para compreender melhor a arquitetura da U-Net, é necessário entender as operações básicas envolvidas e como uma imagem é processada para gerar a máscara de segmentação. Para isso, o Exemplo \ref{ex:unet} apresenta o funcionamento simplificado da U-Net, ilustrando as principais operações e etapas envolvidas no processo de segmentação de imagens.
+O exemplo a seguir é adaptado de \citeonline{TileStatsUNet2025}.
 
 \begin{exemplo}
     \label{ex:unet}
-    Considere uma imagem de entrada normalizada $X$ de dimensões $5\times 5 \times 1$ e uma saída desejada $Y$ de dimensões $5\times 5 \times 1$. O objetivo deste exemplo é mostrar, de forma simplificada, como uma U-Net transforma a imagem de entrada $X$ na saída $Y$. Para isso, considera-se uma arquitetura reduzida, composta por um \textit{encoder} com uma camada de convolução e uma camada de \textit{Max-pooling}, e por um \textit{decoder} com uma camada de convolução transposta e uma camada de convolução final.
+    Considere uma imagem de entrada normalizada $X$ de dimensões $5\times 5 \times 1$ e um \textit{ground truth} de dimensões $5\times 5 \times 1$. O objetivo deste exemplo é mostrar, de forma simplificada, como uma U-Net transforma a imagem de entrada $X$ no \textit{ground truth}. Para isso, considera-se uma arquitetura reduzida, composta por um \textit{encoder} com uma camada de convolução e uma camada de \textit{Max pooling}, e por um \textit{decoder} com uma camada de convolução transposta e uma camada de convolução final.
 \end{exemplo}
 
 \noindent\textbf{Objetivo do exemplo.}
-O exemplo ilustra as principais etapas do funcionamento da U-Net, desde a extração de características no \textit{encoder} até a reconstrução da saída no \textit{decoder}. Como se trata de uma versão simplificada, o foco está na compreensão do fluxo de processamento, e não na complexidade completa da arquitetura original.
+O exemplo ilustra as principais etapas do funcionamento da U-Net, desde a extração de características no \textit{encoder} até a criação da máscara de segmentação no \textit{decoder}. Como se trata de uma versão simplificada, o foco está na compreensão do fluxo de processamento, e não na complexidade completa da arquitetura original.
 
 \medskip
 \noindent\textbf{Simplificações adotadas.}
-Para facilitar a compreensão, são adotadas as seguintes simplificações: a imagem é monocromática, com dimensões $5\times 5 \times 1$; os pesos e os viéses já estão ajustados para produzir a saída desejada. A rede possui apenas uma camada de convolução, uma camada de \textit{Max-pooling}, uma camada de convolução transposta e uma camada final de saída.
+Para facilitar a compreensão, são adotadas as seguintes simplificações: a imagem é monocromática, com dimensões $5\times 5 \times 1$; os pesos e os vieses já estão ajustados para o desenvolvimento da máscara de segmentação desejada. A rede possui apenas uma camada de convolução, uma camada de \textit{Max pooling}, uma camada de convolução transposta e uma camada final de saída. As cores utilizadas nas imagens possuem apenas finalidade ilustrativa, servindo para destacar visualmente as operações realizadas. Elas não representam valores reais de pixel, uma vez que $5\times 5 \times 1$ corresponde a uma imagem monocromática.
 
-Na Figura \ref{unet-simples}\footnote{As cores nas imagens do exemplo têm apenas função ilustrativa, para destacar visualmente as operações realizadas. Elas não representam valores reais de pixel, uma vez que $5\times 5 \times 1$ corresponde a uma imagem monocromática.} são apresentadas a imagem de entrada $X$ e a saída desejada $Y$. Neste exemplo, os pixels com valor ``1'' representam a região de interesse, enquanto os pixels com valor ``0'' representam o fundo.
+
+Na Figura \ref{unet-simples} são apresentadas a imagem de entrada $X$ e \textit{ground truth}. Neste exemplo, os pixels com valor ``1'' representam a região de interesse, enquanto os pixels com valor ``0'' representam o fundo. Valores intermediários, como ``0.5'', representam áreas de transição ou incerteza.
 \begin{figure}[htpb]
     \centering
-    \caption{Imagem de entrada $X$ e resposta desejada $Y$.}
+    \caption{Imagem de entrada $X$ e \textit{ground truth}.}
     \includegraphics[width=0.7\linewidth]{figures/unetimgs/ex_fig1.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{unet-simples}
@@ -29,7 +31,7 @@ Na Figura \ref{unet-simples}\footnote{As cores nas imagens do exemplo têm apena
 
 \medskip
 \noindent\textbf{Etapa 1: Convolução.}
-A primeira operação realizada no \textit{encoder} é a convolução. Nessa etapa, um \textit{kernel} de dimensões $2\times 2 \times 1$ percorre a imagem de entrada $X$, combinando localmente os valores dos pixels e gerando um mapa de características, como mostrado na Figura \ref{ex:unet_img2}.
+A primeira operação realizada no \textit{encoder} é a convolução, equação (\ref{eq:correlacao}). Nessa etapa, um \textit{kernel} de dimensões $2\times 2 \times 1$ percorre a imagem de entrada $X$, combinando localmente os valores dos pixels, somando o viés e gerando um mapa de características, como mostrado na Figura \ref{ex:unet_img2}.
 \begin{figure}[H]
     \centering
     \caption{Aplicação de um \textit{kernel} de convolução na imagem de entrada $X$.}
@@ -38,11 +40,12 @@ A primeira operação realizada no \textit{encoder} é a convolução. Nessa eta
     \label{ex:unet_img2}
 \end{figure}
 
-Na Figura \ref{ex:unet_img2}, as contas indicam os valores da imagem de entrada cobertos pelo \textit{kernel}. A soma ponderada desses valores, acrescida do viés, gera cada elemento do mapa de características.
+
+Na Figura \ref{ex:unet_img2}, os cálculos indicam os valores da imagem de entrada cobertos pelo \textit{kernel}. A soma ponderada desses valores, acrescida do viés, gera cada elemento do mapa de características.
 
 \medskip
 \noindent\textbf{Etapa 2: Padding.}
-Para que o mapa de características resultante mantenha as mesmas dimensões espaciais da imagem de entrada, isto é, $5\times 5 \times 1$, aplica-se a técnica de \textit{padding}, adicionando uma borda de zeros ao redor da imagem. Neste exemplo, para simplificar a visualização, o preenchimento foi adicionado apenas na parte inferior e à direita, como ilustrado em cinza na Figura \ref{ex:unet_img3}.
+Para que o mapa de características resultante mantenha as mesmas dimensões espaciais da imagem de entrada, isto é, $5\times 5 \times 1$, aplica-se a técnica de \textit{padding}, Subseção \ref{sec:padding}, adicionando uma borda de zeros ao redor da imagem. Neste exemplo, para simplificar a visualização, o preenchimento foi adicionado apenas na parte inferior e à direita, como ilustrado em cinza na Figura \ref{ex:unet_img3}.
 \begin{figure}[H]
     \centering
     \caption{Aplicação de \textit{padding} na imagem de entrada $X$.}
@@ -53,7 +56,7 @@ Para que o mapa de características resultante mantenha as mesmas dimensões esp
 
 \medskip
 \noindent\textbf{Etapa 3: Ativação ReLU.}
-Após a convolução, é aplicada uma função de ativação a cada valor do mapa de características. Neste exemplo, utiliza-se a função ReLU, apresentada na Equação \ref{eq:relu}. Sua função é introduzir não linearidade no modelo, permitindo que a rede represente padrões mais complexos. O resultado dessa operação é mostrado na Figura \ref{ex:unet_img4}.
+Após a convolução, é aplicada uma função de ativação a cada valor do mapa de características. Neste exemplo, utiliza-se a função ReLU, apresentada na equação (\ref{eq:relu}). Sua função é introduzir não linearidade no modelo, permitindo que a rede represente padrões mais complexos. O resultado dessa operação é mostrado na Figura \ref{ex:unet_img4}.
 
 \begin{figure}[H]
     \centering
@@ -64,20 +67,20 @@ Após a convolução, é aplicada uma função de ativação a cada valor do map
 \end{figure}
 
 \medskip
-\noindent\textbf{Etapa 4: Max-pooling.}
-Em seguida, o mapa de características é processado por uma camada de \textit{Max-pooling} com dimensões $2\times 2 \times 1$ e \textit{stride} igual a $2$. Essa operação reduz as dimensões espaciais do mapa, preservando os valores mais relevantes em cada região. Como a dimensão do mapa neste exemplo é ímpar, foi adicionado um \textit{padding} para simplificar o processo, como mostrado na Figura \ref{ex:unet_img5}.
+\noindent\textbf{Etapa 4: Max pooling.}
+Em seguida, o mapa de características é processado por uma camada de \textit{Max pooling} com dimensões $2\times 2 \times 1$ e \textit{stride} igual a $2$, conforme descrito no algoritmo \ref{alg:max_pooling}. Essa operação reduz as dimensões espaciais do mapa, preservando os valores mais relevantes em cada região. Como a dimensão do mapa neste exemplo é ímpar, foi adicionado um \textit{padding} para simplificar o processo, como mostrado na Figura \ref{ex:unet_img5}.
 \begin{figure}[H]
     \centering
-    \caption{Aplicação de uma camada de \textit{Max-pooling} no mapa de características resultante.}
+    \caption{Aplicação de uma camada de \textit{Max pooling} no mapa de características resultante após a ReLU.}
     \includegraphics[width=0.75\linewidth]{figures/unetimgs/ex_fig5.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ex:unet_img5}
 \end{figure}
-Ao final dessa etapa, conclui-se a parte do \textit{encoder}. Neste exemplo, a imagem de entrada $X$ foi transformada em um mapa de \textit{pooling} com dimensões $3\times 3 \times 1$, que representa uma versão reduzida da entrada.
+Ao final dessa etapa, conclui-se a parte do \textit{encoder}, resultando em um mapa de características com dimensões $3\times 3 \times 1$. O processo de extração de características realizado pelo \textit{encoder} é fundamental para que o \textit{decoder} possa desenvolver a máscara de segmentação desejada.
 
 \medskip
 \noindent\textbf{Etapa 5: Convolução transposta.}
-No \textit{decoder}, o primeiro passo é expandir novamente as dimensões espaciais do mapa de características. Isso é feito por meio de uma convolução transposta com \textit{kernel} de dimensões $2\times 2 \times 1$, como mostrado na Figura \ref{ex:unet_img6}. Essa operação pode ser entendida como um processo de reconstrução espacial da informação comprimida no \textit{encoder}.
+No \textit{decoder}, o primeiro passo é expandir novamente as dimensões espaciais do mapa de características. Isso é feito por meio de uma convolução transposta com \textit{kernel} de dimensões $2\times 2 \times 1$, conforme descrito no algoritmo (\ref{alg:deconv}), como mostrado na Figura \ref{ex:unet_img6}. Essa operação pode ser entendida como um processo de reconstrução espacial da informação comprimida no \textit{encoder}.
 \begin{figure}[htpb]
     \centering
     \caption{Aplicação da convolução transposta no mapa de \textit{pooling}.}
@@ -85,22 +88,22 @@ No \textit{decoder}, o primeiro passo é expandir novamente as dimensões espaci
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ex:unet_img6}
 \end{figure}
-Cada valor do Mapa de \textit{pooling} é multiplicado pelo \textit{kernel} e adicionado às entradas do mapa de características que está sendo coberto pelo \textit{kernel}, resultando em uma imagem com dimensões $6\times 6 \times 1$.
+Cada valor do mapa de \textit{pooling} é multiplicado pelo \textit{kernel} e adicionado às entradas do mapa de características que estão sendo cobertas pelo \textit{kernel}, resultando em um mapa de características com dimensões $6\times 6 \times 1$.
 
 Na Figura \ref{ex:unet_img7} é resumida a dinâmica geral da U-Net: enquanto o \textit{encoder} reduz progressivamente as dimensões espaciais para extrair características, o \textit{decoder} expande essas dimensões para reconstruir a saída desejada.
 \begin{figure}[H]
     \centering
-    \caption{Estrutura em forma de U da arquitetura U-Net.}
-    \includegraphics[width=0.8\linewidth]{figures/unetimgs/ex_fig7.png}
+    \caption{Estrutura simplificada em forma de U da arquitetura U-Net.}
+    \includegraphics[width=1\linewidth]{figures/unetimgs/ex_fig7.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ex:unet_img7}
 \end{figure}
 
 \medskip
 \noindent\textbf{Etapa 6: \textit{Skip connection}, \textit{copy and crop} e concatenação.}
-Uma característica fundamental da U-Net é a presença das conexões de atalho (\textit{skip connections}) entre camadas correspondentes do \textit{encoder} e do \textit{decoder}. Estas conexões permitem combinar informações de baixo nível, como bordas e texturas, com a informação reconstruída no \textit{decoder}, favorecendo uma segmentação mais precisa, a ideia geral é ilustrada na Figura \ref{ex:unet_img8}. As combinações são feitas por meio da operação de concatenação, que une os canais dos mapas de características extraídos pelo \textit{encoder} com os canais dos mapas de características do \textit{decoder} antes de cada etapa de convolução no \textit{decoder}.
+Uma característica fundamental da U-Net é a presença das conexões de atalho (\textit{skip connections}) entre camadas correspondentes do \textit{encoder} e do \textit{decoder}. Estas conexões permitem combinar as informações obtidas no \textit{encoder}, como bordas e texturas, com as informações obtidas no \textit{decoder}, favorecendo uma segmentação mais precisa. A ideia geral é ilustrada na Figura \ref{ex:unet_img8}. As combinações são feitas por meio da operação de concatenação, que une os canais dos mapas de características extraídos pelo \textit{encoder} com os canais dos mapas de características do \textit{decoder} antes de cada etapa de convolução no \textit{decoder}.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
     \centering
     \caption{Exemplo de conexões de atalho (\textit{skip connections}) na arquitetura U-Net.}
     \includegraphics[width=0.75\linewidth]{figures/unetimgs/ex_fig8.png}
@@ -108,13 +111,14 @@ Uma característica fundamental da U-Net é a presença das conexões de atalho 
     \label{ex:unet_img8}
 \end{figure}
 Para que os mapas de características possam ser concatenados, é necessário que possuam as mesmas dimensões espaciais. Quando isso não ocorre, aplica-se a técnica de Copia e Corta, do inglês \textit{copy and crop}, isto é, recorta-se o mapa de maior dimensão para compatibilizá-lo com o outro. Esse procedimento é ilustrado na Figura \ref{ex:unet_img9}.
-\begin{figure}[htpb]
+\begin{figure}[H]
     \centering
     \caption{Exemplo da compatibilização de dimensões para a concatenação.}
     \includegraphics[width=0.75\linewidth]{figures/unetimgs/ex_fig9.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ex:unet_img9}
 \end{figure}
+
 A cor vermelha, presente na Figura \ref{ex:unet_img9}, sinaliza quais linhas e colunas serão recortadas do mapa de características do \textit{encoder}.
 Após a compatibilização das dimensões, a concatenação é realizada ao longo do eixo dos canais. Se dois mapas de características possuem dimensões espaciais iguais, a operação pode ser representada por:
 $$
@@ -124,7 +128,7 @@ $$
 em que $A$ representa a altura, $L$ a largura, $C_1$ e $C_2$ o número de canais, e $\oplus$ a concatenação ao longo do eixo dos canais. Na Figura \ref{contacenacao} é ilustrada essa operação.
 \begin{figure}[H]
     \centering
-    \caption{Exemplo de concatenação de duas imagens ao longo do eixo dos canais.}
+    \caption{Exemplo de concatenação de dois mapas de características ao longo do eixo dos canais.}
     \includegraphics[width=0.65\linewidth]{figures/unetimgs/concatenacao.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{contacenacao}
@@ -132,114 +136,127 @@ em que $A$ representa a altura, $L$ a largura, $C_1$ e $C_2$ o número de canais
 
 \medskip
 \noindent\textbf{Etapa 7: Convolução final e limiar.}
-Após a concatenação, aplica-se uma última camada de convolução que não reduz a dimensão espacial, ou seja, o \textit{kernel} tem tamanho $(1\times 1 \times 2)$, com dois canais pois o mapa de características após a concatenação possui dois canais, como mostrado na Figura \ref{ex:unet_img10}. Essa camada combina a informação dos canais e produz a saída da rede.
+Após a concatenação, aplica-se uma última camada de convolução que não reduz a dimensão espacial, ou seja, o \textit{kernel} tem tamanho $(1\times 1 \times 2)$, com dois canais pois o mapa de características após a concatenação possui dois canais, para este exemplo, como mostrado na Figura \ref{ex:unet_img10}. Essa camada combina a informação dos canais e produz a saída da rede.
 \begin{figure}[H]
     \centering
-    \caption{Aplicação da última camada de convolução para gerar a imagem de saída $Y$.}
+    \caption{Aplicação da última camada de convolução para gerar a saída da rede.}
     \includegraphics[width=0.8\linewidth]{figures/unetimgs/ex_fig10.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ex:unet_img10}
 \end{figure}
-A aplicação da função \textit{sigmoid} produz valores no intervalo $[0,1]$, interpretados como probabilidades de cada pixel pertencer à região de interesse. Para que a imagem seja binária, aplica-se um limiar (\textit{threshold}) para converter a saída da rede em uma imagem binária, como mostrado na Figura \ref{ex:unet_img11}.
+
+A aplicação da função \textit{sigmoid} produz valores no intervalo $[0,1]$, interpretados como probabilidades de cada pixel pertencer à região de interesse. Para que a saída da rede seja convertida na máscara de segmentação, aplica-se um limiar (\textit{threshold}) para converter as probabilidades em valores binários, como mostrado na Figura \ref{ex:unet_img11}.
 
 \begin{figure}[H]
     \centering
-    \caption{Aplicação de um limiar (\textit{threshold}) para gerar a imagem binária final.}
+    \caption{Aplicação de um limiar (\textit{threshold}) para gerar a máscara de segmentação.}
     \includegraphics[width=0.8\linewidth]{figures/unetimgs/ex_fig11.png}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{ex:unet_img11}
 \end{figure}
 
+A máscara de segmentação resultante é então comparada com o \textit{ground truth} utilizando métricas de similaridade, descritas na Seção \ref{sec:metricas}, para avaliar a precisão da segmentação realizada pela U-Net.
+
+O processo descrito neste exemplo é repedito para cada imagem de entrada durante o treinamento da rede, ajustando os pesos e vieses para minimizar a diferença entre a máscara de segmentação e o \textit{ground truth}. Após o treinamento, a U-Net é capaz de generalizar e segmentar novas imagens de entrada, produzindo máscaras de segmentação precisas mesmo para imagens que não foram vistas durante o treinamento.
+
 \medskip
 \noindent\textbf{Resumo do exemplo.}
-Neste exemplo simplificado, a U-Net recebeu a imagem de entrada $X$, extraiu características relevantes no \textit{encoder}, reduziu sua dimensão espacial por meio do \textit{Max-pooling}, reconstruiu a informação no \textit{decoder} com auxílio das \textit{skip connections} e, por fim, produziu uma saída binária compatível com a imagem desejada $Y$. Embora simplificado, o exemplo evidencia os três elementos centrais da arquitetura: extração de características, reconstrução espacial e reaproveitamento de informações do \textit{encoder} no \textit{decoder}. Na Tabela \ref{tab:dimensoes_exemplo_unet} é resumido como as dimensões dos mapas de características se alteram ao longo de cada etapa do exemplo simplificado da U-Net.
+Neste exemplo simplificado, a U-Net recebeu a imagem de entrada $X$, extraiu características relevantes no \textit{encoder}, reduziu sua dimensão espacial por meio do \textit{Max pooling}, reconstruiu a informação no \textit{decoder} com auxílio das \textit{skip connections} e, por fim, produziu a máscara de segmentação compatível com o \textit{ground truth}. Embora simplificado, o exemplo evidencia os três elementos centrais da arquitetura: extração de características, reconstrução espacial e reaproveitamento de informações do \textit{encoder} no \textit{decoder}. 
 
-\begin{table}[htpb]
-    \centering
-    \caption{Evolução das dimensões no exemplo simplificado da U-Net.}
-    \begin{tabular}{|c|l|c|}
-        \hline
-        \textbf{Etapa} & \textbf{Operação} & \textbf{Dimensão} \\
-        \hline
-        1 & Imagem de entrada $X$ & $5\times 5 \times 1$ \\
-        \hline
-        2 & Após o \textit{padding} para a convolução & $6\times 6 \times 1$ \\
-        \hline
-        3 & Após a convolução & $5\times 5 \times 1$ \\
-        \hline
-        4 & Após a ativação ReLU & $5\times 5 \times 1$ \\
-        \hline
-        5 & Após o \textit{padding} para o \textit{Max-pooling} & $6\times 6 \times 1$ \\
-        \hline
-        6 & Após o \textit{Max-pooling} & $3\times 3 \times 1$ \\
-        \hline
-        7 & Após a convolução transposta & $6\times 6 \times 1$ \\
-        \hline
-        8 & Após o \textit{copy and crop} & $5\times 5 \times 1$ \\
-        \hline
-        9 & Após a concatenação (\textit{skip connection}) & $5\times 5 \times 2$ \\
-        \hline
-        10 & Após a convolução final $(1\times 1 \times 2)$ & $5\times 5 \times 1$ \\
-        \hline
-        11 & Após a função sigmoide & $5\times 5 \times 1$ \\
-        \hline
-        12 & Após o limiar (\textit{threshold}) & $5\times 5 \times 1$ \\
-        \hline
-        13 & Saída final $Y$ & $5\times 5 \times 1$ \\
-        \hline
-    \end{tabular}
-    \caption*{\footnotesize Fonte: Elaboração do Autor.}
-    \label{tab:dimensoes_exemplo_unet}
-\end{table}
+% Na Tabela \ref{tab:dimensoes_exemplo_unet} é resumido como as dimensões dos mapas de características se alteram ao longo de cada etapa do exemplo simplificado da U-Net.
+
+% \begin{table}[htpb]
+%     \centering
+%     \caption{Evolução das dimensões no exemplo simplificado da U-Net.}
+%     \begin{tabular}{clc}
+%         \hline
+%         \textbf{Etapa} & \textbf{Operação} & \textbf{Dimensão} \\
+%         \hline
+%         1 & Imagem de entrada $X$ & $5\times 5 \times 1$ \\
+%         \hline
+%         2 & Após o \textit{padding} para a convolução & $6\times 6 \times 1$ \\
+%         \hline
+%         3 & Após a convolução & $5\times 5 \times 1$ \\
+%         \hline
+%         4 & Após a ativação ReLU & $5\times 5 \times 1$ \\
+%         \hline
+%         5 & Após o \textit{padding} para o \textit{Max-pooling} & $6\times 6 \times 1$ \\
+%         \hline
+%         6 & Após o \textit{Max-pooling} & $3\times 3 \times 1$ \\
+%         \hline
+%         7 & Após a convolução transposta & $6\times 6 \times 1$ \\
+%         \hline
+%         8 & Após o \textit{copy and crop} & $5\times 5 \times 1$ \\
+%         \hline
+%         9 & Após a concatenação (\textit{skip connection}) & $5\times 5 \times 2$ \\
+%         \hline
+%         10 & Após a convolução final $(1\times 1 \times 2)$ & $5\times 5 \times 1$ \\
+%         \hline
+%         11 & Após a função sigmoide & $5\times 5 \times 1$ \\
+%         \hline
+%         12 & Após o limiar (\textit{threshold}) & $5\times 5 \times 1$ \\
+%         \hline
+%         13 & Saída final $Y$ & $5\times 5 \times 1$ \\
+%         \hline
+%     \end{tabular}
+%     \caption*{\footnotesize Fonte: Elaboração do Autor.}
+%     \label{tab:dimensoes_exemplo_unet}
+% \end{table}
 
 
 \subsection{Arquitetura Original da U-Net}
 \label{sec1:unet}
-A rede convolucional desenvolvida por Ronneberger \cite{Ronneberger2015UNet} é bem similar à arquitetura de rede utilizada no Exemplo \ref{ex:unet}, entretanto, a arquitetura completa da U-Net é composta por múltiplas camadas de convolução e \textit{pooling} no \textit{encoder}, e múltiplas camadas de convolução transposta no \textit{decoder}\footnote{Todas as camadas utilizam o \textit{padding}, mas dependendo da aplicação podem ou não utilizar a técnica ``\textit{same}''.}, no total são quatro blocos de convolução e \textit{pooling} no \textit{encoder} e quatro blocos de convolução transposta no \textit{decoder}, cada bloco contendo duas convoluções e um \textit{pooling}, como é mostrado na Figura \ref{unet}. 
+A rede convolucional desenvolvida por \citeonline{Ronneberger2015UNet} é bem similar à arquitetura de rede utilizada no Exemplo \ref{ex:unet}, entretanto, a arquitetura completa da U-Net é composta por múltiplas camadas de convolução e \textit{pooling} no \textit{encoder}, e múltiplas camadas de convolução transposta no \textit{decoder}. No total são quatro blocos de convolução e \textit{pooling} no \textit{encoder} e quatro blocos de convolução transposta no \textit{decoder}, cada bloco contendo duas convoluções e um \textit{pooling}, como é mostrado na Figura \ref{unet}. 
 
-O número de \textit{kernels} em cada camada de convolução aumenta à medida que se avança no \textit{encoder}, começando com 64 \textit{kernels} na primeira camada e dobrando a quantidade a cada camada subsequente, chegando a 512 \textit{kernels} na última camada do \textit{encoder}. No \textit{decoder}, o número de \textit{kernels} é reduzido pela metade a cada camada subsequente, começando com 512 \textit{kernels} na primeira camada do \textit{decoder} e terminando com 64 \textit{kernels} na última camada antes da saída. As conexões de atalho (\textit{skip connections}) entre as camadas correspondentes do \textit{encoder} e do \textit{decoder} permitem que sejam feitas as concatenações das imagens e, caso a dimensão seja diferente entre as imagens, utiliza-se a técnica de \textit{copy and crop}. No final do \textit{encoder} tem-se um bloco conhecido como \textit{baseline} ou \textit{bottleneck}, que é a camada mais profunda da rede, em que as características extraídas pela U-Net são processadas antes de serem enviadas para o \textit{decoder}. O \textit{baseline} é um bloco composto por duas camadas de convolução com 1024 \textit{kernels}. A saída do \textit{baseline} é então enviada para o \textit{decoder} para reconstruir a região de interesse.
+% \footnote{Todas as camadas utilizam o \textit{padding}, mas dependendo da aplicação podem ou não utilizar a técnica ``\textit{same}''.}
 
-Na Figura \ref{unet} é apresentada a arquitetura completa da U-Net, cada bloco representa uma etapa de processamento, o número na parte superior do bloco indica o número de \textit{kernels} utilizados na camada de convolução, enquanto o número na parte inferior do bloco indica as dimensões espaciais da imagem resultante daquela etapa. As setas azuis representam a operação de convolução com \textit{kernels} de dimenção $3\times 3$ e função de ativação $ReLU$, as setas vermelhas representam a operação de \textit{pooling} com \textit{kernel} de tamanho $2\times 2$ e stride de $2$, as setas cinzas representam as conexões de atalho e as setas verdes representam as operações de convolução transposta com \textit{kernels} de dimensão $2\times 2$. A última camada de convolução utiliza um \textit{kernel} de dimensão $1\times 1$ e função de ativação \textit{sigmoid logística} para gerar a saída da rede, representado pela seta azul claro.
+O número de \textit{kernels} em cada camada de convolução aumenta à medida que se avança no \textit{encoder}, começando com 64 \textit{kernels} na primeira camada e dobrando a quantidade a cada camada subsequente, chegando a 512 \textit{kernels} na última camada do \textit{encoder}, os blocos do \textit{encoder} são compostos por duas camadas de convolução seguidas de uma operação de \textit{pooling}. No \textit{decoder}, o número de \textit{kernels} é reduzido pela metade a cada camada subsequente, começando com 512 \textit{kernels} na primeira camada do \textit{decoder} e terminando com 64 \textit{kernels} na última camada antes da saída, os blocos do \textit{decoder} são compostos por uma camada de convolução transposta seguida de duas camadas de convolução. As conexões de atalho (\textit{skip connections}) entre as camadas correspondentes do \textit{encoder} e do \textit{decoder} permitem que sejam feitas as concatenações dos mapas de características, e, caso a dimensão entre estes seja diferente, utiliza-se a técnica de \textit{copy and crop}. No final do \textit{encoder} tem-se um bloco conhecido como \textit{baseline} ou \textit{bottleneck}, em português, linha base e gargalo, respectivamente. É o bloco mais profundo da rede, em que as características extraídas pela U-Net são processadas antes de serem enviadas para o \textit{decoder}. O \textit{bottleneck} é um bloco composto por duas camadas de convolução com 1024 \textit{kernels}. A saída do \textit{bottleneck} é então enviada para o \textit{decoder} para gerar a máscara de segmentação.
+
+Na Figura \ref{unet} é apresentada a arquitetura completa da U-Net, cada bloco representa uma etapa de processamento, o número na parte superior do retangulo azul indica o número de canais presentes no mapa de caracteristicas, enquanto o número na parte inferior do retangulo, indica as dimensões espaciais. As setas azuis representam a operação de convolução com \textit{kernels} de dimenções $3\times 3 \times C_r^{(i)}$, em que $C_r^{(i)}$ é o número de canais do mapa de características resultante do bloco $i$, com função de ativação $ReLU$, as setas vermelhas representam a operação de \textit{pooling} com \textit{kernels} de dimensões $2\times 2 \times C_a^{(i)}$ e \textit{stride} de $2$, em que $C_a^{(i)}$ é o número de canais do mapa de características do bloco $i$. As setas cinzas representam as conexões de atalho e as setas verdes representam as operações de convolução transposta com \textit{kernels} de dimensões $2\times 2 \times C_d^{(i)}$, em que $C_d^{(i)} = 2 \cdot C_r^{(5 - i)}$, para $i = 1, 2, 3, 4$. A última camada de convolução utiliza um \textit{kernel} de dimensões $1\times 1 \times 1$ e função de ativação \textit{sigmoid logística} para gerar a saída da rede, representado pela seta azul claro.
 \begin{figure}[htpb]
     \centering
     \caption{Arquitetura completa da U-Net.}
     \includegraphics[width=0.9\linewidth]{figures/unetimgs/ex_unet.png}
-    \caption*{\footnotesize Fonte: Adaptado de \cite{Ronneberger2015UNet}.}
+    \caption*{\footnotesize Fonte: Adaptado de \citeonline{Ronneberger2015UNet}.}
     \label{unet}
 \end{figure}
-Na U-Net original a técnica de \textit{padding} utilizada é a ``\textit{valid}'', ou seja, não é adicionado nenhum preenchimento às bordas da imagem, com isso em cada etapa de convolução as dimensões da imagem são reduzidas. Os cortes feitos para a concatenação, sinalizados por linhas azuis pontilhadas, nas imagens do \textit{encoder} (lado direito da Figura \ref{unet})  são feitos no centro da imagem, ou seja, a parte central da imagem do \textit{encoder} é mantida para a concatenação, enquanto as bordas são removidas. O total de parâmetros a serem otimizados é de aproximadamente $27.548,993$ dependendo da utilização do viés ou não. 
+Aplica-se um \textit{threshold} para converter a saída da rede em uma máscara de segmentação, em que os pixels com valor ``1'' representam a região de interesse e os pixels com valor ``0'' representam o fundo. 
 
-Para realizar o treinamento do modelo, é necessário desenvolver máscaras de segmentação, istó é, imagens binárias que indicam a presença ou ausência da região de interesse, quando desenvolvidas manualmente por especialistas, são conhecidas como \textit{Ground Truth}. Essas máscaras são utilizadas como rótulos, ou seja, cada imagem enviada para treinamento tem sua respectiva máscara de segmentação.
+Na U-Net original a técnica de \textit{padding} utilizada é a ``\textit{valid}'', ou seja, não é adicionado nenhum preenchimento às bordas dos mapas de características, com isso em cada etapa de convolução as dimensões dos mapas são reduzidas, conforme descrito na Subseção \ref{sec:padding}. Os cortes feitos para a concatenação, sinalizados por linhas azuis pontilhadas, nos mapas de características do \textit{encoder} (lado direito da Figura \ref{unet})  são feitas do centro para fora, ou seja, a parte central do mapa de características é mantida para a concatenação, sendo retiradas as mesmas quantidades de linhas e colunas de todos os lados. O total de parâmetros a serem otimizados, ou seja, pesos e viéses é de $27.548,993$. 
+
+
 
 \section{Modelos Propostos}
 \label{multitask}
 Para melhorar a capacidade de segmentação da U-Net, foram propostas duas arquiteturas derivadas do modelo original: a U-Net Multitarefa e a U-Net Fuzzy. Ambas compartilham uma mesma arquitetura base e diferem no tratamento aplicado ao \textit{bottleneck} da rede.
 
-\subsection{Visão geral das modificações propostas}
+\subsection{Visão Geral das Modificações Propostas}
 
 As duas arquiteturas propostas preservam a estrutura geral da U-Net, composta por encoder, bottleneck e decoder. Em relação à arquitetura original, foram adotadas modificações na quantidade de \textit{kernels}, no tipo de \textit{padding} e na forma de processamento das características extraídas no bottleneck. Na primeira proposta, a informação da raça do animal é incorporada por meio de uma camada multitarefa. Na segunda, além dessa etapa, é incluído um módulo de inferência fuzzy para refinar as características antes da reconstrução da máscara de segmentação.
 
 \subsubsection{Modelo Base}
 A arquitetura base utilizada nos dois modelos é composta por quatro blocos no encoder e quatro blocos no decoder.
-No \textit{encoder} cada bloco é composto por duas camadas de convolução (\textit{Conv2D}) com \textit{kernels} de tamanho $3\times 3$, \textit{stride} de tamanho $1$, \textit{padding} ``\textit{same}"\footnote{Na U-Net original é utilizada a convolução válida (\textit{padding = valid}), que diminui a resolução em cada etapa de convolução e introduz menos ruido para a rede, já que não é necessário expandir as bordas da imagens (\ref{padding}), entretanto optou-se pela convolução \textit{same} pois melhores resultados foram obtidos.} e função de ativação ReLU, seguidas por uma camada de \textit{MaxPooling} para reduzir a dimensão da imagem, com \textit{kernel} de tamanho $2\times 2$, \textit{stride} de tamanho $2$. O número de \textit{kernels} dobra de quantidade a cada bloco, começando com $32$ \textit{kernels} no primeiro bloco e chegando a $128$ \textit{kernels} no quarto bloco.
+No \textit{encoder} cada bloco é composto por duas camadas de convolução com \textit{kernels} de tamanho $3\times 3 \times C$, \textit{stride} de tamanho $1$, \textit{padding} ``\textit{same}" e  função de ativação ReLU, seguidas por uma camada de \textit{Max pooling} para reduzir a dimensão do mapa de características resultante, com \textit{kernel} de tamanho $2\times 2 \times C$, \textit{stride} de tamanho $2$, Subseções \ref{convolucao}, \ref{sec:stride}, \ref{sec:pooling}, respectivamente. O número de canais ($C$) dos \textit{kernels} dobra de quantidade a cada bloco, começando com $32$ canais no primeiro bloco e chegando a $128$ canais no quarto bloco. Optou-se pela convolução \textit{same} pois melhores resultados foram obtidos.
     
-No \textit{baseline}, tem-se duas camadas de convolução (\textit{Conv2D}) com \textit{kernel} de tamanho $3\times 3$, \textit{stride} de tamanho $1$, \textit{padding} ``\textit{same}" e função de ativação ReLU.
+No \textit{bottleneck}, tem-se duas camadas de convolução com \textit{kernel} de tamanho $3\times 3 \times 256$, \textit{stride} de tamanho $1$, \textit{padding} ``\textit{same}" e função de ativação ReLU.
 
-No \textit{decoder} a rede também é divida em blocos, cada bloco é composto por uma camada de convolução transposta (\textit{Conv2DTranspose}) com \textit{kernel} de tamanho $2\times 2$, \textit{stride} de tamanho $2$ e \textit{padding} ``\textit{same}", seguida por uma camada de concatenação para concatenar as características extraídas pelo \textit{encoder} com as características extraídas pelo \textit{decoder}, seguida por uma camada de convolução (\textit{Conv2D}) com \textit{kernel} de tamanho $3\times 3$, \textit{stride} de tamanho $1$, \textit{padding} ``\textit{same}" e função de ativação ReLU. Como a dimensão da imagem não é reduzida em cada etapa de convolução do \textit{encoder} não é necessário realizar a técnica de \textit{copy and crop} vista na U-Net original, seção \ref{sec:unet}, pois as características extraídas pelo \textit{encoder} e pelo \textit{decoder} possuem a mesma dimensão espacial, como é mostrado na Figura \ref{dimensoesIMG}, o que facilita a concatenação dos mapas de características. O número de \textit{kernels} é reduzido pela metade a cada bloco, começando com $256$ \textit{kernels} no primeiro bloco e chegando a $32$ \textit{kernels} no quarto bloco. 
+No \textit{decoder} a rede também é divida em blocos, cada bloco é composto por uma camada de convolução transposta com \textit{kernel} de tamanho $2\times 2 \times C$, \textit{stride} de tamanho $2$ e \textit{padding} ``\textit{same}", seguida por uma camada de concatenação para concatenar as características extraídas pelo \textit{encoder} com as características extraídas pelo \textit{decoder}, seguida por uma camada de convolução com \textit{kernel} de tamanho $3\times 3 \times C$, \textit{stride} de tamanho $1$, \textit{padding} ``\textit{same}" e função de ativação ReLU. Como a dimensão da imagem não é reduzida em cada etapa de convolução do \textit{encoder} não é necessário realizar a técnica de \textit{copy and crop} vista na U-Net original, Seção \ref{sec:unet}, pois as características extraídas pelo \textit{encoder} e pelo \textit{decoder} possuem a mesma dimensão espacial, como é mostrado na Figura \ref{dimensoesIMG}, o que facilita a concatenação dos mapas de características. O número de canais é reduzido pela metade a cada bloco, começando com $128$ canais no primeiro bloco e chegando a $32$ canais no quarto bloco. 
 
-A camada de saída é composta por uma camada de convolução (\textit{Conv2D}) com um único \textit{kernel} de tamanho $1\times 1$, \textit{stride} de tamanho $1$ e função de ativação \textit{Sigmoid} (\ref{sigmoide}) para produzir a saída da rede. Como a saída é uma imagem em que cada pixel representa a probabilidade de pertencer ou não à região de interesse, um limiar, do inglês \textit{threshold}, é aplicado para binarizar a saída da rede e produzir a máscara de segmentação.
+A camada de saída é composta por uma camada de convolução com um único \textit{kernel} de tamanho $1\times 1 \times 1$, \textit{stride} de tamanho $1$ e função de ativação \textit{Sigmoid} (\ref{sigmoide}) para produzir a saída da rede. Como a saída é uma imagem em que cada pixel representa a probabilidade de pertencer ou não à região de interesse, um limiar, do inglês \textit{threshold}, é aplicado para binarizar a saída da rede e produzir a máscara de segmentação.
 
 
 \subsubsection{U-Net Multitarefa}
 
-Esta modificação envolve a adição de uma nova camada de classificação à arquitetura original da U-Net, permitindo que a rede aprenda a realizar tanto a segmentação quanto a classificação simultaneamente. A camada de classificação é composta por unidades adicionais que processam as características extraídas pela U-Net para produzir uma saída de classificação no \textit{baseline} \cite{Zhu2022}. Um exemplo de aplicação é a segmentação de imagens de cancer de mama feitas por ultrassom, em que a U-Net é utilizada para segmentar a região de interesse (tumor) e a camada de classificação é utilizada para classificar o tipo do tumor (benigno $(0)$ ou maligno $(1)$), a entrada da rede é (IMG, [0,1]), em que IMG representa a imagem de entrada e [0,1] representa os rótulos de classificação. A segunda entrada da rede geralmente está em \textit{OneHotEncoder} \cite{onehot} que é uma técnica de codificação de rótulos categóricos em vetores binários, no caso do exemplo, benigno seria codificado para $[1,0]$ e $[0,1]$ para maligno. O funcionamento da camada pode-se ser entendido da seguinte forma: No final do \textit{encoder} a rede gera um mapa de característica de dimensões $(B, H, W, C)$ (\textit{baseline}), em que $B$ é o tamanho do lote, $H$ (altura) e $W$ (largura) são as dimensões da imagem e $C$ é o número de canais. A entrada da rede está no formato (IMG, $[x_0, \cdots,x_n]$), para $x_k = 0 \ \text{e} \ x_j = 1$, $k \neq j$ e $k, j = 0, \cdots, n$, então. Na camada multitarefa é definida uma camada totalmente conectada com matriz de pesos $W \subset \mathbb{M}(\mathbb{R})$ de dimensões $C \times n$. A saída da camada é então calculada pela seguinte operação matricial:
+Esta modificação envolve a adição de uma nova camada de classificação à arquitetura original da U-Net, permitindo que a rede aprenda a realizar tanto a segmentação quanto a classificação simultaneamente. A camada de classificação é composta por unidades adicionais que processam as características extraídas pela U-Net para produzir uma saída de classificação no \textit{bottleneck} \cite{Zhu2022}. Um exemplo de aplicação é a segmentação de imagens de cancer de mama feitas por ultrassom, em que a U-Net é utilizada para segmentar a região de interesse (tumor) e a camada de classificação é utilizada para classificar o tipo do tumor (benigno $(0)$ ou maligno $(1)$), a entrada da rede é (IMG, [0,1]), em que IMG representa a imagem de entrada e [0,1] representa os rótulos de classificação. A segunda entrada da rede geralmente está em \textit{OneHotEncoder} que é uma técnica de codificação de rótulos categóricos em vetores binários, no caso do exemplo, benigno seria codificado para $[1,0]$ e $[0,1]$ para maligno \cite{onehot}. 
+
+O funcionamento da camada pode-se ser entendido da seguinte forma: Após as duas $\ $ operações de convolução do \textit{bottleneck} a rede gera um mapa de característica de dimensões $(B, H, W, C)$, em que $B$ é o tamanho do lote (Subseção \ref{subsec:sgd}), $H$ (altura) e $W$ (largura) são as dimensões da imagem e $C$ é o número de canais. A entrada da rede está no formato (IMG, $[x_0, \cdots,x_n]$), para $x_k = 0 \ \text{e} \ x_j = 1$, $k \neq j$ e $k, j = 0, \cdots, n$. Na camada multitarefa é definida uma camada totalment conectada, ou seja, uma rede neural com uma única camada oculta, com matriz de pesos $W$ de entradas reais, com dimensão $C \times n$. A saída da camada é então calculada pela seguinte operação matricial:
 $$
-\tau\left( W_{C\times n}\cdot x_{1\times n}\right) = [\hat{y}_0, \hat{y}_1, \cdots, \hat{y}_C]_{C \times 1},
+\tau\left( W_{C\times n}\odot x_{1\times n}\right) = [\hat{y}_0, \hat{y}_1, \cdots, \hat{y}_C]_{C \times 1},
 $$ 
-em que ``$\cdot$'' representa a multiplicação matricial, $x = [x_0, x_1, \hdots, x_n]_{1 \times n}$ e $\tau$ é a função de ativação utilizada. A saída da camada é um vetor coluna de tamanho $C$, em que cada elemento $\hat{y}_i \in \mathbb{R}$. Para finalizar a camada multitarefa, a imagem original $(B, H, W, C)$ é separada em pixels da forma $(B\times 1\times 1\times C)_{1\times C}$ e cada pixel é multiplicado pelo vetor $[\hat{y}_0, \hat{y}_1, \cdots, \hat{y}_C]_{C \times 1}$ para obter um novo pixel. Após esse processo, com todos os pixels calculados, a nova imagem é formada com a mesma dimensão da imagem original e é enviada para o \textit{decoder} da U-Net para obter a segmentação final ou, no caso deste trabalho, é enviado para a camada de inferência fuzzy, como é mostrado na Figura \ref{cap3:anfis}.
+em que ``$\odot$'' representa a multiplicação matricial, $x = [x_0, x_1, \hdots, x_n]_{1 \times n}$ e $\tau$ é a função de ativação utilizada. A saída da camada é um vetor coluna de tamanho $C$, em que cada elemento $\hat{y}_i \in \mathbb{R}$. Para finalizar a camada multitarefa, o mapa de caracterśiticas original é multiplicado pelo vetor de saída da camada totalmente conectada. Após esse processo, com todos os pixels calculados, o novo mapa de características é formado com a mesma dimensão do mapa de características de entrada e é enviada para o \textit{decoder} da U-Net para obter a segmentação final ou, no caso deste trabalho, também é enviado para o módulo de inferência fuzzy, como é mostrado na Figura \ref{cap3:anfis}.
 
 Na Figura \ref{dimensoesIMG} é mostrado a arquitetura da U-Net multitarefa utilizada e como as dimensões das imagens vão se modificando ao longo da rede.
-A cor azul representa as camadas de convolução com \textit{kernels} de tamanho $3\times 3$, a cor roxa representa as camadas de \textit{MaxPooling}, a cor laranja representa as camadas de convolução transposta (\textit{UpSample}) com \textit{kernels} de tamanho $2\times 2$ e a cor verde representa as camadas de concatenação e convoluções com \textit{kernels} de tamanho $2\times 2$. As setas indicam o caminho dos dados ao longo da rede, mostrando como as características extraídas pelo \textit{encoder} são concatenadas com as características extraídas pelo \textit{decoder} (\textit{Skip Connection}) para produzir a máscara de segmentação final. O Multitarefa após o \textit{baseline} é a representação visual das equações vistas na subseção \ref{multitask}, com \textit{Dense} e \textit{Multiply} sendo funções da biblioteca \textit{Tensorflow} \cite{TensorFlowSite} da linguagem Python utilizadas para criar a camada multitarefa.
+A cor azul representa as camadas de convolução com \textit{kernels} de tamanho $3\times 3$, a cor roxa representa as camadas de \textit{Max pooling}, a cor laranja representa as camadas de convolução transposta com \textit{kernels} de tamanho $2\times 2$ e a cor verde representa as camadas de concatenação e convoluções com \textit{kernels} de tamanho $2\times 2$. As setas indicam o caminho dos dados ao longo da rede, mostrando como as características extraídas pelo \textit{encoder} são concatenadas com as características extraídas pelo \textit{decoder} (\textit{Skip Connection}) para produzir a máscara de segmentação final. O Multitarefa após o \textit{bottleneck} é a representação visual das equações vistas na Subseção \ref{multitask}.
 
 \begin{figure}[H]
     \centering
@@ -248,31 +265,19 @@ A cor azul representa as camadas de convolução com \textit{kernels} de tamanho
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{dimensoesIMG}    
 \end{figure}
-A camada multitarefa está recebendo uma imagem de dimensões $(16, 16, 256)$\footnote{Na figura \ref{dimensoesIMG} a imagem é representada como $16^2 \times 256 = (16,16,256)$, sem o \textit{lote} para facilitar a visualização.} junto com o vetor $[0, 1]$. A saída da camada totalmente conectada (\textit{dense}) é um vetor de dimensões $256\times 1$. Cada pixel do \textit{baseline} é multiplicado por esse vetor para obter um novo pixel, esse processo é repetido para todos os pixels da imagem (\textit{Multiply}). 
+Na figura \ref{dimensoesIMG} a imagem é representada como $16^2 \times 256 = (16,16,256)$, sem o \textit{lote} para facilitar a visualização. A camada multitarefa está recebendo uma imagem de dimensões $(16, 16, 256)$ junto com o vetor $[0, 1]$. A saída da camada totalmente conectada é um vetor de dimensões $256\times 1$ que é multiplicadoo pelo mapa de características original. 
 \subsubsection{U-Net Fuzzy}
-A U-Net Fuzzy compartilha a arquitetura base da U-Net Multitarefa, diferenciando-se pela inclusão de um módulo de inferência fuzzy no \textit{baseline} da rede. Este módulo é responsável por aplicar regras fuzzy para refinar as previsões da U-Net \cite{Verma2026}.  A adição de uma camada fuzzy adiciona incerteza e flexibilidade ao processo de segmentação, permitindo que a rede aprenda a lidar com casos ambíguos ou ruidosos, como por exemplo um pixel que está próximo ao limite entre duas classes. A camada de inferência fuzzy pode ser implementada utilizando o método de Takagi-Sugeno, já que em grande parte, o consequente pode ser modelado como uma função linear das entradas. A camada fuzzy é adicionada após a camada multitarefa da U-Net permitindo que as regras fuzzy sejam aplicadas aos mapas de características extraídas pela camada de multitarefa antes de serem processadas pelo \textit{decoder}. Intuitivamente a camada executa quatro etapas principais: o pré-processamento, a fuzzificação, a inferência e a defuzzificação.
+A U-Net Fuzzy compartilha a arquitetura base da U-Net Multitarefa, diferenciando-se pela inclusão de um módulo de inferência fuzzy (ANFIS) após a camada multitarefa da rede. Este módulo é responsável por aplicar regras fuzzy para refinar as previsões da U-Net \cite{Verma2026}.  A adição de um módulo fuzzy adiciona incerteza e flexibilidade ao processo de segmentação, permitindo que a rede aprenda a lidar com casos ambíguos ou ruidosos, como por exemplo um pixel que está próximo ao limite entre duas classes. O módulo fuzzy é adicionada após a camada multitarefa da U-Net permitindo que as regras fuzzy sejam aplicadas aos mapas de características extraídas pela camada de multitarefa antes de serem processadas pelo \textit{decoder}. Intuitivamente o módulo segue as etapas vistas na Seção \ref{anfis}, com algumas modificações para o contexto da U-Net. As etapas do módulo de inferência fuzzy são: pré-processamento, fuzzificação, inferência e defuzzificação.
 
-Na etapa de pré-processamento, o mapa de características $(B, H, W, C)$ recebido da camada multitarefa é separado em pixels individuais de dimensões $(B, 1, 1, C)$, ou seja, cada pixel do mapa de características é tratado como um vetor de entrada para o módulo de inferência fuzzy. Para que a camada não crie muitos parâmetros, é necessário  que o vetor de entrada seja reduzido, para isso, ao iniciar a camada fuzzy é definido o número de antecedentes (número de entradas) e o número de conjuntos fuzzy para cada antecedente, com isso, a camada de pré-processamento é responsável por reduzir o número de entradas do vetor de cada pixel para o número de antecedentes definidos. O pré-processamento é dado por:
+Na etapa de pré-processamento, o mapa de características $(B, H, W, C)$ recebido da camada multitarefa é separado em pixels individuais de dimensões $(B, 1, 1, C)$, ou seja, cada pixel do mapa de características é tratado como um vetor de entrada para o módulo de inferência fuzzy. Para que o módulo não crie muitos parâmetros, é necessário  que o vetor de entrada seja reduzido, para isso, ao iniciar a módulo fuzzy é definido o número de antecedentes (número de entradas) e o número de conjuntos fuzzy para cada antecedente, com isso, a camada de pré-processamento é responsável por reduzir o número de entradas do vetor de cada pixel para o número de antecedentes definidos. O pré-processamento é dado por:
 $$ 
-\overline{x}_{1\times a} = x_{1\times C} \cdot W_{C\times a} + b_{1\times a}  = [\overline{x}_0, \overline{x}_1, \cdots, \overline{x}_a]_{1 \times a},
+\overline{x}_{1\times a} = x_{1\times C} \odot W_{C\times a} + b_{1\times a}  = [\overline{x}_0, \overline{x}_1, \cdots, \overline{x}_{a - 1}]_{1 \times a},
 $$
-em que $W_{C\times a}$ é a matriz de pesos treináveis da camada de pré-processamento, $x_{1\times C}$ é o vetor de entrada do pixel, ``$a$'' é o número de antecedentes definidos para a camada fuzzy e $b_{1\times a}$ é o vetor de viéses da camada de pré-processamento. 
+em que $W_{C\times a}$ é a matriz de pesos treináveis da camada de pré-processamento, $x_{1\times C}$ é o vetor de entrada do pixel, ``$a$'' é o número de antecedentes definidos para o módulo fuzzy e $b_{1\times a}$ é o vetor de viéses da camada de pré-processamento. 
 
-Na etapa de fuzzificação, cada vetor $\overline{x}_{1\times a}$ receberá um grau de pertinência para cada conjunto fuzzy definido previamente, ou seja, as dimensões de $\overline{x}_{1\times a}$ serão transformadas para $\overline{x}_{1\times a \times F}$, em que $F$ é o número de conjuntos fuzzy definidos para cada vetor. As funções de pertinência são gaussianas:
-$$
-\mu_A(x) = e^{-\frac{(x - c)^2}{2\sigma^2}},
-$$ 
-em que $c$ é o centro da função de pertinência, inicializado com valores dentro do intervalo de $[-1,1]$, e $\sigma$, com valor padrão de $0.5$, é o desvio padrão, controlando a largura da função. Na Figura \ref{fig:gauss} é mostrado a função de pertinência com centro em $c = 0$ e largura $\sigma = 1$. 
-\begin{figure}[htpb]
-    \centering
-    \caption{Função de pertinência gaussiana.}
-    \includegraphics[width=0.6\textwidth]{figures/gaussiana.png}
-    \caption*{\footnotesize Fonte: Elaboração do Autor.}
-    \label{fig:gauss}
-\end{figure}
-Cada vetor~$\overline{x}_{1\times a}$ terá um total de três $c$ e um $\sigma$ que serão treináveis utilizando o método de~\textit{backpropagation}.
+Na etapa de fuzzificação, cada valor do vetor $\overline{x}_{1\times a}$ receberá um grau de pertinência para cada conjunto fuzzy definido previamente, ou seja, as dimensões de $\overline{x}_{1\times a}$ são transformadas para $\overline{x}_{1\times a \times F}$, em que $F$ é o número de conjuntos fuzzy definidos para cada vetor. As funções de pertinência são gaussianas, equação (\ref{eq:gaussiana}). $c$ é o centro da função de pertinência, inicializado com valores dentro do intervalo de $[-1,1]$, e $\sigma$ tendo valor padrão de $0.5$. Cada vetor~$\overline{x}_{1\times a}$ têm um total de três $c$ e um $\sigma$ que são treináveis utilizando o método de~\textit{backpropagation}, Subeseção~\ref{subsec:bacprop}.
 
-A etapa de inferência é dividida em duas partes. A parte ``se'' e a parte ``então''. Para a primeira parte, a quantidade de regras fuzzy são definidas como $R = F^a$, em que $R$ é o número total de regras fuzzy. Observa-se que o número de regras cresce exponencialmente com o número de antecedentes, por isso é importante definir um número pequeno de antecedentes para a camada fuzzy. Com isso cada valor do vetor $\overline{x}_{1\times a \times F}$ é combinado para produzir a força de ativaçã de cada regra, por exemplo, se o vetor $\overline{x} = [[0.2, 0.3, 0.5],[0.1,0.1,0.8],[0.7, 0.1,0.2]]$, ou seja, 3 antecedentes e 3 conjuntos fuzzy, então a força de ativação da regra $R_1$ seria dada por: 
+A etapa de inferência é dividida em duas partes. A parte ``SE'' e a parte ``ENTÃO''. Para a primeira parte, a quantidade de regras fuzzy são definidas como $R = F^a$, em que $R$ é o número total de regras fuzzy. Observa-se que o número de regras cresce exponencialmente com o número de antecedentes, por isso é importante definir um número pequeno de antecedentes para o módulo fuzzy. Com isso cada valor do vetor $\overline{x}_{1\times a \times F}$ é combinado para produzir os pesos $w_i$, também chamado de força de ativação de cada regra. Por exemplo, se o vetor $\overline{x} = [[0.2, 0.3, 0.5],[0.1,0.1,0.8],[0.7, 0.1,0.2]]$, ou seja, 3 antecedentes e 3 conjuntos fuzzy, então o número de regras é $R = 3^3 = 27$ e as forças de ativação de cada regra são dadas por: 
 $$
 \begin{cases}
 w_1 = 0.2 \cdot 0.1 \cdot 0.7, \\
@@ -281,35 +286,41 @@ w_2 = 0.2 \cdot 0.1 \cdot 0.1, \\
 w_{27} = 0.5 \cdot 0.8 \cdot 0.2, 
 \end{cases}
 $$
-com isso, a força de ativação da regra $R_1$ seria dada por $w_1 = 0.2 \cdot 0.1 \cdot 0.7 = 0.014$. De forma geral, a força de ativação da regra $R_r$ é dada por:
+
+De forma geral, a força de ativação da regra $r$ é dada por:
 $$
 w_r = (\mu_{A_1}(x_{11}) \cdot \mu_{A_1}(x_{21}) \cdot \hdots \cdot \mu_{A_1}(x_{a1})) = \prod_{i=0}^{a} \mu_{A_j}(x_{ij}),
 $$
-para $j = 1, \dots, F$, em que $A_j$ é o conjunto fuzzy  e $w_r$ é a força de ativação da regra $r$ com $r = 1, \dots, R$. Logo em seguida, as forças de ativação são normalizadas utilizando a seguinte fórmula:
+para $j = 1, \dots, F$, em que $A_j$ é o conjunto fuzzy  e $w_r$ é a força de ativação da regra $r$, com $r = 1, \dots, R$. Em seguida, as forças de ativação são normalizadas utilizando a seguinte fórmula:
 $$
 \overline{w_r} = \frac{w_r}{\sum_{r=0}^{R} w_r + \epsilon},
 $$
 em que $\epsilon$ é um valor pequeno adicionado para evitar a divisão por zero.
 
-A parte ``então'' é definida por uma função linear das entradas, baseado no método de Takagi-Sugeno, ou seja:
+A parte ``ENTÃO'' é definida por uma função linear das entradas, baseado no método de Takagi-Sugeno, ou seja:
 $$
 \begin{cases}
-(f_\text{Regra1}(x))_{1\times C} = (A_\text{Regra1})_{C\times C} \cdot x_{1\times C} + (b_\text{Regra1})_{1\times C}, \\
+(f_{regra_1}(x))_{1\times C} = (A_{regra_1})_{C\times C} \cdot x_{1\times C} + (b_{regra_1})_{1\times C}, \\
 \vdots \\
-(f_\text{RegraR}(x))_{1\times C} = (A_\text{RegraR})_{C\times C} \cdot x_{1\times C} + (b_\text{RegraR})_{1\times C},
+(f_{regra_R}(x))_{1\times C} = (A_{regra_R})_{C\times C} \cdot x_{1\times C} + (b_{regra_R})_{1\times C},
 \end{cases}
 $$
-em que $A_\text{Regraj}$ é a matriz de pesos treináveis da regra $j$, $b_\text{Regraj}$ é o vetor de viéses treináveis da regra $j$ e $x_{1\times C}$ é o vetor de entrada da camada fuzzy. 
+em que $A_{regra_j}$ é a matriz de pesos treináveis da regra $j$, $b_{regra_j}$ é o vetor de viéses treináveis da regra $j$ e $x_{1\times C}$ é o vetor de entrada do módulo de inferência fuzzy. 
+Nesta etapa, o número de parâmetros treináveis é de $R \times (C^2 + C)$, ou seja, para cada regra são treinados uma matriz de pesos de dimensões $C\times C$ e um vetor de viéses de dimensões $1\times C$. Na etapa de defuzzificação, para gerar a saída da inferência, cada regra é multiplicada pela força de ativação da regra:
+$$
+y_r = w_r \cdot f_{regra_r}(x),
+$$
+em que $y_r$ é a saída da inferência e $\overline{w_r}$ é a força de ativação normalizada da regra $r$. A saída é então calculada pela soma ponderada das saídas de todas as regras, ou seja:
+$$
+y_{1\times C} = \sum_{r=1}^{R} y_r,
+$$
+A saída da inferência é um novo vetor $(B, 1, 1, C)$. É por esse motivo que $w_r$ é chamado de força de ativação, já que se $w_r$ for baixo, ou seja, a regra $r$ não for muito relevante para o pixel de entrada, a saída da regra $y_r$ também será baixa, mesmo que a regra $f_{regra_r}(x)$ produza um valor alto. Esse processo é repetido para cada pixel do mapa de características recebido pelo módulo de inferência fuzzy, gerando um novo mapa de características de saída do módulo fuzzy.
 
-\textcolor{red}{parei aqui}
-
-
-
-em que $\tau$ é a função de ativação utilizada, $w_{i,r}$ é o peso treinável da regra $r$ para o conjunto fuzzy $A_i$ e $\mu_{A_i}(x_j)$ é o grau de pertinência do pixel $x_j$  ao conjunto fuzzy $A_i$, para $j = 0, \dots, C\times F - 1$ ($x_j$ é um elemento do vetor $x$, com $x$ sendo um pixel da imagem $(H,W,C\times F)$ o tamanho de $x$ é $C\times F$). A saída da inferência é um novo mapa de características $(B, H, W, R)$, em que $R$ é o número de regras pré-definidas. 
-
-Na etapa de defuzzificação, para obter o mapa de características final, que será processado pelo \textit{decoder} da U-Net, é necessário realizar a defuzzificação. O método de defuzzificação utilizado é o método da média ponderada. A defuzzificação é dada por:
-$$\text{Pixel}_{defuzzificado} = \frac{\sum_{r=0}^{R} \text{Regra}_r \times z_r}{\sum_{r=0}^{R} \text{Regra}_r},$$
-em que $\text{Regra}_r$ é o valor da regra $r$ obtido na etapa de inferência e $z_r$ é o valor associado à regra $r$, que pode ser um vetor de pesos treináveis ou uma função das entradas. Para que a saída tenha dimensões $(B, H, W, C)$, a matriz dos dos pesos deve ter dimensções $(R, C)$. A saída da defuzzificação é um novo mapa de características $(B, H_f, W_f, C)$, em que $H_f = H$ e $W_f = W$, por conta do treinamento, inicialmente, o mapa de características de saída da defuzzificação é só ruído e ao decorrer do treinamento esse ruído vai diminuindo, para suprimir os efeitos do ruído, é somada a imagem de saída da defuzzificação com a imagem do \textit{baseline} para obter um novo mapa de características $(B, H + H_f, W + W_f, C)$.
+No início do treinamento, o mapa de características de saída do módulo fuzzy é somente ruído, para evitar que esse ruído extra atrapalhe o processo de treinamento da U-Net, a saída do módulo fuzzy é somada ao mapa de características original da camada multitarefa para obter um mapa de características final:
+$$
+Y = Y_m + \alpha Y_f,
+$$
+em que $Y$ é o mapa de características final, $Y_m$ é o mapa de características original da camada multitarefa, $Y_f$ é o mapa de características de saída do módulo fuzzy e $\alpha$ é um hiperparâmetro que controla a influência do módulo fuzzy no mapa de características final. O valor de $\alpha$ é definido como um valor pequeno, por exemplo, $0.1$, para que a influência do módulo fuzzy seja limitada no início do treinamento, permitindo que a U-Net aprenda a segmentar as imagens sem ser muito afetada pelo ruído gerado pelo módulo fuzzy. Conforme o treinamento avança, o valor de $\alpha$ pode ser aumentado gradualmente para permitir que o módulo fuzzy tenha mais influência no processo de segmentação, refinando as previsões da U-Net à medida que o modelo aprende a lidar com casos ambíguos ou ruidosos.
 
 Após essa etapa o mapa de características é processado pelo \textit{decoder} da U-Net para obter a segmentação final. Na Figura \ref{cap3:anfis} é ilustrada a arquitetura da U-Net com a adição de uma camada Multitarefa e uma camada de inferência fuzzy.
 
@@ -317,62 +328,62 @@ Após essa etapa o mapa de características é processado pelo \textit{decoder} 
         \centering
         \caption{Arquitetura da U-Net com a adição de uma camada Multitarefa e uma camada de inferência fuzzy.}
         \includegraphics[width=0.6\textwidth]{figures/cap3/Baseline.png}
-        \caption*{Fonte: Adaptado de \cite{Ronneberger2015UNet}.}
+        \caption*{Fonte: Adaptado de \citeonline{Ronneberger2015UNet}.}
         \label{cap3:anfis}
     \end{figure}
 
-As setas mostram o fluxo do \textit{baseline} pelas camadas adicionais, em que ``$28^2$'' representa o tamanho do mapa de características. A entrada da camada Multitarefa é o mapa de características extraído pelo \textit{baseline} da U-Net adicionando a raça do animal, e a saída é um vetor de classificação que é multiplicado pelo mapa de características para obter um novo mapa de características, que é então enviada para a camada de inferência fuzzy. A camada de inferência fuzzy processa o mapa utilizando regras fuzzy para refinar as previsões da U-Net, e a saída é um novo mapa de características que é somada ao mapa de características original do \textit{baseline} para obter um mapa de características final que é enviada para o \textit{decoder} da U-Net para obter a região de interesse.
+As setas mostram o fluxo do \textit{bottleneck} pelas camadas adicionais, em que ``$28^2$'' representa a dimensão do mapa de características. 
+
+% Em resumo, a entrada da camada multitarefa é o mapa de características extraído pelo \textit{bottleneck} da U-Net adicionando a raça do animal, e a saída é um vetor de classificação que é multiplicado pelo mapa de características para obter um novo mapa de características, que é então enviada para o módulo de inferência fuzzy. O módulo de inferência fuzzy processa o mapa utilizando regras fuzzy para refinar as previsões da U-Net. A saída é um novo mapa de características que é somada ao mapa de características original da camada multitarefa para obter um mapa de características final, que é enviada para o \textit{decoder} da U-Net para obter a máscara de segmentação.
 
  
 \section{Critérios de Avaliação}
+\label{sec:metricas}
 \subsection{Coeficiente de Dice}
 \label{subsec:dice}
-Quando a região de interesse em uma imagem é pequena em comparação ao plano de fundo, a métrica da acurácia pode ser enganosa, pois a maioria dos pixels da imagem pertencem ao plano de fundo, o que pode levar a um resultado de alta acurácia mesmo que o modelo não esteja segmentando corretamente, ou seja, classificando cada pixel como pertencente ou não à região de interesse. Para lidar com esse problema, é comum utilizar métricas específicas para avaliar o resultado, como o coeficiente de Dice \cite{dice}, que é uma medida de similaridade entre a máscara de segmentação predita e o \textit{ground truth}. O coeficiente de Dice é calculado utilizando a seguinte fórmula:
+Quando a região de interesse em uma imagem é pequena em comparação ao plano de fundo, a métrica da acurácia pode ser enganosa, pois a maioria dos pixels da imagem pertencem ao plano de fundo, o que pode levar a um resultado de alta acurácia mesmo que o modelo não esteja segmentando corretamente, ou seja, classificando cada pixel como pertencente ou não à região de interesse. Para lidar com esse problema, é comum utilizar métricas específicas para avaliar o resultado, como o coeficiente de Dice, que é uma medida de similaridade entre a máscara de segmentação predita e o \textit{ground truth} \cite{dice}. O coeficiente de Dice é calculado utilizando a seguinte fórmula:
 \begin{equation}
     \label{eq:dice}
     Dice = \frac{2|A \cap B|}{|A| + |B|},
 \end{equation}
-em que $A$ é o conjunto de pixels da máscara de segmentação predita e $B$ é o conjunto de pixels do \textit{ground truth}. O coeficiente de Dice varia entre 0 e 1, em que um valor de 1 indica uma segmentação perfeita (todas as regiões de interesse foram corretamente identificadas) e um valor de 0 indica que não há sobreposição entre a máscara de segmentação predita e o \textit{ground truth}. 
+em que $A$ é o conjunto de pixels da máscara de segmentação predita e $B$ é o conjunto de pixels do \textit{ground truth}. O coeficiente de Dice varia entre 0 e 1, em que um valor de 1 indica que todas as regiões de interesse foram corretamente identificadas e um valor de 0 indica que não há sobreposição entre a máscara de segmentação predita e o \textit{ground truth}. 
 
 \begin{exemplo}
-    Seja $A = \{1,2,3,4,5,6\}$ e $B = \{1,2,3,4,9\}$. A interseção entre os conjuntos $A$ e $B$ é $A \cap B = \{1,2,3,4\}$, o que significa que existem 4 elementos em comum entre os dois conjuntos. O número total de elementos em $A$ é $|A| = 6$ e o número total de elementos em $B$ é $|B| = 5$. Substituindo esses valores na fórmula do coeficiente de Dice, temos:
+    Seja $A = \{1,2,3,4,5,6\}$ e $B = \{1,2,3,4,9\}$. A interseção entre os conjuntos $A$ e $B$ é $A \cap B = \{1,2,3,4\}$, o que significa que existem 4 elementos em comum entre os dois conjuntos. O número total de elementos em $A$ é $|A| = 6$ e o número total de elementos em $B$ é $|B| = 5$. Substituindo esses valores na fórmula do coeficiente de Dice, tem-se:
 $$
 Dice = \frac{2|A \cap B|}{|A| + |B|} = \frac{2 \cdot 4}{6 + 5} = \frac{8}{11} \approx 0,727.
 $$
 Portanto, o coeficiente de Dice para os conjuntos $A$ e $B$ é aproximadamente 0,727, indicando uma boa sobreposição entre os dois conjuntos, mas não uma correspondência perfeita.
 \end{exemplo}
-A métrica Dice é bastante utilizada em conjunto com a arquitetura U-Net para avaliar a qualidade da segmentação gerada pela rede. O objetivo é maximizar o valor do coeficiente de Dice, ou seja, aumentar a sobreposição entre a imagem segmentada e a máscara de segmentação para obter uma segmentação mais precisa \cite{JadersonMelo2022UNetpp}.
+A métrica Dice é bastante utilizada em conjunto com a arquitetura U-Net para avaliar a qualidade da segmentação gerada pela rede. O objetivo é maximizar o valor do coeficiente de Dice, ou seja, aumentar a sobreposição entre a imagem segmentada e a máscara de segmentação \cite{JadersonMelo2022UNetpp}.
 
 \subsection{Acurácia}
 
-A acurácia é uma métrica de avaliação utilizada para medir a proporção de pixels classificados corretamente pelo modelo em relação ao total de pixels na imagem. Para o contexto de segmentação de imagens, se $C_T$ for os pixels da região de AOL traçada pelo especialista e $C$ o conjunto dos pixels obtidos pelo método de predição. Os pixels definidos como verdadeiros positivos são $VP = C_T \cap C$, enquanto os pixels definidos como verdadeiros negativos são $VN = \{p|p \notin C_T \land p \notin C\}$. Os pixels falsos positivos são $FP = \{p|p \notin C_T \land p \in C\}$ enquanto os pixels falsos negativos satisfazem $FN = \{p|p \in C_T \land p \notin C\}$. Com isso, a acurácia é calculada utilizando a fórmula (\ref{unet_acuracia}).
+A acurácia é uma métrica de avaliação utilizada para medir a proporção de pixels classificados corretamente pelo modelo em relação ao total de pixels na imagem. Para o contexto de segmentação de imagens, se $C_T$ for os pixels da região de AOL traçada pelo especialista e $C$ o conjunto dos pixels obtidos pelo método de predição. Os pixels definidos como verdadeiros positivos são $VP = C_T \cap C$, enquanto os pixels definidos como verdadeiros negativos são $VN = \{p|p \notin C_T \ \text{e} \ p \notin C\}$. Os pixels falsos positivos são $FP = \{p|p \notin C_T \ \text{e} \ p \in C\}$ enquanto os pixels falsos negativos satisfazem $FN = \{p|p \in C_T \ \text{e} \ p \notin C\}$. Com isso, a acurácia é calculada utilizando a fórmula (\ref{unet_acuracia}),
 \begin{equation}
     \label{unet_acuracia}
     \text{Acurácia} = \frac{VP + VN}{VP + VN + FP + FN}.
 \end{equation}
-Para o contexto de segmentação de imagens, a acurácia nem sempre é tão precisa quanto o \textit{Dice}. Caso a imagem de segmentação seja uma região pequena em comparação com o fundo da imagem, o modelo pode classificar a maioria dos pixels como fundo e ainda assim obter uma acurácia alta, mesmo que a segmentação da região de interesse seja ruim \cite{JadersonMelo2022UNetpp}.
+Para o contexto de segmentação de imagens, a acurácia nem sempre é tão precisa quanto o \textit{Dice}. Caso a imagem de segmentação seja uma região pequena em comparação com o fundo da imagem, o modelo pode classificar a maioria dos pixels como fundo e ainda assim obter uma acurácia alta, mesmo que o coeficiente de Dice seja próximo de zero \cite{JadersonMelo2022UNetpp}.
 
 \subsection{Função de Custo}
 
-A função de custo indica o quão bem o modelo está se ajustando aos dados. Para avaliar os modelos, é utilizada a função \textit{Binary Cross-Entropy}, que mede a diferença entre as distribuições de probabilidade das máscaras de segmentação preditas pelo modelo e as máscaras de segmentação reais. Quanto menor for o valor da \textit{Binary Cross-Entropy}, melhor será o desempenho do modelo na segmentação das imagens.
+A função de custo indica o quão bem o modelo está se ajustando aos dados. Para avaliar os modelos, é utilizada a função \textit{Binary Cross-Entropy}, que mede a diferença entre as distribuições de probabilidade das máscaras de segmentação preditas pelo modelo e as máscaras de segmentação reais. Quanto menor for o valor da \textit{Binary Cross-Entropy}, melhor é o desempenho do modelo na segmentação das imagens.
 
 
 \subsection{Erro Médio Absoluto}
 
-O Erro Absoluto Médio, do inglês\textit{Mean Absolute Error} (MAE), é uma métrica de avaliação utilizada para medir a média dos erros absolutos entre as medidas preditas pelo modelo e as medidas reais (AOL, EGL e EGG) \cite{JadersonMelo2022UNetpp}. Ele é calculado utilizando a seguinte fórmula:
+O Erro Absoluto Médio, do inglês\textit{Mean Absolute Error} (MAE), é uma métrica de avaliação utilizada para medir a média dos erros absolutos entre as medidas preditas pelo modelo e as medidas reais (AOL, EGL e EGG) \cite{JadersonMelo2022UNetpp}. Este é calculado utilizando a seguinte fórmula:
 \begin{equation}        
     \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
 \end{equation}
-em que $y_i$ são as medidas reais e $\hat{y}_i$ são as medidas preditas pelo modelo.
+em que $y_i$ são as medidas reais e $\hat{y}_i$ são as medidas preditas pelo modelo e $n$ é o número de amostras.
 
 \subsection{Coeficiente de Determinação e Reta de Regressão Linear}
- O coeficiente de determinação ($R^2$) \cite{Candido2024} é uma métrica de avaliação utilizada para medir a proporção da variância dos dados que é explicada pelo modelo. Ele varia entre $0$ e $1$, em que $1$ indica que o modelo explica toda a variância dos dados e $0$ indica que o modelo não explica nenhuma variância dos dados. O $R^2$ é calculado utilizando a seguinte fórmula:
+ O coeficiente de determinação ($R^2$) é uma métrica de avaliação utilizada para medir a proporção da variância dos dados que é explicada pelo modelo \cite{Candido2024}. Este varia entre $0$ e $1$, em que $1$ indica que o modelo explica toda a variância dos dados e $0$ indica que o modelo não explica nenhuma variância dos dados. O $R^2$ é calculado utilizando a seguinte fórmula:
     \begin{equation}       
          R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
     \end{equation}
-em que $y_i$ são as medidas reais, $\hat{y}_i$ são as medidas preditas pelo modelo e $\bar{y}$ é a média das medidas reais. O $R^2$ é uma métrica importante para avaliar a qualidade das previsões do modelo. Como o objetivo é prever as medidas numéricas correspondentes à AOL, EGL e EGG a partir das imagens de ultrassom. A reta de regressão linear é uma linha que melhor se ajusta aos dados, e o $R^2$ indica também o quão bem a reta de regressão se ajusta aos dados.
+em que $y_i$ são as medidas reais, $\hat{y}_i$ são as medidas preditas pelo modelo e $\bar{y}$ é a média das medidas reais. O $R^2$ é uma métrica importante para avaliar a qualidade das previsões do modelo. Como o objetivo é prever as medidas numéricas correspondentes à AOL, EGL e EGG a partir das imagens de ultrassom. A reta de regressão linear é uma linha que melhor se ajusta aos dados, e o $R^2$ indica também o quão bem a reta se ajusta aos dados.
 
-Com isso, é encerrado o capítulo, com as redes apresentadas e as métricas de avaliação definidas, o próximo capítulo apresenta os resultados obtidos com a aplicação dos modelos propostos.
-
-
-
+Com isso, neste capítulo foi apresentado os modelos propostos, as métricas de avaliação utilizadas e a metodologia empregada para a análise dos resultados. No próximo capítulo, são apresentados os resultados obtidos a partir da aplicação dos modelos propostos para o problema de segmentação de imagens de imagens de ultrassom bovino e uma análise detalhada dos mesmos.

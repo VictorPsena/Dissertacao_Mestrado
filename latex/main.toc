@@ -12,75 +12,76 @@
 \contentsline {subsection}{\numberline {1.1.2}Unidade}{23}{subsection.1.1.2}%
 \contentsline {subsection}{\numberline {1.1.3} Tipos de Função de Ativação}{24}{subsection.1.1.3}%
 \contentsline {subsection}{\numberline {1.1.4}Perceptron e Algoritmo de Aprendizagem}{25}{subsection.1.1.4}%
-\contentsline {section}{\numberline {1.2}Redes Neurais}{29}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}\textit {Backpropagation}}{30}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Gradiente Descendente Estocástico}{31}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}\textit {Overfitting}}{32}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Hiperparâmetros}{33}{subsection.1.2.4}%
-\contentsline {subsection}{\numberline {1.2.5}Regularização}{34}{subsection.1.2.5}%
-\contentsline {subsection}{\numberline {1.2.6}\textit {Momentum} e Adam}{35}{subsection.1.2.6}%
-\contentsline {subsection}{\numberline {1.2.7}\textit {Vanishing Gradient}}{36}{subsection.1.2.7}%
-\contentsline {subsection}{\numberline {1.2.8}Função de Custo \textit {Binary Cross-Entropy}}{37}{subsection.1.2.8}%
-\contentsline {subsection}{\numberline {1.2.9}Arquiteturas de Redes Neurais}{38}{subsection.1.2.9}%
-\contentsline {subsection}{\numberline {1.2.10}Aplicação da Arquitetura MLP para Classificação de Dígitos Manuscritos}{39}{subsection.1.2.10}%
-\contentsline {subsection}{\numberline {1.2.11}Aplicação da Arquitetura MLP Para Reconstrução de Figura Geométrica}{41}{subsection.1.2.11}%
-\contentsline {section}{\numberline {1.3}Rede Neural para Análise de Imagens}{43}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Córtex Visual Humano e Visão Computacional}{43}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Redes Neurais Convolucionais}{44}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}Convolução}{45}{subsection.1.3.3}%
-\contentsline {subsection}{\numberline {1.3.4}Correlação Cruzada}{52}{subsection.1.3.4}%
-\contentsline {subsection}{\numberline {1.3.5}\textit {Kernel} Multicamadas}{52}{subsection.1.3.5}%
-\contentsline {subsection}{\numberline {1.3.6}\textit {Padding}}{52}{subsection.1.3.6}%
-\contentsline {subsection}{\numberline {1.3.7}\textit {Stride}}{53}{subsection.1.3.7}%
-\contentsline {subsection}{\numberline {1.3.8}\textit {Pooling}}{53}{subsection.1.3.8}%
-\contentsline {subsection}{\numberline {1.3.9}Convolução Transposta}{56}{subsection.1.3.9}%
-\contentsline {chapter}{\numberline {2}Teoria dos Conjuntos Fuzzy}{58}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Teoria}{58}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Conjuntos Fuzzy}{58}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Operações entre Conjuntos Fuzzy}{59}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Normas Triangulares}{60}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}Níveis de um Conjunto Fuzzy}{61}{subsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.1.5}Números Fuzzy}{62}{subsection.2.1.5}%
-\contentsline {section}{\numberline {2.2}Sistema Baseado em Regras Fuzzy}{62}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Regras e Inferência Fuzzy}{63}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Sistema Baseado em Regras Fuzzy}{63}{subsection.2.2.2}%
-\contentsline {chapter}{\numberline {3}Estrutura das Redes Neurais U-Net e U-Net Fuzzy}{69}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Esclarecendo a Arquitetura U-Net}{69}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Arquitetura Original da U-Net}{77}{subsection.3.1.1}%
-\contentsline {section}{\numberline {3.2}Modelos Propostos}{79}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Visão geral das modificações propostas}{79}{subsection.3.2.1}%
-\contentsline {subsubsection}{Modelo Base}{79}{section*.55}%
-\contentsline {subsubsection}{U-Net Multitarefa}{80}{section*.56}%
-\contentsline {subsubsection}{U-Net Fuzzy}{82}{section*.58}%
-\contentsline {section}{\numberline {3.3}Critérios de Avaliação}{85}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Coeficiente de Dice}{85}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Acurácia}{86}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Função de Custo}{86}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Erro Médio Absoluto}{87}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Coeficiente de Determinação e Reta de Regressão Linear}{87}{subsection.3.3.5}%
-\contentsline {chapter}{\numberline {4}Aplicação da U-Net e U-Net Fuzzy em Ultrassonografia Bovina}{88}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Base de Dados e Planejamento Experimental}{88}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Contexto do Problema e Medidas Avaliadas}{88}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Conjunto de Dados}{93}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Pré-processamento e Máscaras de Segmentação}{93}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Configuração dos Modelos}{95}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Modelos Comparados}{96}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Configuração de Treinamento}{97}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Métricas de Avaliação}{97}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Ambiente Computacional}{98}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Resultados e Análise}{98}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}AOL}{98}{subsection.4.3.1}%
-\contentsline {subsubsection}{U-Net multitarefa}{98}{section*.70}%
-\contentsline {subsubsection}{U-Net Fuzzy}{100}{section*.72}%
-\contentsline {subsubsection}{Comparação entre os modelos}{102}{section*.74}%
-\contentsline {subsection}{\numberline {4.3.2}EGL}{103}{subsection.4.3.2}%
-\contentsline {subsubsection}{U-Net multitarefa}{103}{section*.77}%
-\contentsline {subsubsection}{U-Net Fuzzy}{105}{section*.79}%
-\contentsline {subsubsection}{Comparação entre os modelos}{107}{section*.81}%
-\contentsline {subsection}{\numberline {4.3.3}EGG}{108}{subsection.4.3.3}%
-\contentsline {subsubsection}{U-Net multitarefa}{108}{section*.84}%
-\contentsline {subsubsection}{U-Net Fuzzy}{109}{section*.86}%
-\contentsline {subsubsection}{Comparação entre os modelos}{110}{section*.88}%
-\contentsline {section}{\numberline {4.4}Análise Geral dos Resultados}{112}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Aplicativo Computacional}{116}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Considerações Finais}{120}{chapter.5}%
+\contentsline {section}{\numberline {1.2}Redes Neurais}{30}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}\textit {Backpropagation}}{32}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Gradiente Descendente Estocástico}{33}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}\textit {Overfitting}}{34}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Hiperparâmetros}{35}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Regularização}{36}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}\textit {Momentum} e Adam}{37}{subsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.2.7}\textit {Vanishing Gradient}}{38}{subsection.1.2.7}%
+\contentsline {subsection}{\numberline {1.2.8}Função de Custo \textit {Binary Cross-Entropy}}{39}{subsection.1.2.8}%
+\contentsline {subsection}{\numberline {1.2.9}Arquiteturas de Redes Neurais}{40}{subsection.1.2.9}%
+\contentsline {subsection}{\numberline {1.2.10}Aplicação da Arquitetura MLP para Classificação de Dígitos Manuscritos}{41}{subsection.1.2.10}%
+\contentsline {subsection}{\numberline {1.2.11}Aplicação da Arquitetura MLP para Reconstrução de Figura Geométrica}{44}{subsection.1.2.11}%
+\contentsline {section}{\numberline {1.3}Rede Neural para Análise de Imagens}{45}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Córtex Visual Humano e Visão Computacional}{45}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Redes Neurais Convolucionais}{46}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Convolução}{47}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Correlação Cruzada}{54}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}\textit {Kernel} Multicamadas}{54}{subsection.1.3.5}%
+\contentsline {subsection}{\numberline {1.3.6}\textit {Padding}}{55}{subsection.1.3.6}%
+\contentsline {subsection}{\numberline {1.3.7}\textit {Stride}}{55}{subsection.1.3.7}%
+\contentsline {subsection}{\numberline {1.3.8}\textit {Pooling}}{56}{subsection.1.3.8}%
+\contentsline {subsection}{\numberline {1.3.9}Convolução Transposta}{57}{subsection.1.3.9}%
+\contentsline {chapter}{\numberline {2}Teoria dos Conjuntos Fuzzy}{60}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Conjuntos Fuzzy}{60}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Operações entre Conjuntos Fuzzy}{61}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Normas Triangulares}{63}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Níveis de um Conjunto Fuzzy}{64}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Números Fuzzy}{65}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Sistema Baseado em Regras Fuzzy}{66}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Regras e Inferência Fuzzy}{67}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Componentes de um SBRF}{67}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}ANFIS}{72}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Estrutura das Redes Neurais U-Net e U-Net Fuzzy}{75}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Noções Básicas da Arquitetura U-Net}{75}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Arquitetura Original da U-Net}{83}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Modelos Propostos}{85}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Visão Geral das Modificações Propostas}{85}{subsection.3.2.1}%
+\contentsline {subsubsection}{Modelo Base}{85}{section*.56}%
+\contentsline {subsubsection}{U-Net Multitarefa}{86}{section*.57}%
+\contentsline {subsubsection}{U-Net Fuzzy}{88}{section*.59}%
+\contentsline {section}{\numberline {3.3}Critérios de Avaliação}{92}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Coeficiente de Dice}{92}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Acurácia}{92}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Função de Custo}{93}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Erro Médio Absoluto}{93}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Coeficiente de Determinação e Reta de Regressão Linear}{93}{subsection.3.3.5}%
+\contentsline {chapter}{\numberline {4}Aplicação da U-Net e U-Net Fuzzy em Ultrassonografia Bovina}{95}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Base de Dados e Planejamento Experimental}{95}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Contexto do Problema e Medidas Avaliadas}{95}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Conjunto de Dados}{100}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Pré-processamento e Máscaras de Segmentação}{100}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Configuração dos Modelos}{102}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Modelos Comparados}{102}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Configuração de Treinamento}{103}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Métricas de Avaliação}{104}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Ambiente Computacional}{105}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Resultados e Análise}{105}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}AOL}{105}{subsection.4.3.1}%
+\contentsline {subsubsection}{U-Net multitarefa}{105}{section*.70}%
+\contentsline {subsubsection}{U-Net Fuzzy}{107}{section*.72}%
+\contentsline {subsubsection}{Comparação entre os modelos}{108}{section*.74}%
+\contentsline {subsection}{\numberline {4.3.2}EGL}{110}{subsection.4.3.2}%
+\contentsline {subsubsection}{U-Net multitarefa}{110}{section*.77}%
+\contentsline {subsubsection}{U-Net Fuzzy}{111}{section*.79}%
+\contentsline {subsubsection}{Comparação entre os modelos}{113}{section*.81}%
+\contentsline {subsection}{\numberline {4.3.3}EGG}{114}{subsection.4.3.3}%
+\contentsline {subsubsection}{U-Net multitarefa}{114}{section*.84}%
+\contentsline {subsubsection}{U-Net Fuzzy}{115}{section*.86}%
+\contentsline {subsubsection}{Comparação entre os modelos}{116}{section*.88}%
+\contentsline {section}{\numberline {4.4}Análise Geral dos Resultados}{118}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Aplicativo Computacional}{122}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Considerações Finais}{126}{chapter.5}%
+\contentsline {chapter}{Referências Bibliográficas}{131}{chapter*.99}%

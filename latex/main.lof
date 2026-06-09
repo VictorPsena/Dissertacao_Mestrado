@@ -1,79 +1,80 @@
 \babel@toc {brazil}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Ilustração da localização das regiões de interesse.}}{15}{figure.caption.5}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Imagens de ultrassom das regiões de interesse.}}{16}{figure.caption.6}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Exemplo de \textit {Ground Truth}.}}{17}{figure.caption.7}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Exemplo de \textit {ground truth}.}}{17}{figure.caption.7}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Fluxo de treinamento dos modelos.}}{20}{figure.caption.8}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Estrutura de um neurônio típico.}}{22}{figure.caption.9}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Modelo de uma unidade de McCulloch e Pitts.}}{23}{figure.caption.10}%
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Gráficos das Funções de Ativação.}}{25}{figure.caption.11}%
 \contentsline {figure}{\numberline {1.4}{\ignorespaces Representação da taxa de aprendizagem.}}{28}{figure.caption.13}%
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Estrutura visual básica de uma unidade e uma rede neural com duas camadas ocultas.}}{30}{figure.caption.14}%
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Ilustração do processo de \textit {backpropagation} em uma rede neural.}}{31}{figure.caption.15}%
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Comparação entre os métodos de descida do gradiente.}}{32}{figure.caption.16}%
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Ilustração do \textit {overfitting}.}}{33}{figure.caption.17}%
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Ilustração do \textit {Dropout} removendo 60\% das unidades aleatoriamente durante uma época de treinamento.}}{35}{figure.caption.18}%
-\contentsline {figure}{\numberline {1.10}{\ignorespaces Ilustração do \textit {Early Stopping}.}}{35}{figure.caption.19}%
-\contentsline {figure}{\numberline {1.11}{\ignorespaces Gráfico da derivada da função sigmoid logística.}}{37}{figure.caption.20}%
-\contentsline {figure}{\numberline {1.12}{\ignorespaces Arquiteturas de Redes Neurais.}}{39}{figure.caption.21}%
-\contentsline {figure}{\numberline {1.13}{\ignorespaces Exemplos de dígitos manuscritos do conjunto de dados MNIST.}}{40}{figure.caption.22}%
-\contentsline {figure}{\numberline {1.14}{\ignorespaces Arquitetura da rede neural para classificação de dígitos manuscritos. Inicialmente, é enviado o número de pixels da imagem (784) para a camada de entrada (unidade $x_{784} = 0,4$ intensidade do pixel), que é processada por uma camada oculta com 30 unidades, e a camada de saída tem 10 unidades, correspondendo às 10 classes de dígitos (0 a 9).}}{41}{figure.caption.23}%
-\contentsline {figure}{\numberline {1.15}{\ignorespaces Fluxo de dados durante o processo de treinamento e avaliação da rede neural.}}{42}{figure.caption.24}%
-\contentsline {figure}{\numberline {1.16}{\ignorespaces Paraboloide hiperbólico.}}{42}{figure.caption.25}%
-\contentsline {figure}{\numberline {1.17}{\ignorespaces Gráfico da superfície e aproximação da superfície obtida pela MLP e a projeção do E no plano $xy$.}}{43}{figure.caption.26}%
-\contentsline {figure}{\numberline {1.18}{\ignorespaces Exemplo de uma imagem/matriz $10\times 10$ em escala de cinza, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco).}}{45}{figure.caption.27}%
-\contentsline {figure}{\numberline {1.19}{\ignorespaces Ilustração da operação de convolução discreta. O kernel $w$ é deslizado sobre o vetor $x$, e em cada posição, a soma ponderada dos valores de $x$ cobertos pelo kernel é calculada para gerar o valor correspondente na saída.}}{48}{figure.caption.28}%
-\contentsline {figure}{\numberline {1.20}{\ignorespaces Exemplo de convolução bidimensional. A matriz de entrada $X$ (matriz $7\times 7$) é convoluída com o \textit {kernel} $W$ (matriz $2\times 2$) para produzir a saída $S$ (matriz $6\times 6$). O \textit {kernel} é ``deslizado'' sobre a matriz de entrada, formando sub-matrizes, e em cada posição, a soma ponderada dos valores dos pixels cobertos pelo \textit {kernel} é calculada e o resultado é aplicado em uma função de ativação ($\sigma $) para gerar o valor correspondente ($\hat {y}_{11}$) na matriz de saída. $b$ sendo o viés adicionado à soma ponderada.}}{50}{figure.caption.29}%
-\contentsline {figure}{\numberline {1.21}{\ignorespaces Aplicações de diferentes \textit {kernels} em uma imagem. A imagem original é representada em (a), juntamente com o \textit {kernel} identidade, que não faz modificações. Em (b) a imagem passou por um \textit {kernel} que aumenta a nitidez reforçando o pixel central e aumentando a diferença dele em relação à sua vizinhança. Em (c) foi usado um \textit {kernel} de desfoque, que substitui um pixel pela média dele com seus vizinhos. A imagem em (d) é o resultado de aplicar na imagem em escala de cinza um \textit {kernel} que reforça suas linhas verticais, enquanto (e) reforça suas linhas horizontais. O \textit {kernel} em (f) reforça os contornos (bordas) da imagem.}}{51}{figure.caption.30}%
-\contentsline {figure}{\numberline {1.22}{\ignorespaces Aplicação de \textit {padding} em uma imagem. Em (a) a imagem original passou por zero \textit {padding}. Em (b) a imagem original passou por \textit {reflection padding}. A imagem em (c) passou por um \textit {padding} constante, semelhante em (a), mas com valor diferente de zero.}}{53}{figure.caption.31}%
-\contentsline {figure}{\numberline {1.23}{\ignorespaces Exemplo de Max \textit {pooling} com dimensões $2\times 2$. A imagem original é reduzida para a imagem menor após a aplicação do Max \textit {pooling}. Cada bloco de $2\times 2$ pixels na imagem original é substituído pelo valor máximo dentro desse bloco na imagem reduzida.}}{54}{figure.caption.32}%
-\contentsline {figure}{\numberline {1.24}{\ignorespaces Arquitetura típica de uma Rede Neural Convolucional com uma camada de convolução e uma camada de \textit {pooling}, em que é enviado para rede a imagem de um cachorro e é feita a classificação do objeto na imagem.}}{55}{figure.caption.34}%
-\contentsline {figure}{\numberline {1.25}{\ignorespaces Exemplo da operação de convolução transposta.}}{57}{figure.caption.36}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Estrutura visual básica de uma unidade e uma rede neural com duas camadas ocultas.}}{31}{figure.caption.14}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Ilustração do processo de \textit {backpropagation} em uma rede neural.}}{33}{figure.caption.15}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Comparação entre os métodos de descida do gradiente.}}{34}{figure.caption.16}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Ilustração do \textit {overfitting}.}}{35}{figure.caption.17}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Ilustração do \textit {Dropout} removendo 60\% das unidades aleatoriamente durante uma época de treinamento.}}{37}{figure.caption.18}%
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Ilustração do \textit {Early Stopping}.}}{37}{figure.caption.19}%
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Gráfico da derivada da função sigmoid logística.}}{39}{figure.caption.20}%
+\contentsline {figure}{\numberline {1.12}{\ignorespaces Arquiteturas de Redes Neurais.}}{41}{figure.caption.21}%
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Fluxo de dados durante o processo de treinamento e avaliação da rede neural.}}{42}{figure.caption.22}%
+\contentsline {figure}{\numberline {1.14}{\ignorespaces Exemplos de dígitos manuscritos do conjunto de dados MNIST.}}{42}{figure.caption.23}%
+\contentsline {figure}{\numberline {1.15}{\ignorespaces Arquitetura da rede neural para classificação de dígitos manuscritos.}}{43}{figure.caption.24}%
+\contentsline {figure}{\numberline {1.16}{\ignorespaces Paraboloide hiperbólico.}}{44}{figure.caption.25}%
+\contentsline {figure}{\numberline {1.17}{\ignorespaces Gráfico da superfície e aproximação da superfície obtida pela MLP e a projeção do E no plano $xy$.}}{45}{figure.caption.26}%
+\contentsline {figure}{\numberline {1.18}{\ignorespaces Exemplo de uma imagem/matriz $10\times 10 \times 1$ em escala de cinza, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco).}}{47}{figure.caption.27}%
+\contentsline {figure}{\numberline {1.19}{\ignorespaces Ilustração da operação de convolução discreta. O kernel $w$ é deslizado sobre o vetor $x$, e em cada posição, a soma ponderada dos valores de $x$ cobertos pelo kernel é calculada para gerar o valor correspondente na saída.}}{50}{figure.caption.28}%
+\contentsline {figure}{\numberline {1.20}{\ignorespaces Exemplo de convolução bidimensional. A matriz de entrada $X$ (matriz $7\times 7$) é convoluída com o \textit {kernel} $W$ (matriz $2\times 2$) para produzir a saída $S$ (matriz $6\times 6$). O \textit {kernel} é ``deslizado'' sobre a matriz de entrada, formando sub-matrizes, e em cada posição, a soma ponderada dos valores dos pixels cobertos pelo \textit {kernel} é calculada e o resultado é aplicado em uma função de ativação ($\sigma $) para gerar o valor correspondente ($\hat {y}_{11}$) na matriz de saída. $b$ sendo o viés adicionado à soma ponderada.}}{53}{figure.caption.29}%
+\contentsline {figure}{\numberline {1.21}{\ignorespaces Aplicações de diferentes \textit {kernels} em uma imagem. A imagem original é representada em (a), juntamente com o \textit {kernel} identidade, que não faz modificações. Em (b) a imagem passou por um \textit {kernel} que aumenta a nitidez reforçando o pixel central e aumentando a diferença dele em relação à sua vizinhança. Em (c) foi usado um \textit {kernel} de desfoque, que substitui um pixel pela média dele com seus vizinhos. A imagem em (d) é o resultado de aplicar na imagem em escala de cinza um \textit {kernel} que reforça suas linhas verticais, enquanto (e) reforça suas linhas horizontais. O \textit {kernel} em (f) reforça os contornos (bordas) da imagem.}}{53}{figure.caption.30}%
+\contentsline {figure}{\numberline {1.22}{\ignorespaces Aplicação de \textit {padding} em uma imagem. Em (a) a imagem original passou por zero \textit {padding}. Em (b) a imagem original passou por \textit {reflection padding}. A imagem em (c) passou por um \textit {padding} constante, semelhante em (a), mas com valor diferente de zero.}}{55}{figure.caption.31}%
+\contentsline {figure}{\numberline {1.23}{\ignorespaces Exemplo de \textit {Max pooling} com dimensões $2\times 2$. A imagem original é reduzida para a imagem menor após a aplicação do \textit {Max pooling}. Cada bloco de $2\times 2$ pixels na imagem original é substituído pelo valor máximo dentro desse bloco na imagem reduzida.}}{56}{figure.caption.32}%
+\contentsline {figure}{\numberline {1.24}{\ignorespaces Arquitetura típica de uma Rede Neural Convolucional com uma camada de convolução e uma camada de \textit {pooling}, em que é enviado para rede a imagem de um cachorro e é feita a classificação do objeto na imagem.}}{58}{figure.caption.34}%
+\contentsline {figure}{\numberline {1.25}{\ignorespaces Exemplo da operação de convolução transposta.}}{59}{figure.caption.36}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Operações entre conjuntos fuzzy.}}{60}{figure.caption.37}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Arquitetura de um Sistema Baseado em Regras Fuzzy (SBRF).}}{64}{figure.caption.38}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Exemplo de inferência fuzzy utilizando o método de Mamdani.}}{65}{figure.caption.39}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Exemplo de inferência fuzzy utilizando o método de Takagi-Sugeno.}}{66}{figure.caption.40}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Função de pertinência $\mu _A(x)$ para o conjunto fuzzy ``temperatura alta".}}{61}{figure.caption.37}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Operações entre conjuntos fuzzy.}}{63}{figure.caption.38}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Função de pertinência de um número fuzzy gaussiano.}}{66}{figure.caption.39}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Arquitetura de um Sistema Baseado em Regras Fuzzy (SBRF).}}{68}{figure.caption.40}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Exemplo de inferência fuzzy utilizando o método de Takagi-Sugeno.}}{69}{figure.caption.41}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Arquitetura do ANFIS}}{74}{figure.caption.42}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Imagem de entrada $X$ e resposta desejada $Y$.}}{70}{figure.caption.41}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Aplicação de um \textit {kernel} de convolução na imagem de entrada $X$.}}{71}{figure.caption.42}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Aplicação de \textit {padding} na imagem de entrada $X$.}}{71}{figure.caption.43}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Aplicação da função de ativação ReLU no mapa de características.}}{72}{figure.caption.44}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Aplicação de uma camada de \textit {Max-pooling} no mapa de características resultante.}}{72}{figure.caption.45}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Aplicação da convolução transposta no mapa de \textit {pooling}.}}{73}{figure.caption.46}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Estrutura em forma de U da arquitetura U-Net.}}{74}{figure.caption.47}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Exemplo de conexões de atalho (\textit {skip connections}) na arquitetura U-Net.}}{74}{figure.caption.48}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Exemplo da compatibilização de dimensões para a concatenação.}}{75}{figure.caption.49}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Exemplo de concatenação de duas imagens ao longo do eixo dos canais.}}{75}{figure.caption.50}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Aplicação da última camada de convolução para gerar a imagem de saída $Y$.}}{76}{figure.caption.51}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Aplicação de um limiar (\textit {threshold}) para gerar a imagem binária final.}}{76}{figure.caption.52}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Arquitetura completa da U-Net.}}{78}{figure.caption.54}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Arquitetura da U-Net multitarefa utilizada e as dimensões das imagens ao longo da rede.}}{81}{figure.caption.57}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Função de pertinência gaussiana.}}{83}{figure.caption.59}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Arquitetura da U-Net com a adição de uma camada Multitarefa e uma camada de inferência fuzzy.}}{85}{figure.caption.60}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Imagem de entrada $X$ e \textit {ground truth}.}}{76}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Aplicação de um \textit {kernel} de convolução na imagem de entrada $X$.}}{77}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Aplicação de \textit {padding} na imagem de entrada $X$.}}{77}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Aplicação da função de ativação ReLU no mapa de características.}}{78}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Aplicação de uma camada de \textit {Max pooling} no mapa de características resultante após a ReLU.}}{78}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Aplicação da convolução transposta no mapa de \textit {pooling}.}}{79}{figure.caption.48}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Estrutura simplificada em forma de U da arquitetura U-Net.}}{80}{figure.caption.49}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Exemplo de conexões de atalho (\textit {skip connections}) na arquitetura U-Net.}}{81}{figure.caption.50}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Exemplo da compatibilização de dimensões para a concatenação.}}{81}{figure.caption.51}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Exemplo de concatenação de dois mapas de características ao longo do eixo dos canais.}}{82}{figure.caption.52}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Aplicação da última camada de convolução para gerar a saída da rede.}}{82}{figure.caption.53}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Aplicação de um limiar (\textit {threshold}) para gerar a máscara de segmentação.}}{83}{figure.caption.54}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Arquitetura completa da U-Net.}}{85}{figure.caption.55}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Arquitetura da U-Net multitarefa utilizada e as dimensões das imagens ao longo da rede.}}{88}{figure.caption.58}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Arquitetura da U-Net com a adição de uma camada Multitarefa e uma camada de inferência fuzzy.}}{91}{figure.caption.60}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Região do olho de lombo (em amarelo), localizada entre a 12ª e 13ª costela e da garupa (em azul).}}{89}{figure.caption.61}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Aquisição da imagem de ultrassom da região do olho de lombo.}}{90}{figure.caption.62}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Demarcação manual da Área de Olho de Lombo (AOL) utilizando o aplicativo \textit {ImageJ}.}}{91}{figure.caption.63}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Demarcação manual da Espessura de Gordura subcutânea no Lombo (EGL) utilizando o aplicativo \textit {ImageJ}.}}{92}{figure.caption.64}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Demarcação manual da Espessura de Gordura subcutânea na Garupa (EGG) utilizando o aplicativo \textit {ImageJ}.}}{92}{figure.caption.65}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Exemplo do processo de pré-processamento das imagens de ultrassom.}}{94}{figure.caption.66}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Exemplo das máscaras de segmentação criadas para as imagens de ultrassom.}}{95}{figure.caption.67}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas.}}{100}{figure.caption.71}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL.}}{101}{figure.caption.73}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Comparação entre as máscaras de segmentação.}}{103}{figure.caption.76}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas.}}{105}{figure.caption.78}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas.}}{106}{figure.caption.80}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Comparação entre as máscaras de segmentação.}}{108}{figure.caption.83}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net multitarefa.}}{109}{figure.caption.85}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net Fuzzy.}}{110}{figure.caption.87}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Comparação entre as máscaras de segmentação para a EGG.}}{111}{figure.caption.90}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Processo de extração de características e geração do mapa de características na primeira etapa de convolução da U-Net.}}{112}{figure.caption.91}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Mapa de características na última etapa de convolução do \textit {encoder} da U-Net.}}{113}{figure.caption.92}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Mapa de características gerado pelo módulo de inferência fuzzy e mapa de características sem o módulo de inferência fuzzy.}}{114}{figure.caption.93}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Mapa de características gerado no terceiro bloco do \textit {decoder} da U-Net Fuzzy e da U-Net multitarefa.}}{115}{figure.caption.94}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Tela inicial do aplicativo para seleção do indicador e modelo.}}{116}{figure.caption.95}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Tela de seleção das imagens de ultrassom a serem processadas.}}{117}{figure.caption.96}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Tela de visualização dos resultados, com as máscaras de segmentação sobrepostas à imagem original e os valores numéricos do indicador.}}{118}{figure.caption.97}%
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Exemplo de uma imagem de ultrassom com baixa qualidade, em que a rede gerou uma segmentação errônea, e o aplicativo calculou apenas a região maior, eliminando as regiões menores.}}{119}{figure.caption.98}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Região do músculo \textit {Longuissimus Dorsi} (em amarelo) e da garupa (em azul).}}{96}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Aquisição da imagem de ultrassom da região do olho de lombo.}}{97}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Demarcação manual da Área de Olho de Lombo (AOL) utilizando o aplicativo \textit {ImageJ}.}}{98}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Demarcação manual da Espessura de Gordura subcutânea no Lombo (EGL) utilizando o aplicativo \textit {ImageJ}.}}{99}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Demarcação manual da Espessura de Gordura subcutânea na Garupa.}}{99}{figure.caption.65}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Exemplo do processo de pré-processamento das imagens de ultrassom.}}{101}{figure.caption.66}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Exemplo das máscaras de segmentação criadas para as imagens de ultrassom.}}{102}{figure.caption.67}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas.}}{106}{figure.caption.71}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL.}}{108}{figure.caption.73}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Comparação entre as máscaras de segmentação.}}{109}{figure.caption.76}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas.}}{111}{figure.caption.78}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas.}}{112}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Comparação entre as máscaras de segmentação.}}{114}{figure.caption.83}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net multitarefa.}}{115}{figure.caption.85}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net Fuzzy.}}{116}{figure.caption.87}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Comparação entre as máscaras de segmentação para a EGG.}}{117}{figure.caption.90}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Processo de extração de características e geração do mapa de características na primeira etapa de convolução da U-Net.}}{118}{figure.caption.91}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Mapa de características na última etapa de convolução do \textit {baseline} da U-Net.}}{119}{figure.caption.92}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Mapa de características gerado com o módulo de inferência fuzzy e mapa de características gerado sem o módulo de inferência fuzzy.}}{120}{figure.caption.93}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Mapa de características gerado no terceiro bloco do \textit {decoder} da U-Net Fuzzy e da U-Net multitarefa.}}{121}{figure.caption.94}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Tela inicial do aplicativo para seleção do indicador e modelo.}}{122}{figure.caption.95}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Tela de seleção das imagens de ultrassom a serem processadas.}}{123}{figure.caption.96}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Tela de visualização dos resultados, com as máscaras de segmentação sobrepostas à imagem original e os valores numéricos do indicador.}}{124}{figure.caption.97}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Exemplo de uma imagem de ultrassom com baixa qualidade, em que a rede gerou uma segmentação errônea, e o aplicativo calculou apenas a região maior, eliminando as regiões menores.}}{125}{figure.caption.98}%
 \addvspace {10\p@ }

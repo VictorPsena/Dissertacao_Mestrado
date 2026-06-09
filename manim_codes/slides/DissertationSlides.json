@@ -1,0 +1,79 @@
+{
+  "slides": [
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/DissertationSlides/c538aa187490362f5a3516e47bed950fda4054b2c9a88f63edfa5110bcb8e4ca.mp4",
+      "rev_file": "slides/files/DissertationSlides/c538aa187490362f5a3516e47bed950fda4054b2c9a88f63edfa5110bcb8e4ca_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/DissertationSlides/b03a9b9f01529edea3ef2b4b51dbf6bb99ee0deda89664fb74a7793db222cb3e.mp4",
+      "rev_file": "slides/files/DissertationSlides/b03a9b9f01529edea3ef2b4b51dbf6bb99ee0deda89664fb74a7793db222cb3e_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/DissertationSlides/4336763231eb94186504d0ac00dd84eda0df46196dd7096ac72767157c34b632.mp4",
+      "rev_file": "slides/files/DissertationSlides/4336763231eb94186504d0ac00dd84eda0df46196dd7096ac72767157c34b632_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/DissertationSlides/975f648f7433d5080bba1a034c6ec6bd79f232837f03ea27568174edf02e7d5a.mp4",
+      "rev_file": "slides/files/DissertationSlides/975f648f7433d5080bba1a034c6ec6bd79f232837f03ea27568174edf02e7d5a_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/DissertationSlides/dc69f1f69856a3971a1a3ff1a311890d274187c0acd97694238413e8df59001b.mp4",
+      "rev_file": "slides/files/DissertationSlides/dc69f1f69856a3971a1a3ff1a311890d274187c0acd97694238413e8df59001b_reversed.mp4"
+    }
+  ],
+  "resolution": [
+    854,
+    480
+  ],
+  "background_color": "white"
+}

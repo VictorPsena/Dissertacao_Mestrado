@@ -1,0 +1,23 @@
+{
+  "slides": [
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/Introducao/2cfe59b3f1d2b053494d8fd5e2ed24a60daef203fd6b3b87326799d5233945ee.mp4",
+      "rev_file": "slides/files/Introducao/2cfe59b3f1d2b053494d8fd5e2ed24a60daef203fd6b3b87326799d5233945ee_reversed.mp4"
+    }
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "white"
+}

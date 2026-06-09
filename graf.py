@@ -2,11 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def plot_graf(x, y, title='Graf', output_path='graf.png', pontosBanco=None, pontosTreino = None) -> str:
-    plt.plot(x, y, label='Rede Neural', color='green')
+    plt.plot(x, y, label=r"$\mu_A(x)$", color='green')
     plt.xlabel(r'$x$', fontsize=16)
     plt.ylabel(r"$\mu_A(x)$", fontsize=16)
     plt.title(title, fontsize=18)
     plt.grid(False)
+    plt.legend()
     if pontosBanco:
         for i, ponto in enumerate(pontosBanco):
             plt.scatter(*ponto, color='red', label='banco de treino' if i == 0 else "")
@@ -21,13 +22,13 @@ def plot_graf(x, y, title='Graf', output_path='graf.png', pontosBanco=None, pont
     return output_path
 
 #%%
-x = np.linspace(-10, 10, 1000)
-y = 1/(1 + np.exp(-x))
+x = np.linspace(0, 1, 100)
+y =np.exp(-((x-0.5)**2)/(2*0.1**2))
 z = np.exp(-(x-0)**2/1**2)
 #%%
 a = (0, 0.25)
 
 
 
-figure = plot_graf(x, z, title='', output_path='sigmoid_derivative.png')
+figure = plot_graf(x, y, title='', output_path='sigmoid_derivative.png')
 print(f'Figura salva em: {figure}')

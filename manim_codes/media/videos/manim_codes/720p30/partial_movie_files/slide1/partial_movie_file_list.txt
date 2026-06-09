@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/victors/Documents/Dissertacao_Mestrado/manim_codes/media/videos/manim_codes/720p30/partial_movie_files/slide1/1987512680_3039183648_223132457.mp4'
+file 'file:/home/victors/Documents/Dissertacao_Mestrado/manim_codes/media/videos/manim_codes/720p30/partial_movie_files/slide1/2538612922_1666626664_3192451604.mp4'
+file 'file:/home/victors/Documents/Dissertacao_Mestrado/manim_codes/media/videos/manim_codes/720p30/partial_movie_files/slide1/2538612922_1789147694_658983513.mp4'

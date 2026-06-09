@@ -38,28 +38,28 @@ As imagens de ultrassom correspondentes a essas regiões são apresentadas na Fi
 
 A delimitação do contorno da região em amarelo na Figura \ref{intro:ultrasom}(a) corresponde à AOL, na mesma imagem encontra-se a EGL, demarcada em vermelho. A linha amarela na Figura \ref{intro:ultrasom}(b) corresponde à EGG. A variabilidade nessas características influencia a comercialização e os resultados econômicos dos produtores \cite{cap3:nelore_caracu}, tornando a mensuração precisa uma demanda constante do setor.
 
-Tradicionalmente, a delimitação e mensuração das regiões são realizadas manualmente por especialistas, um processo sujeito à subjetividade e que demanda tempo considerável. Diante disso, a aplicação de técnicas de visão computacional e inteligência artificial \cite{szeliski2010} apresenta-se como uma alternativa promissora para automatizar e padronizar esse processo. Em particular, arquiteturas de redes neurais convolucionais, em inglês \textit{Convolutional Neural Networks} (CNNs) \cite{cnn}, uma subárea da inteligência artificial dedicada à análise e interpretação de imagens, têm demonstrado resultados expressivos em diversas aplicações biomédicas,tal como, a análise de estruturas neuronais \cite{Ronneberger2015UNet}. Uma das principais técnicas empregadas nestas redes é a segmentação de imagens, que consiste na classificação de cada pixel em uma categoria específica, possibilitando a identificação precisa das regiões de interesse. Para o treinamento e a avaliação desses modelos, utiliza-se uma máscara de segmentação, comumente denominada \textit{Ground Truth}, criada manualmente por especialistas. Essa máscara corresponde a uma imagem binária na qual os pixels pertencentes à região de interesse são destacados em branco, enquanto os demais são representados em preto. Na Figura~\ref{intro:segmentacao}, é apresentada uma imagem de ultrassom e o \textit{Ground Truth} criado para mensurar a AOL.
+Tradicionalmente, a delimitação e mensuração das regiões são realizadas manualmente por especialistas, um processo sujeito à subjetividade e que demanda tempo considerável. Diante disso, a aplicação de técnicas de visão computacional e inteligência artificial \cite{szeliski2010} apresenta-se como uma alternativa promissora para automatizar e padronizar esse processo. Em particular, arquiteturas de redes neurais convolucionais, em inglês \textit{Convolutional Neural Networks} (CNNs) \cite{cnn}, uma subárea da inteligência artificial dedicada à análise e interpretação de imagens, têm demonstrado resultados expressivos em diversas aplicações biomédicas,tal como, a análise de estruturas neuronais \cite{Ronneberger2015UNet}. Uma das principais técnicas empregadas nestas redes é a segmentação de imagens, que consiste na classificação de cada pixel em uma categoria específica, possibilitando a identificação precisa das regiões de interesse. Para o treinamento e a avaliação desses modelos, utiliza-se uma máscara de segmentação, comumente denominada \textit{ground truth}, criada manualmente por especialistas. Essa máscara corresponde a uma imagem binária na qual os pixels pertencentes à região de interesse são destacados em branco, enquanto os demais são representados em preto. Na Figura~\ref{intro:segmentacao}, é apresentada uma imagem de ultrassom e o \textit{ground truth} criado para mensurar a AOL.
 \begin{figure}[H]
     \centering
-    \caption{Exemplo de \textit{Ground Truth}.}
+    \caption{Exemplo de \textit{ground truth}.}
     \begin{subfigure}{0.3\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/introducao/ultrasom.jpg}
+        \includegraphics[width=\linewidth]{figures/introducao/ultrasom.png}
         \caption{Imagem original.}
     \end{subfigure}
     \hspace{30mm}
     \begin{subfigure}{0.3\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/introducao/segmentacao.jpg }
-        \caption{\textit{Ground Truth}.}
+        \includegraphics[width=\linewidth]{figures/introducao/segmentacao.png}
+        \caption{\textit{ground truth}.}
 
     \end{subfigure}
     \caption*{\footnotesize Fonte: Elaboração do Autor.}
     \label{intro:segmentacao}
 \end{figure}
-Na imagem original, Figura \ref{intro:segmentacao}(a), a região de interesse não está demarcada, enquanto na Figura \ref{intro:segmentacao}(b), pode-se visualizar o \textit{Ground Truth} correspondente da Figura \ref{intro:segmentacao}(a).
+Na imagem original, Figura \ref{intro:segmentacao}(a), a região de interesse não está demarcada, enquanto na Figura \ref{intro:segmentacao}(b), pode-se visualizar o \textit{ground truth} correspondente da Figura \ref{intro:segmentacao}(a).
 
-Entre as arquiteturas de redes neurais utilizadas para segmentação de imagens, destaca-se a U-Net. Seu nome deriva do formato de sua estrutura, que se assemelha à letra “U” \cite{Ronneberger2015UNet}. Este modelo reduz a resolução da imagem recebida extraindo características, desde detalhes locais até padrões gerais, etapa conhecida como \textit{encoder}, e, em seguida, a imagem é reconstruída a partir dessas características extraídas, etapa conhecida como \textit{decoder}. Este processo permite a geração de uma máscara de segmentação predita pelo modelo. Essa máscara é posteriormente comparada ao \textit{Ground Truth}, utilizando métricas de similaridade, como o coeficiente Dice, cuja descrição será apresentada adiante.
+Entre as arquiteturas de redes neurais utilizadas para segmentação de imagens, destaca-se a U-Net. Seu nome deriva do formato de sua estrutura, que se assemelha à letra “U” \cite{Ronneberger2015UNet}. Este modelo reduz a resolução da imagem recebida extraindo características, desde detalhes locais até padrões gerais, etapa conhecida como \textit{encoder}, e, em seguida, a imagem é reconstruída a partir dessas características extraídas, etapa conhecida como \textit{decoder}. Este processo permite a geração de uma máscara de segmentação predita pelo modelo. Essa máscara é posteriormente comparada ao \textit{ground truth}, utilizando métricas de similaridade, como o coeficiente Dice, cuja descrição será apresentada adiante.
 
 
 A U-Net foi originalmente proposta para segmentação de imagens biomédicas, sendo reconhecida pela capacidade de operar com conjuntos de dados reduzidos e pela eficiência na captura de informações em imagens. Quando é necessário que a arquitetura faça algo além da máscara de segmentação, como por exemplo, classificação, utiliza-se uma abordagem denominada Multitarefa, do inglês \textit{Multitask}. Essa abordagem permite que a rede neural aprenda a realizar múltiplas tarefas simultaneamente. 

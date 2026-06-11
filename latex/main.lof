@@ -50,31 +50,27 @@
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Aplicação da última camada de convolução para gerar a saída da rede.}}{82}{figure.caption.53}%
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Aplicação de um limiar (\textit {threshold}) para gerar a máscara de segmentação.}}{83}{figure.caption.54}%
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Arquitetura completa da U-Net.}}{85}{figure.caption.55}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Arquitetura da U-Net multitarefa utilizada e as dimensões das imagens ao longo da rede.}}{88}{figure.caption.58}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Arquitetura da U-Net com a adição de uma camada Multitarefa e uma camada de inferência fuzzy.}}{91}{figure.caption.60}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Arquitetura da U-Net multitarefa utilizada e as dimensões dos mapas de características ao longo da rede.}}{88}{figure.caption.58}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Arquitetura da U-Net com a adição de uma camada Multitarefa e uma camada de inferência fuzzy.}}{92}{figure.caption.60}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Região do músculo \textit {Longuissimus Dorsi} (em amarelo) e da garupa (em azul).}}{96}{figure.caption.61}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Aquisição da imagem de ultrassom da região do olho de lombo.}}{97}{figure.caption.62}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Demarcação manual da Área de Olho de Lombo (AOL) utilizando o aplicativo \textit {ImageJ}.}}{98}{figure.caption.63}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Demarcação manual da Espessura de Gordura subcutânea no Lombo (EGL) utilizando o aplicativo \textit {ImageJ}.}}{99}{figure.caption.64}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Demarcação manual da Espessura de Gordura subcutânea na Garupa.}}{99}{figure.caption.65}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Exemplo do processo de pré-processamento das imagens de ultrassom.}}{101}{figure.caption.66}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Exemplo das máscaras de segmentação criadas para as imagens de ultrassom.}}{102}{figure.caption.67}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas.}}{106}{figure.caption.71}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL.}}{108}{figure.caption.73}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Comparação entre as máscaras de segmentação.}}{109}{figure.caption.76}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas.}}{111}{figure.caption.78}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas.}}{112}{figure.caption.80}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Comparação entre as máscaras de segmentação.}}{114}{figure.caption.83}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net multitarefa.}}{115}{figure.caption.85}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net Fuzzy.}}{116}{figure.caption.87}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Comparação entre as máscaras de segmentação para a EGG.}}{117}{figure.caption.90}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Processo de extração de características e geração do mapa de características na primeira etapa de convolução da U-Net.}}{118}{figure.caption.91}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Mapa de características na última etapa de convolução do \textit {baseline} da U-Net.}}{119}{figure.caption.92}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Mapa de características gerado com o módulo de inferência fuzzy e mapa de características gerado sem o módulo de inferência fuzzy.}}{120}{figure.caption.93}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Mapa de características gerado no terceiro bloco do \textit {decoder} da U-Net Fuzzy e da U-Net multitarefa.}}{121}{figure.caption.94}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Tela inicial do aplicativo para seleção do indicador e modelo.}}{122}{figure.caption.95}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Tela de seleção das imagens de ultrassom a serem processadas.}}{123}{figure.caption.96}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Tela de visualização dos resultados, com as máscaras de segmentação sobrepostas à imagem original e os valores numéricos do indicador.}}{124}{figure.caption.97}%
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Exemplo de uma imagem de ultrassom com baixa qualidade, em que a rede gerou uma segmentação errônea, e o aplicativo calculou apenas a região maior, eliminando as regiões menores.}}{125}{figure.caption.98}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Exemplo do processo de pré-processamento das imagens de ultrassom.}}{99}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Exemplo das máscaras de segmentação criadas para as imagens de ultrassom.}}{100}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas.}}{104}{figure.caption.68}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL.}}{105}{figure.caption.70}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Comparação entre as máscaras de segmentação.}}{106}{figure.caption.73}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para o modelo U-Net Multitarefa da EGL.}}{107}{figure.caption.75}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para o modelo U-Net Fuzzy da EGL.}}{108}{figure.caption.77}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Comparação entre as máscaras de segmentação.}}{109}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para os modelos U-Net Fuzzy da EGG.}}{111}{figure.caption.83}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Comparação entre as máscaras de segmentação para a EGG.}}{112}{figure.caption.86}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Processo de extração de características e geração do mapa de características na primeira etapa de convolução da U-Net.}}{114}{figure.caption.87}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Mapa de características na última etapa de convolução do \textit {bottleneck} da U-Net.}}{115}{figure.caption.88}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Mapa de características gerado com o módulo de inferência fuzzy e mapa de características gerado sem o módulo de inferência fuzzy.}}{116}{figure.caption.89}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Mapa de características gerado no terceiro bloco do \textit {decoder} da U-Net Fuzzy e da U-Net Multitarefa.}}{117}{figure.caption.90}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Tela inicial do aplicativo para seleção do indicador e modelo.}}{118}{figure.caption.91}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Tela de seleção das imagens de ultrassom a serem processadas.}}{119}{figure.caption.92}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Tela de visualização dos resultados, com as máscaras de segmentação sobrepostas à imagem original e os valores numéricos do indicador.}}{120}{figure.caption.93}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Exemplo de uma imagem de ultrassom com baixa qualidade, em que a rede gerou uma segmentação errônea, e o aplicativo calculou apenas a região maior, eliminando as regiões menores.}}{121}{figure.caption.94}%
 \addvspace {10\p@ }

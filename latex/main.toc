@@ -26,7 +26,7 @@
 \contentsline {subsection}{\numberline {1.2.11}Aplicação da Arquitetura MLP para Reconstrução de Figura Geométrica}{44}{subsection.1.2.11}%
 \contentsline {section}{\numberline {1.3}Rede Neural para Análise de Imagens}{45}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}Córtex Visual Humano e Visão Computacional}{45}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Redes Neurais Convolucionais}{46}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.2}Redes Neurais Convolucionais}{47}{subsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.3.3}Convolução}{47}{subsection.1.3.3}%
 \contentsline {subsection}{\numberline {1.3.4}Correlação Cruzada}{54}{subsection.1.3.4}%
 \contentsline {subsection}{\numberline {1.3.5}\textit {Kernel} Multicamadas}{54}{subsection.1.3.5}%
@@ -49,39 +49,38 @@
 \contentsline {subsection}{\numberline {3.1.1}Arquitetura Original da U-Net}{83}{subsection.3.1.1}%
 \contentsline {section}{\numberline {3.2}Modelos Propostos}{85}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Visão Geral das Modificações Propostas}{85}{subsection.3.2.1}%
-\contentsline {subsubsection}{Modelo Base}{85}{section*.56}%
+\contentsline {subsubsection}{Modelo Base}{86}{section*.56}%
 \contentsline {subsubsection}{U-Net Multitarefa}{86}{section*.57}%
-\contentsline {subsubsection}{U-Net Fuzzy}{88}{section*.59}%
+\contentsline {subsubsection}{U-Net Fuzzy}{89}{section*.59}%
 \contentsline {section}{\numberline {3.3}Critérios de Avaliação}{92}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Coeficiente de Dice}{92}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Acurácia}{92}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Função de Custo}{93}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Erro Médio Absoluto}{93}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Coeficiente de Determinação e Reta de Regressão Linear}{93}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.2}Acurácia}{93}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Função de Custo}{94}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Erro Médio Absoluto}{94}{subsection.3.3.4}%
 \contentsline {chapter}{\numberline {4}Aplicação da U-Net e U-Net Fuzzy em Ultrassonografia Bovina}{95}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Base de Dados e Planejamento Experimental}{95}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Contexto do Problema e Medidas Avaliadas}{95}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Conjunto de Dados}{100}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Pré-processamento e Máscaras de Segmentação}{100}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Configuração dos Modelos}{102}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Modelos Comparados}{102}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Configuração de Treinamento}{103}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Métricas de Avaliação}{104}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Ambiente Computacional}{105}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Resultados e Análise}{105}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}AOL}{105}{subsection.4.3.1}%
-\contentsline {subsubsection}{U-Net multitarefa}{105}{section*.70}%
-\contentsline {subsubsection}{U-Net Fuzzy}{107}{section*.72}%
-\contentsline {subsubsection}{Comparação entre os modelos}{108}{section*.74}%
-\contentsline {subsection}{\numberline {4.3.2}EGL}{110}{subsection.4.3.2}%
-\contentsline {subsubsection}{U-Net multitarefa}{110}{section*.77}%
-\contentsline {subsubsection}{U-Net Fuzzy}{111}{section*.79}%
-\contentsline {subsubsection}{Comparação entre os modelos}{113}{section*.81}%
-\contentsline {subsection}{\numberline {4.3.3}EGG}{114}{subsection.4.3.3}%
-\contentsline {subsubsection}{U-Net multitarefa}{114}{section*.84}%
-\contentsline {subsubsection}{U-Net Fuzzy}{115}{section*.86}%
-\contentsline {subsubsection}{Comparação entre os modelos}{116}{section*.88}%
-\contentsline {section}{\numberline {4.4}Análise Geral dos Resultados}{118}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Aplicativo Computacional}{122}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Considerações Finais}{126}{chapter.5}%
-\contentsline {chapter}{Referências Bibliográficas}{131}{chapter*.99}%
+\contentsline {subsection}{\numberline {4.1.2}Conjunto de Dados}{97}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Pré-processamento e Máscaras de Segmentação}{98}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Configuração dos Modelos}{100}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Modelos Comparados}{100}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Configuração de Treinamento}{101}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Métricas de Avaliação}{102}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Ambiente Computacional}{103}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Resultados e Análise}{103}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}AOL}{103}{subsection.4.3.1}%
+\contentsline {subsubsection}{U-Net Multitarefa}{103}{section*.67}%
+\contentsline {subsubsection}{U-Net Fuzzy}{104}{section*.69}%
+\contentsline {subsubsection}{Comparação entre os modelos}{105}{section*.71}%
+\contentsline {subsection}{\numberline {4.3.2}EGL}{106}{subsection.4.3.2}%
+\contentsline {subsubsection}{U-Net Multitarefa}{107}{section*.74}%
+\contentsline {subsubsection}{U-Net Fuzzy}{107}{section*.76}%
+\contentsline {subsubsection}{Comparação entre os modelos}{108}{section*.78}%
+\contentsline {subsection}{\numberline {4.3.3}EGG}{110}{subsection.4.3.3}%
+\contentsline {subsubsection}{U-Net Multitarefa}{110}{section*.81}%
+\contentsline {subsubsection}{U-Net Fuzzy}{110}{section*.82}%
+\contentsline {subsubsection}{Comparação entre os modelos}{111}{section*.84}%
+\contentsline {section}{\numberline {4.4}Análise Geral dos Resultados}{113}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Aplicativo Computacional}{118}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Considerações Finais}{122}{chapter.5}%
+\contentsline {chapter}{Referências Bibliográficas}{127}{chapter*.95}%

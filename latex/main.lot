@@ -4,9 +4,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Quantidade de modelos desenvolvidos para cada medida.}}{103}{table.caption.68}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Resumo da configuração de treinamento adotada nos experimentos.}}{104}{table.caption.69}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{109}{table.caption.75}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Resumo dos resultados obtidos para a EGL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{113}{table.caption.82}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Resumo dos resultados obtidos para a EGG, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{116}{table.caption.89}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Quantidade de modelos desenvolvidos para cada medida.}}{101}{table.caption.65}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Resumo da configuração de treinamento adotada nos experimentos.}}{102}{table.caption.66}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net Multitarefa com o modelo de U-Net Fuzzy.}}{106}{table.caption.72}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Resumo dos resultados obtidos para a EGL, comparando o modelo U-Net Multitarefa com o modelo U-Net Fuzzy.}}{109}{table.caption.79}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Resumo dos resultados obtidos para a EGG, comparando o modelo de U-Net Multitarefa com o modelo de U-Net Fuzzy.}}{112}{table.caption.85}%
 \addvspace {10\p@ }

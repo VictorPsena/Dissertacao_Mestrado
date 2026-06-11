@@ -32,12 +32,6 @@ ISBN 9788582713091.}
 {BENGIO, Y. Practical recommendations for gradient-based training of deep architectures.
 \emph{Cornell University}, Version 2, 2012.}
 
-\bibitem[Candido 2024]{Candido2024}
-\abntrefinfo{Candido}{CANDIDO}{2024}
-{CANDIDO, G. \emph{R Quadrado: coeficiente de determinação}. 2024.
-Acesso em: 23 abr. 2026.
-Dispon{\'\i}vel em: \url{https://medium.com/@lg0702/r-quadrado-3318259ff2e2}.}
-
 \bibitem[Chowdhury 2024]{padding}
 \abntrefinfo{Chowdhury}{CHOWDHURY}{2024}
 {CHOWDHURY, M. \emph{Padding and Strides in CNN}. 2024.
@@ -92,7 +86,7 @@ ISSN 1981-4089.}
 
 \bibitem[Goodfellow, Bengio e Courville 2016]{Goodfellow-et-al-2016}
 \abntrefinfo{Goodfellow, Bengio e Courville}{GOODFELLOW; BENGIO; COURVILLE}{2016}
-{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. [S.l.]: MIT Press, 2016. \url{http://www.deeplearningbook.org}.}
+{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. Cambridge, MA, USA: MIT Press, 2016. \url{http://www.deeplearningbook.org}.}
 
 \bibitem[{GOOGLE LLC} 2015]{TensorFlowSite}
 \abntrefinfo{{GOOGLE LLC}}{{GOOGLE LLC}}{2015}
@@ -124,7 +118,7 @@ ISBN 978-65-86399-14-5.}
 
 \bibitem[Jang 1993]{Jang1993}
 \abntrefinfo{Jang}{JANG}{1993}
-{JANG, J.-S.~R. Anfis: Adaptive-network-based fuzzy inference system.
+{JANG, J.-S.~R. {ANFIS}: Adaptive-network-based fuzzy inference system.
 \emph{IEEE Transactions on Systems, Man, and Cybernetics}, v.~23, n.~3, p. 665--685, 1993.}
 
 \bibitem[{KERAS TEAM} 2015]{KerasSite}
@@ -137,12 +131,6 @@ Dispon{\'\i}vel em: \url{https://keras.io/}.}
 \abntrefinfo{Kirichev, Slavov e Momcheva}{KIRICHEV; SLAVOV; MOMCHEVA}{2021}
 {KIRICHEV, M.~M.; SLAVOV, T.~S.; MOMCHEVA, G.~D. Fuzzy {U}-net neural network architecture optimization for image segmentation.
 \emph{IOP Conference Series: Materials Science and Engineering}, IOP Publishing, 2021.}
-
-\bibitem[Lamas 2023]{embrapa1}
-\abntrefinfo{Lamas}{LAMAS}{2023}
-{LAMAS, F.~M. \emph{Artigo - A evolução da agricultura no Brasil}. 2023.
-Acessado: 2026-04-3.
-Dispon{\'\i}vel em: \url{https://www.embrapa.br/web/portal/tema-integracao-lavoura-pecuaria-floresta-ilpf/busca-de-noticias/-/noticia/81665485/artigo---a-evolucao-da-agricultura-do-brasil?p\_auth=HeYmQbdG}.}
 
 \bibitem[LeCun 1998]{mnist}
 \abntrefinfo{LeCun}{LECUN}{1998}
@@ -173,7 +161,7 @@ Dispon{\'\i}vel em: \url{https://linuxmint.com/}.}
 
 \bibitem[Mercadante \textit{et al.} 2010]{Mercadante2010}
 \abntrefinfo{Mercadante \textit{et al.}}{MERCADANTE \textit{et al.}}{2010}
-{MERCADANTE, M. E.~Z.; SILVA, S.~d. Luz~e; BUENO, M.~S.; TAROUCO, J.~U.; YOKOO, M. J.~I. Repetibilidade da mensuração de imagens das características de carcaça obtidas por ultrassonografia em fêmeas nelore.
+{MERCADANTE, M. E.~Z.; SILVA, S. da L.; BUENO, M.~S.; TAROUCO, J.~U.; YOKOO, M. J.~I. Repetibilidade da mensuração de imagens das características de carcaça obtidas por ultrassonografia em fêmeas nelore.
 \emph{Revista Brasileira de Zootecnia}, v.~39, n.~4, p. 752--757, 2010.
 ISSN 1806-9290.}
 
@@ -187,12 +175,6 @@ Dispon{\'\i}vel em: \url{https://code.visualstudio.com/}.}
 \abntrefinfo{M{\"u}ller}{M{\"U}LLER}{2008}
 {M{\"U}LLER, V.~C. Review of margaret boden, ``mind as machine: A history of cognitive science".
 \emph{Minds and Machines}, Springer, v.~18, n.~1, p. 121--125, 2008.}
-
-\bibitem[{NATIONAL INSTITUTES OF HEALTH} 2026]{ImageJ}
-\abntrefinfo{{NATIONAL INSTITUTES OF HEALTH}}{{NATIONAL INSTITUTES OF HEALTH}}{2026}
-{{NATIONAL INSTITUTES OF HEALTH}. \emph{ImageJ: Image Processing and Analysis in Java}. 2026.
-Acessado em: 2026-04-04.
-Dispon{\'\i}vel em: \url{https://imagej.net/ij/}.}
 
 \bibitem[O'Shea e Nash 2015]{cnn}
 \abntrefinfo{O'Shea e Nash}{O'SHEA; NASH}{2015}
@@ -233,11 +215,11 @@ Dispon{\'\i}vel em: \url{https://docs.python.org/3/library/tkinter.html}.}
 
 \bibitem[Sena, Jafelice e Santos 2024]{Sena2024}
 \abntrefinfo{Sena, Jafelice e Santos}{SENA; JAFELICE; SANTOS}{2024}
-{SENA, V.; JAFELICE, R. S.~M.; SANTOS, C. A.~R. dos. Reconstrução geométrica de uma função através de uma rede neural. In:  \emph{Anais da XXIV Semana da Matemática e XIV Semana da Estatística (SEMAT \& SEMEST)}. Uberlândia, MG, Brasil: UFU, 2024. Dispon{\'\i}vel em: \url{https://drive.google.com/file/d/1OmN2Gq6i3nHR7ZtEVitc5iCVH0ZFUY\_8/view}.}
+{SENA, V.; JAFELICE, R. S.~M.; SANTOS, C. A.~R. Reconstrução geométrica de uma função através de uma rede neural. In:  \emph{Anais da XXIV Semana da Matemática e XIV Semana da Estatística (SEMAT \& SEMEST)}. Uberlândia, MG, Brasil: UFU, 2024. Dispon{\'\i}vel em: \url{https://drive.google.com/file/d/1OmN2Gq6i3nHR7ZtEVitc5iCVH0ZFUY\_8/view}.}
 
 \bibitem[Sena, Jafelice e Santos 2025]{Sena2025}
 \abntrefinfo{Sena, Jafelice e Santos}{SENA; JAFELICE; SANTOS}{2025}
-{SENA, V.; JAFELICE, R. S.~M.; SANTOS, C. A.~R. dos. Reconstrução geométrica de uma função através de uma rede neural. In:  \emph{Caderno de Resumos do I \textit{Workshop} de Matemática da UFU}. Uberlândia, MG, Brasil: UFU, 2025. Dispon{\'\i}vel em: \url{https://eventos.ufu.br/ime/wm}.}
+{SENA, V.; JAFELICE, R. S.~M.; SANTOS, C. A.~R. Reconstrução geométrica de uma função através de uma rede neural. In:  \emph{Caderno de Resumos do I \textit{Workshop} de Matemática da UFU}. Uberlândia, MG, Brasil: UFU, 2025. Dispon{\'\i}vel em: \url{https://eventos.ufu.br/ime/wm}.}
 
 \bibitem[Sovierzoski 2010]{convolucao}
 \abntrefinfo{Sovierzoski}{SOVIERZOSKI}{2010}
@@ -251,9 +233,9 @@ Dispon{\'\i}vel em: \url{https://ilhadigital.florianopolis.ifsc.edu.br/index.php
 {STANFIELD, C.~L. \emph{Fisiologia Humana}. São Paulo: Pearson Education do Brasil, 2014.
 ISBN 978-85-430-1426-5.}
 
-\bibitem[Suguisawa, Matos e Suguisawa 2013]{cap3:medidaAol}
-\abntrefinfo{Suguisawa, Matos e Suguisawa}{SUGUISAWA; MATOS; SUGUISAWA}{2013}
-{SUGUISAWA, L.; MATOS, B. da~Conceição~de; SUGUISAWA, J.~M. Uso da ultrassonografia na avaliação de características de carcaça e de qualidade da carne. In:  ROSA, A. do N.; MARTINS, E.~N.; MENEZES, G.~R. de O.; SILVA, L. O.~C. da (Ed.). \emph{Melhoramento Genético Aplicado em Gado de Corte}. Brasília, DF, Brasil: Embrapa, 2013. p. 98--107.}
+\bibitem[Suguisawa, Matos. e Suguisawa 2013]{cap3:medidaAol}
+\abntrefinfo{Suguisawa, Matos. e Suguisawa}{SUGUISAWA; MATOS.; SUGUISAWA}{2013}
+{SUGUISAWA, L.; MATOS., B.~C.; SUGUISAWA, J.~M. Uso da ultrassonografia na avaliação de características de carcaça e de qualidade da carne. In:  \emph{Melhoramento Genético Aplicado em Gado de Corte}. Brasília, DF, Brasil: Embrapa, 2013. p. 98--107.}
 
 \bibitem[Sutskever 2013]{momentum}
 \abntrefinfo{Sutskever}{SUTSKEVER}{2013}

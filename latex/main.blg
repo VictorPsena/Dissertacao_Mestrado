@@ -14,7 +14,7 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: bibliography/references.bib
 Warning--entry type for "TileStatsUNet2025" isn't style-file defined
---line 447 of file bibliography/references.bib
+--line 448 of file bibliography/references.bib
 Warning--I didn't find a database entry for "abnt-emphasize=it"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -25,45 +25,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 61 entries,
+You've used 58 entries,
             6714 wiz_defined-function locations,
-            1551 strings with 19675 characters,
-and the built_in function-call counts, 76281 in all, are:
-= -- 8349
-> -- 1551
-< -- 1750
-+ -- 2335
-- -- 472
-* -- 4792
-:= -- 9531
-add.period$ -- 250
-call.type$ -- 62
-change.case$ -- 574
-chr.to.int$ -- 97
-cite$ -- 58
-duplicate$ -- 7158
-empty$ -- 3511
-format.name$ -- 2296
-if$ -- 15545
+            1536 strings with 19032 characters,
+and the built_in function-call counts, 69452 in all, are:
+= -- 7439
+> -- 1490
+< -- 1497
++ -- 2060
+- -- 453
+* -- 4408
+:= -- 8730
+add.period$ -- 234
+call.type$ -- 59
+change.case$ -- 549
+chr.to.int$ -- 94
+cite$ -- 55
+duplicate$ -- 6307
+empty$ -- 3331
+format.name$ -- 2198
+if$ -- 14300
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 1069
-newline$ -- 323
-num.names$ -- 291
-pop$ -- 1348
+missing$ -- 1014
+newline$ -- 305
+num.names$ -- 275
+pop$ -- 1275
 preamble$ -- 1
-purify$ -- 217
+purify$ -- 208
 quote$ -- 0
-skip$ -- 7485
+skip$ -- 6632
 stack$ -- 1
-substring$ -- 3192
-swap$ -- 2633
-text.length$ -- 60
+substring$ -- 2879
+swap$ -- 2339
+text.length$ -- 57
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 5
 warning$ -- 0
-while$ -- 415
+while$ -- 393
 width$ -- 0
-write$ -- 905
+write$ -- 859
 (There were 2 warnings)

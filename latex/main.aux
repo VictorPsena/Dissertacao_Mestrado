@@ -52,7 +52,6 @@
 \citation{JadersonMelo2022UNetpp}
 \citation{JadersonMelo2022UNetpp}
 \citation{JadersonMelo2022UNetpp}
-\citation{JadersonMelo2022UNetpp}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Fluxo de treinamento dos modelos.}}{20}{figure.caption.8}\protected@file@percent }
 \newlabel{intro:fluxo}{{4}{20}{Fluxo de treinamento dos modelos}{figure.caption.8}{}}
 \citation{cnn}
@@ -186,16 +185,16 @@
 \citation{szeliski2010}
 \citation{Muller2008ReviewBoden}
 \citation{medium}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Redes Neurais Convolucionais}{46}{subsection.1.3.2}\protected@file@percent }
-\newlabel{redesConvolucionais}{{1.3.2}{46}{Redes Neurais Convolucionais}{subsection.1.3.2}{}}
 \citation{Goodfellow-et-al-2016}
-\citation{convolucao}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.18}{\ignorespaces Exemplo de uma imagem/matriz $10\times 10 \times 1$ em escala de cinza, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco).}}{47}{figure.caption.27}\protected@file@percent }
 \newlabel{img_cinza}{{1.18}{47}{Exemplo de uma imagem/matriz $10\times 10 \times 1$ em escala de cinza, em que cada pixel tem um valor de intensidade entre 0 (preto) e 255 (branco)}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Redes Neurais Convolucionais}{47}{subsection.1.3.2}\protected@file@percent }
+\newlabel{redesConvolucionais}{{1.3.2}{47}{Redes Neurais Convolucionais}{subsection.1.3.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}Convolução}{47}{subsection.1.3.3}\protected@file@percent }
 \newlabel{ex:convolucao}{{1.3}{47}{}{exemplo.1.3}{}}
-\citation{padding}
+\citation{convolucao}
 \newlabel{ex:conv_discreta}{{1.5}{49}{}{exemplo.1.5}{}}
+\citation{padding}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.19}{\ignorespaces Ilustração da operação de convolução discreta. O kernel $w$ é deslizado sobre o vetor $x$, e em cada posição, a soma ponderada dos valores de $x$ cobertos pelo kernel é calculada para gerar o valor correspondente na saída.}}{50}{figure.caption.28}\protected@file@percent }
 \newlabel{fig:conv1d}{{1.19}{50}{Ilustração da operação de convolução discreta. O kernel $w$ é deslizado sobre o vetor $x$, e em cada posição, a soma ponderada dos valores de $x$ cobertos pelo kernel é calculada para gerar o valor correspondente na saída}{figure.caption.28}{}}
 \newlabel{eq:conv2d}{{1.23}{51}{Convolução}{equation.1.3.23}{}}
@@ -328,146 +327,128 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Modelos Propostos}{85}{section.3.2}\protected@file@percent }
 \newlabel{multitask}{{3.2}{85}{Modelos Propostos}{section.3.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Visão Geral das Modificações Propostas}{85}{subsection.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Modelo Base}{85}{section*.56}\protected@file@percent }
 \citation{Zhu2022}
 \citation{onehot}
+\@writefile{toc}{\contentsline {subsubsection}{Modelo Base}{86}{section*.56}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{U-Net Multitarefa}{86}{section*.57}\protected@file@percent }
 \citation{Verma2026}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Arquitetura da U-Net multitarefa utilizada e as dimensões das imagens ao longo da rede.}}{88}{figure.caption.58}\protected@file@percent }
-\newlabel{dimensoesIMG}{{3.14}{88}{Arquitetura da U-Net multitarefa utilizada e as dimensões das imagens ao longo da rede}{figure.caption.58}{}}
-\@writefile{toc}{\contentsline {subsubsection}{U-Net Fuzzy}{88}{section*.59}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Arquitetura da U-Net multitarefa utilizada e as dimensões dos mapas de características ao longo da rede.}}{88}{figure.caption.58}\protected@file@percent }
+\newlabel{dimensoesIMG}{{3.14}{88}{Arquitetura da U-Net multitarefa utilizada e as dimensões dos mapas de características ao longo da rede}{figure.caption.58}{}}
+\@writefile{toc}{\contentsline {subsubsection}{U-Net Fuzzy}{89}{section*.59}\protected@file@percent }
 \citation{Ronneberger2015UNet}
 \citation{Ronneberger2015UNet}
 \citation{dice}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces Arquitetura da U-Net com a adição de uma camada Multitarefa e uma camada de inferência fuzzy.}}{91}{figure.caption.60}\protected@file@percent }
-\newlabel{cap3:anfis}{{3.15}{91}{Arquitetura da U-Net com a adição de uma camada Multitarefa e uma camada de inferência fuzzy}{figure.caption.60}{}}
-\citation{JadersonMelo2022UNetpp}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces Arquitetura da U-Net com a adição de uma camada Multitarefa e uma camada de inferência fuzzy.}}{92}{figure.caption.60}\protected@file@percent }
+\newlabel{cap3:anfis}{{3.15}{92}{Arquitetura da U-Net com a adição de uma camada Multitarefa e uma camada de inferência fuzzy}{figure.caption.60}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.3}Critérios de Avaliação}{92}{section.3.3}\protected@file@percent }
 \newlabel{sec:metricas}{{3.3}{92}{Critérios de Avaliação}{section.3.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Coeficiente de Dice}{92}{subsection.3.3.1}\protected@file@percent }
 \newlabel{subsec:dice}{{3.3.1}{92}{Coeficiente de Dice}{subsection.3.3.1}{}}
-\newlabel{eq:dice}{{3.1}{92}{Coeficiente de Dice}{equation.3.3.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Acurácia}{92}{subsection.3.3.2}\protected@file@percent }
 \citation{JadersonMelo2022UNetpp}
 \citation{JadersonMelo2022UNetpp}
-\citation{Candido2024}
+\newlabel{eq:dice}{{3.1}{93}{Coeficiente de Dice}{equation.3.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Acurácia}{93}{subsection.3.3.2}\protected@file@percent }
 \newlabel{unet_acuracia}{{3.2}{93}{Acurácia}{equation.3.3.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Função de Custo}{93}{subsection.3.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}Erro Médio Absoluto}{93}{subsection.3.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.5}Coeficiente de Determinação e Reta de Regressão Linear}{93}{subsection.3.3.5}\protected@file@percent }
+\citation{JadersonMelo2022UNetpp}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Função de Custo}{94}{subsection.3.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}Erro Médio Absoluto}{94}{subsection.3.3.4}\protected@file@percent }
 \citation{hist_nelore}
 \citation{hist_caracu}
-\citation{embrapa1}
-\citation{cap3:nelore_caracu}
+\citation{cap3:carcaça}
+\citation{cap3:carcaça}
+\citation{cap3:carcaça}
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Aplicação da U-Net e U-Net Fuzzy em Ultrassonografia Bovina}{95}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Base de Dados e Planejamento Experimental}{95}{section.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Contexto do Problema e Medidas Avaliadas}{95}{subsection.4.1.1}\protected@file@percent }
-\citation{cap3:carcaça}
-\citation{cap3:carcaça}
-\citation{cap3:carcaça}
-\citation{AlokaSSD5001990}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Região do músculo \textit  {Longuissimus Dorsi} (em amarelo) e da garupa (em azul).}}{96}{figure.caption.61}\protected@file@percent }
 \newlabel{fig:regiao_ol}{{4.1}{96}{Região do músculo \textit {Longuissimus Dorsi} (em amarelo) e da garupa (em azul)}{figure.caption.61}{}}
-\citation{cap3:medidaAol}
-\citation{ImageJ}
+\citation{LabelStudioSite}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Aquisição da imagem de ultrassom da região do olho de lombo.}}{97}{figure.caption.62}\protected@file@percent }
 \newlabel{fig1:OL}{{4.2}{97}{Aquisição da imagem de ultrassom da região do olho de lombo}{figure.caption.62}{}}
-\citation{cap3:medidaAol}
-\citation{cap3:medidaAol}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Demarcação manual da Área de Olho de Lombo (AOL) utilizando o aplicativo \textit  {ImageJ}.}}{98}{figure.caption.63}\protected@file@percent }
-\newlabel{cap3:AOL}{{4.3}{98}{Demarcação manual da Área de Olho de Lombo (AOL) utilizando o aplicativo \textit {ImageJ}}{figure.caption.63}{}}
-\citation{cap3:medidaAol}
-\citation{cap3:carcaça}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Demarcação manual da Espessura de Gordura subcutânea no Lombo (EGL) utilizando o aplicativo \textit  {ImageJ}.}}{99}{figure.caption.64}\protected@file@percent }
-\newlabel{cap3:EGL}{{4.4}{99}{Demarcação manual da Espessura de Gordura subcutânea no Lombo (EGL) utilizando o aplicativo \textit {ImageJ}}{figure.caption.64}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Demarcação manual da Espessura de Gordura subcutânea na Garupa.}}{99}{figure.caption.65}\protected@file@percent }
-\newlabel{cap3:EGG}{{4.5}{99}{Demarcação manual da Espessura de Gordura subcutânea na Garupa}{figure.caption.65}{}}
-\citation{LabelStudioSite}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Conjunto de Dados}{100}{subsection.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Pré-processamento e Máscaras de Segmentação}{100}{subsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Conjunto de Dados}{97}{subsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Pré-processamento e Máscaras de Segmentação}{98}{subsection.4.1.3}\protected@file@percent }
 \citation{JadersonMelo2022UNetpp}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Exemplo do processo de pré-processamento das imagens de ultrassom.}}{101}{figure.caption.66}\protected@file@percent }
-\newlabel{cap3:preprocessamento}{{4.6}{101}{Exemplo do processo de pré-processamento das imagens de ultrassom}{figure.caption.66}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Exemplo das máscaras de segmentação criadas para as imagens de ultrassom.}}{102}{figure.caption.67}\protected@file@percent }
-\newlabel{cap3:mascaras}{{4.7}{102}{Exemplo das máscaras de segmentação criadas para as imagens de ultrassom}{figure.caption.67}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Configuração dos Modelos}{102}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Modelos Comparados}{102}{subsection.4.2.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Quantidade de modelos desenvolvidos para cada medida.}}{103}{table.caption.68}\protected@file@percent }
-\newlabel{tab:modelos_comparados}{{4.1}{103}{Quantidade de modelos desenvolvidos para cada medida}{table.caption.68}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Configuração de Treinamento}{103}{subsection.4.2.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Resumo da configuração de treinamento adotada nos experimentos.}}{104}{table.caption.69}\protected@file@percent }
-\newlabel{tab:config_treinamento}{{4.2}{104}{Resumo da configuração de treinamento adotada nos experimentos}{table.caption.69}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Métricas de Avaliação}{104}{subsection.4.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Exemplo do processo de pré-processamento das imagens de ultrassom.}}{99}{figure.caption.63}\protected@file@percent }
+\newlabel{cap3:preprocessamento}{{4.3}{99}{Exemplo do processo de pré-processamento das imagens de ultrassom}{figure.caption.63}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Exemplo das máscaras de segmentação criadas para as imagens de ultrassom.}}{100}{figure.caption.64}\protected@file@percent }
+\newlabel{cap3:mascaras}{{4.4}{100}{Exemplo das máscaras de segmentação criadas para as imagens de ultrassom}{figure.caption.64}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Configuração dos Modelos}{100}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Modelos Comparados}{100}{subsection.4.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Quantidade de modelos desenvolvidos para cada medida.}}{101}{table.caption.65}\protected@file@percent }
+\newlabel{tab:modelos_comparados}{{4.1}{101}{Quantidade de modelos desenvolvidos para cada medida}{table.caption.65}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Configuração de Treinamento}{101}{subsection.4.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Resumo da configuração de treinamento adotada nos experimentos.}}{102}{table.caption.66}\protected@file@percent }
+\newlabel{tab:config_treinamento}{{4.2}{102}{Resumo da configuração de treinamento adotada nos experimentos}{table.caption.66}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Métricas de Avaliação}{102}{subsection.4.2.3}\protected@file@percent }
 \citation{LinuxMintSite}
 \citation{python}
 \citation{TensorFlowSite}
 \citation{KerasSite}
 \citation{VSCodeSite}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Ambiente Computacional}{105}{subsection.4.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Resultados e Análise}{105}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}AOL}{105}{subsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{U-Net multitarefa}{105}{section*.70}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit  {Dice} e acurácia ao longo das épocas.}}{106}{figure.caption.71}\protected@file@percent }
-\newlabel{cap3:metricasAOL}{{4.8}{106}{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas}{figure.caption.71}{}}
-\@writefile{toc}{\contentsline {subsubsection}{U-Net Fuzzy}{107}{section*.72}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces $R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit  {Dice} e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL.}}{108}{figure.caption.73}\protected@file@percent }
-\newlabel{cap3:metricasAOL_fuzzy}{{4.9}{108}{$R^2$ entre as medidas preditas e as medidas reais da AOL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL}{figure.caption.73}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Comparação entre os modelos}{108}{section*.74}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{109}{table.caption.75}\protected@file@percent }
-\newlabel{cap3:tabelaAOL}{{4.3}{109}{Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy}{table.caption.75}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Comparação entre as máscaras de segmentação.}}{109}{figure.caption.76}\protected@file@percent }
-\newlabel{comparacaoAOL}{{4.10}{109}{Comparação entre as máscaras de segmentação}{figure.caption.76}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}EGL}{110}{subsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{U-Net multitarefa}{110}{section*.77}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit  {Dice} e acurácia ao longo das épocas.}}{111}{figure.caption.78}\protected@file@percent }
-\newlabel{cap3:metricasEGL}{{4.11}{111}{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas}{figure.caption.78}{}}
-\@writefile{toc}{\contentsline {subsubsection}{U-Net Fuzzy}{111}{section*.79}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit  {Dice} e acurácia ao longo das épocas.}}{112}{figure.caption.80}\protected@file@percent }
-\newlabel{cap3:metricasEGL_fuzzy}{{4.12}{112}{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGL e gráficos de custo, \textit {Dice} e acurácia ao longo das épocas}{figure.caption.80}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Comparação entre os modelos}{113}{section*.81}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Resumo dos resultados obtidos para a EGL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{113}{table.caption.82}\protected@file@percent }
-\newlabel{cap3:tabelaEGL}{{4.4}{113}{Resumo dos resultados obtidos para a EGL, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy}{table.caption.82}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Comparação entre as máscaras de segmentação.}}{114}{figure.caption.83}\protected@file@percent }
-\newlabel{comparacaoEGL}{{4.13}{114}{Comparação entre as máscaras de segmentação}{figure.caption.83}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}EGG}{114}{subsection.4.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{U-Net multitarefa}{114}{section*.84}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net multitarefa.}}{115}{figure.caption.85}\protected@file@percent }
-\newlabel{cap3:rquadrodoEGG}{{4.14}{115}{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net multitarefa}{figure.caption.85}{}}
-\@writefile{toc}{\contentsline {subsubsection}{U-Net Fuzzy}{115}{section*.86}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net Fuzzy.}}{116}{figure.caption.87}\protected@file@percent }
-\newlabel{cap3:rquadrodoEGG_fuzzy}{{4.15}{116}{Reta de regressão linear e $R^2$ entre as medidas preditas e as medidas reais da EGG para o modelo de U-Net Fuzzy}{figure.caption.87}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Comparação entre os modelos}{116}{section*.88}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Resumo dos resultados obtidos para a EGG, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy.}}{116}{table.caption.89}\protected@file@percent }
-\newlabel{cap3:tabelaEGG}{{4.5}{116}{Resumo dos resultados obtidos para a EGG, comparando o modelo de U-Net multitarefa com o modelo de U-Net Fuzzy}{table.caption.89}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Comparação entre as máscaras de segmentação para a EGG.}}{117}{figure.caption.90}\protected@file@percent }
-\newlabel{cap3:comparacaoEGG}{{4.16}{117}{Comparação entre as máscaras de segmentação para a EGG}{figure.caption.90}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Análise Geral dos Resultados}{118}{section.4.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces Processo de extração de características e geração do mapa de características na primeira etapa de convolução da U-Net.}}{118}{figure.caption.91}\protected@file@percent }
-\newlabel{cap4:unet}{{4.17}{118}{Processo de extração de características e geração do mapa de características na primeira etapa de convolução da U-Net}{figure.caption.91}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces Mapa de características na última etapa de convolução do \textit  {baseline} da U-Net.}}{119}{figure.caption.92}\protected@file@percent }
-\newlabel{cap4:unet1}{{4.18}{119}{Mapa de características na última etapa de convolução do \textit {baseline} da U-Net}{figure.caption.92}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces Mapa de características gerado com o módulo de inferência fuzzy e mapa de características gerado sem o módulo de inferência fuzzy.}}{120}{figure.caption.93}\protected@file@percent }
-\newlabel{cap4:UnetFuzzy}{{4.19}{120}{Mapa de características gerado com o módulo de inferência fuzzy e mapa de características gerado sem o módulo de inferência fuzzy}{figure.caption.93}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces Mapa de características gerado no terceiro bloco do \textit  {decoder} da U-Net Fuzzy e da U-Net multitarefa.}}{121}{figure.caption.94}\protected@file@percent }
-\newlabel{cap4:decoder}{{4.20}{121}{Mapa de características gerado no terceiro bloco do \textit {decoder} da U-Net Fuzzy e da U-Net multitarefa}{figure.caption.94}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Aplicativo Computacional}{122}{section.4.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.21}{\ignorespaces Tela inicial do aplicativo para seleção do indicador e modelo.}}{122}{figure.caption.95}\protected@file@percent }
-\newlabel{cap4:app1}{{4.21}{122}{Tela inicial do aplicativo para seleção do indicador e modelo}{figure.caption.95}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.22}{\ignorespaces Tela de seleção das imagens de ultrassom a serem processadas.}}{123}{figure.caption.96}\protected@file@percent }
-\newlabel{cap4:app2}{{4.22}{123}{Tela de seleção das imagens de ultrassom a serem processadas}{figure.caption.96}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.23}{\ignorespaces Tela de visualização dos resultados, com as máscaras de segmentação sobrepostas à imagem original e os valores numéricos do indicador.}}{124}{figure.caption.97}\protected@file@percent }
-\newlabel{cap4:app3}{{4.23}{124}{Tela de visualização dos resultados, com as máscaras de segmentação sobrepostas à imagem original e os valores numéricos do indicador}{figure.caption.97}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.24}{\ignorespaces Exemplo de uma imagem de ultrassom com baixa qualidade, em que a rede gerou uma segmentação errônea, e o aplicativo calculou apenas a região maior, eliminando as regiões menores.}}{125}{figure.caption.98}\protected@file@percent }
-\newlabel{cap4:app4}{{4.24}{125}{Exemplo de uma imagem de ultrassom com baixa qualidade, em que a rede gerou uma segmentação errônea, e o aplicativo calculou apenas a região maior, eliminando as regiões menores}{figure.caption.98}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Ambiente Computacional}{103}{subsection.4.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Resultados e Análise}{103}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}AOL}{103}{subsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{U-Net Multitarefa}{103}{section*.67}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas.}}{104}{figure.caption.68}\protected@file@percent }
+\newlabel{cap3:metricasAOL}{{4.5}{104}{Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas}{figure.caption.68}{}}
+\@writefile{toc}{\contentsline {subsubsection}{U-Net Fuzzy}{104}{section*.69}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL.}}{105}{figure.caption.70}\protected@file@percent }
+\newlabel{cap3:metricasAOL_fuzzy}{{4.6}{105}{Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para o modelo de U-Net Fuzzy da AOL}{figure.caption.70}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Comparação entre os modelos}{105}{section*.71}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net Multitarefa com o modelo de U-Net Fuzzy.}}{106}{table.caption.72}\protected@file@percent }
+\newlabel{cap3:tabelaAOL}{{4.3}{106}{Resumo dos resultados obtidos para a AOL, comparando o modelo de U-Net Multitarefa com o modelo de U-Net Fuzzy}{table.caption.72}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Comparação entre as máscaras de segmentação.}}{106}{figure.caption.73}\protected@file@percent }
+\newlabel{comparacaoAOL}{{4.7}{106}{Comparação entre as máscaras de segmentação}{figure.caption.73}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}EGL}{106}{subsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{U-Net Multitarefa}{107}{section*.74}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para o modelo U-Net Multitarefa da EGL.}}{107}{figure.caption.75}\protected@file@percent }
+\newlabel{cap3:metricasEGL}{{4.8}{107}{Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para o modelo U-Net Multitarefa da EGL}{figure.caption.75}{}}
+\@writefile{toc}{\contentsline {subsubsection}{U-Net Fuzzy}{107}{section*.76}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para o modelo U-Net Fuzzy da EGL.}}{108}{figure.caption.77}\protected@file@percent }
+\newlabel{cap3:metricasEGL_fuzzy}{{4.9}{108}{Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para o modelo U-Net Fuzzy da EGL}{figure.caption.77}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Comparação entre os modelos}{108}{section*.78}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Resumo dos resultados obtidos para a EGL, comparando o modelo U-Net Multitarefa com o modelo U-Net Fuzzy.}}{109}{table.caption.79}\protected@file@percent }
+\newlabel{cap3:tabelaEGL}{{4.4}{109}{Resumo dos resultados obtidos para a EGL, comparando o modelo U-Net Multitarefa com o modelo U-Net Fuzzy}{table.caption.79}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Comparação entre as máscaras de segmentação.}}{109}{figure.caption.80}\protected@file@percent }
+\newlabel{comparacaoEGL}{{4.10}{109}{Comparação entre as máscaras de segmentação}{figure.caption.80}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}EGG}{110}{subsection.4.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{U-Net Multitarefa}{110}{section*.81}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{U-Net Fuzzy}{110}{section*.82}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para os modelos U-Net Fuzzy da EGG.}}{111}{figure.caption.83}\protected@file@percent }
+\newlabel{cap3:metricasEGG_fuzzy}{{4.11}{111}{Gráficos de custo, Coeficiente de Dice e acurácia ao longo das épocas para os modelos U-Net Fuzzy da EGG}{figure.caption.83}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Comparação entre os modelos}{111}{section*.84}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Resumo dos resultados obtidos para a EGG, comparando o modelo de U-Net Multitarefa com o modelo de U-Net Fuzzy.}}{112}{table.caption.85}\protected@file@percent }
+\newlabel{cap3:tabelaEGG}{{4.5}{112}{Resumo dos resultados obtidos para a EGG, comparando o modelo de U-Net Multitarefa com o modelo de U-Net Fuzzy}{table.caption.85}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Comparação entre as máscaras de segmentação para a EGG.}}{112}{figure.caption.86}\protected@file@percent }
+\newlabel{cap3:comparacaoEGG}{{4.12}{112}{Comparação entre as máscaras de segmentação para a EGG}{figure.caption.86}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Análise Geral dos Resultados}{113}{section.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Processo de extração de características e geração do mapa de características na primeira etapa de convolução da U-Net.}}{114}{figure.caption.87}\protected@file@percent }
+\newlabel{cap4:unet}{{4.13}{114}{Processo de extração de características e geração do mapa de características na primeira etapa de convolução da U-Net}{figure.caption.87}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Mapa de características na última etapa de convolução do \textit  {bottleneck} da U-Net.}}{115}{figure.caption.88}\protected@file@percent }
+\newlabel{cap4:unet1}{{4.14}{115}{Mapa de características na última etapa de convolução do \textit {bottleneck} da U-Net}{figure.caption.88}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Mapa de características gerado com o módulo de inferência fuzzy e mapa de características gerado sem o módulo de inferência fuzzy.}}{116}{figure.caption.89}\protected@file@percent }
+\newlabel{cap4:UnetFuzzy}{{4.15}{116}{Mapa de características gerado com o módulo de inferência fuzzy e mapa de características gerado sem o módulo de inferência fuzzy}{figure.caption.89}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Mapa de características gerado no terceiro bloco do \textit  {decoder} da U-Net Fuzzy e da U-Net Multitarefa.}}{117}{figure.caption.90}\protected@file@percent }
+\newlabel{cap4:decoder}{{4.16}{117}{Mapa de características gerado no terceiro bloco do \textit {decoder} da U-Net Fuzzy e da U-Net Multitarefa}{figure.caption.90}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Aplicativo Computacional}{118}{section.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces Tela inicial do aplicativo para seleção do indicador e modelo.}}{118}{figure.caption.91}\protected@file@percent }
+\newlabel{cap4:app1}{{4.17}{118}{Tela inicial do aplicativo para seleção do indicador e modelo}{figure.caption.91}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces Tela de seleção das imagens de ultrassom a serem processadas.}}{119}{figure.caption.92}\protected@file@percent }
+\newlabel{cap4:app2}{{4.18}{119}{Tela de seleção das imagens de ultrassom a serem processadas}{figure.caption.92}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces Tela de visualização dos resultados, com as máscaras de segmentação sobrepostas à imagem original e os valores numéricos do indicador.}}{120}{figure.caption.93}\protected@file@percent }
+\newlabel{cap4:app3}{{4.19}{120}{Tela de visualização dos resultados, com as máscaras de segmentação sobrepostas à imagem original e os valores numéricos do indicador}{figure.caption.93}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces Exemplo de uma imagem de ultrassom com baixa qualidade, em que a rede gerou uma segmentação errônea, e o aplicativo calculou apenas a região maior, eliminando as regiões menores.}}{121}{figure.caption.94}\protected@file@percent }
+\newlabel{cap4:app4}{{4.20}{121}{Exemplo de uma imagem de ultrassom com baixa qualidade, em que a rede gerou uma segmentação errônea, e o aplicativo calculou apenas a região maior, eliminando as regiões menores}{figure.caption.94}{}}
+\citation{JadersonMelo2022UNetpp}
 \citation{Mercadante2010}
-\citation{Vaswani2017}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Considerações Finais}{126}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Considerações Finais}{122}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
+\citation{Vaswani2017}
 \bibdata{abntex2-options,bibliography/references}
 \bibcite{hist_caracu}{{ABCCARACU} 2022}
 \bibciteEXPL{hist_caracu}{{ABCCARACU}}
@@ -489,10 +470,6 @@
 \bibciteEXPL{yoshuabengio2012}{Bengio}
 \bibciteIMPL{yoshuabengio2012}{BENGIO}
 \bibciteYEAR{yoshuabengio2012}{2012}
-\bibcite{Candido2024}{Candido 2024}
-\bibciteEXPL{Candido2024}{Candido}
-\bibciteIMPL{Candido2024}{CANDIDO}
-\bibciteYEAR{Candido2024}{2024}
 \bibcite{padding}{Chowdhury 2024}
 \bibciteEXPL{padding}{Chowdhury}
 \bibciteIMPL{padding}{CHOWDHURY}
@@ -565,10 +542,6 @@
 \bibciteEXPL{Kirichev_unetfuzzy}{Kirichev, Slavov e Momcheva}
 \bibciteIMPL{Kirichev_unetfuzzy}{KIRICHEV; SLAVOV; MOMCHEVA}
 \bibciteYEAR{Kirichev_unetfuzzy}{2021}
-\bibcite{embrapa1}{Lamas 2023}
-\bibciteEXPL{embrapa1}{Lamas}
-\bibciteIMPL{embrapa1}{LAMAS}
-\bibciteYEAR{embrapa1}{2023}
 \bibcite{mnist}{LeCun 1998}
 \bibciteEXPL{mnist}{LeCun}
 \bibciteIMPL{mnist}{LECUN}
@@ -601,10 +574,6 @@
 \bibciteEXPL{Muller2008ReviewBoden}{M{\"u}ller}
 \bibciteIMPL{Muller2008ReviewBoden}{M{\"U}LLER}
 \bibciteYEAR{Muller2008ReviewBoden}{2008}
-\bibcite{ImageJ}{{NATIONAL INSTITUTES OF HEALTH} 2026}
-\bibciteEXPL{ImageJ}{{NATIONAL INSTITUTES OF HEALTH}}
-\bibciteIMPL{ImageJ}{{NATIONAL INSTITUTES OF HEALTH}}
-\bibciteYEAR{ImageJ}{2026}
 \bibcite{cnn}{O'Shea e Nash 2015}
 \bibciteEXPL{cnn}{O'Shea e Nash}
 \bibciteIMPL{cnn}{O'SHEA; NASH}
@@ -649,9 +618,9 @@
 \bibciteEXPL{FisioHumana}{Stanfield}
 \bibciteIMPL{FisioHumana}{STANFIELD}
 \bibciteYEAR{FisioHumana}{2014}
-\bibcite{cap3:medidaAol}{Suguisawa, Matos e Suguisawa 2013}
-\bibciteEXPL{cap3:medidaAol}{Suguisawa, Matos e Suguisawa}
-\bibciteIMPL{cap3:medidaAol}{SUGUISAWA; MATOS; SUGUISAWA}
+\bibcite{cap3:medidaAol}{Suguisawa, Matos. e Suguisawa 2013}
+\bibciteEXPL{cap3:medidaAol}{Suguisawa, Matos. e Suguisawa}
+\bibciteIMPL{cap3:medidaAol}{SUGUISAWA; MATOS.; SUGUISAWA}
 \bibciteYEAR{cap3:medidaAol}{2013}
 \bibcite{momentum}{Sutskever 2013}
 \bibciteEXPL{momentum}{Sutskever}
@@ -702,5 +671,5 @@
 \bibciteIMPL{Zhu2022}{ZHU; ROHLING; SALCUDEAN}
 \bibciteYEAR{Zhu2022}{2022}
 \bibstyle{abntex2-alf}
-\@writefile{toc}{\contentsline {chapter}{Referências Bibliográficas}{131}{chapter*.99}\protected@file@percent }
-\gdef \@abspage@last{131}
+\@writefile{toc}{\contentsline {chapter}{Referências Bibliográficas}{127}{chapter*.95}\protected@file@percent }
+\gdef \@abspage@last{127}

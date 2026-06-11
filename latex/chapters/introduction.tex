@@ -31,7 +31,7 @@ As imagens de ultrassom correspondentes a essas regiões são apresentadas na Fi
         \caption{EGG.}
 
     \end{subfigure}
-    \caption*{\footnotesize Fonte: Elaboração do Autor.}
+    \caption*{\footnotesize Fonte: Elaborado pelo autor.}
     \label{intro:ultrasom}
 \end{figure}
 
@@ -54,7 +54,7 @@ Tradicionalmente, a delimitação e mensuração das regiões são realizadas ma
         \caption{\textit{ground truth}.}
 
     \end{subfigure}
-    \caption*{\footnotesize Fonte: Elaboração do Autor.}
+    \caption*{\footnotesize Fonte: Elaborado pelo autor.}
     \label{intro:segmentacao}
 \end{figure}
 Na imagem original, Figura \ref{intro:segmentacao}(a), a região de interesse não está demarcada, enquanto na Figura \ref{intro:segmentacao}(b), pode-se visualizar o \textit{ground truth} correspondente da Figura \ref{intro:segmentacao}(a).
@@ -82,12 +82,11 @@ Para alcançar os objetivos gerais, foram estabelecidos os seguintes objetivos e
 
 A comparação entre os modelos visa avaliar a eficácia de cada um na predição das máscaras de segmentação e com isso na obtenção das medidas de AOL, EGL e EGG, contribuindo para a automação do processo de avaliação de características da carcaça em bovinos. 
 
-No trabalho foram utilizadas 135 imagens de ultrassom bovinas, das quais 108 são Nelore e 27 Caracu, todos machos com idade média de 12 meses. As imagens foram obtidas por meio do aparelho de ultrassom Aloka SSD-500, aparelho equipado com uma sonda linear de 3,5 MHz \cite{AlokaSSD5001990}, utilizado por um especialista. Por conta do número limitado de imagens disponíveis, foi necessário realizar um processo de aumento de dados, do inglês \textit{data augmentation}, para ampliar a quantidade de imagens. O processo de aumento de dados incluiu técnicas de rotação e adição de ruído às imagens originais por meio do aumento e da diminuição do brilho, simulando variações que podem ocorrer durante a aquisição das imagens de ultrassom.  Para avaliar o desempenho dos modelos propostos, utilizam-se quatro métricas: 
+No trabalho foram utilizadas 135 imagens de ultrassom bovinas, das quais 108 são Nelore e 27 Caracu, todos machos com idade média de 12 meses. As imagens foram obtidas por meio do aparelho de ultrassom Aloka SSD-500, aparelho equipado com uma sonda linear de 3,5 MHz \cite{AlokaSSD5001990}, utilizado por um especialista. Por conta do número limitado de imagens disponíveis, foi necessário realizar um processo de aumento de dados, do inglês \textit{data augmentation}, para ampliar a quantidade de imagens. O processo de aumento de dados incluiu técnicas de rotação e adição de ruído às imagens originais por meio do aumento e da diminuição do brilho, simulando variações que podem ocorrer durante a aquisição das imagens de ultrassom.  Para avaliar o desempenho dos modelos propostos, utilizam-se três métricas: 
 \begin{itemize}
     \item O coeficiente de Dice, que quantifica a similaridade entre a máscara de segmentação desenvolvida pelo especialista e a imagem segmentada gerada pelo modelo \cite{dice}.
     \item Erro Médio Absoluto, do inglês \textit{Mean Absolute Error} (MAE), compara as medidas obtidas pelo especialista com as medidas extraídas da imagem segmentada gerada pelo modelo \cite{JadersonMelo2022UNetpp}.
     \item A Acurácia, que avalia a capacidade do modelo em classificar corretamente as regiões de interesse \cite{JadersonMelo2022UNetpp}.
-    \item Regressão linear e Coeficiente de Determinação ($R^2$), usados para avaliar a relação entre as medidas obtidas pelo especialista e as medidas extraídas da imagem segmentada pelo modelo \cite{JadersonMelo2022UNetpp}.
 \end{itemize}
 
 Para cada um dos indicadores mensurados, ou seja, AOL, EGL e EGG, são desenvolvidos dois modelos, uma U-Net e outra U-Net Fuzzy. Para avaliar a consistência dos resultados, cada modelo foi treinado quatro vezes. Na Figura \ref{intro:fluxo} é apresentado o fluxo de treinamento dos modelos desenvolvidos, assim como a divisão do banco de dados em conjuntos de treinamento(70\%), validação(20\%) e teste(10\%).
@@ -95,7 +94,7 @@ Para cada um dos indicadores mensurados, ou seja, AOL, EGL e EGG, são desenvolv
     \centering
     \caption{Fluxo de treinamento dos modelos.}
     \includegraphics[width = 0.7\linewidth]{figures/introducao/fluxo.png}
-    \caption*{\footnotesize Fonte: Elaboração do Autor.}
+    \caption*{\footnotesize Fonte: Elaborado pelo autor.}
     \label{intro:fluxo}
 \end{figure}
 Neste processo de treinamento dos modelos, o banco de imagens é pré-processado e dividido em conjuntos de treinamento, validação e teste. Após a divisão, os conjuntos de treinamento e validação são expandidos, ou seja, \textit{data augmentation}, e utilizados para o treinamento dos modelos, enquanto o conjunto de teste é reservado para a avaliação final do desempenho dos modelos. 
